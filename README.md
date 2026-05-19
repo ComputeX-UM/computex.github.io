@@ -1,2 +1,2 @@
 # computex.github.io
-University of MIchigan ComputeX Official Website
+University of Michigan ComputeX Official Website
