@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ComputeX | Roadmap & Timeline</title>
+  
+  <!-- Inter & Geist Mono Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['"Geist Mono"', 'monospace'],
+          },
+          colors: {
+            brand: {
+              bg: '#08080a',
+              card: '#121318',
+              border: 'rgba(255, 255, 255, 0.08)',
+              cyan: '#00F0FF',
+              amber: '#FFB800',
+              emerald: '#00E599',
+              magenta: '#FF2E93',
+              purple: '#9D4EDD',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    .bg-grid {
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    }
+    .radial-glow {
+      background: radial-gradient(circle at 50% 20%, rgba(0, 240, 255, 0.08) 0%, rgba(157, 78, 221, 0.05) 40%, transparent 70%);
+    }
+    .glass-card {
+      background: rgba(18, 19, 24, 0.7);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+  </style>
+</head>
+
+<body class="bg-brand-bg text-slate-200 font-sans antialiased min-h-screen selection:bg-brand-cyan/20 selection:text-brand-cyan overflow-x-hidden">
+
+  <!-- Background Grid & Lighting -->
+  <div class="fixed inset-0 bg-grid pointer-events-none z-0"></div>
+  <div class="fixed inset-0 radial-glow pointer-events-none z-0"></div>
+
+  <!-- Navigation -->
+  <nav class="sticky top-0 z-40 border-b border-white/5 bg-brand-bg/80 backdrop-blur-md">
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="../index.html" class="font-mono text-lg font-bold tracking-tight text-white flex items-center gap-2">
+        <span class="inline-block w-2.5 h-2.5 rounded-full bg-brand-cyan animate-pulse"></span>
+        COMPUTEX<span class="text-brand-cyan">//</span>
+      </a>
+      
+      <div class="flex items-center gap-6 text-sm font-mono text-slate-400">
+        <a href="../team/index.html" class="hover:text-white transition-colors">TEAM</a>
+        <a href="../pillars/index.html" class="hover:text-white transition-colors">PILLARS</a>
+        <a href="#" class="text-white font-semibold underline decoration-brand-cyan underline-offset-4">ROADMAP</a>
+        <a href="../launch/index.html" class="px-3.5 py-1.5 rounded-md bg-white/10 text-white hover:bg-white/20 border border-white/10 transition-all font-semibold hover:border-brand-cyan/50">
+          LAUNCH →
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="relative z-10 pt-16 pb-8 px-6 max-w-4xl mx-auto text-center">
+    <div class="font-mono text-xs text-brand-cyan uppercase tracking-widest mb-3">// OPERATIONAL_TIMELINE</div>
+    <h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-white mb-4">
+      The ComputeX <span class="bg-gradient-to-r from-brand-cyan to-brand-emerald bg-clip-text text-transparent">Roadmap.</span>
+    </h1>
+    <p class="text-slate-400 text-sm sm:text-base max-w-2xl mx-auto font-normal leading-relaxed">
+      Tracking our trajectory from foundational infrastructure and curriculum design to cross-disciplinary workshops and university-wide deployment.
+    </p>
+  </section>
+
+  <!-- Roadmap Timeline Section -->
+  <section class="relative z-10 py-8 px-6 max-w-4xl mx-auto">
+    <div class="space-y-6 relative before:absolute before:inset-0 before:left-7 before:w-0.5 before:bg-white/10">
+
+      <!-- Milestone 1: Completed -->
+      <div class="relative flex items-start gap-6 group">
+        <div class="relative z-10 w-14 h-14 rounded-2xl bg-brand-cyan/10 border border-brand-cyan/40 flex items-center justify-center shrink-0 text-brand-cyan font-mono text-xs font-bold shadow-lg">
+          01
+        </div>
+        <div class="glass-card p-6 rounded-2xl flex-1 border border-white/10 relative overflow-hidden">
+          <div class="absolute top-0 right-0 px-3 py-1 bg-brand-cyan/10 text-brand-cyan font-mono text-[10px] font-semibold rounded-bl-xl border-l border-b border-brand-cyan/30">
+            COMPLETED // Q2 2026
+          </div>
+          <div class="font-mono text-xs text-slate-400 uppercase tracking-widest mb-1">Phase 1: Foundation & Architecture</div>
+          <h3 class="text-xl font-bold text-white mb-2">Core Infrastructure & 5 Pillars Definition</h3>
+          <p class="text-slate-300 text-xs sm:text-sm leading-relaxed font-sans mb-4">
+            Established the official core disciplines (Tech + Engineering, Business + Analytics, Health + Medicine, Art + Design, Ethics + Impact) and built the initial codebase architecture and component design system.
+          </p>
+          <div class="flex flex-wrap gap-2 font-mono text-[11px]">
+            <span class="px-2.5 py-1 rounded bg-white/5 border border-white/10 text-brand-cyan">✓ Design System Built</span>
+            <span class="px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-300">✓ 5 Pillars Defined</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Milestone 2: Active / Current -->
+      <div class="relative flex items-start gap-6 group">
+        <div class="relative z-10 w-14 h-14 rounded-2xl bg-brand-emerald/10 border border-brand-emerald/40 flex items-center justify-center shrink-0 text-brand-emerald font-mono text-xs font-bold shadow-lg animate-pulse">
+          02
+        </div>
+        <div class="glass-card p-6 rounded-2xl flex-1 border border-brand-emerald/30 relative overflow-hidden shadow-xl">
+          <div class="absolute top-0 right-0 px-3 py-1 bg-brand-emerald/15 text-brand-emerald font-mono text-[10px] font-semibold rounded-bl-xl border-l border-b border-brand-emerald/40">
+            ACTIVE // Q3 2026
+          </div>
+          <div class="font-mono text-xs text-brand-emerald uppercase tracking-widest mb-1">Phase 2: Platform & Recruitment</div>
+          <h3 class="text-xl font-bold text-white mb-2">Interactive Platform Launch & Core Team Recruitment</h3>
+          <p class="text-slate-300 text-xs sm:text-sm leading-relaxed font-sans mb-4">
+            Deploying interactive pillar simulation modules, launching the community workshop request queue, and opening applications for core engineering, design, and research leads.
+          </p>
+          <div class="flex flex-wrap gap-2 font-mono text-[11px]">
+            <span class="px-2.5 py-1 rounded bg-brand-emerald/10 border border-brand-emerald/30 text-brand-emerald">⚡ Interactive Simulators Live</span>
+            <span class="px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-300">⏳ Core Team Applications</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Milestone 3: Upcoming -->
+      <div class="relative flex items-start gap-6 group">
+        <div class="relative z-10 w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 text-slate-400 font-mono text-xs font-bold">
+          03
+        </div>
+        <div class="glass-card p-6 rounded-2xl flex-1 border border-white/10 relative overflow-hidden opacity-90">
+          <div class="absolute top-0 right-0 px-3 py-1 bg-white/5 text-slate-400 font-mono text-[10px] font-semibold rounded-bl-xl border-l border-b border-white/10">
+            PLANNED // Q4 2026
+          </div>
+          <div class="font-mono text-xs text-slate-400 uppercase tracking-widest mb-1">Phase 3: Workshops & Pilot Cohorts</div>
+          <h3 class="text-xl font-bold text-white mb-2">First Cross-Disciplinary Workshop Series & Project Teams</h3>
+          <p class="text-slate-300 text-xs sm:text-sm leading-relaxed font-sans mb-4">
+            Kick off hands-on workshop sessions across all 5 tracks (such as EEG signal filtering, automated market scrapers, and generative p5.js visuals) with initial student project cohorts.
+          </p>
+          <div class="flex flex-wrap gap-2 font-mono text-[11px]">
+            <span class="px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-400">📅 Pilot Workshops</span>
+            <span class="px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-400">📅 Project Cohort Formation</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Milestone 4: Future -->
+      <div class="relative flex items-start gap-6 group">
+        <div class="relative z-10 w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 text-slate-400 font-mono text-xs font-bold">
+          04
+        </div>
+        <div class="glass-card p-6 rounded-2xl flex-1 border border-white/10 relative overflow-hidden opacity-80">
+          <div class="absolute top-0 right-0 px-3 py-1 bg-white/5 text-slate-400 font-mono text-[10px] font-semibold rounded-bl-xl border-l border-b border-white/10">
+            FUTURE // 2027
+          </div>
+          <div class="font-mono text-xs text-slate-400 uppercase tracking-widest mb-1">Phase 4: Institutional Scaling & Showcase</div>
+          <h3 class="text-xl font-bold text-white mb-2">University Showcase & Open-Source MedTech Releases</h3>
+          <p class="text-slate-300 text-xs sm:text-sm leading-relaxed font-sans mb-4">
+            Hosting the annual ComputeX end-of-year demo day showcasing open-source student builds, research integrations, and industry sponsor partnerships.
+          </p>
+          <div class="flex flex-wrap gap-2 font-mono text-[11px]">
+            <span class="px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-400">🚀 Annual Demo Day</span>
+            <span class="px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-400">🚀 Open-Source Releases</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="relative z-10 border-t border-white/5 py-8 text-center font-mono text-xs text-slate-500 mt-16">
+    <p>© 2026 ComputeX @ University of Michigan. Built for the future.</p>
+  </footer>
+
+</body>
+</html>
