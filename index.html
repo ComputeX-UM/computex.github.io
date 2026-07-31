@@ -1,78 +1,596 @@
-<nav style="margin-bottom: 2rem; border-bottom: 1px dashed #00ffcc; padding-bottom: 1rem;">
-    <a href="index.html" style="color: #00ffcc; margin-right: 1.5rem; text-decoration: none; font-weight: bold;">HOME</a>
-    <a href="members.html" style="color: #e2e8f0; margin-right: 1.5rem; text-decoration: none;">OUR TEAM</a>
-    <a href="faq.html" style="color: #e2e8f0; text-decoration: none;">FAQ</a>
-</nav>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CLUB TERMINAL</title>
-    <style>
-        /* Cyberpunk Minimalist Styling */
-        body {
-            background-color: #2c2e3fff; /* Deep dark city background */
-            color: #e2e8f0; /* Crisp white-gray text */
-            font-family: 'Courier New', Courier, monospace; /* Terminal font */
-            line-height: 1.6;
-            padding: 2rem;
-            max-width: 800px;
-            margin: 0 auto;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ComputeX | Interdisciplinary Tech at Michigan</title>
+  
+  <!-- Inter & Geist Mono Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['"Geist Mono"', 'monospace'],
+          },
+          colors: {
+            brand: {
+              bg: '#08080a',
+              card: '#121318',
+              border: 'rgba(255, 255, 255, 0.08)',
+              cyan: '#00F0FF',
+              amber: '#FFB800',
+              emerald: '#00E599',
+              magenta: '#FF2E93',
+              purple: '#9D4EDD',
+            }
+          }
         }
-        h1, h2, h3 {
-            color: #46bdcdff; /* Bright Neon Cyan Accent */
-            text-shadow: 0 0 10px rgba(0, 255, 204, 0.3);
-            border-bottom: 1px solid #a600ffff; /* Neon Pink divider */
-            padding-bottom: 0.5rem;
-            letter-spacing: 2px;
-        }
-        .accent-pink {
-            color: #ff007f; /* Neon Pink Accent */
-        }
-        ul {
-            list-style-type: "⚡ ";
-            padding-left: 1.5rem;
-        }
-        .eboard-grid {
-            margin-top: 1.5rem;
-        }
-        .member {
-            margin-bottom: 1.5rem;
-            border-left: 3px solid #00ffcc;
-            padding-left: 1rem;
-        }
-    </style>
-</head>
-<body>
+      }
+    }
+  </script>
 
-    <h1>COMPUTEX</h1>
-    <p>We are a community of student developers, data scientists, and tech innovators at university. We bridge theory and execution through open-source collaboration, algorithm design, and predictive modeling.</p>
+  <style>
+    /* Grid background effect */
+    .bg-grid {
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    }
 
-    <h2>ABOUT US</h2>
-    <p>Calibrate your schedule. Join us at our weekly syncs:</p>
-    <ul>
-        <li><strong class="accent-pink">When:</strong> Every Wednesday @ 7:00 PM</li>
-        <li><strong class="accent-pink">Where:</strong> Science & Engineering Hall, Room 404</li>
-        <li><strong class="accent-pink">Bring:</strong> Your hardware (laptop) and an open mind.</li>
-    </ul>
+    /* Ambient Radial Glow */
+    .radial-glow {
+      background: radial-gradient(circle at 50% 20%, rgba(0, 240, 255, 0.08) 0%, rgba(157, 78, 221, 0.05) 40%, transparent 70%);
+    }
 
-    <h2>ABOUT US</h2>
-    <p><em>[System status: Photo database initializing post-launch]</em></p>
+    /* Glassmorphism Card Style */
+    .glass-card {
+      background: rgba(18, 19, 24, 0.7);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
     
-    <div class="eboard-grid">
-        <div class="member">
-            <h3>[Yxodfbnso smth or other</h3>
-            <p><strong class="accent-pink">Role:</strong> Founder & President<br>
-            <strong class="accent-pink">Major:</strong> CS / Data Science</p>
-        </div>
-        
-        <div class="member">
-            <h3>[Peer Name Here]</h3>
-            <p><strong class="accent-pink">Role:</strong> Vice President<br>
-            <strong class="accent-pink">Major:</strong> Computer Science</p>
-        </div>
+    .glass-card:hover {
+      border-color: rgba(255, 255, 255, 0.18);
+    }
+  </style>
+</head>
+
+<body class="bg-brand-bg text-slate-200 font-sans antialiased min-h-screen selection:bg-brand-cyan/20 selection:text-brand-cyan">
+
+  <!-- Background Grid & Lighting -->
+  <div class="fixed inset-0 bg-grid pointer-events-none z-0"></div>
+  <div class="fixed inset-0 radial-glow pointer-events-none z-0"></div>
+
+  <!-- Navigation -->
+  <nav class="sticky top-0 z-50 border-b border-white/5 bg-brand-bg/80 backdrop-blur-md">
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="#" class="font-mono text-lg font-bold tracking-tight text-white flex items-center gap-2">
+        <span class="inline-block w-2.5 h-2.5 rounded-full bg-brand-cyan animate-pulse"></span>
+        COMPUTEX<span class="text-brand-cyan">//</span>
+      </a>
+      
+      <div class="flex items-center gap-6 text-sm font-mono text-slate-400">
+        <a href="/team" class="hover:text-white transition-colors">TEAM</a>
+        <a href="/pillars" class="hover:text-white transition-colors">PILLARS</a>
+        <a href="/roadmap" class="hover:text-white transition-colors">ROADMAP</a>
+        <a href="/launch" class="px-3.5 py-1.5 rounded-md bg-white/10 text-white hover:bg-white/20 border border-white/10 transition-all font-semibold hover:border-brand-cyan/50">
+          LAUNCH →
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="relative z-10 pt-28 pb-20 px-6 max-w-5xl mx-auto text-center">
+    <!-- Status Pill -->
+    <div class="flex flex-wrap items-center justify-center gap-3 mb-8">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-slate-300">
+        <span class="w-1.5 h-1.5 rounded-full bg-brand-emerald animate-ping"></span>
+        Launching Fall 2026
+      </div>
+      
+      <!-- PCAS Interactive Modal Trigger -->
+      <button onclick="document.getElementById('pcas-modal').classList.remove('hidden')" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-brand-purple/10 border border-brand-purple/30 text-xs font-mono text-brand-purple hover:bg-brand-purple/20 transition-all cursor-pointer">
+        <span>POWERED BY PCAS</span>
+        <span class="text-[10px]">ℹ</span>
+      </button>
     </div>
 
+    <!-- Headline -->
+    <h1 class="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-white mb-6 leading-[1.1]">
+      Where computing intersects with <span style="background: linear-gradient(90deg, #00F0FF 0%, #00E599 25%, #FFB800 50%, #FF2E93 75%, #9D4EDD 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;" class="font-extrabold">every field.</span>
+    </h1>
+
+    <!-- Open-Door Policy Pill -->
+    <div class="inline-block mb-6 px-4 py-1.5 rounded-lg bg-brand-cyan/5 border border-brand-cyan/20 font-mono text-xs text-brand-cyan">
+      [ NO PRIOR CODING REQUIRED // ALL MAJORS WELCOME ]
+    </div>
+
+    <p class="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-10 font-normal leading-relaxed">
+      ComputeX is an interdisciplinary tech community connecting computer science with health, business, art, and ethics. Supported by the Program in Computing for the Arts and Sciences.
+    </p>
+
+    <!-- CTAs -->
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+      <a href="#join" class="w-full sm:w-auto px-8 py-3.5 rounded-lg bg-white text-black font-semibold hover:bg-slate-200 transition-all shadow-lg shadow-white/5">
+        Newsletter / Interest Form
+      </a>
+      <a href="#pillars" class="w-full sm:w-auto px-8 py-3.5 rounded-lg glass-card font-medium text-slate-300 hover:text-white transition-all">
+        Explore Our 5 Pillars ↓
+      </a>
+    </div>
+  </section>
+
+  <!-- 5 Pillars Section -->
+  <section id="pillars" class="relative z-10 py-20 px-6 max-w-6xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- 01 Tech + Engineering -->
+      <div class="glass-card p-6 rounded-xl relative overflow-hidden group transition-all duration-300 hover:-translate-y-1 hover:border-brand-cyan/50 hover:shadow-xl hover:shadow-brand-cyan/10">
+        <div class="absolute top-0 left-0 w-full h-[2px] bg-brand-cyan opacity-40 group-hover:opacity-100 transition-opacity"></div>
+        <div class="font-mono text-xs text-brand-cyan mb-2">// 01</div>
+        <h4 class="text-xl font-semibold text-white mb-2">Tech + Engineering</h4>
+        <p class="text-sm text-slate-400 leading-relaxed mb-4">Software development, AI, cybersecurity, systems, and emerging technologies.</p>
+        
+        <!-- Expanded Detail Revealed on Hover -->
+        <div class="opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-24 transition-all duration-300 ease-in-out overflow-hidden pt-2 border-t border-white/5">
+          <div class="flex flex-wrap gap-1.5 mb-3">
+            <span class="px-2 py-0.5 rounded bg-white/5 font-mono text-[10px] text-slate-300">Software</span>
+            <span class="px-2 py-0.5 rounded bg-white/5 font-mono text-[10px] text-slate-300">AI / ML</span>
+            <span class="px-2 py-0.5 rounded bg-white/5 font-mono text-[10px] text-slate-300">Systems</span>
+          </div>
+          <a href="/pillars#tech" class="inline-flex items-center text-xs font-mono text-brand-cyan hover:underline">Explore Tech Domain →</a>
+        </div>
+      </div>
+
+      <!-- 02 Business + Innovation -->
+      <div class="glass-card p-6 rounded-xl relative overflow-hidden group transition-all duration-300 hover:-translate-y-1 hover:border-brand-amber/50 hover:shadow-xl hover:shadow-brand-amber/10">
+        <div class="absolute top-0 left-0 w-full h-[2px] bg-brand-amber opacity-40 group-hover:opacity-100 transition-opacity"></div>
+        <div class="font-mono text-xs text-brand-amber mb-2">// 02</div>
+        <h4 class="text-xl font-semibold text-white mb-2">Business + Innovation</h4>
+        <p class="text-sm text-slate-400 leading-relaxed mb-4">Entrepreneurship, product management, VC, and tech strategy.</p>
+        
+        <div class="opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-24 transition-all duration-300 ease-in-out overflow-hidden pt-2 border-t border-white/5">
+          <div class="flex flex-wrap gap-1.5 mb-3">
+            <span class="px-2 py-0.5 rounded bg-white/5 font-mono text-[10px] text-slate-300">Startups</span>
+            <span class="px-2 py-0.5 rounded bg-white/5 font-mono text-[10px] text-slate-300">ProdMgmt</span>
+            <span class="px-2 py-0.5 rounded bg-white/5 font-mono text-[10px] text-slate-300">Fintech</span>
+          </div>
+          <a href="/pillars#business" class="inline-flex items-center text-xs font-mono text-brand-amber hover:underline">Explore Business Domain →</a>
+        </div>
+      </div>
+
+      <!-- 03 Health + Medicine -->
+      <div class="glass-card p-6 rounded-xl relative overflow-hidden group transition-all duration-300 hover:-translate-y-1 hover:border-brand-emerald/50 hover:shadow-xl hover:shadow-brand-emerald/10">
+        <div class="absolute top-0 left-0 w-full h-[2px] bg-brand-emerald opacity-40 group-hover:opacity-100 transition-opacity"></div>
+        <div class="font-mono text-xs text-brand-emerald mb-2">// 03</div>
+        <h4 class="text-xl font-semibold text-white mb-2">Health + Medicine</h4>
+        <p class="text-sm text-slate-400 leading-relaxed mb-4">Digital health, medtech, computational biology, and bioinformatics.</p>
+        
+        <div class="opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-24 transition-all duration-300 ease-in-out overflow-hidden pt-2 border-t border-white/5">
+          <div class="flex flex-wrap gap-1.5 mb-3">
+            <span class="px-2 py-0.5 rounded bg-white/5 font-mono text-[10px] text-slate-300">Neurotech</span>
+            <span class="px-2 py-0.5 rounded bg-white/5 font-mono text-[10px] text-slate-300">Medical Devices</span>
+            <span class="px-2 py-0.5 rounded bg-white/5 font-mono text-[10px] text-slate-300">Bioinformatics</span>
+          </div>
+          <a href="/pillars#health" class="inline-flex items-center text-xs font-mono text-brand-emerald hover:underline">Explore Health Domain →</a>
+        </div>
+      </div>
+
+      <!-- 04 Art + Design -->
+      <div class="glass-card p-6 rounded-xl relative overflow-hidden group transition-all duration-300 hover:-translate-y-1 hover:border-brand-magenta/50 hover:shadow-xl hover:shadow-brand-magenta/10">
+        <div class="absolute top-0 left-0 w-full h-[2px] bg-brand-magenta opacity-40 group-hover:opacity-100 transition-opacity"></div>
+        <div class="font-mono text-xs text-brand-magenta mb-2">// 04</div>
+        <h4 class="text-xl font-semibold text-white mb-2">Art + Design</h4>
+        <p class="text-sm text-slate-400 leading-relaxed mb-4">UI/UX, creative technology, digital media, and game design.</p>
+        
+        <div class="opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-24 transition-all duration-300 ease-in-out overflow-hidden pt-2 border-t border-white/5">
+          <div class="flex flex-wrap gap-1.5 mb-3">
+            <span class="px-2 py-0.5 rounded bg-white/5 font-mono text-[10px] text-slate-300">Creative Tech</span>
+            <span class="px-2 py-0.5 rounded bg-white/5 font-mono text-[10px] text-slate-300">UI/UX</span>
+          </div>
+          <a href="/pillars#art" class="inline-flex items-center text-xs font-mono text-brand-magenta hover:underline">Explore Art Domain →</a>
+        </div>
+      </div>
+
+      <!-- 05 Ethics + Impact -->
+      <div class="glass-card p-6 rounded-xl relative overflow-hidden group transition-all duration-300 hover:-translate-y-1 hover:border-brand-purple/50 hover:shadow-xl hover:shadow-brand-purple/10">
+        <div class="absolute top-0 left-0 w-full h-[2px] bg-brand-purple opacity-40 group-hover:opacity-100 transition-opacity"></div>
+        <div class="font-mono text-xs text-brand-purple mb-2">// 05</div>
+        <h4 class="text-xl font-semibold text-white mb-2">Ethics + Impact</h4>
+        <p class="text-sm text-slate-400 leading-relaxed mb-4">Responsible AI, tech policy, accessibility, and privacy.</p>
+        
+        <div class="opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-24 transition-all duration-300 ease-in-out overflow-hidden pt-2 border-t border-white/5">
+          <div class="flex flex-wrap gap-1.5 mb-3">
+            <span class="px-2 py-0.5 rounded bg-white/5 font-mono text-[10px] text-slate-300">AI Policy</span>
+            <span class="px-2 py-0.5 rounded bg-white/5 font-mono text-[10px] text-slate-300">Accessibility</span>
+          </div>
+          <a href="/pillars#ethics" class="inline-flex items-center text-xs font-mono text-brand-purple hover:underline">Explore Ethics Domain →</a>
+        </div>
+      </div>
+
+      <!-- Open Access Card -->
+      <div class="glass-card p-6 rounded-xl border-dashed border-white/20 flex flex-col justify-center items-start">
+        <div class="font-mono text-xs text-brand-cyan mb-2">// WHO IT'S FOR</div>
+        <h4 class="text-lg font-medium text-white mb-1">Built for every major</h4>
+        <p class="text-xs text-slate-400 leading-relaxed mb-3">LSA, Ross, Stamps, CoE, School of Information, Pre-med, and beyond. Zero coding required to drop in.</p>
+        <a href="/launch" class="text-xs font-mono text-white underline hover:text-brand-cyan">Get Involved →</a>
+      </div>
+
+    </div>
+  </section>
+  <!-- INTERDISCIPLINARY MATRIX SECTION -->
+<section class="relative z-10 py-16 px-6 max-w-5xl mx-auto">
+  <div class="glass-card p-6 sm:p-8 rounded-2xl border border-white/10">
+    
+    <!-- Section Header -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-8">
+      <div>
+        <h3 class="font-mono text-xs text-brand-cyan uppercase tracking-widest mb-1">// INTERSECTION_MATRIX_V2.0</h3>
+        <h4 class="text-2xl font-bold text-white tracking-tight">Select two domain buttons to evaluate</h4>
+      </div>
+      <div class="font-mono text-xs text-slate-500">
+        [ ACTIVE_PAIR: <span id="active-pair-label" class="text-brand-cyan font-bold">HEALTH × TECH</span> ]
+      </div>
+    </div>
+
+    <!-- 10-Button Axis + Interior Stage Layout -->
+    <div class="grid grid-cols-[auto_1fr] gap-4 items-start">
+      
+      <!-- Top Left Axis Corner Label -->
+      <div class="w-24 sm:w-28 font-mono text-[10px] text-slate-500 text-center py-2 border-b border-white/10">
+        AXIS [Y \ X]
+      </div>
+
+      <!-- Top Row (X-Axis Buttons) -->
+      <div id="x-axis-buttons" class="grid grid-cols-5 gap-2 border-b border-white/10 pb-4">
+        <!-- Generated by JS -->
+      </div>
+
+      <!-- Left Column (Y-Axis Buttons) -->
+      <div id="y-axis-buttons" class="flex flex-col gap-2 w-24 sm:w-28">
+        <!-- Generated by JS -->
+      </div>
+
+      <!-- Center Display Box (Occupies the Matrix Space) -->
+      <div id="matrix-display-card" class="bg-black/50 p-6 rounded-xl border border-white/10 font-mono relative overflow-hidden min-h-[220px] transition-all duration-300">
+        <!-- Dynamic content injects here -->
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- Matrix State Engine Script -->
+<script>
+  const domains = ['TECH', 'BUSINESS', 'HEALTH', 'ART', 'ETHICS'];
+  
+  // Matrix Dataset
+  const matrixData = {
+    'HEALTH-TECH': {
+      tag: '[ SPOTLIGHT: NEUROTECH & BIOLOGICAL COMPUTING ]',
+      title: 'Cortical Labs // DishBrain',
+      description: 'Biological computing in action: Synthetic biology meets silicon microelectrode arrays. In vitro human and mouse brain cells integrated into hardware, learning to play Pong via real-time electrophysiological feedback loops.',
+      sub: 'Domains: Electrophysiology • Biological Systems • Neural ML',
+      link: '/pillars#health',
+      color: 'text-brand-emerald'
+    },
+    'ART-ETHICS': {
+      tag: '[ SPOTLIGHT: CREATIVE TECH & DATA PRIVACY ]',
+      title: 'University of Chicago // Nightshade & Glaze',
+      description: 'Adversarial machine learning tools designed for artists that subtly modify pixels to poison AI training scrapers without altering visual artwork for human eyes.',
+      sub: 'Domains: Generative Media • AI Policy • Adversarial ML',
+      link: '/pillars#art',
+      color: 'text-brand-magenta'
+    },
+    'BUSINESS-HEALTH': {
+      tag: '[ SPOTLIGHT: PRECISION ONCOLOGY DATA ]',
+      title: 'Tempus AI // Health Infrastructure',
+      description: 'Building massive multimodal clinical data pipelines and machine learning infrastructure to assist oncologists in tailoring personalized cancer treatments.',
+      sub: 'Domains: Health Data Science • Biotech • Commercial Infrastructure',
+      link: '/pillars#business',
+      color: 'text-brand-amber'
+    },
+    'ART-TECH': {
+      tag: '[ SPOTLIGHT: REAL-TIME GRAPHICS ENGINE ]',
+      title: 'Unreal Engine 5 // Nanite Geometry',
+      description: 'Computer graphics algorithms enabling real-time rendering of film-quality 3D geometry and procedural environments for digital cinema and interactive games.',
+      sub: 'Domains: 3D Graphics • Game Engine Dev • Procedural Code',
+      link: '/pillars#art',
+      color: 'text-brand-magenta'
+    },
+    'BUSINESS-ETHICS': {
+      tag: '[ SPOTLIGHT: ZERO-KNOWLEDGE CRYPTOGRAPHY ]',
+      title: 'Worldcoin // Zero-Knowledge Identity',
+      description: 'Using custom biometrics and zk-SNARK proof cryptography to verify human identity online without exposing or storing personal biometric data.',
+      sub: 'Domains: Cryptography • Tech Policy • Fintech',
+      link: '/pillars#ethics',
+      color: 'text-brand-purple'
+    },
+
+    // EASTER EGGS FOR SAME-DOMAIN SELECTION 🥚
+    'TECH-TECH': {
+      tag: '[ MONO_DOMAIN_DETECTED // EASTER_EGG ]',
+      title: 'Tech × Tech = Pure Computer Science',
+      description: 'Hmm... that’s just pure CS! We love compilers and operating systems, but this platform is built for the magic that happens when you take code out of its silo.',
+      sub: 'Status: Single domain selected. Try combining Tech with Health or Art!',
+      link: '/pillars#tech',
+      color: 'text-brand-cyan'
+    },
+    'HEALTH-HEALTH': {
+      tag: '[ MONO_DOMAIN_DETECTED // EASTER_EGG ]',
+      title: 'Health × Health = Standard Clinical Practice',
+      description: 'Standard clinical rounds! Pair medicine with data pipelines or bio-sensors, and now you’re building future-ready computational medicine.',
+      sub: 'Status: Single domain selected. Try combining Health with Tech or Business!',
+      link: '/pillars#health',
+      color: 'text-brand-emerald'
+    },
+    'ART-ART': {
+      tag: '[ MONO_DOMAIN_DETECTED // EASTER_EGG ]',
+      title: 'Art × Art = Pure Fine Arts Gallery',
+      description: 'A pure gallery space! Beautiful, but add creative coding or UI systems and suddenly you’re crafting interactive generative digital worlds.',
+      sub: 'Status: Single domain selected. Try combining Art with Tech or Ethics!',
+      link: '/pillars#art',
+      color: 'text-brand-magenta'
+    },
+    'BUSINESS-BUSINESS': {
+      tag: '[ MONO_DOMAIN_DETECTED // EASTER_EGG ]',
+      title: 'Business × Business = Corporate Boardroom',
+      description: 'Sounds like a 50-page pitch deck meeting! Pair strategy with deeptech or digital health to launch an actual disruptive product.',
+      sub: 'Status: Single domain selected. Try combining Business with Health or Tech!',
+      link: '/pillars#business',
+      color: 'text-brand-amber'
+    },
+    'ETHICS-ETHICS': {
+      tag: '[ MONO_DOMAIN_DETECTED // EASTER_EGG ]',
+      title: 'Ethics × Ethics = Pure Philosophy Seminar',
+      description: 'Deep theoretical debate! Combine ethics with AI systems or tech strategy to actively build privacy-preserving software.',
+      sub: 'Status: Single domain selected. Try combining Ethics with Tech or Business!',
+      link: '/pillars#ethics',
+      color: 'text-brand-purple'
+    }
+  };
+
+  // Defaults: Y = HEALTH, X = TECH
+  let activeY = 'HEALTH';
+  let activeX = 'TECH';
+
+  function renderAxisButtons() {
+    const xContainer = document.getElementById('x-axis-buttons');
+    const yContainer = document.getElementById('y-axis-buttons');
+
+    xContainer.innerHTML = '';
+    yContainer.innerHTML = '';
+
+    // Render X-Axis (Top) Buttons
+    domains.forEach(domain => {
+      const isSelected = activeX === domain;
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.onclick = () => { activeX = domain; renderAxisButtons(); };
+      btn.className = `py-2 px-1 rounded font-mono text-[10px] sm:text-xs tracking-wider transition-all cursor-pointer border ${
+        isSelected 
+          ? 'bg-brand-cyan text-black border-brand-cyan font-bold shadow-lg shadow-brand-cyan/20' 
+          : 'bg-white/5 text-slate-400 border-white/10 hover:border-white/30 hover:text-white'
+      }`;
+      btn.innerText = domain;
+      xContainer.appendChild(btn);
+    });
+
+    // Render Y-Axis (Left) Buttons
+    domains.forEach(domain => {
+      const isSelected = activeY === domain;
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.onclick = () => { activeY = domain; renderAxisButtons(); };
+      btn.className = `py-2 px-2 rounded font-mono text-[10px] sm:text-xs tracking-wider transition-all cursor-pointer border text-left ${
+        isSelected 
+          ? 'bg-brand-cyan text-black border-brand-cyan font-bold shadow-lg shadow-brand-cyan/20' 
+          : 'bg-white/5 text-slate-400 border-white/10 hover:border-white/30 hover:text-white'
+      }`;
+      btn.innerText = domain;
+      yContainer.appendChild(btn);
+    });
+
+    renderDisplayCard();
+  }
+
+  function renderDisplayCard() {
+    const card = document.getElementById('matrix-display-card');
+    const pairLabel = document.getElementById('active-pair-label');
+    
+    // Support symmetric lookup
+    const key = `${activeY}-${activeX}`;
+    const altKey = `${activeX}-${activeY}`;
+    
+    const data = matrixData[key] || matrixData[altKey] || {
+      tag: '[ EXPLORING INTERSECTION ]',
+      title: `${activeY} × ${activeX} Cross-Section`,
+      description: `Analyzing practical projects and technical innovations at the convergence of ${activeY} and ${activeX}.`,
+      sub: `Domains: ${activeY} • ${activeX}`,
+      link: '/pillars',
+      color: 'text-brand-cyan'
+    };
+
+    pairLabel.innerText = `${activeY} × ${activeX}`;
+
+    card.innerHTML = `
+      <div class="text-xs ${data.color} mb-1.5 font-bold">${data.tag}</div>
+      <h5 class="text-xl font-bold text-white mb-2 font-sans">${data.title}</h5>
+      <p class="text-xs text-slate-300 font-sans leading-relaxed mb-4">${data.description}</p>
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs pt-3 border-t border-white/10">
+        <span class="text-slate-500">${data.sub}</span>
+        <a href="${data.link}" class="text-brand-cyan underline hover:text-white transition-colors">Explore Domain in Pillars →</a>
+      </div>
+    `;
+  }
+
+  // Initialize layout on load
+  document.addEventListener('DOMContentLoaded', renderAxisButtons);
+</script>
+  <!-- What We Do / Activities -->
+  <section id="about" class="relative z-10 py-16 px-6 max-w-4xl mx-auto border-t border-white/5">
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
+      <div class="p-4">
+        <div class="font-mono text-2xl font-bold text-white mb-1">Workshops</div>
+        <div class="text-xs text-slate-400">Hands-on technical skills</div>
+      </div>
+      <div class="p-4">
+        <div class="font-mono text-2xl font-bold text-white mb-1">Speakers</div>
+        <div class="text-xs text-slate-400">Industry & research leaders</div>
+      </div>
+      <div class="p-4">
+        <div class="font-mono text-2xl font-bold text-white mb-1">Projects</div>
+        <div class="text-xs text-slate-400">Collaborative builds</div>
+      </div>
+      <div class="p-4">
+        <div class="font-mono text-2xl font-bold text-white mb-1">Network</div>
+        <div class="text-xs text-slate-400">Cross-disciplinary peers</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Join / Footer CTA -->
+  <section id="join" class="relative z-10 py-20 px-6 max-w-3xl mx-auto text-center">
+    <div class="glass-card p-10 rounded-2xl relative">
+      <h3 class="text-2xl sm:text-3xl font-bold text-white mb-3">Join Our Newsletter!</h3>
+      <p class="text-slate-400 text-sm mb-6">Sign up to get notified about our Mass Meeting, launch event, and FestiFall booth details.</p>
+
+      <!-- Interest Form Embed / Button -->
+      <form class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto" onsubmit="event.preventDefault(); alert('Connected!');">
+        <input 
+          type="email" 
+          placeholder="umich email address..." 
+          class="w-full px-4 py-3 rounded-lg bg-black/50 border border-white/10 text-white placeholder-slate-500 font-mono text-sm focus:outline-none focus:border-brand-cyan transition-all"
+          required
+        >
+        <button type="submit" class="px-6 py-3 rounded-lg bg-white text-black font-semibold text-sm hover:bg-slate-200 transition-all whitespace-nowrap">
+          Notify Me
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="relative z-10 border-t border-white/5 py-8 text-center font-mono text-xs text-slate-500">
+    <p>© 2026 ComputeX @ University of Michigan.</p>
+  </footer>
+
+<!-- PCAS MODAL / POPUP -->
+<div id="pcas-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm hidden">
+  <div class="glass-card max-w-lg w-full p-6 sm:p-8 rounded-2xl border border-white/10 relative overflow-hidden bg-slate-950/90 shadow-2xl">
+    
+    <!-- Close Button -->
+    <button onclick="closePcasModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white transition-colors font-mono text-xs cursor-pointer">
+      [✕]
+    </button>
+
+    <!-- Category Tag -->
+    <div class="font-mono text-[10px] text-brand-purple tracking-widest uppercase mb-4">// SPONSOR & SUPPORTER</div>
+
+    <!-- Full-Width Horizontal Logo Header -->
+    <a href="https://lsa.umich.edu/computingfor" target="_blank" rel="noopener noreferrer" class="block w-full mb-6 group">
+      <div class="w-full bg-white/5 border border-white/10 rounded-xl p-4 flex items-center justify-center transition-all group-hover:border-brand-purple/50 group-hover:bg-white/10">
+        <img 
+          src="https://lsa.umich.edu/content/dam/michigan-lsa/admin/logos/computingfor-logo.png" 
+          alt="Program in Computing for the Arts and Sciences" 
+          class="w-full h-auto object-contain max-h-16"
+        />
+      </div>
+    </a>
+
+    <!-- Description Content -->
+    <div class="text-xs text-slate-300 space-y-3 font-sans leading-relaxed mb-6 border-t border-b border-white/10 py-4">
+      <p>
+        <strong>PCAS</strong> at the University of Michigan (LSA) empowers students across all majors to bridge computing, creative arts, humanistic inquiry, and scientific innovation.
+      </p>
+      <p class="text-slate-400">
+        ComputeX is proudly supported by PCAS to foster interdisciplinary tech education and hands-on coding literacy across non-traditional fields.
+      </p>
+    </div>
+
+    <!-- Footer Link Button -->
+    <div class="flex items-center justify-end">
+      <a 
+        href="https://lsa.umich.edu/computingfor" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-brand-cyan/10 border border-brand-cyan/40 text-brand-cyan font-mono text-xs font-semibold hover:bg-brand-cyan hover:text-black transition-all group"
+      >
+        <span>Visit the Official PCAS Site</span>
+        <span class="group-hover:translate-x-0.5 transition-transform">→</span>
+      </a>
+    </div>
+
+  </div>
+</div>
+
+<!-- Simple State Logic Script -->
+<script>
+  const examples = {
+    dishbrain: {
+      category: "[ SPOTLIGHT: NEUROTECH & SYNTHETIC BIOLOGY ]",
+      title: "Cortical Labs // DishBrain",
+      description: "Biological computing in action: In vitro human and mouse brain cells integrated onto silicon microelectrode arrays, learning to play arcade games via real-time electrophysiological feedback.",
+      domains: "Domains: Electrophysiology • Neural Arrays",
+      color: "text-brand-emerald"
+    },
+    nightshade: {
+      category: "[ SPOTLIGHT: ART DIRECTION & AI PRIVACY ]",
+      title: "University of Chicago // Nightshade & Glaze",
+      description: "Data-poisoning tools designed for visual artists that subtly alter pixels to scramble AI training scrapers (like Midjourney) without altering the image for human eyes.",
+      domains: "Domains: Creative Tech • Adversarial Machine Learning",
+      color: "text-brand-magenta"
+    },
+    tempus: {
+      category: "[ SPOTLIGHT: PRECISION ONCOLOGY DATA ]",
+      title: "Tempus AI // Clinical Data Engines",
+      description: "Building massive multimodal healthcare data pipelines and machine learning models to assist oncologists in tailoring cancer treatments and accelerating drug research.",
+      domains: "Domains: Health Data Science • Biotech Startups",
+      color: "text-brand-amber"
+    }
+  };
+
+  function selectIntersection(key) {
+    const data = examples[key];
+    const container = document.getElementById('mixer-content');
+    
+    // Update button states
+    document.querySelectorAll('#mixer-buttons button').forEach(btn => {
+      btn.className = "px-3 py-1.5 rounded-lg text-xs font-mono bg-white/5 text-slate-400 border border-white/10 hover:text-white";
+    });
+    document.getElementById(`btn-${key}`).className = `px-3 py-1.5 rounded-lg text-xs font-mono bg-white/20 text-white border border-white/30`;
+
+    // Render content
+    container.innerHTML = `
+      <div class="text-xs ${data.color} mb-1">${data.category}</div>
+      <h5 class="text-lg font-bold text-white mb-2">${data.title}</h5>
+      <p class="text-xs text-slate-300 font-sans leading-relaxed mb-4">${data.description}</p>
+      <div class="flex items-center justify-between text-xs">
+        <span class="text-slate-500">${data.domains}</span>
+        <a href="/pillars" class="text-brand-cyan underline">Read More in Pillars →</a>
+      </div>
+    `;
+  }
+
+  function openPcasModal() {
+  document.getElementById('pcas-modal').classList.remove('hidden');
+  }
+
+function closePcasModal() {
+  document.getElementById('pcas-modal').classList.add('hidden');
+  }
+</script>
 </body>
 </html>
