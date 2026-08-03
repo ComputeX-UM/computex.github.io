@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ComputeX | Our Pillars & Tracks</title>
+  <title>ComputeX | Our Five Pillars</title>
   
   <!-- Inter & Geist Mono Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -74,8 +74,16 @@
         <a href="../team/index.html" class="hover:text-white transition-colors">TEAM</a>
         <a href="#" class="text-white font-semibold underline decoration-brand-cyan underline-offset-4">PILLARS</a>
         <a href="../roadmap/index.html" class="hover:text-white transition-colors">ROADMAP</a>
-        <a href="../launch/index.html" class="px-3.5 py-1.5 rounded-md bg-white/10 text-white hover:bg-white/20 border border-white/10 transition-all font-semibold hover:border-brand-cyan/50">
-          LAUNCH →
+        <!-- Launch Button (Original static state, Rainbow gradient on hover) -->
+        <a href="./launch/index.html" class="group relative px-3.5 py-1.5 rounded-md bg-white/10 text-white border border-white/10 font-semibold transition-all hover:border-transparent">
+          <!-- Rainbow Border Ring (Only shows 1px outer ring on hover) -->
+          <span class="absolute -inset-[1px] rounded-md bg-gradient-to-r from-brand-emerald via-brand-cyan to-brand-purple opacity-0 group-hover:opacity-100 transition-opacity p-[1px] pointer-events-none">
+            <span class="w-full h-full block rounded-[5px] bg-[#121318]"></span>
+          </span>
+          <!-- Rainbow Text (Only text changes color) -->
+          <span class="relative z-10 group-hover:bg-gradient-to-r group-hover:from-brand-emerald group-hover:via-brand-cyan group-hover:to-brand-purple group-hover:bg-clip-text group-hover:text-transparent transition-all">
+            LAUNCH →
+          </span>
         </a>
       </div>
     </div>
@@ -85,7 +93,7 @@
   <section class="relative z-10 pt-16 pb-6 px-6 max-w-5xl mx-auto text-center">
     <div id="domain-tag" class="font-mono text-xs text-brand-cyan uppercase tracking-widest mb-3">// SELECT_DOMAIN_PILLAR</div>
     <h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-white mb-4">
-      Explore <span id="domain-title" class="bg-gradient-to-r from-brand-cyan to-brand-emerald bg-clip-text text-transparent">Health + Medicine.</span>
+      Explore <span id="domain-title" class="bg-gradient-to-r from-brand-cyan to-brand-emerald bg-clip-text text-transparent">Tech + Engineering.</span>
     </h1>
     <p id="domain-desc" class="text-slate-400 text-sm sm:text-base max-w-2xl mx-auto font-normal leading-relaxed">
       Explore how software, data science, and hardware transform traditional disciplines into high-throughput computational systems.
@@ -119,7 +127,7 @@
       <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
         <div>
           <span id="spotlight-badge" class="font-mono text-[10px] font-semibold px-2.5 py-1 rounded bg-brand-emerald/10 text-brand-emerald border border-brand-emerald/30">// CORE_DISCIPLINE_ENGINE</span>
-          <h2 id="spotlight-heading" class="text-2xl sm:text-3xl font-bold text-white mt-2">Health + Medicine</h2>
+          <h2 id="spotlight-heading" class="text-2xl sm:text-3xl font-bold text-white mt-2">Tech + Engineering</h2>
         </div>
         <button onclick="openSimulationModal()" class="px-4 py-2 rounded-xl bg-gradient-to-r from-brand-cyan/20 to-brand-emerald/20 border border-brand-cyan/40 text-white hover:border-brand-cyan font-mono text-xs font-bold transition-all flex items-center gap-2 shadow-lg">
           <span>⚡ Run Code Simulation</span>
@@ -430,7 +438,7 @@ raw.filter(l_freq=0.5, h_freq=30.0)</pre>
       }
     };
 
-    let activeKey = 'health';
+    let activeKey = 'art';
     let currentSimData = null;
 
     // Switch active pillar view
@@ -551,14 +559,14 @@ raw.filter(l_freq=0.5, h_freq=30.0)</pre>
       document.getElementById('submit-toast').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
 
-    // Initialize default selection on Health + Medicine
+    // Initialize default selection on Art + Design
     // Smart Router: Check URL hash on page load (e.g. /pillars/index.html#tech -> opens 'tech')
     function initFromHash() {
       const hash = window.location.hash.replace('#', '');
       if (pillarData[hash]) {
         selectPillar(hash, false); // false prevents pushing duplicate history state on load
       } else {
-        selectPillar('health', false);
+        selectPillar('art', false);
       }
     }
 

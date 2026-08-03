@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ComputeX | Roadmap & Guide</title>
+  <title>ComputeX | Roadmap & Timeline</title>
   
   <!-- Inter & Geist Mono Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -74,16 +74,8 @@
         <a href="../team/index.html" class="hover:text-white transition-colors">TEAM</a>
         <a href="../pillars/index.html" class="hover:text-white transition-colors">PILLARS</a>
         <a href="#" class="text-white font-semibold underline decoration-brand-cyan underline-offset-4">ROADMAP</a>
-        <!-- Launch Button (Original static state, Rainbow gradient on hover) -->
-        <a href="./launch/index.html" class="group relative px-3.5 py-1.5 rounded-md bg-white/10 text-white border border-white/10 font-semibold transition-all hover:border-transparent">
-          <!-- Rainbow Border Ring (Only shows 1px outer ring on hover) -->
-          <span class="absolute -inset-[1px] rounded-md bg-gradient-to-r from-brand-emerald via-brand-cyan to-brand-purple opacity-0 group-hover:opacity-100 transition-opacity p-[1px] pointer-events-none">
-            <span class="w-full h-full block rounded-[5px] bg-[#121318]"></span>
-          </span>
-          <!-- Rainbow Text (Only text changes color) -->
-          <span class="relative z-10 group-hover:bg-gradient-to-r group-hover:from-brand-emerald group-hover:via-brand-cyan group-hover:to-brand-purple group-hover:bg-clip-text group-hover:text-transparent transition-all">
-            LAUNCH →
-          </span>
+        <a href="../launch/index.html" class="px-3.5 py-1.5 rounded-md bg-white/10 text-white hover:bg-white/20 border border-white/10 transition-all font-semibold hover:border-brand-cyan/50">
+          LAUNCH →
         </a>
       </div>
     </div>
@@ -91,120 +83,17 @@
 
   <!-- Hero Section -->
   <section class="relative z-10 pt-16 pb-8 px-6 max-w-4xl mx-auto text-center">
-    <div class="font-mono text-xs text-brand-cyan uppercase tracking-widest mb-3">// PARTICIPANT_GUIDE & ROADMAP</div>
+    <div class="font-mono text-xs text-brand-cyan uppercase tracking-widest mb-3">// OPERATIONAL_TIMELINE</div>
     <h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-white mb-4">
-      The ComputeX <span class="bg-gradient-to-r from-brand-cyan via-brand-emerald to-brand-purple bg-clip-text text-transparent">Roadmap</span>
+      The ComputeX <span class="bg-gradient-to-r from-brand-cyan to-brand-emerald bg-clip-text text-transparent">Roadmap.</span>
     </h1>
     <p class="text-slate-400 text-sm sm:text-base max-w-2xl mx-auto font-normal leading-relaxed">
-      ComputeX isn't a rigid curriculum—it's a launchpad. Whether you're here to explore concepts across domains or build portfolio-ready code, <strong class="text-slate-200 font-semibold">you control your path</strong>. No prerequisites, no locked tracks, zero pressure.
+      Tracking our trajectory from foundational infrastructure and curriculum design to cross-disciplinary workshops and university-wide deployment.
     </p>
   </section>
 
-  <!-- Workshop Framework Section -->
-  <section class="relative z-10 py-6 px-6 max-w-4xl mx-auto">
-    <div class="font-mono text-xs text-brand-cyan uppercase tracking-widest mb-4 flex items-center gap-2">
-      <span>// 01. PARTICIPATION_FRAMEWORK</span>
-    </div>
-    
-    <div class="grid md:grid-cols-2 gap-4 mb-4">
-      <!-- Exploratory Card -->
-      <div class="glass-card p-6 rounded-2xl border border-brand-cyan/30 relative overflow-hidden">
-        <div class="inline-block px-2.5 py-1 rounded-full bg-brand-cyan/10 border border-brand-cyan/40 text-brand-cyan font-mono text-[11px] font-bold uppercase tracking-wider mb-3">
-          Exploratory Workshop
-        </div>
-        <h3 class="text-xl font-bold text-white mb-2 font-mono">Conceptual & Architecture</h3>
-        <ul class="text-xs sm:text-sm text-slate-300 space-y-2 font-sans">
-          <li class="flex items-start gap-2">
-            <span class="text-brand-cyan font-mono">▸</span>
-            <span><strong class="text-white">Focus:</strong> System architecture, math foundations, "under the hood" mechanics, and ethics.</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-brand-cyan font-mono">▸</span>
-            <span><strong class="text-white">Requirement:</strong> No laptop or code environment needed.</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-brand-cyan font-mono">▸</span>
-            <span><strong class="text-white">Experience:</strong> Sit back, learn concepts, and join the discussion.</span>
-          </li>
-        </ul>
-      </div>
-
-      <!-- Applied Card -->
-      <div class="glass-card p-6 rounded-2xl border border-brand-emerald/30 relative overflow-hidden">
-        <div class="inline-block px-2.5 py-1 rounded-full bg-brand-emerald/10 border border-brand-emerald/40 text-brand-emerald font-mono text-[11px] font-bold uppercase tracking-wider mb-3">
-          Applied Workshop
-        </div>
-        <h3 class="text-xl font-bold text-white mb-2 font-mono">Hands-On & Implementation</h3>
-        <ul class="text-xs sm:text-sm text-slate-300 space-y-2 font-sans">
-          <li class="flex items-start gap-2">
-            <span class="text-brand-emerald font-mono">▸</span>
-            <span><strong class="text-white">Focus:</strong> Writing syntax, leveraging APIs, building pipelines, and using tools.</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-brand-emerald font-mono">▸</span>
-            <span><strong class="text-white">Requirement:</strong> Bring a laptop with VS Code / Python / Git.</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-brand-emerald font-mono">▸</span>
-            <span><strong class="text-white">Experience:</strong> Live coding and leaving with a working project artifact.</span>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Callout Banner -->
-    <div class="glass-card p-4 rounded-xl border border-brand-purple/40 bg-brand-purple/5 text-slate-300 font-mono text-xs sm:text-sm flex items-start gap-3">
-      <span class="text-brand-purple text-base">⚡</span>
-      <div>
-        <strong class="text-white uppercase tracking-wider">Mix & Match Anytime:</strong> You can attend an <span class="text-brand-cyan">Exploratory</span> workshop in Health on Tuesday and an <span class="text-brand-emerald">Applied</span> workshop in Tech on Thursday. You are never locked into one format or pillar!
-      </div>
-    </div>
-  </section>
-
-  <!-- Sample Pathways Section -->
-  <section class="relative z-10 py-6 px-6 max-w-4xl mx-auto">
-    <div class="font-mono text-xs text-brand-cyan uppercase tracking-widest mb-4">
-      // 02. SAMPLE_MEMBER_PATHWAYS
-    </div>
-
-    <div class="grid sm:grid-cols-3 gap-4">
-      <div class="glass-card p-5 rounded-xl border border-white/10">
-        <div class="font-mono text-xs text-brand-amber font-semibold mb-1">PATH_A //</div>
-        <h4 class="text-base font-bold text-white mb-2">The Curious Explorer</h4>
-        <p class="text-slate-400 text-xs leading-relaxed mb-3">Wants to learn how tech impacts health and art without needing years of coding experience.</p>
-        <p class="text-slate-300 text-xs font-mono bg-white/5 p-2 rounded border border-white/5">
-          → Attends Exploratory Workshops across Health & Art.
-        </p>
-      </div>
-
-      <div class="glass-card p-5 rounded-xl border border-white/10">
-        <div class="font-mono text-xs text-brand-emerald font-semibold mb-1">PATH_B //</div>
-        <h4 class="text-base font-bold text-white mb-2">The Deep Builder</h4>
-        <p class="text-slate-400 text-xs leading-relaxed mb-3">CS or Data Science major looking for hands-on, portfolio-ready technical projects.</p>
-        <p class="text-slate-300 text-xs font-mono bg-white/5 p-2 rounded border border-white/5">
-          → Dives straight into Applied Workshops & Project Teams.
-        </p>
-      </div>
-
-      <div class="glass-card p-5 rounded-xl border border-white/10">
-        <div class="font-mono text-xs text-brand-purple font-semibold mb-1">PATH_C //</div>
-        <h4 class="text-base font-bold text-white mb-2">The Cross-Pioneer</h4>
-        <p class="text-slate-400 text-xs leading-relaxed mb-3">Interested in tech policy, business strategy, and algorithmic fairness.</p>
-        <p class="text-slate-300 text-xs font-mono bg-white/5 p-2 rounded border border-white/5">
-          → Combines Exploratory Ethics with Applied Business.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Timeline Section Title -->
-  <section class="relative z-10 pt-8 px-6 max-w-4xl mx-auto">
-    <div class="font-mono text-xs text-brand-cyan uppercase tracking-widest mb-1">// 03. OPERATIONAL_TIMELINE</div>
-    <h2 class="text-2xl font-bold text-white font-mono">Semester & Platform Progression</h2>
-  </section>
-
-  <!-- Existing Roadmap Timeline Section -->
-  <section class="relative z-10 py-6 px-6 max-w-4xl mx-auto">
+  <!-- Roadmap Timeline Section -->
+  <section class="relative z-10 py-8 px-6 max-w-4xl mx-auto">
     <div class="space-y-6 relative before:absolute before:inset-0 before:left-7 before:w-0.5 before:bg-white/10">
 
       <!-- Milestone 1: Completed -->
@@ -294,26 +183,8 @@
     </div>
   </section>
 
-  <!-- Bottom CTA Section -->
-  <section class="relative z-10 py-12 px-6 max-w-4xl mx-auto text-center">
-    <div class="glass-card p-8 sm:p-10 rounded-2xl border border-white/10 relative overflow-hidden">
-      <h3 class="text-2xl font-bold text-white font-mono mb-2">Ready to Start Your Journey?</h3>
-      <p class="text-slate-400 text-sm max-w-xl mx-auto mb-6">
-        No formal application or prerequisites required to attend workshops. Pick an upcoming session or explore our pillar tracks.
-      </p>
-      <div class="flex flex-wrap justify-center gap-4 font-mono text-xs font-semibold">
-        <a href="../pillars/index.html" class="px-5 py-2.5 rounded-lg bg-brand-cyan text-brand-bg hover:bg-brand-cyan/90 transition-all shadow-lg shadow-brand-cyan/10">
-          EXPLORE 5 PILLARS →
-        </a>
-        <a href="../launch/index.html" class="px-5 py-2.5 rounded-lg bg-white/5 text-white hover:bg-white/10 border border-white/10 transition-all">
-          JOIN COMPUTEX
-        </a>
-      </div>
-    </div>
-  </section>
-
   <!-- Footer -->
-  <footer class="relative z-10 border-t border-white/5 py-8 text-center font-mono text-xs text-slate-500">
+  <footer class="relative z-10 border-t border-white/5 py-8 text-center font-mono text-xs text-slate-500 mt-16">
     <p>© 2026 ComputeX @ University of Michigan. Built for the future.</p>
   </footer>
 
