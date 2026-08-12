@@ -254,7 +254,7 @@
 
     </div>
   </section>
-  <!-- INTERDISCIPLINARY MATRIX SECTION -->
+ <!-- INTERDISCIPLINARY MATRIX SECTION -->
 <section class="relative z-10 py-16 px-6 max-w-5xl mx-auto">
   <div class="glass-card p-6 sm:p-8 rounded-2xl border border-white/10">
     
@@ -288,7 +288,7 @@
       </div>
 
       <!-- Center Display Box (Occupies the Matrix Space) -->
-      <div id="matrix-display-card" class="bg-black/50 p-6 rounded-xl border border-white/10 font-mono relative overflow-hidden min-h-[220px] transition-all duration-300">
+      <div id="matrix-display-card" class="bg-black/50 p-6 rounded-xl border border-white/10 font-mono relative overflow-hidden min-h-[240px] transition-all duration-300">
         <!-- Dynamic content injects here -->
       </div>
 
@@ -301,90 +301,247 @@
 <script>
   const domains = ['TECH', 'BUSINESS', 'HEALTH', 'ART', 'ETHICS'];
   
-  // Matrix Dataset
+  // Track toggle view per card: 'giant' or 'frontier'
+  let currentCardView = 'giant';
+
+  // Comprehensive 10-Intersection Matrix Dataset
   const matrixData = {
+    // 1. HEALTH x TECH
     'HEALTH-TECH': {
-      tag: '[ SPOTLIGHT: NEUROTECH & BIOLOGICAL COMPUTING ]',
-      title: 'Cortical Labs // DishBrain',
-      description: 'Biological computing in action: Synthetic biology meets silicon microelectrode arrays. In vitro human and mouse brain cells integrated into hardware, learning to play Pong via real-time electrophysiological feedback loops.',
-      sub: 'Domains: Electrophysiology • Biological Systems • Neural ML',
+      p1: 'Health + Medicine',
+      p2: 'Tech + Engineering',
       link: '/pillars#health',
-      color: 'text-brand-emerald'
-    },
-    'ART-ETHICS': {
-      tag: '[ SPOTLIGHT: CREATIVE TECH & DATA PRIVACY ]',
-      title: 'University of Chicago // Nightshade & Glaze',
-      description: 'Adversarial machine learning tools designed for artists that subtly modify pixels to poison AI training scrapers without altering visual artwork for human eyes.',
-      sub: 'Domains: Generative Media • AI Policy • Adversarial ML',
-      link: '/pillars#art',
-      color: 'text-brand-magenta'
-    },
-    'BUSINESS-HEALTH': {
-      tag: '[ SPOTLIGHT: PRECISION ONCOLOGY DATA ]',
-      title: 'Tempus AI // Health Infrastructure',
-      description: 'Building massive multimodal clinical data pipelines and machine learning infrastructure to assist oncologists in tailoring personalized cancer treatments.',
-      sub: 'Domains: Health Data Science • Biotech • Commercial Infrastructure',
-      link: '/pillars#business',
-      color: 'text-brand-amber'
-    },
-    'ART-TECH': {
-      tag: '[ SPOTLIGHT: REAL-TIME GRAPHICS ENGINE ]',
-      title: 'Unreal Engine 5 // Nanite Geometry',
-      description: 'Computer graphics algorithms enabling real-time rendering of film-quality 3D geometry and procedural environments for digital cinema and interactive games.',
-      sub: 'Domains: 3D Graphics • Game Engine Dev • Procedural Code',
-      link: '/pillars#art',
-      color: 'text-brand-magenta'
-    },
-    'BUSINESS-ETHICS': {
-      tag: '[ SPOTLIGHT: ZERO-KNOWLEDGE CRYPTOGRAPHY ]',
-      title: 'Worldcoin // Zero-Knowledge Identity',
-      description: 'Using custom biometrics and zk-SNARK proof cryptography to verify human identity online without exposing or storing personal biometric data.',
-      sub: 'Domains: Cryptography • Tech Policy • Fintech',
-      link: '/pillars#ethics',
-      color: 'text-brand-purple'
+      giant: {
+        badge: 'THE TECH GIANT',
+        badgeColor: 'text-brand-cyan bg-brand-cyan/10 border-brand-cyan/30',
+        name: 'Apple',
+        desc: 'Using the Apple Watch for consumer biosignal tracking, detecting conditions like atrial fibrillation, and building software infrastructure for decentralized clinical research.',
+        toggleMsg: 'Flip the script to explore the cutting edge',
+        url: 'https://www.apple.com/healthcare/'
+      },
+      frontier: {
+        badge: 'SCI-FI CUTTING-EDGE',
+        badgeColor: 'text-brand-magenta bg-brand-magenta/10 border-brand-magenta/30',
+        name: 'Neuralink',
+        desc: 'Elon Musk’s neurotechnology firm building implantable brain-computer interfaces (BCIs). Their surgical robot embeds flexible electrode threads directly into the motor cortex, allowing paralyzed patients to control digital devices entirely with their thoughts.',
+        toggleMsg: 'Swap the pillars to see who\'s scaling this globally',
+        url: 'https://neuralink.com/'
+      }
     },
 
-    // EASTER EGGS FOR SAME-DOMAIN SELECTION 🥚
-    'TECH-TECH': {
-      tag: '[ MONO_DOMAIN_DETECTED // EASTER_EGG ]',
-      title: 'Tech × Tech = Pure Computer Science',
-      description: 'Hmm... that’s just pure CS! We love compilers and operating systems, but this platform is built for the magic that happens when you take code out of its silo.',
-      sub: 'Status: Single domain selected. Try combining Tech with Health or Art!',
-      link: '/pillars#tech',
-      color: 'text-brand-cyan'
-    },
-    'HEALTH-HEALTH': {
-      tag: '[ MONO_DOMAIN_DETECTED // EASTER_EGG ]',
-      title: 'Health × Health = Standard Clinical Practice',
-      description: 'Standard clinical rounds! Pair medicine with data pipelines or bio-sensors, and now you’re building future-ready computational medicine.',
-      sub: 'Status: Single domain selected. Try combining Health with Tech or Business!',
+    // 2. HEALTH x BUSINESS
+    'HEALTH-BUSINESS': {
+      p1: 'Health + Medicine',
+      p2: 'Business + Strategy',
       link: '/pillars#health',
-      color: 'text-brand-emerald'
+      giant: {
+        badge: 'THE TECH GIANT',
+        badgeColor: 'text-brand-cyan bg-brand-cyan/10 border-brand-cyan/30',
+        name: 'Epic Systems',
+        desc: 'The healthcare database monolith powering over 250 million patient records. They combine massive relational SQL databases with machine learning to streamline clinical logistics, manage enterprise billing, and optimize hospital capacity.',
+        toggleMsg: 'Flip the script to explore the cutting edge',
+        url: 'https://www.epic.com/'
+      },
+      frontier: {
+        badge: 'SCI-FI CUTTING-EDGE',
+        badgeColor: 'text-brand-magenta bg-brand-magenta/10 border-brand-magenta/30',
+        name: 'Insilico Medicine',
+        desc: 'A company using generative AI pipelines to compress the business of drug discovery. They can design, synthesize, and visually analyze a brand-new molecule to target specific diseases, shrinking a multi-billion-dollar, decade-long clinical strategy into a matter of months.',
+        toggleMsg: 'Swap the pillars to see who\'s scaling this globally',
+        url: 'https://www.insilicomedicine.com/'
+      }
     },
-    'ART-ART': {
-      tag: '[ MONO_DOMAIN_DETECTED // EASTER_EGG ]',
-      title: 'Art × Art = Pure Fine Arts Gallery',
-      description: 'A pure gallery space! Beautiful, but add creative coding or UI systems and suddenly you’re crafting interactive generative digital worlds.',
-      sub: 'Status: Single domain selected. Try combining Art with Tech or Ethics!',
-      link: '/pillars#art',
-      color: 'text-brand-magenta'
+
+    // 3. HEALTH x ART
+    'HEALTH-ART': {
+      p1: 'Health + Medicine',
+      p2: 'Art + Design',
+      link: '/pillars#health',
+      giant: {
+        badge: 'THE TECH GIANT',
+        badgeColor: 'text-brand-cyan bg-brand-cyan/10 border-brand-cyan/30',
+        name: 'Philips Healthcare',
+        desc: 'Redesigning the visual and sensory patient experience. They craft complex interactive medical user interfaces and use generative 3D lighting/graphics (Ambient Experience) to make high-stress clinical environments (like MRI suites) deeply calming.',
+        toggleMsg: 'Flip the script to explore the cutting edge',
+        url: 'https://www.philips.com/healthcare'
+      },
+      frontier: {
+        badge: 'SCI-FI CUTTING-EDGE',
+        badgeColor: 'text-brand-magenta bg-brand-magenta/10 border-brand-magenta/30',
+        name: 'BrainGate (Generative Art)',
+        desc: 'Mapping neural biosignals directly to digital art software and visual interfaces. Paralyzed individuals utilize these BCI setups to render high-resolution generative digital artwork using strictly their focused cognitive intent.',
+        toggleMsg: 'Swap the pillars to see who\'s scaling this globally',
+        url: 'https://www.braingate.org/'
+      }
     },
-    'BUSINESS-BUSINESS': {
-      tag: '[ MONO_DOMAIN_DETECTED // EASTER_EGG ]',
-      title: 'Business × Business = Corporate Boardroom',
-      description: 'Sounds like a 50-page pitch deck meeting! Pair strategy with deeptech or digital health to launch an actual disruptive product.',
-      sub: 'Status: Single domain selected. Try combining Business with Health or Tech!',
+
+    // 4. HEALTH x ETHICS
+    'HEALTH-ETHICS': {
+      p1: 'Health + Medicine',
+      p2: 'Ethics + Impact',
+      link: '/pillars#health',
+      giant: {
+        badge: 'THE TECH GIANT',
+        badgeColor: 'text-brand-cyan bg-brand-cyan/10 border-brand-cyan/30',
+        name: 'Microsoft Azure Healthcare',
+        desc: 'Auditing massive cloud diagnostics tools to guarantee data compliance (HIPAA/HITRUST), secure handling of private genomic data, and eliminate racial or socio-economic bias embedded within historical hospital datasets.',
+        toggleMsg: 'Flip the script to explore the cutting edge',
+        url: 'https://azure.microsoft.com/en-us/services/healthcare/'
+      },
+      frontier: {
+        badge: 'SCI-FI CUTTING-EDGE',
+        badgeColor: 'text-brand-magenta bg-brand-magenta/10 border-brand-magenta/30',
+        name: 'Cradle',
+        desc: 'A biology platform utilizing generative AI to design synthetic proteins. Because modifying life forms sits at a massive ethical crossroads, they build rigorous programmatic guardrails directly into their software to ensure safety, biological transparency, and biosecurity.',
+        toggleMsg: 'Swap the pillars to see who\'s scaling this globally',
+        url: 'https://www.cradlebio.com/'
+      }
+    },
+
+    // 5. TECH x BUSINESS
+    'TECH-BUSINESS': {
+      p1: 'Tech + Engineering',
+      p2: 'Business + Strategy',
+      link: '/pillars#tech',
+      giant: {
+        badge: 'THE TECH GIANT',
+        badgeColor: 'text-brand-cyan bg-brand-cyan/10 border-brand-cyan/30',
+        name: 'Amazon Web Services (AWS)',
+        desc: 'The global backbone of industrial cloud infrastructure. AWS combines advanced backend engineering with enterprise analytics tools to manage the global supply chains, databases, and financial systems of millions of businesses.',
+        toggleMsg: 'Flip the script to explore the cutting edge',
+        url: 'https://aws.amazon.com/'
+      },
+      frontier: {
+        badge: 'SCI-FI CUTTING-EDGE',
+        badgeColor: 'text-brand-magenta bg-brand-magenta/10 border-brand-magenta/30',
+        name: 'Boston Dynamics',
+        desc: 'Melding intricate robotics engineering with modern warehouse business strategy. Their autonomous humanoid and quadruped robots are leaving laboratories and entering real enterprise environments to execute complex logistics, heavy lifting, and facility surveillance.',
+        toggleMsg: 'Swap the pillars to see who\'s scaling this globally',
+        url: 'https://www.bostondynamics.com/'
+      }
+    },
+
+    // 6. TECH x ART
+    'TECH-ART': {
+      p1: 'Tech + Engineering',
+      p2: 'Art + Design',
+      link: '/pillars#tech',
+      giant: {
+        badge: 'THE TECH GIANT',
+        badgeColor: 'text-brand-cyan bg-brand-cyan/10 border-brand-cyan/30',
+        name: 'NVIDIA',
+        desc: 'The undisputed king of blending hardware with visual design. They build the GPU architecture and Omniverse simulation engines that allow engineers to construct hyper-realistic 3D graphics, generative virtual worlds, and digital twins.',
+        toggleMsg: 'Flip the script to explore the cutting edge',
+        url: 'https://www.nvidia.com/'
+      },
+      frontier: {
+        badge: 'SCI-FI CUTTING-EDGE',
+        badgeColor: 'text-brand-magenta bg-brand-magenta/10 border-brand-magenta/30',
+        name: 'Looking Glass Factory',
+        desc: 'Shifting interactive digital interfaces away from flat screens. They build advanced holographic light-field displays that allow users to view and interact with 3D generative art and architectural assets in real, physical space without wearing a headset.',
+        toggleMsg: 'Swap the pillars to see who\'s scaling this globally',
+        url: 'https://lookingglassfactory.com/'
+      }
+    },
+
+    // 7. TECH x ETHICS
+    'TECH-ETHICS': {
+      p1: 'Tech + Engineering',
+      p2: 'Ethics + Impact',
+      link: '/pillars#tech',
+      giant: {
+        badge: 'THE TECH GIANT',
+        badgeColor: 'text-brand-cyan bg-brand-cyan/10 border-brand-cyan/30',
+        name: 'IBM',
+        desc: 'A pioneer in enterprise data auditing. Their software suites actively scan enterprise cloud setups and algorithmic codebases to ensure technical systems conform to global privacy frameworks and do not drift into discriminatory biases.',
+        toggleMsg: 'Flip the script to explore the cutting edge',
+        url: 'https://www.ibm.com/'
+      },
+      frontier: {
+        badge: 'SCI-FI CUTTING-EDGE',
+        badgeColor: 'text-brand-magenta bg-brand-magenta/10 border-brand-magenta/30',
+        name: 'World (formerly Worldcoin)',
+        desc: 'Co-founded by Sam Altman, this project addresses the threat of AI bots overtaking digital networks. They manufacture a hardware biometric orb that scans human irises to create an anonymized, un-hackable "Proof of Personhood" digital identity framework.',
+        toggleMsg: 'Swap the pillars to see who\'s scaling this globally',
+        url: 'https://www.worldcoin.org/'
+      }
+    },
+
+    // 8. BUSINESS x ART
+    'BUSINESS-ART': {
+      p1: 'Business + Strategy',
+      p2: 'Art + Design',
       link: '/pillars#business',
-      color: 'text-brand-amber'
+      giant: {
+        badge: 'THE TECH GIANT',
+        badgeColor: 'text-brand-cyan bg-brand-cyan/10 border-brand-cyan/30',
+        name: 'Adobe',
+        desc: 'Merging creative UI/UX with corporate strategy. Their Firefly generative models provide enterprises with commercially safe creative assets, allowing global brands to dynamically spin up targeted marketing materials at scale.',
+        toggleMsg: 'Flip the script to explore the cutting edge',
+        url: 'https://www.adobe.com/'
+      },
+      frontier: {
+        badge: 'SCI-FI CUTTING-EDGE',
+        badgeColor: 'text-brand-magenta bg-brand-magenta/10 border-brand-magenta/30',
+        name: 'Raspberry AI / Style3D',
+        desc: 'Generative AI engines disrupting the physical apparel business. Instead of spending months cutting physical fabric and running expensive photoshoots, apparel brands use these tools to turn 2D sketches into photorealistic 3D virtual drapes and pattern tech packs.',
+        toggleMsg: 'Swap the pillars to see who\'s scaling this globally',
+        url: 'https://www.raspberryai.com/'
+      }
     },
-    'ETHICS-ETHICS': {
-      tag: '[ MONO_DOMAIN_DETECTED // EASTER_EGG ]',
-      title: 'Ethics × Ethics = Pure Philosophy Seminar',
-      description: 'Deep theoretical debate! Combine ethics with AI systems or tech strategy to actively build privacy-preserving software.',
-      sub: 'Status: Single domain selected. Try combining Ethics with Tech or Business!',
-      link: '/pillars#ethics',
-      color: 'text-brand-purple'
-    }
+
+    // 9. BUSINESS x ETHICS
+    'BUSINESS-ETHICS': {
+      p1: 'Business + Strategy',
+      p2: 'Ethics + Impact',
+      link: '/pillars#business',
+      giant: {
+        badge: 'THE TECH GIANT',
+        badgeColor: 'text-brand-cyan bg-brand-cyan/10 border-brand-cyan/30',
+        name: 'Palantir Technologies',
+        desc: 'Deployed by financial giants and governments to query complex databases. They provide strict internal software frameworks ensuring that multi-layered data analysis remains auditable, secure, and compliant with national security laws.',
+        toggleMsg: 'Flip the script to explore the cutting edge',
+        url: 'https://www.palantir.com/'
+      },
+      frontier: {
+        badge: 'SCI-FI CUTTING-EDGE',
+        badgeColor: 'text-brand-magenta bg-brand-magenta/10 border-brand-magenta/30',
+        name: 'Hugging Face',
+        desc: 'The central hub for open-source AI models. They provide the enterprise community with the testing databases and evaluation infrastructure needed to audit new machine learning models for bias, corporate compliance, and data fairness before deployment.',
+        toggleMsg: 'Swap the pillars to see who\'s scaling this globally',
+        url: 'https://huggingface.co/'
+      }
+    },
+
+    // 10. ART x ETHICS
+    'ART-ETHICS': {
+      p1: 'Art + Design',
+      p2: 'Ethics + Impact',
+      link: '/pillars#art',
+      giant: {
+        badge: 'THE TECH GIANT',
+        badgeColor: 'text-brand-cyan bg-brand-cyan/10 border-brand-cyan/30',
+        name: 'Getty Images',
+        desc: 'Re-imagining creative interfaces by launching strictly ethical generative art tools. Their commercial AI generation models are trained entirely on licensed content, ensuring human creators are fairly compensated and protected from intellectual property theft.',
+        toggleMsg: 'Flip the script to explore the cutting edge',
+        url: 'https://www.gettyimages.com/'
+      },
+      frontier: {
+        badge: 'SCI-FI CUTTING-EDGE',
+        badgeColor: 'text-brand-magenta bg-brand-magenta/10 border-brand-magenta/30',
+        name: 'Holly Herndon / Holly+',
+        desc: 'An avant-garde artist creating deep tech digital art. She built an AI clone of her own voice ("Holly+"), allowing anyone to upload audio files and have her voice interpret it, exploring how artists retain ownership and license their digital likeness.',
+        toggleMsg: 'Swap the pillars to see who\'s scaling this globally',
+        url: 'https://www.hollyherndon.com/'
+      }
+    },
+
+    // EASTER EGGS FOR SAME-DOMAIN SELECTIONS 🥚
+    'TECH-TECH': { isEgg: true, p1: 'Tech + Engineering', p2: 'Tech + Engineering', name: 'Tech × Tech = Pure Computer Science', desc: 'Hmm... that’s just pure CS! We love compilers and operating systems, but this platform is built for the magic that happens when you take code out of its silo.' },
+    'HEALTH-HEALTH': { isEgg: true, p1: 'Health + Medicine', p2: 'Health + Medicine', name: 'Health × Health = Standard Clinical Practice', desc: 'Standard clinical rounds! Pair medicine with data pipelines or bio-sensors, and now you’re building future-ready computational medicine.' },
+    'ART-ART': { isEgg: true, p1: 'Art + Design', p2: 'Art + Design', name: 'Art × Art = Pure Fine Arts Gallery', desc: 'A pure gallery space! Beautiful, but add creative coding or UI systems and suddenly you’re crafting interactive generative digital worlds.' },
+    'BUSINESS-BUSINESS': { isEgg: true, p1: 'Business + Strategy', p2: 'Business + Strategy', name: 'Business × Business = Corporate Boardroom', desc: 'Sounds like a 50-page pitch deck meeting! Pair strategy with deeptech or digital health to launch an actual disruptive product.' },
+    'ETHICS-ETHICS': { isEgg: true, p1: 'Ethics + Impact', p2: 'Ethics + Impact', name: 'Ethics × Ethics = Pure Philosophy Seminar', desc: 'Deep theoretical debate! Combine ethics with AI systems or tech strategy to actively build privacy-preserving software.' }
   };
 
   // Defaults: Y = HEALTH, X = TECH
@@ -403,7 +560,7 @@
       const isSelected = activeX === domain;
       const btn = document.createElement('button');
       btn.type = 'button';
-      btn.onclick = () => { activeX = domain; renderAxisButtons(); };
+      btn.onclick = () => { activeX = domain; currentCardView = 'giant'; renderAxisButtons(); };
       btn.className = `py-2 px-1 rounded font-mono text-[10px] sm:text-xs tracking-wider transition-all cursor-pointer border ${
         isSelected 
           ? 'bg-brand-cyan text-black border-brand-cyan font-bold shadow-lg shadow-brand-cyan/20' 
@@ -418,7 +575,7 @@
       const isSelected = activeY === domain;
       const btn = document.createElement('button');
       btn.type = 'button';
-      btn.onclick = () => { activeY = domain; renderAxisButtons(); };
+      btn.onclick = () => { activeY = domain; currentCardView = 'giant'; renderAxisButtons(); };
       btn.className = `py-2 px-2 rounded font-mono text-[10px] sm:text-xs tracking-wider transition-all cursor-pointer border text-left ${
         isSelected 
           ? 'bg-brand-cyan text-black border-brand-cyan font-bold shadow-lg shadow-brand-cyan/20' 
@@ -431,37 +588,104 @@
     renderDisplayCard();
   }
 
+  function handleMatrixToggle() {
+    // 1. Swap current view state (Giant <-> Frontier)
+    currentCardView = (currentCardView === 'giant') ? 'frontier' : 'giant';
+
+    // 2. Physical Axis Swap (Swap activeX and activeY)
+    const temp = activeX;
+    activeX = activeY;
+    activeY = temp;
+
+    // 3. Re-render Axis Buttons & Card
+    renderAxisButtons();
+  }
+
   function renderDisplayCard() {
     const card = document.getElementById('matrix-display-card');
     const pairLabel = document.getElementById('active-pair-label');
     
-    // Support symmetric lookup
+    // Support bidirectional lookup (e.g. HEALTH-TECH or TECH-HEALTH)
     const key = `${activeY}-${activeX}`;
     const altKey = `${activeX}-${activeY}`;
-    
-    const data = matrixData[key] || matrixData[altKey] || {
-      tag: '[ EXPLORING INTERSECTION ]',
-      title: `${activeY} × ${activeX} Cross-Section`,
-      description: `Analyzing practical projects and technical innovations at the convergence of ${activeY} and ${activeX}.`,
-      sub: `Domains: ${activeY} • ${activeX}`,
-      link: '/pillars',
-      color: 'text-brand-cyan'
-    };
+    const data = matrixData[key] || matrixData[altKey];
 
     pairLabel.innerText = `${activeY} × ${activeX}`;
+    
+    // 1. Handle Easter Egg (Mono-Domain) Case
+    if (data && data.isEgg) {
+      card.innerHTML = `
+        <div class="flex items-center justify-between mb-2 font-mono text-xs">
+          <span class="text-brand-cyan">// MONO_DOMAIN</span>
+          <span class="px-2 py-0.5 rounded border text-[10px] font-semibold text-slate-400 bg-white/5 border-white/10">EASTER EGG</span>
+        </div>
+        <h4 class="text-lg font-bold text-white">${data.p1}</h4>
+        <hr class="border-t border-dashed border-white/10 my-3" />
+        <h5 class="text-base font-bold text-brand-cyan mb-2">${data.name}</h5>
+        <p class="text-xs text-slate-300 leading-relaxed mb-4">${data.desc}</p>
+      `;
+      return;
+    }
+
+    // 2. Handle Standard Intersection Case
+    const viewData = data[currentCardView];
+
+    // Identify which title corresponds to activeY vs activeX dynamically
+    const yTitle = (data.p1.toUpperCase().includes(activeY)) ? data.p1 : data.p2;
+    const xTitle = (yTitle === data.p1) ? data.p2 : data.p1;
+
+    const targetUrl = viewData.url || '#';
 
     card.innerHTML = `
-      <div class="text-xs ${data.color} mb-1.5 font-bold">${data.tag}</div>
-      <h5 class="text-xl font-bold text-white mb-2 font-sans">${data.title}</h5>
-      <p class="text-xs text-slate-300 font-sans leading-relaxed mb-4">${data.description}</p>
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs pt-3 border-t border-white/10">
-        <span class="text-slate-500">${data.sub}</span>
-        <a href="${data.link}" class="text-brand-cyan underline hover:text-white transition-colors">Explore Domain in Pillars →</a>
+      <!-- Top Bar: Index & View Badge -->
+      <div class="flex items-center justify-between mb-2 font-mono text-xs">
+        <span class="text-brand-cyan">// INTERSECTION</span>
+        <span class="px-2 py-0.5 rounded border text-[10px] font-semibold tracking-wider ${viewData.badgeColor} transition-all">
+          ${viewData.badge}
+        </span>
       </div>
+
+      <!-- Pillar Titles -->
+      <h4 class="text-lg font-bold text-white font-sans">${yTitle}</h4>
+      <div class="text-xs font-mono text-slate-400 mb-1">&amp; ${xTitle}</div>
+      
+      <!-- Separator -->
+      <hr class="border-t border-dashed border-white/10 my-3" />
+
+      <!-- Company Name + Custom Link Pill -->
+      <div class="transition-opacity duration-200">
+        <div class="flex items-center justify-between gap-2 mb-2 flex-wrap">
+          <h5 class="text-xl font-bold text-white tracking-wide font-sans">${viewData.name}</h5>
+          
+          <!-- CUSTOM LINK PILL BUTTON -->
+          <a 
+            href="${targetUrl}" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-brand-cyan/10 border border-brand-cyan/30 text-brand-cyan text-[11px] font-mono hover:bg-brand-cyan hover:text-black hover:border-brand-cyan transition-all duration-200 group/pill shadow-sm"
+          >
+            <span>Find Out More</span>
+            <span class="text-[10px] transition-transform duration-200 group-hover/pill:translate-x-0.5 group-hover/pill:-translate-y-0.5">↗</span>
+          </a>
+        </div>
+
+        <p class="text-xs text-slate-300 font-sans leading-relaxed min-h-[55px] mb-4">${viewData.desc}</p>
+      </div>
+
+      <!-- Interactive Switch Button -->
+      <button 
+        onclick="handleMatrixToggle()" 
+        class="w-full py-2 px-3 rounded-lg bg-white/5 border border-white/10 text-slate-300 text-xs font-mono flex items-center justify-between group hover:border-brand-cyan/50 hover:bg-white/10 hover:text-white transition-all active:scale-[0.98]"
+      >
+        <span class="flex items-center gap-2">
+          <span class="text-brand-cyan group-hover:rotate-180 transition-transform duration-300">⇄</span>
+          <span>${viewData.toggleMsg}</span>
+        </span>
+        <span class="text-[10px] text-slate-500 uppercase tracking-widest group-hover:text-brand-cyan">SWAP</span>
+      </button>
     `;
   }
 
-  // Initialize layout on load
   document.addEventListener('DOMContentLoaded', renderAxisButtons);
 </script>
   <!-- What We Do / Activities -->
