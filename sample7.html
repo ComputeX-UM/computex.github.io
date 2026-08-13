@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ComputeX | Interdisciplinary Computing Society</title>
+
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Inter"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            canvas: '#0B0C10',
+            cardBg: '#13151C',
+            cardHover: '#1A1D26',
+            editorBg: '#181A22',
+            accentCyan: '#00D2FF',
+            accentTeal: '#2DD4BF',
+            accentPurple: '#7928CA',
+            accentIndigo: '#818CF8',
+            accentPink: '#E879F9',
+            borderOutline: 'rgba(255, 255, 255, 0.12)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #0B0C10;
+      color: #F1F5F9;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Ambient Glow Effects */
+    .glow-blob-1 {
+      position: absolute;
+      width: 550px;
+      height: 550px;
+      background: radial-gradient(circle, rgba(121, 40, 202, 0.35) 0%, rgba(0, 210, 255, 0.20) 45%, rgba(11, 12, 16, 0) 70%);
+      filter: blur(70px);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .glow-blob-2 {
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(0, 210, 255, 0.30) 0%, rgba(45, 212, 191, 0.15) 50%, rgba(11, 12, 16, 0) 70%);
+      filter: blur(80px);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* Glassmorphic Card Borders */
+    .glass-card {
+      background: rgba(19, 21, 28, 0.85);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+  </style>
+</head>
+
+<body class="min-h-screen relative text-slate-200">
+
+  <!-- TOP MASTHEAD TICKER -->
+  <div class="border-b border-white/10 bg-[#07080a] py-2 text-[11px] font-mono text-gray-400">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-2">
+      <div class="flex items-center gap-2">
+        <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span>Vol. I — University of Michigan, Ann Arbor</span>
+      </div>
+      <div class="flex gap-4">
+        <span>Program in Computing for the Arts & Sciences Affiliated</span>
+        <span class="text-gray-500">|</span>
+        <span class="text-accentCyan">Autumn Term 2026</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVIGATION HEADER -->
+  <header class="sticky top-0 z-50 bg-[#0B0C10]/80 backdrop-blur-md border-b border-white/5">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center text-sm">
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-8 h-8 rounded-full border-2 border-accentCyan/80 group-hover:border-accentCyan border-t-transparent flex items-center justify-center transition-all">
+          <div class="w-2.5 h-2.5 rounded-full bg-accentCyan"></div>
+        </div>
+        <span class="font-bold text-xl tracking-tight text-white uppercase">Compute<span class="text-accentCyan">X</span></span>
+      </a>
+
+      <nav class="hidden lg:flex items-center gap-8 text-gray-300 font-normal text-xs tracking-wider uppercase">
+        <a href="#manifesto" class="hover:text-accentCyan transition-colors">Manifesto</a>
+        <a href="#pillars" class="hover:text-accentCyan transition-colors">Five Pillars</a>
+        <a href="#workshops" class="hover:text-accentCyan transition-colors">Workshop Index</a>
+        <a href="#matrix" class="hover:text-accentCyan transition-colors">Synthesis Matrix</a>
+        <a href="#fellows" class="hover:text-accentCyan transition-colors">Fellows</a>
+      </nav>
+
+      <div class="flex items-center gap-4">
+        <button onclick="toggleModal('pcas-modal', true)" class="hidden sm:block text-xs text-gray-400 hover:text-white transition-colors">
+          [pcas affiliation]
+        </button>
+        <button onclick="toggleModal('register-modal', true)" class="border border-white/60 hover:border-accentCyan hover:text-accentCyan px-5 py-2 rounded-sm text-xs text-white uppercase tracking-wider font-medium transition-all">
+          Register Interest
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO & MAIN SECTION -->
+  <main class="relative z-10 max-w-7xl mx-auto px-6 pt-12 pb-24 space-y-32">
+
+    <!-- Ambient Glow Placement -->
+    <div class="glow-blob-1 top-10 left-[20%]"></div>
+    <div class="glow-blob-2 top-[40%] right-[5%]"></div>
+
+    <!-- HERO SECTION -->
+    <section id="manifesto" class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start relative z-10">
+
+      <!-- LEFT COLUMN: TITLE & MANIFESTO -->
+      <div class="lg:col-span-5 space-y-8 pt-4">
+        <div class="space-y-3">
+          <span class="text-xs font-mono text-accentCyan uppercase tracking-widest">Interdisciplinary Computing Guild</span>
+          <h1 class="text-5xl sm:text-6xl font-light tracking-tight leading-[1.1] text-white">
+            dissolving <br/>
+            <span class="font-bold text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-accentCyan">domain borders.</span>
+          </h1>
+        </div>
+
+        <p class="text-gray-400 text-sm leading-relaxed max-w-md font-light">
+          ComputeX is an open academic sanctuary at the University of Michigan holding that programming is not merely a vocational skill, but a fundamentally human medium for critical thought, medical research, fine art, and economic policy.
+        </p>
+
+        <div class="flex items-center gap-4 pt-2">
+          <button onclick="toggleModal('register-modal', true)" class="border border-accentCyan bg-accentCyan/10 hover:bg-accentCyan hover:text-canvas px-6 py-3 rounded-sm text-xs text-accentCyan uppercase tracking-wider font-semibold transition-all">
+            Join the Guild
+          </button>
+          <a href="#pillars" class="text-xs text-gray-400 hover:text-white transition-colors uppercase tracking-wider">
+            Explore Pillars ↓
+          </a>
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN: FLOATING LIVE CODE EDITOR -->
+      <div class="lg:col-span-7 relative">
+        <div class="bg-editorBg/90 backdrop-blur-md rounded-lg border border-white/10 shadow-2xl p-5 font-mono text-xs text-gray-300 relative z-20 overflow-hidden">
+          
+          <!-- Window Controls Header -->
+          <div class="flex justify-between items-center mb-4 pb-3 border-b border-white/10">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-red-500/80 inline-block"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-yellow-500/80 inline-block"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-green-500/80 inline-block"></span>
+            </div>
+            <span class="text-[10px] text-gray-500">eeg_biosignal_pipeline.py — ComputeX Research Lab</span>
+          </div>
+
+          <!-- Code Content (Python Biosignal Processing) -->
+          <div class="space-y-1.5 leading-relaxed overflow-x-auto text-[11px]">
+            <p><span class="text-accentPink">import</span> mne</p>
+            <p><span class="text-accentPink">import</span> numpy <span class="text-accentPink">as</span> np</p>
+            <p><span class="text-accentPink">from</span> sklearn.ensemble <span class="text-accentPink">import</span> RandomForestClassifier</p>
+
+            <p class="text-gray-500 pt-2"># Load raw cortical sleep EEG from Sleep-EDF database</p>
+            <p><span class="text-accentCyan">raw</span> = mne.io.read_raw_edf(<span class="text-emerald-300">"S001_EEG_cortical.edf"</span>, preload=<span class="text-accentIndigo">True</span>)</p>
+            <p><span class="text-accentCyan">raw</span>.filter(l_freq=<span class="text-accentIndigo">0.5</span>, h_freq=<span class="text-accentIndigo">30.0</span>)</p>
+
+            <p class="text-gray-500 pt-2"># Extract epochs for interdisciplinary analysis</p>
+            <p><span class="text-accentCyan">events</span>, <span class="text-accentCyan">event_id</span> = mne.events_from_annotations(raw)</p>
+            <p><span class="text-accentCyan">epochs</span> = mne.Epochs(raw, events, event_id, tmin=-<span class="text-accentIndigo">0.2</span>, tmax=<span class="text-accentIndigo">0.8</span>)</p>
+
+            <p class="text-gray-500 pt-2"># Synthesize feature vectors across Health + Tech domains</p>
+            <p><span class="text-accentCyan">features</span> = np.mean(epochs.get_data(), axis=-<span class="text-accentIndigo">1</span>)</p>
+            <p>print(<span class="text-emerald-300">f"[ComputeX] Processed {len(features)} neural epochs successfully."</span>)</p>
+          </div>
+
+          <!-- Status Bar -->
+          <div class="mt-6 pt-3 border-t border-white/5 flex justify-between items-center text-gray-500 text-[10px]">
+            <span>Kernel: Python 3.11 (mne-python)</span>
+            <div class="flex items-center gap-2">
+              <span class="text-emerald-400">● Active Node</span>
+              <span>2 / 5 Modules</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- OVERLAPPING RECESSED CARD & TRUST PROOF -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mt-[-50px] relative z-20">
+      
+      <!-- RECESSED DARK CARD -->
+      <div class="lg:col-span-7 glass-card p-8 sm:p-10 rounded-sm shadow-xl space-y-6">
+        <span class="text-xs font-mono text-accentTeal uppercase tracking-widest">Inclusive Literacy</span>
+        <h2 class="text-3xl font-light text-white tracking-tight">
+          Zero Prerequisites. <span class="font-bold text-accentCyan">100% Interdisciplinary.</span>
+        </h2>
+        <p class="text-gray-400 text-xs sm:text-sm leading-relaxed font-light">
+          With zero coding prerequisites, our community welcomes scholars from the College of Literature, Science, and the Arts, College of Engineering, Ross School of Business, Stamps School of Art & Design, and School of Information.
+        </p>
+        <div class="pt-2">
+          <button onclick="toggleModal('pcas-modal', true)" class="text-xs text-white hover:text-accentCyan underline underline-offset-4 font-mono transition-colors">
+            Read PCAS Sponsorship Details →
+          </button>
+        </div>
+      </div>
+
+      <!-- BADGES / ACADEMIC SPONSORSHIP BADGES -->
+      <div class="lg:col-span-5 flex flex-col sm:flex-row lg:flex-col items-start gap-6 pl-0 lg:pl-8 pb-4">
+        <div class="flex items-center gap-4">
+          <div class="w-10 h-10 border border-white/20 bg-cardBg flex items-center justify-center rounded-sm font-bold text-accentCyan text-sm font-mono">
+            M
+          </div>
+          <div>
+            <div class="text-white font-bold text-sm tracking-wide">University of Michigan</div>
+            <div class="text-xs text-gray-400">Sponsored Student Organization</div>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-4">
+          <div class="w-10 h-10 border border-white/20 bg-cardBg flex items-center justify-center rounded-sm text-accentPink font-bold text-xs font-mono">
+            PCAS
+          </div>
+          <div>
+            <div class="text-xs text-gray-400 uppercase tracking-widest">Academic Sponsor</div>
+            <div class="text-white font-bold text-xs tracking-wider">College of LSA Affiliated</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- SECTION: THE FIVE ACADEMIC PILLARS (INTERACTIVE FILTER) -->
+    <section id="pillars" class="space-y-10 pt-12 border-t border-white/10">
+      <div class="flex flex-col md:flex-row justify-between md:items-end gap-4">
+        <div class="space-y-2">
+          <span class="text-xs font-mono text-accentPink uppercase tracking-widest">Organizing Structure</span>
+          <h2 class="text-3xl font-light text-white">The Five <span class="font-bold">Academic Pillars</span></h2>
+          <p class="text-xs text-gray-400 max-w-xl">
+            Click a domain pill below to isolate specific curriculum tracks and analytical tools.
+          </p>
+        </div>
+
+        <!-- Pillar Filters -->
+        <div class="flex flex-wrap gap-2" id="pillar-filters">
+          <button onclick="filterPillars('all')" class="pillar-btn active px-3 py-1.5 rounded-sm border border-accentCyan bg-accentCyan/20 text-accentCyan text-xs font-mono">All Domains</button>
+          <button onclick="filterPillars('Tech')" class="pillar-btn px-3 py-1.5 rounded-sm border border-white/10 hover:border-accentCyan text-gray-400 hover:text-white text-xs font-mono transition-colors">Tech</button>
+          <button onclick="filterPillars('Business')" class="pillar-btn px-3 py-1.5 rounded-sm border border-white/10 hover:border-accentIndigo text-gray-400 hover:text-white text-xs font-mono transition-colors">Business</button>
+          <button onclick="filterPillars('Health')" class="pillar-btn px-3 py-1.5 rounded-sm border border-white/10 hover:border-accentTeal text-gray-400 hover:text-white text-xs font-mono transition-colors">Health</button>
+          <button onclick="filterPillars('Art')" class="pillar-btn px-3 py-1.5 rounded-sm border border-white/10 hover:border-accentPink text-gray-400 hover:text-white text-xs font-mono transition-colors">Art & Design</button>
+          <button onclick="filterPillars('Governance')" class="pillar-btn px-3 py-1.5 rounded-sm border border-white/10 hover:border-gray-400 text-gray-400 hover:text-white text-xs font-mono transition-colors">Governance</button>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6" id="pillars-grid">
+        <!-- Rendered via JavaScript -->
+      </div>
+    </section>
+
+    <!-- SECTION: WORKSHOP & SEMINAR INDEX -->
+    <section id="workshops" class="space-y-8 pt-12 border-t border-white/10">
+      <div class="flex flex-col sm:flex-row justify-between sm:items-end gap-2">
+        <div class="space-y-1">
+          <span class="text-xs font-mono text-accentTeal uppercase tracking-widest">Curriculum Catalogue</span>
+          <h2 class="text-3xl font-light text-white">Workshop & <span class="font-bold">Seminar Registry</span></h2>
+        </div>
+        <span class="text-xs font-mono text-gray-400">Academic Year 2026–2027</span>
+      </div>
+
+      <div class="glass-card rounded-sm overflow-x-auto">
+        <table class="w-full text-left text-xs border-collapse min-w-[650px]">
+          <thead>
+            <tr class="border-b border-white/10 text-gray-400 font-mono">
+              <th class="py-4 px-6">Date</th>
+              <th class="py-4 px-6">Curriculum Module</th>
+              <th class="py-4 px-6">Synthesis Focus</th>
+              <th class="py-4 px-6">Campus Location</th>
+              <th class="py-4 px-6 text-right">Details</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-white/5 font-sans">
+            <tr class="hover:bg-white/5 transition-colors">
+              <td class="py-4 px-6 text-gray-400 font-mono">Sept 14, 2026</td>
+              <td class="py-4 px-6 font-semibold text-white">Biosignal Preprocessing & Neural EEG Analysis</td>
+              <td class="py-4 px-6"><span class="px-2 py-0.5 bg-accentTeal/10 border border-accentTeal/30 text-accentTeal text-[10px] rounded font-mono">Health + Tech</span></td>
+              <td class="py-4 px-6 text-gray-400">Michigan League, Rm 2</td>
+              <td class="py-4 px-6 text-right"><button onclick="showDetails('Biosignal Preprocessing & Neural EEG Analysis', 'Sept 14, 2026', 'Michigan League, Rm 2', 'Hands-on workshop leveraging Python and mne-python to clean, filter, and visualize multi-channel sleep and cortical EEG biosignals.')" class="text-accentCyan hover:underline font-mono">View →</button></td>
+            </tr>
+            <tr class="hover:bg-white/5 transition-colors">
+              <td class="py-4 px-6 text-gray-400 font-mono">Sept 28, 2026</td>
+              <td class="py-4 px-6 font-semibold text-white">Generative Design & Shader Systems in p5.js</td>
+              <td class="py-4 px-6"><span class="px-2 py-0.5 bg-accentPink/10 border border-accentPink/30 text-accentPink text-[10px] rounded font-mono">Art + Tech</span></td>
+              <td class="py-4 px-6 text-gray-400">Stamps Studio B</td>
+              <td class="py-4 px-6 text-right"><button onclick="showDetails('Generative Design in p5.js', 'Sept 28, 2026', 'Stamps Studio B', 'Exploring vector field mathematics, algorithmic canvas manipulation, and custom GLSL fragment shaders for fine art displays.')" class="text-accentCyan hover:underline font-mono">View →</button></td>
+            </tr>
+            <tr class="hover:bg-white/5 transition-colors">
+              <td class="py-4 px-6 text-gray-400 font-mono">Oct 12, 2026</td>
+              <td class="py-4 px-6 font-semibold text-white">Financial Data Pipelines & Enterprise Analytics</td>
+              <td class="py-4 px-6"><span class="px-2 py-0.5 bg-accentIndigo/10 border border-accentIndigo/30 text-accentIndigo text-[10px] rounded font-mono">Business + Tech</span></td>
+              <td class="py-4 px-6 text-gray-400">Ross Hall R1020</td>
+              <td class="py-4 px-6 text-right"><button onclick="showDetails('Financial Data Pipelines', 'Oct 12, 2026', 'Ross Hall R1020', 'Architecting robust SQL and pandas streaming data pipelines to evaluate macroeconomic trends and equity risk.')" class="text-accentCyan hover:underline font-mono">View →</button></td>
+            </tr>
+            <tr class="hover:bg-white/5 transition-colors">
+              <td class="py-4 px-6 text-gray-400 font-mono">Oct 26, 2026</td>
+              <td class="py-4 px-6 font-semibold text-white">Algorithmic Bias Auditing with SHAP & Fairlearn</td>
+              <td class="py-4 px-6"><span class="px-2 py-0.5 bg-gray-500/10 border border-gray-400/30 text-gray-300 text-[10px] rounded font-mono">Governance + Tech</span></td>
+              <td class="py-4 px-6 text-gray-400">Mason Hall 1420</td>
+              <td class="py-4 px-6 text-right"><button onclick="showDetails('Algorithmic Bias Auditing', 'Oct 26, 2026', 'Mason Hall 1420', 'Practical framework for auditing machine learning models for disparate impact and mathematical interpretability.')" class="text-accentCyan hover:underline font-mono">View →</button></td>
+            </tr>
+            <tr class="hover:bg-white/5 transition-colors">
+              <td class="py-4 px-6 text-gray-400 font-mono">Nov 09, 2026</td>
+              <td class="py-4 px-6 font-semibold text-white">Interactive Web Tooling with NiceGUI & Python</td>
+              <td class="py-4 px-6"><span class="px-2 py-0.5 bg-accentCyan/10 border border-accentCyan/30 text-accentCyan text-[10px] rounded font-mono">Tech + Art</span></td>
+              <td class="py-4 px-6 text-gray-400">Shapiro Library 204</td>
+              <td class="py-4 px-6 text-right"><button onclick="showDetails('Interactive Web Tooling', 'Nov 09, 2026', 'Shapiro Library 204', 'Rapid deployment of modern, responsive front-end graphical interfaces using pure Python and custom web styling.')" class="text-accentCyan hover:underline font-mono">View →</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SECTION: INTERDISCIPLINARY SYNTHESIS MATRIX -->
+    <section id="matrix" class="space-y-8 pt-12 border-t border-white/10">
+      <div class="flex flex-col md:flex-row justify-between md:items-end gap-2">
+        <div class="space-y-1">
+          <span class="text-xs font-mono text-accentCyan uppercase tracking-widest">Analytical Interactive Engine</span>
+          <h2 class="text-3xl font-light text-white">Interdisciplinary <span class="font-bold">Synthesis Matrix</span></h2>
+        </div>
+        <span class="text-xs font-mono text-gray-400">Active Axis: <span id="matrix-active-label" class="text-accentCyan font-bold">Health + Tech</span></span>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- MATRIX SELECTOR GRID -->
+        <div class="lg:col-span-5 glass-card p-6 rounded-sm space-y-4">
+          <span class="text-[11px] font-mono text-gray-400 uppercase tracking-wider block">Cross-Domain Intersection Node</span>
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3" id="matrix-nodes">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+
+        <!-- ACTIVE NODE DETAILS DISPLAY -->
+        <div class="lg:col-span-7 glass-card p-8 rounded-sm space-y-6 relative border-l-2 border-l-accentCyan" id="matrix-detail-card">
+          <div class="flex justify-between items-start">
+            <div>
+              <span class="text-xs font-mono text-accentCyan uppercase" id="node-tag">Synthesis Track</span>
+              <h3 class="text-2xl font-bold text-white mt-1" id="node-title">Neural Biosignal Processing</h3>
+            </div>
+            <span class="px-2.5 py-1 text-[10px] font-mono bg-accentCyan/10 text-accentCyan border border-accentCyan/30 rounded" id="node-code">BIO-TECH-01</span>
+          </div>
+
+          <p class="text-gray-300 text-xs sm:text-sm leading-relaxed" id="node-desc">
+            Combining computational neurobiology with electroencephalogram (EEG) signal processing to construct real-time classification engines for cognitive health monitoring.
+          </p>
+
+          <div class="space-y-3 border-t border-white/10 pt-4">
+            <span class="text-[11px] font-mono text-gray-400 uppercase block">Primary Tooling & Methodologies</span>
+            <div class="flex flex-wrap gap-2" id="node-tools">
+              <!-- Rendered by JS -->
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION: FELLOWS & LEADERSHIP -->
+    <section id="fellows" class="space-y-8 pt-12 border-t border-white/10">
+      <div class="flex flex-col sm:flex-row justify-between sm:items-end gap-2">
+        <div class="space-y-1">
+          <span class="text-xs font-mono text-accentPink uppercase tracking-widest">Academic Stewardship</span>
+          <h2 class="text-3xl font-light text-white">Guild Fellows & <span class="font-bold">Faculty Leadership</span></h2>
+        </div>
+        <span class="text-xs font-mono text-gray-400">Michigan Chapter</span>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <div class="glass-card p-6 rounded-sm space-y-4 hover:border-accentCyan/50 transition-colors">
+          <div class="w-12 h-12 rounded-full bg-accentCyan/20 border border-accentCyan/40 flex items-center justify-center font-mono font-bold text-accentCyan text-base">
+            AK
+          </div>
+          <div>
+            <h4 class="text-white font-bold text-sm">Dr. Alex K. Vance</h4>
+            <span class="text-xs text-accentCyan font-mono">Faculty Advisor — LSA / PCAS</span>
+          </div>
+          <p class="text-gray-400 text-xs leading-relaxed">
+            Pioneering research at the intersection of quantitative humanities, algorithmic critique, and digital archival systems.
+          </p>
+        </div>
+
+        <div class="glass-card p-6 rounded-sm space-y-4 hover:border-accentTeal/50 transition-colors">
+          <div class="w-12 h-12 rounded-full bg-accentTeal/20 border border-accentTeal/40 flex items-center justify-center font-mono font-bold text-accentTeal text-base">
+            SR
+          </div>
+          <div>
+            <h4 class="text-white font-bold text-sm">Siddharth Rao</h4>
+            <span class="text-xs text-accentTeal font-mono">Guild Lead — Health Tech</span>
+          </div>
+          <p class="text-gray-400 text-xs leading-relaxed">
+            Biomedical Engineering & Computer Science senior focusing on neural telemetry modeling and open-source biosignal tools.
+          </p>
+        </div>
+
+        <div class="glass-card p-6 rounded-sm space-y-4 hover:border-accentPink/50 transition-colors">
+          <div class="w-12 h-12 rounded-full bg-accentPink/20 border border-accentPink/40 flex items-center justify-center font-mono font-bold text-accentPink text-base">
+            EM
+          </div>
+          <div>
+            <h4 class="text-white font-bold text-sm">Elena Martinez</h4>
+            <span class="text-xs text-accentPink font-mono">Guild Lead — Computational Art</span>
+          </div>
+          <p class="text-gray-400 text-xs leading-relaxed">
+            Stamps School BFA candidate building real-time interactive GLSL shader installations and algorithmic canvas engines.
+          </p>
+        </div>
+
+        <div class="glass-card p-6 rounded-sm space-y-4 hover:border-accentIndigo/50 transition-colors">
+          <div class="w-12 h-12 rounded-full bg-accentIndigo/20 border border-accentIndigo/40 flex items-center justify-center font-mono font-bold text-accentIndigo text-base">
+            JL
+          </div>
+          <div>
+            <h4 class="text-white font-bold text-sm">Jason Lin</h4>
+            <span class="text-xs text-accentIndigo font-mono">Guild Lead — Quantitative Policy</span>
+          </div>
+          <p class="text-gray-400 text-xs leading-relaxed">
+            Ross BBA & Applied Math junior investigating algorithmic fair-lending metrics and macroeconomic data pipelines.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-white/10 bg-[#07080a] py-12 text-xs text-gray-500 font-mono">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+      <div class="space-y-2 text-center md:text-left">
+        <div class="text-white font-bold text-base tracking-tight">Compute<span class="text-accentCyan">X</span></div>
+        <p class="text-gray-400 font-sans max-w-md text-xs">
+          University of Michigan Interdisciplinary Computing Guild. Affiliated with the Program in Computing for the Arts & Sciences (PCAS).
+        </p>
+      </div>
+      <div class="flex gap-6 text-gray-400">
+        <a href="#manifesto" class="hover:text-white transition-colors">Manifesto</a>
+        <a href="#pillars" class="hover:text-white transition-colors">Pillars</a>
+        <a href="#workshops" class="hover:text-white transition-colors">Catalogue</a>
+        <a href="#matrix" class="hover:text-white transition-colors">Matrix</a>
+      </div>
+      <div class="text-center md:text-right">
+        <span>© 2026–2027 ComputeX SSO</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL: REGISTER INTEREST -->
+  <div id="register-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 hidden">
+    <div class="glass-card max-w-lg w-full p-8 rounded-sm space-y-6 relative border border-white/20">
+      <button onclick="toggleModal('register-modal', false)" class="absolute top-4 right-4 text-gray-400 hover:text-white font-mono text-lg">✕</button>
+      
+      <div class="space-y-1">
+        <span class="text-xs font-mono text-accentCyan uppercase tracking-widest">Guild Registration</span>
+        <h3 class="text-2xl font-bold text-white">Join ComputeX</h3>
+        <p class="text-xs text-gray-400 font-light">Open to all U-M undergraduate & graduate students regardless of prior experience.</p>
+      </div>
+
+      <form onsubmit="handleRegister(event)" class="space-y-4 text-xs">
+        <div>
+          <label class="block text-gray-300 font-mono mb-1">Uniqname / Email *</label>
+          <input type="text" required placeholder="uniqname@umich.edu" class="w-full bg-cardBg border border-white/10 rounded p-2.5 text-white focus:border-accentCyan focus:outline-none font-mono">
+        </div>
+
+        <div>
+          <label class="block text-gray-300 font-mono mb-1">Academic School / Program *</label>
+          <select required class="w-full bg-cardBg border border-white/10 rounded p-2.5 text-white focus:border-accentCyan focus:outline-none font-sans">
+            <option value="">Select your home school...</option>
+            <option>College of LSA</option>
+            <option>College of Engineering (CoE)</option>
+            <option>Stephen M. Ross School of Business</option>
+            <option>Stamps School of Art & Design</option>
+            <option>School of Information (UMSI)</option>
+            <option>Other School / Rackham</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-gray-300 font-mono mb-1">Primary Pillar Interest</label>
+          <div class="grid grid-cols-2 gap-2 pt-1 font-sans text-gray-300">
+            <label class="flex items-center gap-2"><input type="checkbox" class="accent-accentCyan"> Tech & Software</label>
+            <label class="flex items-center gap-2"><input type="checkbox" class="accent-accentIndigo"> Business & FinTech</label>
+            <label class="flex items-center gap-2"><input type="checkbox" class="accent-accentTeal"> Health & Biosignals</label>
+            <label class="flex items-center gap-2"><input type="checkbox" class="accent-accentPink"> Art & Shaders</label>
+          </div>
+        </div>
+
+        <button type="submit" class="w-full py-3 bg-accentCyan text-canvas font-bold uppercase font-mono tracking-wider rounded hover:bg-accentCyan/90 transition-colors">
+          Submit Application
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: PCAS DETAILS -->
+  <div id="pcas-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 hidden">
+    <div class="glass-card max-w-lg w-full p-8 rounded-sm space-y-6 relative border border-white/20">
+      <button onclick="toggleModal('pcas-modal', false)" class="absolute top-4 right-4 text-gray-400 hover:text-white font-mono text-lg">✕</button>
+      
+      <div class="space-y-1">
+        <span class="text-xs font-mono text-accentPink uppercase tracking-widest">Academic Affiliation</span>
+        <h3 class="text-2xl font-bold text-white">Program in Computing for the Arts & Sciences (PCAS)</h3>
+      </div>
+
+      <div class="space-y-3 text-xs text-gray-300 leading-relaxed font-light">
+        <p>
+          PCAS is an initiative situated within the College of Literature, Science, and the Arts (LSA) at the University of Michigan, providing students with accessible pathways into computational thinking tailored for humanistic, artistic, and scientific inquiry.
+        </p>
+        <p>
+          ComputeX acts as an active student-facing guild sponsored by PCAS, offering hands-on workshops, cross-listed research mentorship, and open computing labs across all campuses.
+        </p>
+      </div>
+
+      <div class="pt-2 flex justify-end">
+        <button onclick="toggleModal('pcas-modal', false)" class="px-4 py-2 border border-white/30 text-xs font-mono text-white hover:border-white">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: WORKSHOP DETAIL -->
+  <div id="detail-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 hidden">
+    <div class="glass-card max-w-lg w-full p-8 rounded-sm space-y-6 relative border border-white/20">
+      <button onclick="toggleModal('detail-modal', false)" class="absolute top-4 right-4 text-gray-400 hover:text-white font-mono text-lg">✕</button>
+      
+      <div class="space-y-1">
+        <span class="text-xs font-mono text-accentTeal uppercase tracking-widest" id="modal-date">Date</span>
+        <h3 class="text-2xl font-bold text-white" id="modal-title">Workshop Title</h3>
+        <span class="text-xs text-gray-400 font-mono block" id="modal-loc">Location</span>
+      </div>
+
+      <p class="text-xs text-gray-300 leading-relaxed" id="modal-body">
+        Detailed breakdown of the curriculum module.
+      </p>
+
+      <div class="pt-2 flex justify-between items-center">
+        <span class="text-[10px] font-mono text-accentCyan">● Open to all members</span>
+        <button onclick="toggleModal('detail-modal', false)" class="px-4 py-2 bg-accentCyan text-canvas text-xs font-mono font-bold rounded">Close Module</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    // 1. DATA: PILLARS DATA
+    const pillarsData = [
+      { domain: 'Tech', title: 'Tech & Architecture', icon: '⚡', color: 'accentCyan', desc: 'Core software design, full-stack tools, algorithmic paradigms, and open systems.' },
+      { domain: 'Business', title: 'Business & FinTech', icon: '📈', color: 'accentIndigo', desc: 'Quantitative market analysis, risk pipelines, algorithmic trade models, and economic data.' },
+      { domain: 'Health', title: 'Health & Biosignals', icon: '🧠', color: 'accentTeal', desc: 'Neural signal preprocessing, cortical EEG analysis, biomechanical telemetry, and health AI.' },
+      { domain: 'Art', title: 'Art & Computational Design', icon: '🎨', color: 'accentPink', desc: 'Generative shader systems, p5.js canvas algorithms, reactive installations, and digital aesthetics.' },
+      { domain: 'Governance', title: 'Governance & Ethics', icon: '⚖️', color: 'gray-300', desc: 'Algorithmic bias auditing, model interpretability, data policy, and sociotechnical critique.' }
+    ];
+
+    // 2. DATA: SYNTHESIS MATRIX NODES
+    const matrixData = {
+      'Health+Tech': {
+        title: 'Neural Biosignal Processing',
+        tag: 'Health + Tech',
+        code: 'BIO-TECH-01',
+        desc: 'Combining computational neurobiology with electroencephalogram (EEG) signal processing to construct real-time classification engines for cognitive health monitoring.',
+        tools: ['mne-python', 'NumPy', 'scikit-learn', 'Bandpass Spectral Filtering', 'Time-Frequency Wavelets']
+      },
+      'Business+Tech': {
+        title: 'Streaming FinTech Analytics',
+        tag: 'Business + Tech',
+        code: 'FIN-TECH-02',
+        desc: 'Constructing resilient SQL and pandas streaming pipelines for macroeconomic forecasting and real-time equity volatility evaluation.',
+        tools: ['pandas', 'SQLAlchemy', 'Apache Kafka', 'Risk Metrics', 'Time Series ARIMA']
+      },
+      'Art+Tech': {
+        title: 'Generative GLSL Shader Canvas',
+        tag: 'Art + Tech',
+        code: 'ART-TECH-03',
+        desc: 'Writing low-level Fragment Shader code and GPU rasterization scripts to render mathematical vector field visualizations and interactive art.',
+        tools: ['p5.js', 'GLSL Shaders', 'WebGL', 'Vector Field Math', 'Perlin Noise']
+      },
+      'Governance+Tech': {
+        title: 'Algorithmic Bias & Fair Machine Learning',
+        tag: 'Governance + Tech',
+        code: 'GOV-TECH-04',
+        desc: 'Auditing black-box machine learning models for demographic disparities, applying SHAP values for mathematical explainability.',
+        tools: ['SHAP', 'Fairlearn', 'Explainable AI (XAI)', 'Demographic Parity', 'Model Auditing']
+      },
+      'Health+Art': {
+        title: 'Bio-Aesthetic Data Sonification',
+        tag: 'Health + Art',
+        code: 'BIO-ART-05',
+        desc: 'Translating heart rate variability (HRV) and biosignals into spatial audio synth waves and generative acoustic performances.',
+        tools: ['Web Audio API', 'SuperCollider', 'Oscillators', 'Biosignal Mapping']
+      },
+      'Business+Governance': {
+        title: 'Automated Economic Policy Simulation',
+        tag: 'Business + Governance',
+        code: 'BIZ-GOV-06',
+        desc: 'Simulating municipal budget allocation scenarios using agent-based modeling to forecast socio-economic outcomes.',
+        tools: ['Mesa Framework', 'Agent-Based Modeling', 'Policy Analytics', 'Monte Carlo']
+      }
+    };
+
+    // RENDER PILLARS
+    function renderPillars(filter = 'all') {
+      const container = document.getElementById('pillars-grid');
+      container.innerHTML = '';
+
+      const filtered = filter === 'all' ? pillarsData : pillarsData.filter(p => p.domain === filter);
+
+      filtered.forEach(p => {
+        const card = document.createElement('div');
+        card.className = 'glass-card p-6 rounded-sm space-y-4 hover:border-accentCyan/50 transition-all flex flex-col justify-between';
+        card.innerHTML = `
+          <div class="space-y-3">
+            <div class="text-2xl">${p.icon}</div>
+            <h3 class="font-bold text-white text-base">${p.title}</h3>
+            <p class="text-gray-400 text-xs leading-relaxed">${p.desc}</p>
+          </div>
+          <div class="pt-2 border-t border-white/5 flex justify-between items-center text-[10px] font-mono text-gray-500">
+            <span>Track Status</span>
+            <span class="text-emerald-400">● Active</span>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    // FILTER PILLARS HANDLER
+    function filterPillars(domain) {
+      document.querySelectorAll('#pillar-filters button').forEach(btn => {
+        btn.classList.remove('bg-accentCyan/20', 'text-accentCyan', 'border-accentCyan');
+        btn.classList.add('border-white/10', 'text-gray-400');
+      });
+      event.target.classList.remove('border-white/10', 'text-gray-400');
+      event.target.classList.add('bg-accentCyan/20', 'text-accentCyan', 'border-accentCyan');
+
+      renderPillars(domain);
+    }
+
+    // RENDER MATRIX NODES
+    function renderMatrixNodes() {
+      const container = document.getElementById('matrix-nodes');
+      container.innerHTML = '';
+
+      Object.keys(matrixData).forEach((key, index) => {
+        const item = matrixData[key];
+        const btn = document.createElement('button');
+        btn.onclick = () => selectMatrixNode(key);
+        btn.className = `p-3 rounded-sm border text-left font-mono text-xs transition-all flex flex-col justify-between h-20 ${index === 0 ? 'border-accentCyan bg-accentCyan/10 text-white' : 'border-white/10 hover:border-white/30 text-gray-400'}`;
+        btn.setAttribute('data-key', key);
+        btn.innerHTML = `
+          <span class="text-[10px] text-accentCyan uppercase">${item.code}</span>
+          <span class="font-bold text-slate-200 text-[11px] leading-tight">${item.tag}</span>
+        `;
+        container.appendChild(btn);
+      });
+    }
+
+    // SELECT MATRIX NODE
+    function selectMatrixNode(key) {
+      const item = matrixData[key];
+      if (!item) return;
+
+      document.querySelectorAll('#matrix-nodes button').forEach(btn => {
+        if (btn.getAttribute('data-key') === key) {
+          btn.className = 'p-3 rounded-sm border border-accentCyan bg-accentCyan/10 text-white font-mono text-xs transition-all flex flex-col justify-between h-20';
+        } else {
+          btn.className = 'p-3 rounded-sm border border-white/10 hover:border-white/30 text-gray-400 font-mono text-xs transition-all flex flex-col justify-between h-20';
+        }
+      });
+
+      document.getElementById('matrix-active-label').textContent = item.tag;
+      document.getElementById('node-tag').textContent = item.tag;
+      document.getElementById('node-title').textContent = item.title;
+      document.getElementById('node-code').textContent = item.code;
+      document.getElementById('node-desc').textContent = item.desc;
+
+      const toolsContainer = document.getElementById('node-tools');
+      toolsContainer.innerHTML = '';
+      item.tools.forEach(t => {
+        const span = document.createElement('span');
+        span.className = 'px-2.5 py-1 bg-white/5 border border-white/10 text-gray-300 font-mono text-[10px] rounded';
+        span.textContent = t;
+        toolsContainer.appendChild(span);
+      });
+    }
+
+    // MODAL CONTROL
+    function toggleModal(id, show) {
+      const modal = document.getElementById(id);
+      if (modal) {
+        if (show) modal.classList.remove('hidden');
+        else modal.classList.add('hidden');
+      }
+    }
+
+    // SHOW WORKSHOP DETAILS MODAL
+    function showDetails(title, date, loc, body) {
+      document.getElementById('modal-title').textContent = title;
+      document.getElementById('modal-date').textContent = date;
+      document.getElementById('modal-loc').textContent = loc;
+      document.getElementById('modal-body').textContent = body;
+      toggleModal('detail-modal', true);
+    }
+
+    // HANDLE REGISTRATION SUBMIT
+    function handleRegister(e) {
+      e.preventDefault();
+      alert('[ComputeX] Interest registered successfully! Check your inbox for orientation details.');
+      toggleModal('register-modal', false);
+    }
+
+    // INITIALIZE ON LOAD
+    window.addEventListener('DOMContentLoaded', () => {
+      renderPillars();
+      renderMatrixNodes();
+      selectMatrixNode('Health+Tech');
+    });
+  </script>
+</body>
+</html>

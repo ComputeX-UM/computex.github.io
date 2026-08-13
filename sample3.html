@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ComputeX | Interdisciplinary Tech Community at Michigan</title>
+  
+  <!-- Instrument Serif & Plus Jakarta Sans Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['"Instrument Serif"', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              paper: '#FAF9F6',
+              card: '#FFFFFF',
+              navy: '#0F172A',
+              slate: '#475569',
+              indigo: '#4F46E5',
+              softIndigo: '#EEF2FF',
+              border: '#E2E8F0',
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="bg-brand-paper text-brand-navy font-sans antialiased min-h-screen selection:bg-brand-indigo selection:text-white">
+
+  <!-- TOP NAVIGATION HEADER -->
+  <header class="sticky top-0 z-30 bg-brand-paper/90 backdrop-blur-md border-b border-brand-border">
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      
+      <!-- Logo -->
+      <a href="#" class="font-bold text-xl tracking-tight text-brand-navy flex items-center gap-2">
+        <span>ComputeX</span>
+        <span class="w-1.5 h-1.5 rounded-full bg-brand-indigo"></span>
+      </a>
+
+      <!-- Navigation Links -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-brand-slate">
+        <a href="#pillars" class="hover:text-brand-navy transition-colors">Five Pillars</a>
+        <a href="#matrix" class="hover:text-brand-navy transition-colors">Intersections Matrix</a>
+        <a href="./roadmap/index.html" class="hover:text-brand-navy transition-colors">Roadmap</a>
+        <a href="./team/index.html" class="hover:text-brand-navy transition-colors">Team</a>
+      </nav>
+
+      <!-- Primary Action -->
+      <div class="flex items-center gap-3">
+        <button onclick="document.getElementById('pcas-modal').classList.remove('hidden')" class="hidden sm:inline-block text-xs font-semibold px-3 py-1.5 rounded-full bg-slate-100 text-brand-slate hover:bg-slate-200 transition-all">
+          PCAS Affiliated
+        </button>
+        <a href="./launch/index.html" class="px-4 py-2 rounded-lg bg-brand-navy text-white text-xs font-semibold hover:bg-brand-indigo transition-all shadow-sm">
+          Join Community
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-6 py-12 space-y-20">
+
+    <!-- HERO SECTION: EDITORIAL BANNER -->
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center pt-4">
+      
+      <div class="lg:col-span-7 space-y-6">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-softIndigo text-brand-indigo text-xs font-semibold">
+          <span class="w-2 h-2 rounded-full bg-brand-indigo"></span>
+          <span>Launching Fall 2026 at U-M</span>
+        </div>
+
+        <h1 class="text-5xl sm:text-6xl font-serif leading-tight text-brand-navy">
+          Interdisciplinary computing for <span class="italic text-brand-indigo">every</span> discipline.
+        </h1>
+
+        <p class="text-brand-slate text-base sm:text-lg leading-relaxed max-w-xl">
+          ComputeX bridges software engineering with healthcare, enterprise business strategy, visual design, and societal governance across the University of Michigan campus.
+        </p>
+
+        <!-- CTAs -->
+        <div class="flex flex-wrap items-center gap-4 pt-2">
+          <a href="./launch/index.html" class="px-6 py-3 rounded-lg bg-brand-indigo text-white font-medium hover:bg-indigo-700 transition-all shadow-sm text-sm">
+            Complete Launch Form →
+          </a>
+          <button onclick="document.getElementById('pcas-modal').classList.remove('hidden')" class="px-5 py-3 rounded-lg bg-white border border-brand-border text-brand-slate text-sm font-medium hover:text-brand-navy transition-all">
+            About PCAS Support
+          </button>
+        </div>
+      </div>
+
+      <!-- Quick Highlights Card -->
+      <div class="lg:col-span-5 bg-white border border-brand-border rounded-2xl p-6 sm:p-8 shadow-sm space-y-6">
+        <h3 class="font-serif text-2xl text-brand-navy border-b border-brand-border pb-4">Community Profile</h3>
+        
+        <dl class="space-y-4 text-sm">
+          <div class="flex justify-between items-center">
+            <dt class="text-brand-slate">Prerequisites</dt>
+            <dd class="font-semibold text-brand-navy">Zero Coding Required</dd>
+          </div>
+          <div class="flex justify-between items-center border-t border-slate-100 pt-3">
+            <dt class="text-brand-slate">Target Schools</dt>
+            <dd class="font-semibold text-brand-navy">LSA, CoE, Ross, Stamps, SI</dd>
+          </div>
+          <div class="flex justify-between items-center border-t border-slate-100 pt-3">
+            <dt class="text-brand-slate">Academic Sponsor</dt>
+            <dd class="font-semibold text-brand-indigo">U-M PCAS Program</dd>
+          </div>
+          <div class="flex justify-between items-center border-t border-slate-100 pt-3">
+            <dt class="text-brand-slate">Domain Focus</dt>
+            <dd class="font-semibold text-brand-navy">5 Cross-Disciplinary Pillars</dd>
+          </div>
+        </dl>
+
+        <p class="text-xs text-brand-slate italic bg-brand-paper p-4 rounded-xl border border-brand-border">
+          "Connecting coding skills directly with biosignals, digital art, financial markets, and ethical frameworks."
+        </p>
+      </div>
+
+    </section>
+
+    <!-- SECTION 1: FIVE CORE PILLARS (ACCORDION STACK) -->
+    <section id="pillars" class="space-y-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between border-b border-brand-border pb-6 gap-4">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-brand-indigo">Core Pillars</span>
+          <h2 class="text-3xl sm:text-4xl font-serif text-brand-navy mt-1">Explore our five core focus areas</h2>
+        </div>
+        <p class="text-sm text-brand-slate max-w-sm">
+          Select any area below to view primary focus areas, key applications, and supported tech stacks.
+        </p>
+      </div>
+
+      <!-- Accordion Grid Container -->
+      <div class="grid grid-cols-1 gap-4" id="pillar-accordion">
+        <!-- Injected via Script -->
+      </div>
+    </section>
+
+    <!-- SECTION 2: INTERSECTION MATRIX (CLEAN SPLIT VIEW) -->
+    <section id="matrix" class="bg-white border border-brand-border rounded-2xl p-6 sm:p-10 shadow-sm space-y-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between border-b border-brand-border pb-6 gap-4">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-brand-indigo">Interactive Exploration</span>
+          <h2 class="text-3xl font-serif text-brand-navy mt-1">Cross-Domain Intersection Matrix</h2>
+        </div>
+        <div class="text-xs font-semibold px-3 py-1.5 rounded-full bg-brand-softIndigo text-brand-indigo">
+          Selected: <span id="matrix-active-label">Health + Tech</span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <!-- Axis Selectors (Left Side) -->
+        <div class="lg:col-span-5 space-y-6">
+          <div class="space-y-2">
+            <span class="text-xs font-bold text-brand-slate uppercase tracking-wider block">Primary Discipline (Y-Axis)</span>
+            <div id="y-axis-container" class="flex flex-wrap gap-2">
+              <!-- Injected by Script -->
+            </div>
+          </div>
+
+          <div class="space-y-2">
+            <span class="text-xs font-bold text-brand-slate uppercase tracking-wider block">Secondary Discipline (X-Axis)</span>
+            <div id="x-axis-container" class="flex flex-wrap gap-2">
+              <!-- Injected by Script -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Output Card (Right Side) -->
+        <div class="lg:col-span-7 bg-brand-paper border border-brand-border rounded-xl p-6 sm:p-8 min-h-[300px] flex flex-col justify-between" id="matrix-output">
+          <!-- Injected by Script -->
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER BANNER -->
+    <footer class="bg-brand-navy text-white rounded-2xl p-8 sm:p-10 flex flex-col md:flex-row justify-between items-center gap-6">
+      <div class="space-y-2 text-center md:text-left">
+        <h3 class="font-serif text-2xl">Ready to cross discipline boundaries?</h3>
+        <p class="text-sm text-slate-300 max-w-lg">
+          Open to students in LSA, Engineering, Ross, Stamps, School of Information, Pre-Med, and beyond.
+        </p>
+      </div>
+      <a href="./launch/index.html" class="px-6 py-3 rounded-lg bg-brand-indigo hover:bg-indigo-600 font-medium text-sm transition-all whitespace-nowrap">
+        Register Your Interest →
+      </a>
+    </footer>
+
+  </main>
+
+  <!-- PCAS MODAL -->
+  <div id="pcas-modal" class="fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-sm flex items-center justify-center p-4 hidden">
+    <div class="bg-white max-w-lg w-full p-8 rounded-2xl shadow-xl space-y-6 border border-brand-border">
+      <div class="flex justify-between items-start border-b border-brand-border pb-4">
+        <div>
+          <span class="text-xs font-bold text-brand-indigo uppercase">Academic Affiliation</span>
+          <h3 class="text-xl font-serif text-brand-navy mt-1">Program in Computing for the Arts and Sciences</h3>
+        </div>
+        <button onclick="document.getElementById('pcas-modal').classList.add('hidden')" class="text-brand-slate hover:text-brand-navy font-bold">✕</button>
+      </div>
+      <p class="text-sm text-brand-slate leading-relaxed">
+        PCAS provides University of Michigan students with structured interdisciplinary coursework and project support designed to integrate software development seamlessly into non-traditional domain fields.
+      </p>
+      <div class="pt-4 border-t border-brand-border flex justify-between items-center text-xs">
+        <span class="text-brand-slate">U-M College of LSA</span>
+        <button onclick="document.getElementById('pcas-modal').classList.add('hidden')" class="px-4 py-2 rounded-lg bg-brand-navy text-white font-medium hover:bg-brand-indigo transition-all">
+          Close Window
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPT ENGINE -->
+  <script>
+    // DATA STORE
+    const pillarData = [
+      {
+        id: 'tech',
+        num: '01',
+        title: 'Technology & Engineering',
+        focus: 'Computer Science, Artificial Intelligence, Embedded Systems, Robotics',
+        tools: ['Python', 'Docker', 'Git/GitHub', 'C++'],
+        desc: 'Build foundational software systems, machine learning architectures, and hardware integration pipelines.'
+      },
+      {
+        id: 'biz',
+        num: '02',
+        title: 'Business & Strategy',
+        focus: 'Business Intelligence, FinTech, Enterprise Analytics, Tech Strategy',
+        tools: ['pandas', 'SQL', 'Tableau', 'Excel Analytics'],
+        desc: 'Translate data metrics into enterprise strategy, financial models, and actionable product management frameworks.'
+      },
+      {
+        id: 'health',
+        num: '03',
+        title: 'Health & Medicine',
+        focus: 'Health Tech, Medical Biosignals, Bioinformatics, Computational Health',
+        tools: ['PyTorch', 'mne-python', 'OpenCV', 'BioPython'],
+        desc: 'Apply machine learning to neural EEG signals, genomic datasets, and medical hardware tech.'
+      },
+      {
+        id: 'art',
+        num: '04',
+        title: 'Art & Design',
+        focus: 'UI/UX Systems, Immersive Art, CGI, Generative Design',
+        tools: ['p5.js', 'Figma', 'Three.js', 'Shader Language'],
+        desc: 'Design intuitive visual interfaces, interactive spatial graphics, and creative algorithmic media.'
+      },
+      {
+        id: 'ethics',
+        num: '05',
+        title: 'Ethics & Governance',
+        focus: 'AI Policy, Data Privacy, Algorithmic Bias Auditing, Explainable AI',
+        tools: ['Fairlearn', 'SHAP', 'AIF360', 'Policy Frameworks'],
+        desc: 'Evaluate software systems for fairness, user privacy, compliance, and societal safety.'
+      }
+    ];
+
+    const matrixData = {
+      'Health-Tech': { name: 'Apple Healthcare & Neuralink', giant: 'Apple Watch biosignal detection for cardiovascular metrics.', frontier: 'Neuralink implantable brain-computer interfaces.' },
+      'Health-Business': { name: 'Epic Systems & Insilico Medicine', giant: 'Epic SQL databases powering 250M+ electronic health records.', frontier: 'Insilico generative AI accelerating drug discovery.' },
+      'Health-Art': { name: 'Philips & BrainGate Visuals', giant: 'Philips patient-centered ambient designs and clinical interfaces.', frontier: 'BrainGate neural signal translation into digital artwork.' },
+      'Health-Ethics': { name: 'Microsoft Azure Health & Cradle Bio', giant: 'Azure HIPAA-compliant medical cloud auditing framework.', frontier: 'Cradle protein engineering with embedded bio-safety rails.' },
+      'Tech-Business': { name: 'AWS Cloud & Boston Dynamics', giant: 'AWS global enterprise cloud databases and logistics systems.', frontier: 'Boston Dynamics autonomous robotics scaling industrial operations.' },
+      'Tech-Art': { name: 'NVIDIA & Looking Glass Factory', giant: 'NVIDIA GPU simulation engines and Omniverse spatial worlds.', frontier: 'Looking Glass holographic light-field displays.' },
+      'Tech-Ethics': { name: 'IBM & World (Worldcoin)', giant: 'IBM enterprise bias auditing engines and privacy suites.', frontier: 'World biometric proof-of-personhood hardware.' },
+      'Business-Art': { name: 'Adobe Firefly & Raspberry AI', giant: 'Adobe commercially safe generative enterprise creative tools.', frontier: 'Raspberry AI converting apparel sketches into 3D production models.' },
+      'Business-Ethics': { name: 'Palantir & Hugging Face', giant: 'Palantir compliance-enforced enterprise data platforms.', frontier: 'Hugging Face open-source auditing hub for AI safety.' },
+      'Art-Ethics': { name: 'Getty Images AI & Holly+', giant: 'Getty AI models trained strictly on licensed artwork.', frontier: 'Holly Herndon autonomous AI voice and likeness licensing.' }
+    };
+
+    const domains = ['Tech', 'Business', 'Health', 'Art', 'Ethics'];
+    let activeY = 'Health';
+    let activeX = 'Tech';
+    let activeAccordion = 0;
+
+    // ACCORDION RENDER
+    function renderAccordion() {
+      const container = document.getElementById('pillar-accordion');
+      container.innerHTML = pillarData.map((p, idx) => {
+        const isOpen = activeAccordion === idx;
+        return `
+          <div class="bg-white border border-brand-border rounded-xl transition-all overflow-hidden shadow-sm">
+            <button onclick="toggleAccordion(${idx})" class="w-full text-left p-5 sm:p-6 flex justify-between items-center hover:bg-slate-50/50 transition-colors">
+              <div class="flex items-center gap-4">
+                <span class="text-xs font-bold text-brand-indigo font-mono bg-brand-softIndigo px-2.5 py-1 rounded-md">${p.num}</span>
+                <h3 class="text-lg font-semibold text-brand-navy">${p.title}</h3>
+              </div>
+              <span class="text-brand-slate text-lg">${isOpen ? '−' : '+'}</span>
+            </button>
+            
+            ${isOpen ? `
+              <div class="px-5 sm:px-6 pb-6 pt-2 border-t border-brand-border grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+                <div class="space-y-2">
+                  <span class="text-xs font-bold text-brand-slate uppercase tracking-wider block">Focus Areas & Scope</span>
+                  <p class="font-medium text-brand-navy">${p.focus}</p>
+                  <p class="text-brand-slate text-xs leading-relaxed pt-1">${p.desc}</p>
+                </div>
+                <div class="space-y-2 bg-brand-paper p-4 rounded-lg border border-brand-border">
+                  <span class="text-xs font-bold text-brand-slate uppercase tracking-wider block">Core Tools & Stack</span>
+                  <div class="flex flex-wrap gap-2 pt-1">
+                    ${p.tools.map(t => `<span class="px-2.5 py-1 rounded bg-white text-xs font-medium text-brand-navy border border-brand-border">${t}</span>`).join('')}
+                  </div>
+                  <a href="./pillars/index.html#${p.id}" class="text-xs text-brand-indigo font-semibold hover:underline inline-block pt-3">
+                    Learn more about this pillar →
+                  </a>
+                </div>
+              </div>
+            ` : ''}
+          </div>
+        `;
+      }).join('');
+    }
+
+    function toggleAccordion(idx) {
+      activeAccordion = activeAccordion === idx ? null : idx;
+      renderAccordion();
+    }
+
+    // MATRIX CONTROLS
+    function renderMatrixControls() {
+      const yContainer = document.getElementById('y-axis-container');
+      const xContainer = document.getElementById('x-axis-container');
+
+      yContainer.innerHTML = domains.map(d => `
+        <button onclick="setY('${d}')" class="px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${activeY === d ? 'bg-brand-navy text-white shadow-sm' : 'bg-brand-paper text-brand-slate hover:bg-slate-200'}">
+          ${d}
+        </button>
+      `).join('');
+
+      xContainer.innerHTML = domains.map(d => `
+        <button onclick="setX('${d}')" class="px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${activeX === d ? 'bg-brand-indigo text-white shadow-sm' : 'bg-brand-paper text-brand-slate hover:bg-slate-200'}">
+          ${d}
+        </button>
+      `).join('');
+    }
+
+    function setY(d) { activeY = d; updateMatrix(); }
+    function setX(d) { activeX = d; updateMatrix(); }
+
+    function updateMatrix() {
+      document.getElementById('matrix-active-label').innerText = `${activeY} + ${activeX}`;
+      renderMatrixControls();
+
+      const output = document.getElementById('matrix-output');
+      if (activeY === activeX) {
+        output.innerHTML = `
+          <div class="space-y-3 my-auto">
+            <span class="px-2.5 py-1 rounded-full bg-amber-100 text-amber-800 text-xs font-semibold">Single Domain Selection</span>
+            <h4 class="text-lg font-serif text-brand-navy">${activeY} + ${activeX}</h4>
+            <p class="text-xs text-brand-slate leading-relaxed">
+              ComputeX focuses on cross-domain synthesis. Select two different fields to discover industry applications and innovative frontier examples.
+            </p>
+          </div>
+        `;
+        return;
+      }
+
+      const key = `${activeY}-${activeX}`;
+      const reverseKey = `${activeX}-${activeY}`;
+      const data = matrixData[key] || matrixData[reverseKey];
+
+      if (data) {
+        output.innerHTML = `
+          <div class="space-y-4">
+            <h4 class="text-xl font-serif text-brand-navy">${data.name}</h4>
+            
+            <div class="space-y-3 text-xs">
+              <div class="p-4 rounded-lg bg-white border border-brand-border">
+                <span class="font-bold text-brand-indigo block mb-1">Established Industry Leader</span>
+                <p class="text-brand-slate">${data.giant}</p>
+              </div>
+
+              <div class="p-4 rounded-lg bg-white border border-brand-border">
+                <span class="font-bold text-brand-navy block mb-1">Emerging Frontier Innovation</span>
+                <p class="text-brand-slate">${data.frontier}</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-brand-border flex justify-between items-center text-xs text-brand-slate">
+            <span>Intersection Case Study</span>
+            <a href="./pillars/index.html" class="font-semibold text-brand-indigo hover:underline">View Pillar Details →</a>
+          </div>
+        `;
+      }
+    }
+
+    // INIT
+    renderAccordion();
+    updateMatrix();
+  </script>
+
+</body>
+</html>

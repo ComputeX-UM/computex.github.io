@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ComputeX | Interdisciplinary Tech Community</title>
+  
+  <!-- Inter & Space Grotesk Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['"Space Grotesk"', 'sans-serif'],
+            sans: ['"Inter"', 'sans-serif'],
+          },
+          colors: {
+            pillar: {
+              tech: '#06B6D4',    /* Cyan */
+              biz: '#10B981',     /* Emerald */
+              health: '#F59E0B',  /* Amber */
+              art: '#D946EF',     /* Magenta */
+              ethics: '#8B5CF6'   /* Violet */
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body { 
+      background-color: #05070C; 
+      color: #F8FAFC; 
+    }
+    /* Subtle custom scrollbar for horizontal canvas */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen font-sans antialiased selection:bg-white selection:text-black overflow-x-hidden relative">
+
+  <!-- AMBIENT BACKGROUND GLOWS (Atmospheric, non-chaotic depth) -->
+  <div class="fixed top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-pillar-tech/10 blur-[140px] pointer-events-none"></div>
+  <div class="fixed top-[40%] right-[-10%] w-[45vw] h-[45vw] rounded-full bg-pillar-art/10 blur-[150px] pointer-events-none"></div>
+  <div class="fixed bottom-[-10%] left-[20%] w-[40vw] h-[40vw] rounded-full bg-pillar-health/10 blur-[160px] pointer-events-none"></div>
+
+  <!-- NAVIGATION HEADER -->
+  <header class="sticky top-0 z-50 bg-[#05070C]/80 backdrop-blur-xl border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      
+      <!-- Logo -->
+      <a href="#" class="font-display font-black text-2xl tracking-tighter text-white uppercase flex items-center gap-2 group">
+        <span class="group-hover:text-pillar-tech transition-colors">COMPUTEX</span>
+        <span class="w-2.5 h-2.5 rounded-full bg-gradient-to-r from-pillar-tech to-pillar-art"></span>
+      </a>
+
+      <!-- Navigation Links -->
+      <nav class="hidden md:flex items-center gap-8 text-xs font-semibold uppercase tracking-widest text-slate-400">
+        <a href="#about" class="hover:text-white transition-colors">Overview</a>
+        <a href="#pillars" class="hover:text-white transition-colors">5 Pillars</a>
+        <a href="#matrix" class="hover:text-white transition-colors">Matrix Canvas</a>
+        <a href="./roadmap/index.html" class="hover:text-white transition-colors">Roadmap</a>
+      </nav>
+
+      <!-- Actions -->
+      <div class="flex items-center gap-4">
+        <button onclick="document.getElementById('pcas-modal').classList.remove('hidden')" class="hidden sm:inline-block text-xs font-semibold tracking-wider text-slate-400 hover:text-white transition-colors uppercase">
+          PCAS Affiliated
+        </button>
+        <a href="./launch/index.html" class="px-5 py-2.5 bg-gradient-to-r from-white to-slate-200 text-black font-display font-black text-xs tracking-wider uppercase hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] transition-all">
+          Join Hub
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <main class="space-y-40 py-16 relative z-10">
+
+    <!-- HERO SECTION: ASYMMETRICAL OVERSIZED TYPOGRAPHY -->
+    <section class="max-w-7xl mx-auto px-6">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- Left Giant Statement (8 cols) -->
+        <div class="lg:col-span-8 space-y-4">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-md text-xs font-semibold text-slate-300 uppercase tracking-wider">
+            <span class="w-2 h-2 rounded-full bg-pillar-tech animate-pulse"></span>
+            <span>Launching Fall 2026 at U-M</span>
+          </div>
+
+          <h1 class="text-7xl sm:text-9xl font-display font-black text-white tracking-tighter leading-none uppercase">
+            COMPUTE.
+          </h1>
+          <h1 class="text-7xl sm:text-9xl font-display font-black tracking-tighter leading-none uppercase text-transparent bg-clip-text bg-gradient-to-r from-pillar-tech via-pillar-art to-pillar-health">
+            SYNTHESIZE.
+          </h1>
+          <h1 class="text-7xl sm:text-9xl font-display font-black text-white/10 tracking-tighter leading-none uppercase">
+            DISRUPT.
+          </h1>
+        </div>
+
+        <!-- Right Floating Glass Card (4 cols, vertically offset) -->
+        <div class="lg:col-span-4 lg:mt-24 space-y-6 p-8 bg-white/[0.03] border border-white/10 backdrop-blur-xl rounded-2xl shadow-2xl relative overflow-hidden group">
+          <div class="absolute -right-12 -top-12 w-32 h-32 bg-pillar-art/20 rounded-full blur-2xl group-hover:bg-pillar-art/30 transition-all"></div>
+          
+          <span class="font-display font-bold text-xs uppercase tracking-widest text-pillar-tech block">Interdisciplinary Paradigm</span>
+          <p class="text-base text-slate-300 leading-relaxed">
+            ComputeX bridges software engineering with healthcare, business strategy, fine art, and societal governance across Michigan's campus.
+          </p>
+
+          <div class="pt-4 border-t border-white/10 flex flex-col gap-3">
+            <a href="./launch/index.html" class="w-full text-center py-3 bg-white text-black font-display font-black text-xs uppercase tracking-wider hover:bg-slate-200 transition-all">
+              Launch Form →
+            </a>
+            <button onclick="document.getElementById('pcas-modal').classList.remove('hidden')" class="w-full text-center py-3 bg-white/5 border border-white/10 text-white font-display font-bold text-xs uppercase tracking-wider hover:bg-white/10 transition-all">
+              PCAS Program Support
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- SECTION 0: COMMUNITY OVERVIEW (3-COLUMN OVERLAPPING OFFSET GRID) -->
+    <section id="about" class="max-w-7xl mx-auto px-6">
+      
+      <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-12">
+        <span class="font-display font-bold text-xs uppercase tracking-widest text-pillar-tech">01 / Community Blueprint</span>
+        <span class="text-xs text-slate-500 font-mono">U-M INTERDISCIPLINARY HUB</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+        
+        <!-- Card 1: Normal Level -->
+        <div class="p-8 bg-gradient-to-b from-white/[0.05] to-transparent border border-white/10 rounded-2xl space-y-4 hover:border-pillar-tech/50 transition-all">
+          <div class="w-10 h-10 rounded-xl bg-pillar-tech/10 border border-pillar-tech/30 flex items-center justify-center font-display font-bold text-pillar-tech">01</div>
+          <h4 class="text-xl font-bold text-white tracking-tight">Zero Coding Barrier</h4>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            No prior programming experience required. Built for students from LSA, CoE, Ross, Stamps, and the School of Information.
+          </p>
+        </div>
+
+        <!-- Card 2: Shifted Down (Vertical Stagger) -->
+        <div class="p-8 bg-gradient-to-b from-white/[0.05] to-transparent border border-white/10 rounded-2xl space-y-4 md:translate-y-8 hover:border-pillar-biz/50 transition-all">
+          <div class="w-10 h-10 rounded-xl bg-pillar-biz/10 border border-pillar-biz/30 flex items-center justify-center font-display font-bold text-pillar-biz">02</div>
+          <h4 class="text-xl font-bold text-white tracking-tight">Academic Partnership</h4>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Supported by the Program in Computing for the Arts and Sciences (PCAS) at U-M to connect technical skills with diverse domains.
+          </p>
+        </div>
+
+        <!-- Card 3: Shifted Down Further (Vertical Stagger) -->
+        <div class="p-8 bg-gradient-to-b from-white/[0.05] to-transparent border border-white/10 rounded-2xl space-y-4 md:translate-y-16 hover:border-pillar-art/50 transition-all">
+          <div class="w-10 h-10 rounded-xl bg-pillar-art/10 border border-pillar-art/30 flex items-center justify-center font-display font-bold text-pillar-art">03</div>
+          <h4 class="text-xl font-bold text-white tracking-tight">Five Core Tracks</h4>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Connecting coding directly with biosignals, digital fine art, market finance, and algorithmic ethical frameworks.
+          </p>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- SECTION 1: FIVE PILLARS (VERTICALLY STAGGERED ACCORDION / MASONRY) -->
+    <section id="pillars" class="max-w-7xl mx-auto px-6 pt-12">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between border-b border-white/10 pb-6 mb-16 gap-4">
+        <div>
+          <span class="font-display font-bold text-xs uppercase tracking-widest text-pillar-art">02 / Core Tracks</span>
+          <h2 class="text-4xl sm:text-6xl font-display font-black text-white uppercase tracking-tight mt-1">Five Pillars</h2>
+        </div>
+        <p class="text-xs text-slate-400 max-w-sm leading-relaxed">
+          Staggered tracks designed to unite software engineering with real-world domains.
+        </p>
+      </div>
+
+      <!-- Staggered Layout Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start" id="pillars-container">
+        <!-- Injected dynamically via script -->
+      </div>
+
+    </section>
+
+    <!-- SECTION 2: INTERSECTION CANVAS (HORIZONTAL SCROLL EXPERIENCE) -->
+    <section id="matrix" class="space-y-8">
+      
+      <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row md:items-end justify-between border-b border-white/10 pb-6 gap-4">
+        <div>
+          <span class="font-display font-bold text-xs uppercase tracking-widest text-pillar-health">03 / Exploration Matrix</span>
+          <h2 class="text-4xl sm:text-6xl font-display font-black text-white uppercase tracking-tight mt-1">Interactive Synthesis Canvas</h2>
+        </div>
+        <div class="text-xs font-display font-bold uppercase tracking-wider px-3.5 py-2 bg-white/5 border border-white/10 text-pillar-tech rounded-lg">
+          Active Filter: <span id="matrix-active-label" class="text-white">Health + Tech</span>
+        </div>
+      </div>
+
+      <!-- Controls Area -->
+      <div class="max-w-7xl mx-auto px-6 space-y-4">
+        <div class="flex flex-wrap items-center gap-4 text-xs font-display font-bold uppercase">
+          <span class="text-slate-500">Primary Domain:</span>
+          <div id="y-axis-container" class="flex flex-wrap gap-2"></div>
+        </div>
+        <div class="flex flex-wrap items-center gap-4 text-xs font-display font-bold uppercase">
+          <span class="text-slate-500">Secondary Domain:</span>
+          <div id="x-axis-container" class="flex flex-wrap gap-2"></div>
+        </div>
+      </div>
+
+      <!-- Output Banner Display -->
+      <div class="max-w-7xl mx-auto px-6">
+        <div id="matrix-output" class="p-8 bg-gradient-to-r from-white/[0.05] via-white/[0.02] to-transparent border border-white/10 rounded-2xl transition-all">
+          <!-- Injected via script -->
+        </div>
+      </div>
+
+    </section>
+
+    <!-- FOOTER STATEMENT & CALL TO ACTION -->
+    <footer class="max-w-7xl mx-auto px-6 border-t border-white/10 pt-20 pb-12 space-y-12">
+      <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-8">
+        <div class="space-y-4">
+          <h3 class="text-5xl sm:text-7xl font-display font-black text-white uppercase tracking-tighter">
+            READY TO JOIN COMPUTEX?
+          </h3>
+          <p class="text-slate-400 text-sm max-w-xl leading-relaxed">
+            Open to all undergraduate and graduate students at the University of Michigan Ann Arbor. No technical prerequisites required.
+          </p>
+        </div>
+
+        <a href="./launch/index.html" class="px-8 py-4 bg-gradient-to-r from-white to-slate-200 text-black font-display font-black text-sm uppercase tracking-widest hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] transition-all whitespace-nowrap">
+          Register Interest →
+        </a>
+      </div>
+
+      <div class="flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500 pt-8 border-t border-white/5 gap-4 font-mono">
+        <span>COMPUTEX © 2026 • UNIVERSITY OF MICHIGAN</span>
+        <button onclick="document.getElementById('pcas-modal').classList.remove('hidden')" class="hover:text-white transition-colors uppercase">
+          About PCAS Academic Support
+        </button>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- PCAS ACADEMIC MODAL -->
+  <div id="pcas-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 hidden">
+    <div class="bg-[#05070C] border border-white/20 max-w-lg w-full p-8 rounded-2xl space-y-6 shadow-2xl relative">
+      <div class="flex justify-between items-start border-b border-white/10 pb-4">
+        <div>
+          <span class="font-display font-bold text-xs uppercase tracking-widest text-pillar-tech">Academic Affiliation</span>
+          <h3 class="text-xl font-display font-bold text-white uppercase tracking-tight mt-1">Program in Computing for the Arts and Sciences</h3>
+        </div>
+        <button onclick="document.getElementById('pcas-modal').classList.add('hidden')" class="text-slate-400 hover:text-white font-bold text-lg">✕</button>
+      </div>
+
+      <p class="text-sm text-slate-300 leading-relaxed">
+        PCAS provides University of Michigan students with tailored interdisciplinary coursework and project support designed to integrate software development seamlessly into non-traditional domain fields.
+      </p>
+
+      <div class="pt-4 border-t border-white/10 flex justify-between items-center text-xs">
+        <span class="text-slate-500 font-mono">U-M College of LSA</span>
+        <button onclick="document.getElementById('pcas-modal').classList.add('hidden')" class="px-4 py-2 bg-white text-black font-display font-bold uppercase text-xs hover:bg-slate-200 transition-all">
+          Close Window
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPT ENGINE -->
+  <script>
+    const pillarData = [
+      {
+        id: 'tech',
+        num: '01',
+        title: 'Technology & Engineering',
+        color: '#06B6D4',
+        glow: 'rgba(6, 182, 212, 0.15)',
+        offset: 'md:translate-y-0', // Stagger alignment
+        focus: 'Computer Science, AI Systems, Embedded Hardware, Robotics',
+        tools: ['Python', 'Docker', 'Git/GitHub', 'C++'],
+        desc: 'Build foundational software systems, machine learning architectures, and hardware integration pipelines.'
+      },
+      {
+        id: 'biz',
+        num: '02',
+        title: 'Business & Strategy',
+        color: '#10B981',
+        glow: 'rgba(16, 185, 129, 0.15)',
+        offset: 'md:translate-y-12', // Stagger alignment
+        focus: 'Business Intelligence, FinTech, Enterprise Analytics, Tech Strategy',
+        tools: ['pandas', 'SQL', 'Tableau', 'Excel Analytics'],
+        desc: 'Translate data metrics into enterprise strategy, financial models, and actionable product management frameworks.'
+      },
+      {
+        id: 'health',
+        num: '03',
+        title: 'Health & Medicine',
+        color: '#F59E0B',
+        glow: 'rgba(245, 158, 11, 0.15)',
+        offset: 'md:translate-y-6', // Stagger alignment
+        focus: 'Health Tech, Medical Biosignals, Bioinformatics, Computational Health',
+        tools: ['PyTorch', 'mne-python', 'OpenCV', 'BioPython'],
+        desc: 'Apply machine learning to neural EEG signals, genomic datasets, and medical hardware tech.'
+      },
+      {
+        id: 'art',
+        num: '04',
+        title: 'Art & Design',
+        color: '#D946EF',
+        glow: 'rgba(217, 70, 239, 0.15)',
+        offset: 'md:translate-y-16', // Stagger alignment
+        focus: 'UI/UX Systems, Immersive Art, CGI, Generative Design',
+        tools: ['p5.js', 'Figma', 'Three.js', 'Shader Language'],
+        desc: 'Design intuitive visual interfaces, interactive spatial graphics, and creative algorithmic media.'
+      },
+      {
+        id: 'ethics',
+        num: '05',
+        title: 'Ethics & Governance',
+        color: '#8B5CF6',
+        glow: 'rgba(139, 92, 246, 0.15)',
+        offset: 'md:translate-y-8', // Stagger alignment
+        focus: 'AI Policy, Data Privacy, Algorithmic Bias Auditing, Explainable AI',
+        tools: ['Fairlearn', 'SHAP', 'AIF360', 'Policy Frameworks'],
+        desc: 'Evaluate software systems for fairness, user privacy, compliance, and societal safety.'
+      }
+    ];
+
+    const matrixData = {
+      'Health-Tech': { name: 'Apple Healthcare & Neuralink', giant: 'Apple Watch biosignal detection for cardiovascular metrics.', frontier: 'Neuralink implantable brain-computer interfaces.' },
+      'Health-Business': { name: 'Epic Systems & Insilico Medicine', giant: 'Epic SQL databases powering 250M+ electronic health records.', frontier: 'Insilico generative AI accelerating drug discovery.' },
+      'Health-Art': { name: 'Philips & BrainGate Visuals', giant: 'Philips patient-centered ambient designs and clinical interfaces.', frontier: 'BrainGate neural signal translation into digital artwork.' },
+      'Health-Ethics': { name: 'Microsoft Azure Health & Cradle Bio', giant: 'Azure HIPAA-compliant medical cloud auditing framework.', frontier: 'Cradle protein engineering with embedded bio-safety rails.' },
+      'Tech-Business': { name: 'AWS Cloud & Boston Dynamics', giant: 'AWS global enterprise cloud databases and logistics systems.', frontier: 'Boston Dynamics autonomous robotics scaling industrial operations.' },
+      'Tech-Art': { name: 'NVIDIA & Looking Glass Factory', giant: 'NVIDIA GPU simulation engines and Omniverse spatial worlds.', frontier: 'Looking Glass holographic light-field displays.' },
+      'Tech-Ethics': { name: 'IBM & World (Worldcoin)', giant: 'IBM enterprise bias auditing engines and privacy suites.', frontier: 'World biometric proof-of-personhood hardware.' },
+      'Business-Art': { name: 'Adobe Firefly & Raspberry AI', giant: 'Adobe commercially safe generative enterprise creative tools.', frontier: 'Raspberry AI converting apparel sketches into 3D production models.' },
+      'Business-Ethics': { name: 'Palantir & Hugging Face', giant: 'Palantir compliance-enforced enterprise data platforms.', frontier: 'Hugging Face open-source auditing hub for AI safety.' },
+      'Art-Ethics': { name: 'Getty Images AI & Holly+', giant: 'Getty AI models trained strictly on licensed artwork.', frontier: 'Holly Herndon autonomous AI voice and likeness licensing.' }
+    };
+
+    const domains = ['Tech', 'Business', 'Health', 'Art', 'Ethics'];
+    let activeY = 'Health';
+    let activeX = 'Tech';
+
+    // RENDER VERTICALLY STAGGERED PILLARS
+    function renderPillars() {
+      const container = document.getElementById('pillars-container');
+      container.innerHTML = pillarData.map(p => `
+        <div class="p-8 bg-white/[0.02] border border-white/10 rounded-2xl space-y-6 transition-all duration-300 hover:border-white/30 hover:bg-white/[0.04] ${p.offset} relative group overflow-hidden">
+          <div class="absolute top-0 right-0 w-32 h-32 rounded-full blur-2xl transition-all opacity-20 group-hover:opacity-40" style="background-color: ${p.color}"></div>
+          
+          <div class="space-y-3 relative z-10">
+            <span class="font-display font-bold text-xs uppercase tracking-widest px-2.5 py-1 rounded-md" style="color: ${p.color}; background-color: ${p.glow}">${p.num} Track</span>
+            <h3 class="text-2xl font-bold text-white tracking-tight">${p.title}</h3>
+            <p class="text-xs text-slate-400 leading-relaxed pt-1">${p.desc}</p>
+          </div>
+
+          <div class="space-y-3 pt-4 border-t border-white/10 relative z-10">
+            <span class="font-display font-bold text-[10px] uppercase tracking-wider text-slate-500 block">Domain Focus</span>
+            <p class="text-xs text-slate-200 font-medium">${p.focus}</p>
+            <div class="flex flex-wrap gap-1.5 pt-1">
+              ${p.tools.map(t => `<span class="px-2 py-0.5 bg-white/5 border border-white/10 text-[10px] text-slate-300 font-mono rounded-md">${t}</span>`).join('')}
+            </div>
+            <a href="./pillars/index.html#${p.id}" class="inline-block text-xs font-display font-bold uppercase tracking-wider pt-2 hover:underline" style="color: ${p.color}">
+              Read Pillar Details →
+            </a>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // MATRIX CONTROLS & RENDER
+    function renderMatrixControls() {
+      const yContainer = document.getElementById('y-axis-container');
+      const xContainer = document.getElementById('x-axis-container');
+
+      yContainer.innerHTML = domains.map(d => {
+        const pillar = pillarData.find(p => p.title.startsWith(d));
+        const color = pillar ? pillar.color : '#FFFFFF';
+        return `
+          <button onclick="setY('${d}')" 
+            class="px-3.5 py-1.5 rounded-lg font-display text-xs font-bold uppercase tracking-wider transition-all"
+            style="${activeY === d ? `background-color: ${color}; color: #000; shadow: 0 0 15px ${color};` : 'background-color: rgba(255,255,255,0.05); color: #94A3B8;'}">
+            ${d}
+          </button>
+        `;
+      }).join('');
+
+      xContainer.innerHTML = domains.map(d => {
+        const pillar = pillarData.find(p => p.title.startsWith(d));
+        const color = pillar ? pillar.color : '#FFFFFF';
+        return `
+          <button onclick="setX('${d}')" 
+            class="px-3.5 py-1.5 rounded-lg font-display text-xs font-bold uppercase tracking-wider transition-all"
+            style="${activeX === d ? `background-color: ${color}; color: #000; shadow: 0 0 15px ${color};` : 'background-color: rgba(255,255,255,0.05); color: #94A3B8;'}">
+            ${d}
+          </button>
+        `;
+      }).join('');
+    }
+
+    function setY(d) { activeY = d; updateMatrix(); }
+    function setX(d) { activeX = d; updateMatrix(); }
+
+    function updateMatrix() {
+      document.getElementById('matrix-active-label').innerText = `${activeY} + ${activeX}`;
+      renderMatrixControls();
+
+      const output = document.getElementById('matrix-output');
+
+      if (activeY === activeX) {
+        output.innerHTML = `
+          <div class="space-y-3">
+            <span class="px-2.5 py-1 bg-amber-500/20 text-amber-400 font-display text-xs font-bold uppercase tracking-wider rounded-md">Single Domain Loop</span>
+            <h4 class="text-2xl font-display font-bold text-white uppercase">${activeY} + ${activeX}</h4>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              ComputeX focuses on cross-disciplinary synthesis. Select two different domain fields to discover industry leaders and frontier innovations.
+            </p>
+          </div>
+        `;
+        return;
+      }
+
+      const key = `${activeY}-${activeX}`;
+      const reverseKey = `${activeX}-${activeY}`;
+      const data = matrixData[key] || matrixData[reverseKey];
+
+      if (data) {
+        output.innerHTML = `
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div class="lg:col-span-4 space-y-2">
+              <span class="font-display font-bold text-xs uppercase tracking-widest text-pillar-tech">Case Study</span>
+              <h3 class="text-3xl font-display font-bold text-white uppercase tracking-tight">${data.name}</h3>
+            </div>
+
+            <div class="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="p-5 bg-white/5 border-l-4 border-pillar-tech rounded-r-xl space-y-1">
+                <span class="font-display font-bold text-[10px] text-pillar-tech uppercase tracking-wider block">Established Leader</span>
+                <p class="text-xs text-slate-300 leading-relaxed">${data.giant}</p>
+              </div>
+
+              <div class="p-5 bg-white/5 border-l-4 border-pillar-art rounded-r-xl space-y-1">
+                <span class="font-display font-bold text-[10px] text-pillar-art uppercase tracking-wider block">Frontier Pioneer</span>
+                <p class="text-xs text-slate-300 leading-relaxed">${data.frontier}</p>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+    }
+
+    // INITIALIZE
+    renderPillars();
+    updateMatrix();
+  </script>
+
+</body>
+</html>

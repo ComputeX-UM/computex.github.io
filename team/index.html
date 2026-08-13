@@ -56,14 +56,100 @@
     .glass-card:hover {
       border-color: rgba(255, 255, 255, 0.18);
     }
+    /* Base styles for bokeh circles */
+.bokeh-light {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px); /* Creates the soft, out-of-focus light disc */
+  mix-blend-mode: screen;
+  will-change: transform, opacity;
+}
+
+/* Individual light sizing, colors, and initial placement */
+.bokeh-1 {
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.4) 0%, rgba(6, 182, 212, 0) 70%); /* Brand Cyan */
+  top: 10%;
+  left: 15%;
+  animation: floatBokeh1 18s ease-in-out infinite alternate;
+}
+
+.bokeh-2 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(217, 70, 239, 0.3) 0%, rgba(217, 70, 239, 0) 70%); /* Soft Magenta/Purple */
+  top: 55%;
+  right: 10%;
+  animation: floatBokeh2 22s ease-in-out infinite alternate;
+}
+
+.bokeh-3 {
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.35) 0%, rgba(6, 182, 212, 0) 70%); /* Brand Cyan */
+  bottom: 15%;
+  left: 30%;
+  animation: floatBokeh3 20s ease-in-out infinite alternate;
+}
+
+.bokeh-4 {
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 70%); /* Soft White Glow */
+  top: 30%;
+  right: 35%;
+  animation: floatBokeh4 25s ease-in-out infinite alternate;
+}
+
+/* Slow, organic drifting animations */
+@keyframes floatBokeh1 {
+  0%   { transform: translate(0, 0) scale(1); opacity: 0.6; }
+  50%  { transform: translate(40px, -30px) scale(1.15); opacity: 0.9; }
+  100% { transform: translate(-20px, 50px) scale(0.95); opacity: 0.5; }
+}
+
+@keyframes floatBokeh2 {
+  0%   { transform: translate(0, 0) scale(1); opacity: 0.5; }
+  50%  { transform: translate(-50px, 40px) scale(1.1); opacity: 0.8; }
+  100% { transform: translate(30px, -30px) scale(0.9); opacity: 0.4; }
+}
+
+@keyframes floatBokeh3 {
+  0%   { transform: translate(0, 0) scale(0.9); opacity: 0.7; }
+  50%  { transform: translate(35px, 25px) scale(1.2); opacity: 0.4; }
+  100% { transform: translate(-30px, -40px) scale(1); opacity: 0.8; }
+}
+
+@keyframes floatBokeh4 {
+  0%   { transform: translate(0, 0) scale(1.1); opacity: 0.4; }
+  50%  { transform: translate(-40px, -50px) scale(0.85); opacity: 0.7; }
+  100% { transform: translate(25px, 35px) scale(1.05); opacity: 0.3; }
+}
   </style>
 </head>
 
 <body class="bg-brand-bg text-slate-200 font-sans antialiased min-h-screen selection:bg-brand-cyan/20 selection:text-brand-cyan">
 
-  <!-- Background Grid & Lighting -->
+  <!-- AMBIENT BACKGROUND LAYER -->
+<div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+  
+  <!-- Subtle Grid Overlay -->
+  <div class="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:32px_32px]"></div>
+
+  <!-- Bokeh Container (Super Faint Lights) -->
+  <div class="absolute inset-0 opacity-60 pointer-events-none">
+    <div class="bokeh-light bokeh-1"></div>
+    <div class="bokeh-light bokeh-2"></div>
+    <div class="bokeh-light bokeh-3"></div>
+    <div class="bokeh-light bokeh-4"></div>
+  </div>
+
+</div>
+  <!-- Background Grid & Lighting 
   <div class="fixed inset-0 bg-grid pointer-events-none z-0"></div>
   <div class="fixed inset-0 radial-glow pointer-events-none z-0"></div>
+  -->
 
   <!-- Navigation -->
   <nav class="sticky top-0 z-50 border-b border-white/5 bg-brand-bg/80 backdrop-blur-md">

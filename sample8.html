@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ComputeX | Interdisciplinary Tech Club at Michigan</title>
+  
+  <!-- Inter & Geist Mono Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['"Geist Mono"', 'monospace'],
+          },
+          colors: {
+            brand: {
+              bg: '#08080a',
+              panel: '#101116',
+              card: '#161820',
+              border: 'rgba(255, 255, 255, 0.08)',
+              cyan: '#00F0FF',
+              amber: '#FFB800',
+              emerald: '#00E599',
+              magenta: '#FF2E93',
+              purple: '#9D4EDD',
+              grey: '#acacbf',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Subtle grid background */
+    .bg-grid {
+      background-size: 60px 60px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    }
+
+    /* Ambient Fluid Mesh Glows */
+    .mesh-glow-1 {
+      position: absolute;
+      width: 550px;
+      height: 550px;
+      background: radial-gradient(circle, rgba(0, 240, 255, 0.15) 0%, rgba(157, 78, 221, 0.12) 40%, transparent 70%);
+      filter: blur(80px);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .mesh-glow-2 {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(255, 46, 147, 0.12) 0%, rgba(0, 229, 153, 0.08) 50%, transparent 75%);
+      filter: blur(90px);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    /* Soft curved line accents */
+    .curved-ring {
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 50%;
+      position: absolute;
+      pointer-events: none;
+    }
+
+    /* Fluid Pillar Aurora Card Glows */
+    .aurora-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .aurora-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: var(--aurora-gradient);
+      opacity: 0.12;
+      filter: blur(40px);
+      transition: opacity 0.5s ease;
+      pointer-events: none;
+    }
+
+    .aurora-card:hover::before {
+      opacity: 0.28;
+    }
+
+    /* Ambient Fluid Motion Animations */
+    @keyframes floatGlow1 {
+    0%, 100% {
+        transform: translate(0px, 0px) scale(1);
+        opacity: 0.5;
+    }
+    50% {
+        transform: translate(35px, 25px) scale(1.15);
+        opacity: 0.75;
+    }
+    }
+
+    @keyframes floatGlow2 {
+    0%, 100% {
+        transform: translate(0px, 0px) scale(1);
+        opacity: 0.5;
+    }
+    50% {
+        transform: translate(-35px, -25px) scale(1.18);
+        opacity: 0.75;
+    }
+    }
+
+    .animate-glow-1 {
+    animation: floatGlow1 12s ease-in-out infinite;
+    }
+
+    .animate-glow-2 {
+    animation: floatGlow2 14s ease-in-out infinite;
+    }
+
+    
+  </style>
+</head>
+
+<body class="bg-brand-bg text-slate-200 font-sans antialiased min-h-screen selection:bg-brand-cyan/20 selection:text-brand-cyan overflow-x-hidden">
+
+  <!-- Ambient Grid & Fluid Glows -->
+  <div class="fixed inset-0 bg-grid pointer-events-none z-0"></div>
+  <div class="mesh-glow-1 top-[-100px] right-[-100px] z-0"></div>
+  <div class="mesh-glow-2 top-[40%] left-[-200px] z-0"></div>
+
+  <!-- Navigation -->
+  <nav class="sticky top-0 z-50 bg-brand-bg/60 backdrop-blur-xl border-b border-white/5">
+    <div class="max-w-7xl mx-auto px-8 h-20 flex items-center justify-between">
+      <a href="#" class="font-mono text-xl font-bold tracking-tight text-white flex items-center gap-2">
+        <span class="inline-block w-2.5 h-2.5 rounded-full bg-brand-cyan animate-pulse"></span>
+        COMPUTEX<span class="text-brand-cyan">//</span>
+      </a>
+      
+      <div class="flex items-center gap-8 text-sm font-mono text-slate-400">
+        <a href="./team/index.html" class="hover:text-white transition-colors">TEAM</a>
+        <a href="./pillars/index.html" class="hover:text-white transition-colors">PILLARS</a>
+        <a href="./roadmap/index.html" class="hover:text-white transition-colors">ROADMAP</a>
+        
+        <!-- Launch Button -->
+        <a href="./launch/index.html" class="group relative px-5 py-2 rounded-lg bg-white/10 text-white border border-white/10 font-semibold transition-all hover:border-transparent">
+          <span class="absolute -inset-[1px] rounded-lg bg-gradient-to-r from-brand-emerald via-brand-cyan to-brand-purple opacity-0 group-hover:opacity-100 transition-opacity p-[1px] pointer-events-none">
+            <span class="w-full h-full block rounded-[7px] bg-[#121318]"></span>
+          </span>
+          <span class="relative z-10 group-hover:bg-gradient-to-r group-hover:from-brand-emerald group-hover:via-brand-cyan group-hover:to-brand-purple group-hover:bg-clip-text group-hover:text-transparent transition-all">
+            LAUNCH →
+          </span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION: (UNTOUCHED) Asymmetrical Split Layout -->
+  <section class="relative z-10 pt-16 pb-24 px-8 max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      
+      <!-- Left Column: Big Bold Typography & CTA -->
+      <div class="lg:col-span-7 space-y-8 text-left">
+        
+        <!-- Status Badges -->
+        <div class="flex flex-wrap items-center gap-3">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 text-xs font-mono text-slate-300">
+            <span class="w-1.5 h-1.5 rounded-full bg-brand-emerald animate-ping"></span>
+            Launching Fall 2026
+          </div>
+          
+          <button onclick="openPcasModal()" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-brand-purple/10 text-xs font-mono text-brand-purple hover:bg-brand-purple/20 transition-all cursor-pointer">
+            <span>POWERED BY PCAS</span>
+            <span class="text-[10px]">ℹ</span>
+          </button>
+        </div>
+
+        <!-- Asymmetrical Headline -->
+        <h1 class="text-5xl sm:text-6xl xl:text-7xl font-extrabold tracking-tight text-white leading-[1.08]">
+          Where computing <br />
+          <span class="text-slate-400 font-light italic">intersects with</span> <br />
+          <span style="background: linear-gradient(90deg, #00F0FF 0%, #00E599 35%, #FFB800 65%, #FF2E93 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+            every field.
+          </span>
+        </h1>
+
+        <!-- Open-Door Policy Tag -->
+        <p class="font-mono text-xs text-brand-cyan tracking-wider uppercase">
+          [ NO PRIOR CODING REQUIRED // ALL MAJORS WELCOME ]
+        </p>
+
+        <!-- Paragraph Description -->
+        <p class="text-lg text-slate-300 max-w-xl font-normal leading-relaxed">
+          ComputeX is an interdisciplinary tech club connecting computing with engineering, health, business, art, and ethics. Sponsored by the University of Michigan's Program in Computing for the Arts and Sciences.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-wrap gap-4 pt-2">
+          <a href="#join" class="px-8 py-4 rounded-xl bg-white text-black font-semibold hover:bg-slate-200 transition-all shadow-xl shadow-white/5">
+            Newsletter / Interest Form
+          </a>
+          <a href="#pillars" class="px-8 py-4 rounded-xl bg-white/5 text-slate-300 font-medium hover:text-white hover:bg-white/10 transition-all">
+            Explore 5 Pillars ↓
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Column: Overlapping Code / Visual Preview (Omicron Style) -->
+      <div class="lg:col-span-5 relative">
+        <div class="curved-ring w-[500px] h-[500px] -top-10 -right-10"></div>
+        
+        <!-- Overlapping Interactive Terminal Visual -->
+        <div class="relative bg-[#0d0e12] rounded-2xl p-6 border border-white/10 shadow-2xl backdrop-blur-2xl">
+          <!-- Terminal Header -->
+          <div class="flex items-center justify-between pb-4 mb-4 border-b border-white/5 font-mono text-xs text-slate-400">
+            <div class="flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-red-500/80 inline-block"></span>
+              <span class="w-3 h-3 rounded-full bg-yellow-500/80 inline-block"></span>
+              <span class="w-3 h-3 rounded-full bg-green-500/80 inline-block"></span>
+            </div>
+            <span>computex_manifest.py</span>
+          </div>
+
+          <!-- Code Content -->
+          <pre class="font-mono text-xs leading-relaxed text-slate-300 overflow-x-auto space-y-2">
+<span class="text-brand-magenta">class</span> <span class="text-brand-cyan">ComputeX</span>:
+    <span class="text-brand-magenta">def</span> <span class="text-brand-amber">__init__</span>(self):
+        self.mission = <span class="text-brand-emerald">"Democratize Tech Literacy"</span>
+        self.community = [<span class="text-brand-cyan">"LSA"</span>, <span class="text-brand-amber">"Ross"</span>, <span class="text-brand-emerald">"CoE"</span>, <span class="text-brand-magenta">"Stamps"</span>]
+        self.prerequisites = <span class="text-slate-500">None</span>  <span class="text-slate-500"># Zero coding needed</span>
+    
+    <span class="text-brand-magenta">def</span> <span class="text-brand-amber">build_future</span>(self, domain_a, domain_b):
+        <span class="text-brand-magenta">return</span> f<span class="text-brand-emerald">"Breakthrough at {domain_a} × {domain_b}"</span>
+          </pre>
+
+          <!-- Floating Badge overlay on bottom right -->
+          <div class="mt-6 pt-4 border-t border-white/5 flex items-center justify-between font-mono text-[11px] text-slate-400">
+            <span class="text-brand-emerald">✓ All Majors Invited</span>
+            <span class="text-brand-cyan">UMich @ Ann Arbor</span>
+          </div>
+        </div>
+
+        <!-- Secondary Overlapping Card -->
+        <div class="mt-4 -ml-6 lg:-ml-12 relative z-20 bg-brand-panel p-5 rounded-xl border border-white/10 shadow-2xl max-w-sm">
+          <div class="font-mono text-[10px] text-brand-purple uppercase tracking-widest mb-1">// ACTIVITIES</div>
+          <p class="text-sm text-slate-200 font-medium">Workshops • Keynote Speakers • Interdisciplinary Projects • Tech Network</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+<!-- Asymmetrical Grid Layout with Subtle Per-Pillar Aurora Lights -->
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+
+      <!-- 01 Tech + Engineering -->
+      <div class="md:col-span-7 bg-brand-panel/90 backdrop-blur-sm p-8 rounded-2xl border border-white/5 aurora-card transition-all hover:border-brand-cyan/30" style="--aurora-gradient: radial-gradient(circle at 10% 20%, rgba(0,240,255,0.4), transparent 60%);">
+        <div class="relative z-10">
+          <div class="font-mono text-xs text-brand-cyan mb-4">// 01</div>
+          <h4 class="text-2xl font-bold text-white mb-2">Tech + Engineering</h4>
+          <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+            <span class="text-slate-200 font-medium">Focus Areas:</span> Computer Science, AI/ML, Embedded Systems, Robotics
+          </p>
+
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="px-2.5 py-1 rounded-md bg-white/5 font-mono text-xs text-slate-300">Python</span>
+            <span class="px-2.5 py-1 rounded-md bg-white/5 font-mono text-xs text-slate-300">Docker</span>
+            <span class="px-2.5 py-1 rounded-md bg-white/5 font-mono text-xs text-slate-300">Git/GitHub</span>
+          </div>
+
+          <a href="./pillars/index.html#tech" class="inline-flex items-center font-mono text-xs text-brand-cyan hover:underline">
+            Explore Tech Domain →
+          </a>
+        </div>
+      </div>
+
+      <!-- 02 Business + Strategy -->
+      <div class="md:col-span-5 bg-brand-panel/90 backdrop-blur-sm p-8 rounded-2xl border border-white/5 aurora-card transition-all hover:border-brand-amber/30" style="--aurora-gradient: radial-gradient(circle at 90% 20%, rgba(255,184,0,0.35), transparent 60%);">
+        <div class="relative z-10">
+          <div class="font-mono text-xs text-brand-amber mb-4">// 02</div>
+          <h4 class="text-2xl font-bold text-white mb-2">Business + Strategy</h4>
+          <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+            <span class="text-slate-200 font-medium">Focus Areas:</span> Business Intelligence, FinTech, Enterprise Tech
+          </p>
+
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="px-2.5 py-1 rounded-md bg-white/5 font-mono text-xs text-slate-300">pandas</span>
+            <span class="px-2.5 py-1 rounded-md bg-white/5 font-mono text-xs text-slate-300">SQL</span>
+            <span class="px-2.5 py-1 rounded-md bg-white/5 font-mono text-xs text-slate-300">Tableau</span>
+          </div>
+
+          <a href="./pillars/index.html#business" class="inline-flex items-center font-mono text-xs text-brand-amber hover:underline">
+            Explore Business Domain →
+          </a>
+        </div>
+      </div>
+
+      <!-- 03 Health + Medicine -->
+      <div class="md:col-span-4 bg-brand-panel/90 backdrop-blur-sm p-8 rounded-2xl border border-white/5 aurora-card transition-all hover:border-brand-emerald/30" style="--aurora-gradient: radial-gradient(circle at 50% 100%, rgba(0,229,153,0.35), transparent 60%);">
+        <div class="relative z-10">
+          <div class="font-mono text-xs text-brand-emerald mb-4">// 03</div>
+          <h4 class="text-xl font-bold text-white mb-2">Health + Medicine</h4>
+          <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+            <span class="text-slate-200 font-medium">Focus Areas:</span> Health Tech, Medical Devices, Bioinformatics
+          </p>
+
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="px-2.5 py-1 rounded-md bg-white/5 font-mono text-xs text-slate-300">PyTorch</span>
+            <span class="px-2.5 py-1 rounded-md bg-white/5 font-mono text-xs text-slate-300">OpenCV</span>
+            <span class="px-2.5 py-1 rounded-md bg-white/5 font-mono text-xs text-slate-300">mne-python</span>
+          </div>
+
+          <a href="./pillars/index.html#health" class="inline-flex items-center font-mono text-xs text-brand-emerald hover:underline">
+            Explore Health Domain →
+          </a>
+        </div>
+      </div>
+
+      <!-- 04 Art + Design -->
+      <div class="md:col-span-4 bg-brand-panel/90 backdrop-blur-sm p-8 rounded-2xl border border-white/5 aurora-card transition-all hover:border-brand-magenta/30" style="--aurora-gradient: radial-gradient(circle at 20% 80%, rgba(255,46,147,0.35), transparent 60%);">
+        <div class="relative z-10">
+          <div class="font-mono text-xs text-brand-magenta mb-4">// 04</div>
+          <h4 class="text-xl font-bold text-white mb-2">Art + Design</h4>
+          <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+            <span class="text-slate-200 font-medium">Focus Areas:</span> UI/UX, Immersive Art, CGI, Game Design
+          </p>
+
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="px-2.5 py-1 rounded-md bg-white/5 font-mono text-xs text-slate-300">p5.js</span>
+            <span class="px-2.5 py-1 rounded-md bg-white/5 font-mono text-xs text-slate-300">Figma</span>
+            <span class="px-2.5 py-1 rounded-md bg-white/5 font-mono text-xs text-slate-300">Three.js</span>
+          </div>
+
+          <a href="./pillars/index.html#art" class="inline-flex items-center font-mono text-xs text-brand-magenta hover:underline">
+            Explore Art Domain →
+          </a>
+        </div>
+      </div>
+
+      <!-- 05 Ethics + Impact -->
+      <div class="md:col-span-4 bg-brand-panel/90 backdrop-blur-sm p-8 rounded-2xl border border-white/5 aurora-card transition-all hover:border-brand-purple/30" style="--aurora-gradient: radial-gradient(circle at 80% 80%, rgba(157,78,221,0.35), transparent 60%);">
+        <div class="relative z-10">
+          <div class="font-mono text-xs text-brand-purple mb-4">// 05</div>
+          <h4 class="text-xl font-bold text-white mb-2">Ethics + Impact</h4>
+          <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+            <span class="text-slate-200 font-medium">Focus Areas:</span> AI Policy, Data Privacy, Algorithmic Bias, Explainable AI
+          </p>
+
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="px-2.5 py-1 rounded-md bg-white/5 font-mono text-xs text-slate-300">Fairlearn</span>
+            <span class="px-2.5 py-1 rounded-md bg-white/5 font-mono text-xs text-slate-300">SHAP</span>
+            <span class="px-2.5 py-1 rounded-md bg-white/5 font-mono text-xs text-slate-300">AIF360</span>
+          </div>
+
+          <a href="./pillars/index.html#ethics" class="inline-flex items-center font-mono text-xs text-brand-purple hover:underline">
+            Explore Ethics Domain →
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Soft Frameless Banner with Aurora Accent Line -->
+    <div class="mt-12 p-8 rounded-2xl bg-gradient-to-r from-brand-panel via-brand-panel/80 to-transparent border-l-2 border-brand-cyan relative overflow-hidden flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+      <div class="absolute -right-20 -bottom-20 w-64 h-64 bg-brand-cyan/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="relative z-10">
+        <div class="font-mono text-xs text-brand-cyan mb-1">// WHO IT'S FOR</div>
+        <h4 class="text-xl font-semibold text-white">Built for every major across campus</h4>
+        <p class="text-sm text-slate-400 mt-1">LSA, Ross, Stamps, CoE, School of Information, Pre-med, and beyond. Zero coding required, just curiosity!</p>
+      </div>
+      <a href="/launch" class="relative z-10 px-6 py-3 rounded-lg bg-white/10 font-mono text-xs text-white hover:bg-white hover:text-black transition-all whitespace-nowrap">
+        Get Involved →
+      </a>
+    </div>
+  </section>
+
+  <!-- INTERDISCIPLINARY MATRIX SECTION (WITH DYNAMIC AMBIENT AURORA BLEND) -->
+  <section class="relative z-10 py-20 px-8 max-w-7xl mx-auto">
+    <div class="bg-brand-panel/90 backdrop-blur-xl p-8 sm:p-12 rounded-3xl border border-white/5 shadow-2xl relative overflow-hidden">
+      
+      <!-- Dynamic Dual-Pillar Ambient Aurora Glows -->
+      <!-- Dynamic Dual-Pillar Ambient Aurora Glows -->
+      <div id="matrix-aurora-glow-1" class="absolute -top-32 -left-32 w-96 h-96 rounded-full filter blur-[100px] pointer-events-none transition-all duration-700 animate-glow-1"></div>
+      <div id="matrix-aurora-glow-2" class="absolute -bottom-32 -right-32 w-96 h-96 rounded-full filter blur-[100px] pointer-events-none transition-all duration-700 animate-glow-2"></div>
+      <!-- Section Header -->
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 mb-10 relative z-10">
+        <div>
+          <h3 class="font-mono text-xs text-brand-grey uppercase tracking-widest mb-2">// INTERSECTION_MATRIX</h3>
+          <h4 class="text-3xl font-bold text-white tracking-tight">Choose two pillars to explore how they intersect</h4>
+        </div>
+        <div class="font-mono text-xs text-slate-400 bg-black/40 px-4 py-2 rounded-lg border border-white/5">
+          [ ACTIVE_PAIR: <span id="active-pair-label" class="text-brand-cyan font-bold">HEALTH × TECH</span> ]
+        </div>
+      </div>
+
+      <!-- Matrix Interactive Layout -->
+      <div class="grid grid-cols-[auto_1fr] gap-6 items-start relative z-10">
+        
+        <!-- Axis Corner Label -->
+        <div class="w-24 sm:w-32 font-mono text-[10px] text-slate-500 text-center py-2 border-b border-white/10">
+          AXIS [Y \ X]
+        </div>
+
+        <!-- Top Row (X-Axis Buttons) -->
+        <div id="x-axis-buttons" class="grid grid-cols-5 gap-2 border-b border-white/10 pb-6">
+          <!-- JS dynamic render -->
+        </div>
+
+        <!-- Left Column (Y-Axis Buttons) -->
+        <div id="y-axis-buttons" class="flex flex-col gap-2 w-24 sm:w-32">
+          <!-- JS dynamic render -->
+        </div>
+
+        <!-- Center Stage Display Card -->
+        <div id="matrix-display-card" class="bg-black/60 backdrop-blur-md p-8 rounded-2xl border border-white/10 font-mono relative min-h-[260px] transition-all">
+          <!-- JS injects card details here -->
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Matrix Engine Script (With Dynamic Dynamic Pillar-Colored Buttons & Ambient Glows) -->
+  <script>
+    const domains = ['TECH', 'BUSINESS', 'HEALTH', 'ART', 'ETHICS'];
+    
+    // Color configurations for each domain
+    const domainColors = {
+      'TECH': {
+        hex: '#00F0FF',
+        rgba: 'rgba(0, 240, 255, 0.45)',
+        bgClass: 'bg-brand-cyan text-black border-brand-cyan shadow-brand-cyan/20'
+      },
+      'BUSINESS': {
+        hex: '#FFB800',
+        rgba: 'rgba(255, 184, 0, 0.45)',
+        bgClass: 'bg-brand-amber text-black border-brand-amber shadow-brand-amber/20'
+      },
+      'HEALTH': {
+        hex: '#00E599',
+        rgba: 'rgba(0, 229, 153, 0.45)',
+        bgClass: 'bg-brand-emerald text-black border-brand-emerald shadow-brand-emerald/20'
+      },
+      'ART': {
+        hex: '#FF2E93',
+        rgba: 'rgba(255, 46, 147, 0.45)',
+        bgClass: 'bg-brand-magenta text-black border-brand-magenta shadow-brand-magenta/20'
+      },
+      'ETHICS': {
+        hex: '#9D4EDD',
+        rgba: 'rgba(157, 78, 221, 0.45)',
+        bgClass: 'bg-brand-purple text-black border-brand-purple shadow-brand-purple/20'
+      }
+    };
+
+    let currentCardView = 'giant';
+
+    const matrixData = {
+      'HEALTH-TECH': {
+        p1: 'Health + Medicine', p2: 'Tech + Engineering', link: '/pillars#health',
+        giant: { badge: 'THE TECH GIANT', badgeColor: 'text-brand-cyan bg-brand-cyan/10 border-brand-cyan/30', name: 'Apple', desc: 'Using the Apple Watch for consumer biosignal tracking, detecting conditions like atrial fibrillation, and building software infrastructure for decentralized clinical research.', toggleMsg: 'Flip the script to explore the cutting edge', url: 'https://www.apple.com/healthcare/' },
+        frontier: { badge: 'SCI-FI CUTTING-EDGE', badgeColor: 'text-brand-magenta bg-brand-magenta/10 border-brand-magenta/30', name: 'Neuralink', desc: 'Elon Musk’s neurotechnology firm building implantable brain-computer interfaces (BCIs). Their surgical robot embeds flexible electrode threads directly into the motor cortex, allowing paralyzed patients to control digital devices entirely with their thoughts.', toggleMsg: 'Swap the pillars to see who\'s scaling this globally', url: 'https://neuralink.com/' }
+      },
+      'HEALTH-BUSINESS': {
+        p1: 'Health + Medicine', p2: 'Business + Strategy', link: '/pillars#health',
+        giant: { badge: 'THE TECH GIANT', badgeColor: 'text-brand-cyan bg-brand-cyan/10 border-brand-cyan/30', name: 'Epic Systems', desc: 'The healthcare database monolith powering over 250 million patient records. They combine massive relational SQL databases with machine learning to streamline clinical logistics, manage enterprise billing, and optimize hospital capacity.', toggleMsg: 'Flip the script to explore the cutting edge', url: 'https://www.epic.com/' },
+        frontier: { badge: 'SCI-FI CUTTING-EDGE', badgeColor: 'text-brand-magenta bg-brand-magenta/10 border-brand-magenta/30', name: 'Insilico Medicine', desc: 'A company using generative AI pipelines to compress the business of drug discovery. They can design, synthesize, and visually analyze a brand-new molecule to target specific diseases, shrinking a multi-billion-dollar, decade-long clinical strategy into a matter of months.', toggleMsg: 'Swap the pillars to see who\'s scaling this globally', url: 'https://www.insilicomedicine.com/' }
+      },
+      'HEALTH-ART': {
+        p1: 'Health + Medicine', p2: 'Art + Design', link: '/pillars#health',
+        giant: { badge: 'THE TECH GIANT', badgeColor: 'text-brand-cyan bg-brand-cyan/10 border-brand-cyan/30', name: 'Philips Healthcare', desc: 'Redesigning the visual and sensory patient experience. They craft complex interactive medical user interfaces and use generative 3D lighting/graphics (Ambient Experience) to make high-stress clinical environments (like MRI suites) deeply calming.', toggleMsg: 'Flip the script to explore the cutting edge', url: 'https://www.philips.com/healthcare' },
+        frontier: { badge: 'SCI-FI CUTTING-EDGE', badgeColor: 'text-brand-magenta bg-brand-magenta/10 border-brand-magenta/30', name: 'BrainGate (Generative Art)', desc: 'Mapping neural biosignals directly to digital art software and visual interfaces. Paralyzed individuals utilize these BCI setups to render high-resolution generative digital artwork using strictly their focused cognitive intent.', toggleMsg: 'Swap the pillars to see who\'s scaling this globally', url: 'https://www.braingate.org/' }
+      },
+      'HEALTH-ETHICS': {
+        p1: 'Health + Medicine', p2: 'Ethics + Impact', link: '/pillars#health',
+        giant: { badge: 'THE TECH GIANT', badgeColor: 'text-brand-cyan bg-brand-cyan/10 border-brand-cyan/30', name: 'Microsoft Azure Healthcare', desc: 'Auditing massive cloud diagnostics tools to guarantee data compliance (HIPAA/HITRUST), secure handling of private genomic data, and eliminate racial or socio-economic bias embedded within historical hospital datasets.', toggleMsg: 'Flip the script to explore the cutting edge', url: 'https://azure.microsoft.com/en-us/services/healthcare/' },
+        frontier: { badge: 'SCI-FI CUTTING-EDGE', badgeColor: 'text-brand-magenta bg-brand-magenta/10 border-brand-magenta/30', name: 'Cradle', desc: 'A biology platform utilizing generative AI to design synthetic proteins. Because modifying life forms sits at a massive ethical crossroads, they build rigorous programmatic guardrails directly into their software to ensure safety, biological transparency, and biosecurity.', toggleMsg: 'Swap the pillars to see who\'s scaling this globally', url: 'https://www.cradlebio.com/' }
+      },
+      'TECH-BUSINESS': {
+        p1: 'Tech + Engineering', p2: 'Business + Strategy', link: '/pillars#tech',
+        giant: { badge: 'THE TECH GIANT', badgeColor: 'text-brand-cyan bg-brand-cyan/10 border-brand-cyan/30', name: 'Amazon Web Services (AWS)', desc: 'The global backbone of industrial cloud infrastructure. AWS combines advanced backend engineering with enterprise analytics tools to manage the global supply chains, databases, and financial systems of millions of businesses.', toggleMsg: 'Flip the script to explore the cutting edge', url: 'https://aws.amazon.com/' },
+        frontier: { badge: 'SCI-FI CUTTING-EDGE', badgeColor: 'text-brand-magenta bg-brand-magenta/10 border-brand-magenta/30', name: 'Boston Dynamics', desc: 'Melding intricate robotics engineering with modern warehouse business strategy. Their autonomous humanoid and quadruped robots are leaving laboratories and entering real enterprise environments to execute complex logistics, heavy lifting, and facility surveillance.', toggleMsg: 'Swap the pillars to see who\'s scaling this globally', url: 'https://www.bostondynamics.com/' }
+      },
+      'TECH-ART': {
+        p1: 'Tech + Engineering', p2: 'Art + Design', link: '/pillars#tech',
+        giant: { badge: 'THE TECH GIANT', badgeColor: 'text-brand-cyan bg-brand-cyan/10 border-brand-cyan/30', name: 'NVIDIA', desc: 'The undisputed king of blending hardware with visual design. They build the GPU architecture and Omniverse simulation engines that allow engineers to construct hyper-realistic 3D graphics, generative virtual worlds, and digital twins.', toggleMsg: 'Flip the script to explore the cutting edge', url: 'https://www.nvidia.com/' },
+        frontier: { badge: 'SCI-FI CUTTING-EDGE', badgeColor: 'text-brand-magenta bg-brand-magenta/10 border-brand-magenta/30', name: 'Looking Glass Factory', desc: 'Shifting interactive digital interfaces away from flat screens. They build advanced holographic light-field displays that allow users to view and interact with 3D generative art and architectural assets in real, physical space without wearing a headset.', toggleMsg: 'Swap the pillars to see who\'s scaling this globally', url: 'https://lookingglassfactory.com/' }
+      },
+      'TECH-ETHICS': {
+        p1: 'Tech + Engineering', p2: 'Ethics + Impact', link: '/pillars#tech',
+        giant: { badge: 'THE TECH GIANT', badgeColor: 'text-brand-cyan bg-brand-cyan/10 border-brand-cyan/30', name: 'IBM', desc: 'A pioneer in enterprise data auditing. Their software suites actively scan enterprise cloud setups and algorithmic codebases to ensure technical systems conform to global privacy frameworks and do not drift into discriminatory biases.', toggleMsg: 'Flip the script to explore the cutting edge', url: 'https://www.ibm.com/' },
+        frontier: { badge: 'SCI-FI CUTTING-EDGE', badgeColor: 'text-brand-magenta bg-brand-magenta/10 border-brand-magenta/30', name: 'World (formerly Worldcoin)', desc: 'Co-founded by Sam Altman, this project addresses the threat of AI bots overtaking digital networks. They manufacture a hardware biometric orb that scans human irises to create an anonymized, un-hackable "Proof of Personhood" digital identity framework.', toggleMsg: 'Swap the pillars to see who\'s scaling this globally', url: 'https://www.worldcoin.org/' }
+      },
+      'BUSINESS-ART': {
+        p1: 'Business + Strategy', p2: 'Art + Design', link: '/pillars#business',
+        giant: { badge: 'THE TECH GIANT', badgeColor: 'text-brand-cyan bg-brand-cyan/10 border-brand-cyan/30', name: 'Adobe', desc: 'Merging creative UI/UX with corporate strategy. Their Firefly generative models provide enterprises with commercially safe creative assets, allowing global brands to dynamically spin up targeted marketing materials at scale.', toggleMsg: 'Flip the script to explore the cutting edge', url: 'https://www.adobe.com/' },
+        frontier: { badge: 'SCI-FI CUTTING-EDGE', badgeColor: 'text-brand-magenta bg-brand-magenta/10 border-brand-magenta/30', name: 'Raspberry AI / Style3D', desc: 'Generative AI engines disrupting the physical apparel business. Instead of spending months cutting physical fabric and running expensive photoshoots, apparel brands use these tools to turn 2D sketches into photorealistic 3D virtual drapes and pattern tech packs.', toggleMsg: 'Swap the pillars to see who\'s scaling this globally', url: 'https://www.raspberryai.com/' }
+      },
+      'BUSINESS-ETHICS': {
+        p1: 'Business + Strategy', p2: 'Ethics + Impact', link: '/pillars#business',
+        giant: { badge: 'THE TECH GIANT', badgeColor: 'text-brand-cyan bg-brand-cyan/10 border-brand-cyan/30', name: 'Palantir Technologies', desc: 'Deployed by financial giants and governments to query complex databases. They provide strict internal software frameworks ensuring that multi-layered data analysis remains auditable, secure, and compliant with national security laws.', toggleMsg: 'Flip the script to explore the cutting edge', url: 'https://www.palantir.com/' },
+        frontier: { badge: 'SCI-FI CUTTING-EDGE', badgeColor: 'text-brand-magenta bg-brand-magenta/10 border-brand-magenta/30', name: 'Hugging Face', desc: 'The central hub for open-source AI models. They provide the enterprise community with the testing databases and evaluation infrastructure needed to audit new machine learning models for bias, corporate compliance, and data fairness before deployment.', toggleMsg: 'Swap the pillars to see who\'s scaling this globally', url: 'https://huggingface.co/' }
+      },
+      'ART-ETHICS': {
+        p1: 'Art + Design', p2: 'Ethics + Impact', link: '/pillars#art',
+        giant: { badge: 'THE TECH GIANT', badgeColor: 'text-brand-cyan bg-brand-cyan/10 border-brand-cyan/30', name: 'Getty Images', desc: 'Re-imagining creative interfaces by launching strictly ethical generative art tools. Their commercial AI generation models are trained entirely on licensed content, ensuring human creators are fairly compensated and protected from intellectual property theft.', toggleMsg: 'Flip the script to explore the cutting edge', url: 'https://www.gettyimages.com/' },
+        frontier: { badge: 'SCI-FI CUTTING-EDGE', badgeColor: 'text-brand-magenta bg-brand-magenta/10 border-brand-magenta/30', name: 'Holly Herndon / Holly+', desc: 'An avant-garde artist creating deep tech digital art. She built an AI clone of her own voice ("Holly+"), allowing anyone to upload audio files and have her voice interpret it, exploring how artists retain ownership and license their digital likeness.', toggleMsg: 'Swap the pillars to see who\'s scaling this globally', url: 'https://www.hollyherndon.com/' }
+      },
+      'TECH-TECH': { isEgg: true, p1: 'Tech + Engineering', p2: 'Tech + Engineering', name: 'Tech × Tech = Pure Computer Science', desc: 'Hmm... that’s just pure CS! We love compilers and operating systems, but this platform is built for the magic that happens when you take code out of its silo.' },
+      'HEALTH-HEALTH': { isEgg: true, p1: 'Health + Medicine', p2: 'Health + Medicine', name: 'Health × Health = Standard Clinical Practice', desc: 'Standard clinical rounds! Pair medicine with data pipelines or bio-sensors, and now you’re building future-ready computational medicine.' },
+      'ART-ART': { isEgg: true, p1: 'Art + Design', p2: 'Art + Design', name: 'Art × Art = Pure Fine Arts Gallery', desc: 'A pure gallery space! Beautiful, but add creative coding or UI systems and suddenly you’re crafting interactive generative digital worlds.' },
+      'BUSINESS-BUSINESS': { isEgg: true, p1: 'Business + Strategy', p2: 'Business + Strategy', name: 'Business × Business = Corporate Boardroom', desc: 'Sounds like a 50-page pitch deck meeting! Pair strategy with deeptech or digital health to launch an actual disruptive product.' },
+      'ETHICS-ETHICS': { isEgg: true, p1: 'Ethics + Impact', p2: 'Ethics + Impact', name: 'Ethics × Ethics = Pure Philosophy Seminar', desc: 'Deep theoretical debate! Combine ethics with AI systems or tech strategy to actively build privacy-preserving software.' }
+    };
+
+    let activeY = 'HEALTH';
+    let activeX = 'TECH';
+
+    function updateAmbientGlows() {
+      const glow1 = document.getElementById('matrix-aurora-glow-1');
+      const glow2 = document.getElementById('matrix-aurora-glow-2');
+      
+      const colorY = domainColors[activeY].rgba;
+      const colorX = domainColors[activeX].rgba;
+
+      glow1.style.background = `radial-gradient(circle, ${colorY} 0%, transparent 70%)`;
+      glow2.style.background = `radial-gradient(circle, ${colorX} 0%, transparent 70%)`;
+    }
+
+    function renderAxisButtons() {
+      const xContainer = document.getElementById('x-axis-buttons');
+      const yContainer = document.getElementById('y-axis-buttons');
+
+      xContainer.innerHTML = '';
+      yContainer.innerHTML = '';
+
+      domains.forEach(domain => {
+        const isSelected = activeX === domain;
+        const colorConfig = domainColors[domain];
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.onclick = () => { activeX = domain; currentCardView = 'giant'; renderAxisButtons(); };
+        
+        btn.className = `py-2 px-1 rounded font-mono text-[10px] sm:text-xs tracking-wider transition-all cursor-pointer border ${
+          isSelected 
+            ? `${colorConfig.bgClass} font-bold shadow-lg` 
+            : 'bg-white/5 text-slate-400 border-white/10 hover:border-white/30 hover:text-white'
+        }`;
+        btn.innerText = domain;
+        xContainer.appendChild(btn);
+      });
+
+      domains.forEach(domain => {
+        const isSelected = activeY === domain;
+        const colorConfig = domainColors[domain];
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.onclick = () => { activeY = domain; currentCardView = 'giant'; renderAxisButtons(); };
+        
+        btn.className = `py-2 px-2 rounded font-mono text-[10px] sm:text-xs tracking-wider transition-all cursor-pointer border text-left ${
+          isSelected 
+            ? `${colorConfig.bgClass} font-bold shadow-lg` 
+            : 'bg-white/5 text-slate-400 border-white/10 hover:border-white/30 hover:text-white'
+        }`;
+        btn.innerText = domain;
+        yContainer.appendChild(btn);
+      });
+
+      updateAmbientGlows();
+      renderDisplayCard();
+    }
+
+    function handleMatrixToggle() {
+      currentCardView = (currentCardView === 'giant') ? 'frontier' : 'giant';
+      const temp = activeX;
+      activeX = activeY;
+      activeY = temp;
+      renderAxisButtons();
+    }
+
+    function renderDisplayCard() {
+      const card = document.getElementById('matrix-display-card');
+      const pairLabel = document.getElementById('active-pair-label');
+      
+      const key = `${activeY}-${activeX}`;
+      const altKey = `${activeX}-${activeY}`;
+      const data = matrixData[key] || matrixData[altKey];
+
+      pairLabel.innerText = `${activeY} × ${activeX}`;
+      pairLabel.style.color = domainColors[activeY].hex;
+      
+      if (data && data.isEgg) {
+        card.innerHTML = `
+          <div class="flex items-center justify-between mb-2 font-mono text-xs">
+            <span style="color: ${domainColors[activeY].hex};">// MONO_DOMAIN</span>
+            <span class="px-2 py-0.5 rounded border text-[10px] font-semibold text-slate-400 bg-white/5 border-white/10">EASTER EGG</span>
+          </div>
+          <h4 class="text-lg font-bold text-white font-sans">${data.p1}</h4>
+          <hr class="border-t border-dashed border-white/10 my-3" />
+          <h5 class="text-base font-bold mb-2 font-sans" style="color: ${domainColors[activeY].hex};">${data.name}</h5>
+          <p class="text-xs text-slate-300 leading-relaxed font-sans mb-4">${data.desc}</p>
+        `;
+        return;
+      }
+
+      const viewData = data[currentCardView];
+      const yTitle = (data.p1.toUpperCase().includes(activeY)) ? data.p1 : data.p2;
+      const xTitle = (yTitle === data.p1) ? data.p2 : data.p1;
+      const targetUrl = viewData.url || '#';
+
+      card.innerHTML = `
+        <div class="flex items-center justify-between mb-2 font-mono text-xs">
+          <span style="color: ${domainColors[activeY].hex};">// INTERSECTION</span>
+          <span class="px-2 py-0.5 rounded border text-[10px] font-semibold tracking-wider ${viewData.badgeColor} transition-all">
+            ${viewData.badge}
+          </span>
+        </div>
+
+        <h4 class="text-lg font-bold text-white font-sans">${yTitle}</h4>
+        <div class="text-xs font-mono text-slate-400 mb-1">&amp; ${xTitle}</div>
+        
+        <hr class="border-t border-dashed border-white/10 my-3" />
+
+        <div class="transition-opacity duration-200">
+          <div class="flex items-center justify-between gap-2 mb-2 flex-wrap">
+            <h5 class="text-xl font-bold text-white tracking-wide font-sans">${viewData.name}</h5>
+            
+            <a 
+              href="${targetUrl}" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-cyan/10 border border-brand-cyan/30 text-brand-cyan text-[11px] font-mono hover:bg-brand-cyan hover:text-black transition-all"
+            >
+              <span>Find Out More</span>
+              <span class="text-[10px]">↗</span>
+            </a>
+          </div>
+
+          <p class="text-xs text-slate-300 font-sans leading-relaxed min-h-[55px] mb-4">${viewData.desc}</p>
+        </div>
+
+        <button 
+          onclick="handleMatrixToggle()" 
+          class="w-full py-2.5 px-4 rounded-xl bg-white/5 border border-white/10 text-slate-300 text-xs font-mono flex items-center justify-between group hover:border-brand-cyan/50 hover:bg-white/10 hover:text-white transition-all"
+        >
+          <span class="flex items-center gap-2">
+            <span class="text-brand-cyan group-hover:rotate-180 transition-transform duration-300">⇄</span>
+            <span>${viewData.toggleMsg}</span>
+          </span>
+          <span class="text-[10px] text-slate-500 uppercase tracking-widest group-hover:text-brand-cyan">SWAP</span>
+        </button>
+      `;
+    }
+
+    document.addEventListener('DOMContentLoaded', renderAxisButtons);
+  </script>
+
+  <!-- ACTIVITIES OVERVIEW SECTION -->
+  <section id="about" class="relative z-10 py-20 px-8 max-w-7xl mx-auto">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+      <div class="space-y-2 border-l border-brand-cyan/40 pl-6">
+        <div class="font-mono text-3xl font-bold text-white">Workshops</div>
+        <div class="text-xs text-slate-400">Gain hands-on technical skills across domains</div>
+      </div>
+      <div class="space-y-2 border-l border-brand-amber/40 pl-6">
+        <div class="font-mono text-3xl font-bold text-white">Speakers</div>
+        <div class="text-xs text-slate-400">Hear from industry leaders at key intersections</div>
+      </div>
+      <div class="space-y-2 border-l border-brand-emerald/40 pl-6">
+        <div class="font-mono text-3xl font-bold text-white">Projects</div>
+        <div class="text-xs text-slate-400">Be part of interdisciplinary collaborative builds</div>
+      </div>
+      <div class="space-y-2 border-l border-brand-magenta/40 pl-6">
+        <div class="font-mono text-3xl font-bold text-white">Network</div>
+        <div class="text-xs text-slate-400">Connect with curious minds across all majors</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- JOIN / NEWSLETTER SECTION -->
+  <section id="join" class="relative z-10 py-24 px-8 max-w-5xl mx-auto">
+    <div class="bg-gradient-to-br from-brand-panel to-[#0d0e13] p-12 sm:p-16 rounded-3xl border border-white/10 relative overflow-hidden text-center">
+      <div class="mesh-glow-2 -bottom-40 -left-40 opacity-50"></div>
+
+      <h3 class="text-3xl sm:text-4xl font-extrabold text-white mb-4">Join Our Newsletter!</h3>
+      <p class="text-slate-400 text-sm max-w-lg mx-auto mb-8">
+        Sign up to get notified about our Mass Meeting, launch event, and FestiFall booth details.
+      </p>
+
+      <form class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto relative z-10" onsubmit="event.preventDefault(); alert('Connected!');">
+        <input 
+          type="email" 
+          placeholder="umich email address..." 
+          class="w-full px-5 py-3.5 rounded-xl bg-black/60 border border-white/10 text-white placeholder-slate-500 font-mono text-sm focus:outline-none focus:border-brand-cyan transition-all"
+          required
+        >
+        <button type="submit" class="px-8 py-3.5 rounded-xl bg-white text-black font-semibold text-sm hover:bg-slate-200 transition-all whitespace-nowrap">
+          Notify Me
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="relative z-10 border-t border-white/5 py-10 text-center font-mono text-xs text-slate-500">
+    <p>© 2026 ComputeX @ University of Michigan.</p>
+  </footer>
+
+  <!-- PCAS MODAL / POPUP -->
+  <div id="pcas-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md hidden">
+    <div class="bg-brand-panel max-w-lg w-full p-8 rounded-3xl border border-white/10 relative shadow-2xl">
+      
+      <button onclick="closePcasModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white font-mono text-xs cursor-pointer">
+        [✕]
+      </button>
+
+      <div class="font-mono text-[10px] text-brand-purple tracking-widest uppercase mb-4">// SPONSOR & SUPPORTER</div>
+
+      <a href="https://lsa.umich.edu/computingfor" target="_blank" rel="noopener noreferrer" class="block w-full mb-6 group">
+        <div class="w-full bg-white/5 border border-white/10 rounded-xl p-4 flex items-center justify-center transition-all group-hover:border-brand-purple/50">
+          <img 
+            src="https://lsa.umich.edu/content/dam/michigan-lsa/admin/logos/computingfor-logo.png" 
+            alt="Program in Computing for the Arts and Sciences" 
+            class="w-full h-auto object-contain max-h-16"
+          />
+        </div>
+      </a>
+
+      <div class="text-xs text-slate-300 space-y-3 font-sans leading-relaxed mb-6 border-t border-b border-white/10 py-4">
+        <p>
+          <strong>PCAS</strong> at the University of Michigan (LSA) empowers students across all majors to bridge computing, creative arts, humanistic inquiry, and scientific innovation.
+        </p>
+        <p class="text-slate-400">
+          ComputeX is proudly supported by PCAS to foster interdisciplinary tech education and hands-on coding literacy across non-traditional fields.
+        </p>
+      </div>
+
+      <div class="flex items-center justify-end">
+        <a 
+          href="https://lsa.umich.edu/computingfor" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-brand-cyan/10 border border-brand-cyan/40 text-brand-cyan font-mono text-xs font-semibold hover:bg-brand-cyan hover:text-black transition-all group"
+        >
+          <span>Visit the Official PCAS Site</span>
+          <span class="group-hover:translate-x-0.5 transition-transform">→</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    function openPcasModal() {
+      document.getElementById('pcas-modal').classList.remove('hidden');
+    }
+
+    function closePcasModal() {
+      document.getElementById('pcas-modal').classList.add('hidden');
+    }
+  </script>
+</body>
+</html>

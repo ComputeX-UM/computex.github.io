@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ComputeX | Tactical Terminal & Interdisciplinary Engine</title>
+  
+  <!-- JetBrains Mono & Space Grotesk Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700;800&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Space Grotesk"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            hud: {
+              bg: '#05070a',
+              panel: '#0d1117',
+              border: '#1f293d',
+              amber: '#ffb000',
+              emerald: '#10b981',
+              cyan: '#06b6d4',
+              violet: '#a855f7',
+              magenta: '#f43f5e'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Scanline Screen Overlay Effect */
+    .scanlines {
+      background: linear-gradient(
+        to bottom,
+        rgba(255,255,255,0),
+        rgba(255,255,255,0) 50%,
+        rgba(0, 0, 0, 0.3) 50%,
+        rgba(0, 0, 0, 0.3)
+      );
+      background-size: 100% 4px;
+    }
+
+    /* Fine Technical Grid Layer */
+    .tech-grid {
+      background-size: 24px 24px;
+      background-image: 
+        radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
+    }
+
+    /* High-contrast Terminal Panels */
+    .hud-card {
+      background-color: rgba(13, 17, 23, 0.85);
+      border: 1px solid #1f293d;
+      box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.5);
+    }
+
+    .hud-card:hover {
+      border-color: rgba(6, 182, 212, 0.4);
+    }
+  </style>
+</head>
+
+<body class="bg-hud-bg text-slate-200 font-sans antialiased min-h-screen selection:bg-hud-cyan/30 selection:text-hud-cyan">
+
+  <!-- Background Scanlines & Tech Grid -->
+  <div class="fixed inset-0 tech-grid pointer-events-none z-0"></div>
+  <div class="fixed inset-0 scanlines pointer-events-none z-10 opacity-30"></div>
+
+  <!-- Top System Status Header -->
+  <header class="relative z-20 border-b border-hud-border bg-hud-panel/90 backdrop-blur-md font-mono text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
+      
+      <!-- Logo + Live Ping Indicator -->
+      <div class="flex items-center gap-3">
+        <div class="flex gap-1.5">
+          <span class="w-2.5 h-2.5 rounded-full bg-red-500/80"></span>
+          <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80"></span>
+          <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></span>
+        </div>
+        <a href="#" class="font-bold tracking-wider text-white flex items-center gap-1.5 ml-2">
+          COMPUTEX<span class="text-hud-cyan">//</span>TERMINAL_
+        </a>
+      </div>
+
+      <!-- Live Telemetry Bar -->
+      <div class="hidden md:flex items-center gap-6 text-[11px] text-slate-400">
+        <span>LOC: <strong class="text-slate-200">U-M ANN ARBOR</strong></span>
+        <span>STATUS: <strong class="text-hud-emerald">ONLINE [FALL 2026]</strong></span>
+        <span>AFFILIATION: <strong class="text-hud-violet">PCAS SPONSORED</strong></span>
+      </div>
+
+      <!-- Navigation Actions -->
+      <div class="flex items-center gap-4">
+        <a href="./roadmap/index.html" class="hidden sm:inline-block text-slate-400 hover:text-white transition-colors">ROADMAP</a>
+        <a href="./team/index.html" class="hidden sm:inline-block text-slate-400 hover:text-white transition-colors">TEAM</a>
+        <a href="./launch/index.html" class="px-3 py-1.5 rounded bg-hud-cyan text-black font-bold hover:bg-hud-cyan/90 transition-all text-xs">
+          $ LAUNCH_
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <main class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 py-8 space-y-12">
+
+    <!-- HERO SECTION: HUD CONTROL COMMAND PANEL -->
+    <section class="hud-card rounded-xl p-6 sm:p-10 relative overflow-hidden">
+      <!-- Top Bracket Accent -->
+      <div class="flex justify-between items-center border-b border-hud-border pb-4 mb-8 font-mono text-xs text-slate-400">
+        <span class="text-hud-cyan">// SYSTEM_MANIFEST: COMPUTEX_V2.0</span>
+        <span class="hidden sm:inline">[ ACCESS_LEVEL: OPEN_ALL_MAJORS ]</span>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        
+        <!-- Main Console Title -->
+        <div class="lg:col-span-8 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-hud-emerald/10 border border-hud-emerald/30 text-hud-emerald font-mono text-xs">
+            <span class="w-2 h-2 rounded-full bg-hud-emerald animate-pulse"></span>
+            <span>LAUNCHING FALL 2026 AT MICHIGAN</span>
+          </div>
+
+          <h1 class="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-tight">
+            Interdisciplinary Computing. <br />
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-hud-cyan via-hud-emerald to-hud-violet">
+              Zero Silos. Any Major.
+            </span>
+          </h1>
+
+          <p class="text-slate-300 text-sm sm:text-base leading-relaxed font-sans max-w-2xl">
+            ComputeX is the University of Michigan's cross-domain technology hub bridging software engineering with health, business strategy, fine art, and algorithmic ethics.
+          </p>
+
+          <!-- Interactive Action Buttons -->
+          <div class="flex flex-wrap items-center gap-4 font-mono text-xs pt-2">
+            <a href="./launch/index.html" class="px-6 py-3 rounded bg-white text-black font-extrabold hover:bg-slate-200 transition-all">
+              EXECUTE_JOIN_FORM ↵
+            </a>
+            <button onclick="document.getElementById('pcas-modal').classList.remove('hidden')" class="px-5 py-3 rounded bg-hud-violet/20 border border-hud-violet/40 text-hud-violet font-bold hover:bg-hud-violet/30 transition-all">
+              POWERED_BY_PCAS ℹ
+            </button>
+          </div>
+        </div>
+
+        <!-- Right Side Tactical Parameter Box -->
+        <div class="lg:col-span-4 bg-black/60 border border-hud-border rounded-lg p-5 font-mono text-xs space-y-4">
+          <div class="text-hud-amber font-bold border-b border-hud-border pb-2">// SYSTEM_PARAMETERS</div>
+          
+          <div class="space-y-2 text-slate-300">
+            <div class="flex justify-between">
+              <span class="text-slate-500">PREREQUISITE:</span>
+              <span class="text-hud-emerald font-bold">NONE (0 CODING REQ)</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-slate-500">TARGET AUDIENCE:</span>
+              <span class="text-white">LSA, CoE, Ross, Stamps, SI</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-slate-500">ACTIVE PILLARS:</span>
+              <span class="text-hud-cyan">05 INTEGRATED DOMAINS</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-slate-500">SPONSOR:</span>
+              <span class="text-hud-violet">U-M PCAS</span>
+            </div>
+          </div>
+
+          <div class="pt-3 border-t border-hud-border text-[10px] text-slate-400 leading-normal">
+            "Where code intersects with biological data, digital art, financial markets, and societal governance."
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 2: PILLAR WORKSTATION (TABBED DRAWER SYSTEM) -->
+    <section class="space-y-4">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between font-mono text-xs border-b border-hud-border pb-3">
+        <span class="text-hud-cyan font-bold">// MODULE_01: FIVE_CORE_PILLARS</span>
+        <span class="text-slate-500">[ SELECT A MODULE TAB TO LOAD TELEMETRY ]</span>
+      </div>
+
+      <!-- Tabbed Domain Selector Bar -->
+      <div class="grid grid-cols-2 sm:grid-cols-5 gap-2 font-mono text-xs" id="pillar-tabs">
+        <button onclick="selectPillarTab(0)" id="tab-0" class="pillar-tab px-4 py-3 rounded hud-card text-left border-hud-cyan text-hud-cyan font-bold">
+          01. TECH
+        </button>
+        <button onclick="selectPillarTab(1)" id="tab-1" class="pillar-tab px-4 py-3 rounded hud-card text-left text-slate-400 hover:text-white">
+          02. BIZ
+        </button>
+        <button onclick="selectPillarTab(2)" id="tab-2" class="pillar-tab px-4 py-3 rounded hud-card text-left text-slate-400 hover:text-white">
+          03. HEALTH
+        </button>
+        <button onclick="selectPillarTab(3)" id="tab-3" class="pillar-tab px-4 py-3 rounded hud-card text-left text-slate-400 hover:text-white">
+          04. ART
+        </button>
+        <button onclick="selectPillarTab(4)" id="tab-4" class="pillar-tab px-4 py-3 rounded hud-card text-left text-slate-400 hover:text-white">
+          05. ETHICS
+        </button>
+      </div>
+
+      <!-- Active Tab Display Terminal Panel -->
+      <div id="pillar-terminal-display" class="hud-card p-6 sm:p-8 rounded-xl font-mono relative">
+        <!-- Content Injected via Script -->
+      </div>
+    </section>
+
+    <!-- SECTION 3: WORKSTATION MATRIX ENGINE (DUAL PANE WORKSTATION) -->
+    <section class="hud-card rounded-xl p-6 sm:p-8 space-y-6">
+      
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-hud-border pb-4 gap-2 font-mono">
+        <div>
+          <span class="text-hud-amber text-xs">// MODULE_02: INTERSECTION_MATRIX</span>
+          <h2 class="text-xl font-bold text-white tracking-tight">Cross-Domain Interactive Matrix</h2>
+        </div>
+        <div class="text-xs text-slate-400">
+          ACTIVE_NODES: <span id="matrix-active-label" class="text-hud-cyan font-bold">HEALTH × TECH</span>
+        </div>
+      </div>
+
+      <!-- Dual Pane Matrix Grid Layout -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start font-mono">
+        
+        <!-- Left Pane: Axis Selection Switches (5 Cols) -->
+        <div class="lg:col-span-5 space-y-4">
+          <div class="bg-black/50 p-4 rounded-lg border border-hud-border space-y-3">
+            <span class="text-[10px] text-hud-cyan uppercase tracking-wider block">// AXIS_PRIMARY [Y-AXIS]</span>
+            <div id="y-axis-container" class="grid grid-cols-1 gap-1.5 text-xs">
+              <!-- Injected by Script -->
+            </div>
+          </div>
+
+          <div class="bg-black/50 p-4 rounded-lg border border-hud-border space-y-3">
+            <span class="text-[10px] text-hud-magenta uppercase tracking-wider block">// AXIS_SECONDARY [X-AXIS]</span>
+            <div id="x-axis-container" class="grid grid-cols-1 gap-1.5 text-xs">
+              <!-- Injected by Script -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Pane: Real-Time Output Display (7 Cols) -->
+        <div class="lg:col-span-7 bg-black/80 border border-hud-border rounded-lg p-6 min-h-[340px] flex flex-col justify-between" id="matrix-console-output">
+          <!-- Injected by Script -->
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- FOOTER ACCESS BANNER -->
+    <footer class="hud-card p-6 rounded-xl font-mono text-xs flex flex-col md:flex-row justify-between items-center gap-4">
+      <div class="space-y-1 text-center md:text-left">
+        <div class="text-hud-cyan font-bold">// COMPUTEX_COMMUNITY_HUB</div>
+        <div class="text-slate-400">Open to LSA, Ross, Stamps, Engineering, Info, Pre-Med & Beyond.</div>
+      </div>
+      <a href="./launch/index.html" class="px-5 py-2.5 rounded bg-white text-black font-bold hover:bg-slate-200 transition-all">
+        REGISTER_INTEREST →
+      </a>
+    </footer>
+
+  </main>
+
+  <!-- PCAS INFORMATION MODAL -->
+  <div id="pcas-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 hidden font-mono">
+    <div class="hud-card max-w-lg w-full p-6 rounded-xl space-y-4 border-hud-violet">
+      <div class="flex justify-between items-start text-xs border-b border-hud-border pb-2">
+        <span class="text-hud-violet">// PROGRAM_INFORMATION</span>
+        <button onclick="document.getElementById('pcas-modal').classList.add('hidden')" class="text-slate-400 hover:text-white">[X_CLOSE]</button>
+      </div>
+      <h3 class="text-lg font-bold text-white">Program in Computing for the Arts and Sciences (PCAS)</h3>
+      <p class="text-xs text-slate-300 leading-relaxed font-sans">
+        PCAS provides University of Michigan students with tailored interdisciplinary coursework and project support to fuse software development into non-traditional domain fields.
+      </p>
+      <div class="pt-3 border-t border-hud-border flex justify-between items-center text-xs">
+        <span class="text-slate-500">U-M LSA Academic Program</span>
+        <button onclick="document.getElementById('pcas-modal').classList.add('hidden')" class="px-4 py-1.5 rounded bg-white/10 text-white hover:bg-white/20">
+          ACKNOWLEDGMENT_
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPT ENGINE -->
+  <script>
+    // --- DATA STORE ---
+    const pillarData = [
+      {
+        id: 'tech',
+        num: '01',
+        title: 'Tech + Engineering',
+        color: 'text-hud-cyan',
+        border: 'border-hud-cyan',
+        focus: 'Computer Science, AI/ML, Embedded Hardware Systems, Robotics',
+        tools: ['Python', 'Docker', 'Git/GitHub', 'C++'],
+        desc: 'Build fundamental software infrastructure, machine learning pipelines, and hardware integration projects.'
+      },
+      {
+        id: 'biz',
+        num: '02',
+        title: 'Business + Strategy',
+        color: 'text-hud-amber',
+        border: 'border-hud-amber',
+        focus: 'Business Intelligence, FinTech, Enterprise Analytics, Tech Strategy',
+        tools: ['pandas', 'SQL', 'Tableau', 'Excel Analytics'],
+        desc: 'Transform raw data metrics into enterprise strategy, financial modeling, and product management frameworks.'
+      },
+      {
+        id: 'health',
+        num: '03',
+        title: 'Health + Medicine',
+        color: 'text-hud-emerald',
+        border: 'border-hud-emerald',
+        focus: 'Health Tech, Medical Biosignals, Bioinformatics, Computational Clinical Systems',
+        tools: ['PyTorch', 'mne-python', 'OpenCV', 'BioPython'],
+        desc: 'Apply machine learning to neural EEG signals, genomic sequences, and decentralized biomedical technology.'
+      },
+      {
+        id: 'art',
+        num: '04',
+        title: 'Art + Design',
+        color: 'text-hud-magenta',
+        border: 'border-hud-magenta',
+        focus: 'UI/UX Design Systems, Immersive Art, CGI, WebGL Game Design',
+        tools: ['p5.js', 'Figma', 'Three.js', 'Shader Language'],
+        desc: 'Construct spatial digital media, responsive user interfaces, and generative algorithmic artwork.'
+      },
+      {
+        id: 'ethics',
+        num: '05',
+        title: 'Ethics + Impact',
+        color: 'text-hud-violet',
+        border: 'border-hud-violet',
+        focus: 'AI Policy, Data Privacy, Algorithmic Bias Auditing, Explainable AI',
+        tools: ['Fairlearn', 'SHAP', 'AIF360', 'Policy Frameworks'],
+        desc: 'Audit modern software pipelines for algorithmic fairness, data transparency, and public policy compliance.'
+      }
+    ];
+
+    const matrixData = {
+      'HEALTH-TECH': { name: 'Apple Healthcare / Neuralink', giant: 'Apple Watch biosignal detection for atrial fibrillation.', frontier: 'Neuralink implantable motor cortex brain-computer interfaces.' },
+      'HEALTH-BUSINESS': { name: 'Epic Systems / Insilico Medicine', giant: 'Epic SQL databases powering 250M+ clinical health records.', frontier: 'Insilico generative AI compressing drug discovery timelines.' },
+      'HEALTH-ART': { name: 'Philips / BrainGate Visuals', giant: 'Philips ambient medical suites and UI visual design.', frontier: 'BrainGate neural signal translation into generative digital artwork.' },
+      'HEALTH-ETHICS': { name: 'Microsoft Azure Health / Cradle Bio', giant: 'Azure HIPAA-compliant medical cloud auditing.', frontier: 'Cradle synthetic protein generation with biological safety rails.' },
+      'TECH-BUSINESS': { name: 'AWS Cloud / Boston Dynamics', giant: 'AWS enterprise cloud database and supply chain logistics.', frontier: 'Boston Dynamics autonomous robotics scaling industrial operations.' },
+      'TECH-ART': { name: 'NVIDIA / Looking Glass Factory', giant: 'NVIDIA GPU simulation engines and Omniverse 3D worlds.', frontier: 'Looking Glass holographic light-field screens rendering 3D graphics.' },
+      'TECH-ETHICS': { name: 'IBM / World (Worldcoin)', giant: 'IBM enterprise bias auditing engines and privacy suites.', frontier: 'World hardware biometric iris orb proving digital personhood.' },
+      'BUSINESS-ART': { name: 'Adobe Firefly / Raspberry AI', giant: 'Adobe commercially safe generative enterprise assets.', frontier: 'Raspberry AI converting 2D apparel sketches into 3D pattern packs.' },
+      'BUSINESS-ETHICS': { name: 'Palantir / Hugging Face', giant: 'Palantir compliance-enforced enterprise database frameworks.', frontier: 'Hugging Face open-source auditing hub for corporate model safety.' },
+      'ART-ETHICS': { name: 'Getty Images AI / Holly+', giant: 'Getty AI models trained strictly on licensed human artwork.', frontier: 'Holly Herndon autonomous AI voice cloning and likeness licensing.' }
+    };
+
+    const domains = ['TECH', 'BUSINESS', 'HEALTH', 'ART', 'ETHICS'];
+    let activeY = 'HEALTH';
+    let activeX = 'TECH';
+
+    // --- TAB SWITCHER LOGIC ---
+    function selectPillarTab(index) {
+      document.querySelectorAll('.pillar-tab').forEach((tab, i) => {
+        if (i === index) {
+          tab.className = `pillar-tab px-4 py-3 rounded hud-card text-left border-${pillarData[i].color.split('-')[2]} ${pillarData[i].color} font-bold`;
+        } else {
+          tab.className = 'pillar-tab px-4 py-3 rounded hud-card text-left text-slate-400 hover:text-white';
+        }
+      });
+
+      const p = pillarData[index];
+      const display = document.getElementById('pillar-terminal-display');
+      display.innerHTML = `
+        <div class="space-y-4">
+          <div class="flex items-center justify-between border-b border-hud-border pb-3">
+            <span class="${p.color} font-bold">// MODULE_${p.num}: ${p.title.toUpperCase()}</span>
+            <span class="text-xs text-slate-500">[ SYSTEM_ACTIVE ]</span>
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="space-y-2">
+              <span class="text-xs text-slate-400">PRIMARY FOCUS AREAS:</span>
+              <p class="text-sm text-white font-bold">${p.focus}</p>
+              <p class="text-xs text-slate-300 font-sans leading-relaxed pt-2">${p.desc}</p>
+            </div>
+
+            <div class="space-y-3 bg-black/40 p-4 rounded border border-hud-border">
+              <span class="text-xs text-slate-400 block">SUPPORTED TOOLSTACKS:</span>
+              <div class="flex flex-wrap gap-2">
+                ${p.tools.map(t => `<span class="px-2 py-1 rounded bg-white/10 text-xs text-slate-200">${t}</span>`).join('')}
+              </div>
+              <div class="pt-2">
+                <a href="./pillars/index.html#${p.id}" class="${p.color} text-xs hover:underline inline-block">
+                  LOAD_FULL_DOMAIN_PILLARS →
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // --- MATRIX ENGINE LOGIC ---
+    function renderMatrixControls() {
+      const yContainer = document.getElementById('y-axis-container');
+      const xContainer = document.getElementById('x-axis-container');
+      yContainer.innerHTML = '';
+      xContainer.innerHTML = '';
+
+      domains.forEach(d => {
+        const yBtn = document.createElement('button');
+        yBtn.className = `w-full text-left px-3 py-1.5 rounded transition-all ${activeY === d ? 'bg-hud-cyan text-black font-bold' : 'bg-white/5 text-slate-400 hover:text-white'}`;
+        yBtn.innerText = `PRIMARY [Y]: ${d}`;
+        yBtn.onclick = () => { activeY = d; updateMatrixConsole(); renderMatrixControls(); };
+        yContainer.appendChild(yBtn);
+
+        const xBtn = document.createElement('button');
+        xBtn.className = `w-full text-left px-3 py-1.5 rounded transition-all ${activeX === d ? 'bg-hud-magenta text-black font-bold' : 'bg-white/5 text-slate-400 hover:text-white'}`;
+        xBtn.innerText = `SECONDARY [X]: ${d}`;
+        xBtn.onclick = () => { activeX = d; updateMatrixConsole(); renderMatrixControls(); };
+        xContainer.appendChild(xBtn);
+      });
+    }
+
+    function updateMatrixConsole() {
+      document.getElementById('matrix-active-label').innerText = `${activeY} × ${activeX}`;
+      const consoleOutput = document.getElementById('matrix-console-output');
+
+      if (activeY === activeX) {
+        consoleOutput.innerHTML = `
+          <div class="space-y-3 my-auto">
+            <span class="px-2 py-1 rounded bg-amber-500/20 text-amber-400 border border-amber-500/30 text-xs">SAME_DOMAIN_LOOP</span>
+            <h4 class="text-base font-bold text-white">${activeY} × ${activeX} = Pure Single Domain</h4>
+            <p class="text-xs text-slate-300 font-sans leading-relaxed">
+              ComputeX is engineered specifically for cross-domain intersections. Select two different axis domains to query corporate giants and sci-fi frontier teams.
+            </p>
+          </div>
+        `;
+        return;
+      }
+
+      const key = `${activeY}-${activeX}`;
+      const reverseKey = `${activeX}-${activeY}`;
+      const data = matrixData[key] || matrixData[reverseKey];
+
+      if (data) {
+        consoleOutput.innerHTML = `
+          <div class="space-y-4">
+            <div class="flex items-center justify-between border-b border-hud-border pb-2 text-xs">
+              <span class="text-hud-cyan">// QUERY_SUCCESSFUL</span>
+              <span class="text-slate-500">[ MATRIX_NODE_READY ]</span>
+            </div>
+            
+            <h3 class="text-lg font-bold text-white">${data.name}</h3>
+            
+            <div class="space-y-3 font-sans text-xs">
+              <div class="p-3 rounded bg-white/5 border border-hud-border">
+                <strong class="text-hud-cyan font-mono block mb-1">GLOBAL TECH GIANT:</strong>
+                <p class="text-slate-300">${data.giant}</p>
+              </div>
+
+              <div class="p-3 rounded bg-white/5 border border-hud-border">
+                <strong class="text-hud-magenta font-mono block mb-1">CUTTING-EDGE FRONTIER:</strong>
+                <p class="text-slate-300">${data.frontier}</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-hud-border flex justify-between items-center text-xs">
+            <a href="./pillars/index.html" class="text-hud-cyan hover:underline">EXPLORE PILLARS ↗</a>
+            <span class="text-slate-500">COMPUTEX_MATRIX_ENGINE</span>
+          </div>
+        `;
+      }
+    }
+
+    // INIT
+    selectPillarTab(0);
+    renderMatrixControls();
+    updateMatrixConsole();
+  </script>
+
+</body>
+</html>

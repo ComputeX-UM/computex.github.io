@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ComputeX | Academic Archive & Interdisciplinary Journal</title>
+  
+  <!-- Serif & Sans-Serif Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['"Playfair Display"', 'serif'],
+            sans: ['"Inter"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            paper: '#141619',      /* Cool Obsidian / Charcoal */
+            ink: '#F0F4F8',        /* Crisp Cool White */
+            muted: '#94A3B8',      /* Cool Slate Gray */
+            crimson: '#4C7A9C',    /* Muted Steel Blue (Primary Accent) */
+            border: '#272E36',     /* Cool Slate Border */
+            card: '#0F1113',       /* Recessed Dark Obsidian */
+            
+            /* Cool Academic Palette for Pillars */
+            pTech: '#38BDF8',      /* Cyan Slate */
+            pBiz: '#818CF8',      /* Soft Indigo */
+            pHealth: '#2DD4BF',   /* Crisp Mint / Teal */
+            pArt: '#E879F9',       /* Muted Violet / Orchids */
+            pGov: '#94A3B8'        /* Cool Steel Gray */
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body { 
+      background-color: #141619; 
+      color: #F0F4F8; 
+    }
+    ::selection {
+      background-color: #4C7A9C;
+      color: #F0F4F8;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen font-sans antialiased text-ink bg-paper">
+
+  <!-- MASTHEAD HEADER -->
+  <header class="border-b border-border">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex flex-col sm:flex-row justify-between items-center text-xs font-serif italic text-muted gap-2">
+      <span>Vol. I — University of Michigan, Ann Arbor</span>
+      <span>Program in Computing for the Arts & Sciences Affiliated</span>
+      <span>Autumn Term 2026</span>
+    </div>
+    
+    <div class="border-t border-b border-border py-10 text-center bg-[#101215]">
+      <span class="text-[10px] font-sans font-semibold tracking-[0.25em] text-crimson uppercase block mb-2">Interdisciplinary Computing Society</span>
+      <h1 class="text-6xl sm:text-8xl font-serif font-black tracking-tight text-ink uppercase">COMPUTEX</h1>
+      <p class="text-xs sm:text-sm font-serif italic text-muted max-w-xl mx-auto mt-3 px-4">
+        A scholarly guild dedicated to the cross-domain synthesis of computation, humanistic enquiry, biosignals, and enterprise strategy.
+      </p>
+    </div>
+
+    <nav class="max-w-6xl mx-auto px-6 py-3 flex flex-col md:flex-row justify-between items-center text-xs font-sans tracking-widest uppercase text-muted gap-4">
+      <div class="flex flex-wrap justify-center gap-6 md:gap-8">
+        <a href="#manifesto" class="hover:text-ink transition-colors">Manifesto</a>
+        <a href="#pillars" class="hover:text-ink transition-colors">Pillars</a>
+        <a href="#workshops" class="hover:text-ink transition-colors">Workshop Index</a>
+        <a href="#matrix" class="hover:text-ink transition-colors">Synthesis Matrix</a>
+        <a href="#leadership" class="hover:text-ink transition-colors">Fellows</a>
+      </div>
+      <button onclick="document.getElementById('pcas-modal').classList.remove('hidden')" class="hover:text-crimson transition-colors italic font-serif lowercase text-sm">
+        [pcas affiliation]
+      </button>
+    </nav>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-6 py-12 space-y-20">
+
+    <!-- HERO / MANIFESTO (PRESS PRINT LAYOUT) -->
+    <section id="manifesto" class="grid grid-cols-1 md:grid-cols-12 gap-12 items-start border-b border-border pb-16">
+      
+      <div class="md:col-span-8 space-y-6">
+        <span class="text-xs font-serif italic text-crimson">Editorial Opening — Section 001</span>
+        <h2 class="text-3xl sm:text-4xl font-serif font-bold text-ink leading-snug">
+          Dissolving the arbitrary boundaries between software engineering and the liberal arts, medical research, and economic policy.
+        </h2>
+        
+        <div class="columns-1 sm:columns-2 gap-8 text-xs text-muted leading-relaxed font-sans space-y-4 pt-2">
+          <p>
+            ComputeX operates as an open academic sanctuary at the University of Michigan. We hold that programming is not merely a vocational skill, but a fundamentally human medium of critical thought, artistic expression, and analytical rigor.
+          </p>
+          <p>
+            With zero coding prerequisites, our community welcomes scholars from the College of Literature, Science, and the Arts, the College of Engineering, Ross School of Business, Stamps School of Art & Design, and the School of Information.
+          </p>
+          <p>
+            Supported through academic partnership with the Program in Computing for the Arts and Sciences (PCAS), we provide the practical framework necessary to turn theoretical inquiry into computational realities.
+          </p>
+        </div>
+      </div>
+
+      <div class="md:col-span-4 bg-card p-6 border border-border space-y-4">
+        <h3 class="font-serif text-lg text-ink font-bold border-b border-border pb-2">Archival Overview</h3>
+        <dl class="space-y-3 text-xs">
+          <div>
+            <dt class="text-muted font-serif italic">Institution</dt>
+            <dd class="font-medium text-ink">University of Michigan, Ann Arbor</dd>
+          </div>
+          <div>
+            <dt class="text-muted font-serif italic">Prerequisites</dt>
+            <dd class="font-medium text-ink">None — Inclusive of all skill levels</dd>
+          </div>
+          <div>
+            <dt class="text-muted font-serif italic">Academic Sponsor</dt>
+            <dd class="font-medium text-crimson">PCAS (College of LSA)</dd>
+          </div>
+          <div>
+            <dt class="text-muted font-serif italic">Core Disciplines</dt>
+            <dd class="font-medium text-ink">Tech, Business, Health, Fine Art, Governance</dd>
+          </div>
+        </dl>
+        <button onclick="document.getElementById('register-modal').classList.remove('hidden')" class="block w-full text-center py-2.5 bg-ink text-paper font-sans text-xs font-semibold uppercase tracking-wider hover:bg-muted transition-colors mt-4">
+          Register Interest →
+        </button>
+      </div>
+
+    </section>
+
+    <!-- FIVE PILLARS ARCHIVE -->
+    <section id="pillars" class="space-y-8">
+      <div class="max-w-xl space-y-2">
+        <span class="text-xs font-serif italic text-crimson">Organizing Structure — Section 002</span>
+        <h2 class="text-3xl font-serif font-bold text-ink">The Five Academic Pillars</h2>
+        <p class="text-xs text-muted leading-relaxed">
+          The society structures its research, workshops, and student projects across five distinct domain disciplines, each represented by a cool archival color token.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 pt-4" id="pillars-container">
+        <!-- Injected via Script -->
+      </div>
+    </section>
+
+    <!-- WORKSHOP INDEX (TABULAR CATALOGUE) -->
+    <section id="workshops" class="space-y-6 border-t border-border pt-16">
+      <div class="flex flex-col sm:flex-row justify-between sm:items-end border-b border-border pb-3 gap-2">
+        <div>
+          <span class="text-xs font-serif italic text-crimson">Catalogue Index — Section 003</span>
+          <h2 class="text-3xl font-serif font-bold text-ink">Workshop & Seminar Registry</h2>
+        </div>
+        <span class="text-xs text-muted font-mono">Academic Term 2026–2027</span>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-xs border-collapse min-w-[600px]">
+          <thead>
+            <tr class="border-b border-border font-serif text-muted italic">
+              <th class="py-3 px-4">Date</th>
+              <th class="py-3 px-4">Topic / Curriculum</th>
+              <th class="py-3 px-4">Synthesis Focus</th>
+              <th class="py-3 px-4">Location</th>
+              <th class="py-3 px-4 text-right">Registry</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-border font-sans">
+            <tr class="hover:bg-[#1A1D21] transition-colors">
+              <td class="py-4 px-4 text-muted font-mono">Sept 14, 2026</td>
+              <td class="py-4 px-4 font-semibold text-ink">Biosignal Preprocessing & Neural EEG Analysis</td>
+              <td class="py-4 px-4 italic font-serif" style="color: #2DD4BF;">Health + Tech</td>
+              <td class="py-4 px-4 text-muted">Michigan League, Rm 2</td>
+              <td class="py-4 px-4 text-right"><button onclick="showDetails('Biosignal Preprocessing', 'Sept 14, 2026', 'Michigan League, Rm 2', 'Hands-on session using Python and mne-python to filter, artifact-clean, and visualize multi-channel sleep and cortical EEG data.')" class="underline hover:text-ink">View Details</button></td>
+            </tr>
+            <tr class="hover:bg-[#1A1D21] transition-colors">
+              <td class="py-4 px-4 text-muted font-mono">Sept 28, 2026</td>
+              <td class="py-4 px-4 font-semibold text-ink">Generative Design & Shader Systems in p5.js</td>
+              <td class="py-4 px-4 italic font-serif" style="color: #E879F9;">Art + Tech</td>
+              <td class="py-4 px-4 text-muted">Stamps Studio B</td>
+              <td class="py-4 px-4 text-right"><button onclick="showDetails('Generative Design in p5.js', 'Sept 28, 2026', 'Stamps Studio B', 'Explores algorithmic composition, generative canvas rendering, vector fields, and custom GLSL fragment shaders.')" class="underline hover:text-ink">View Details</button></td>
+            </tr>
+            <tr class="hover:bg-[#1A1D21] transition-colors">
+              <td class="py-4 px-4 text-muted font-mono">Oct 12, 2026</td>
+              <td class="py-4 px-4 font-semibold text-ink">Financial Data Pipelines & Enterprise Analytics</td>
+              <td class="py-4 px-4 italic font-serif" style="color: #818CF8;">Business + Tech</td>
+              <td class="py-4 px-4 text-muted">Ross Hall R1020</td>
+              <td class="py-4 px-4 text-right"><button onclick="showDetails('Financial Data Pipelines', 'Oct 12, 2026', 'Ross Hall R1020', 'Architecting robust SQL and pandas streaming pipelines to evaluate macroeconomic datasets and equity market risk.')" class="underline hover:text-ink">View Details</button></td>
+            </tr>
+            <tr class="hover:bg-[#1A1D21] transition-colors">
+              <td class="py-4 px-4 text-muted font-mono">Oct 26, 2026</td>
+              <td class="py-4 px-4 font-semibold text-ink">Algorithmic Bias Auditing with SHAP & Fairlearn</td>
+              <td class="py-4 px-4 italic font-serif" style="color: #94A3B8;">Governance + Tech</td>
+              <td class="py-4 px-4 text-muted">Mason Hall 1420</td>
+              <td class="py-4 px-4 text-right"><button onclick="showDetails('Algorithmic Bias Auditing', 'Oct 26, 2026', 'Mason Hall 1420', 'Practical framework for auditing black-box classification models for disparate impact and model interpretability.')" class="underline hover:text-ink">View Details</button></td>
+            </tr>
+            <tr class="hover:bg-[#1A1D21] transition-colors">
+              <td class="py-4 px-4 text-muted font-mono">Nov 09, 2026</td>
+              <td class="py-4 px-4 font-semibold text-ink">Interactive Web Tooling with NiceGUI & Python</td>
+              <td class="py-4 px-4 italic font-serif" style="color: #38BDF8;">Tech + Art</td>
+              <td class="py-4 px-4 text-muted">Shapiro Library 204</td>
+              <td class="py-4 px-4 text-right"><button onclick="showDetails('Interactive Web Tooling', 'Nov 09, 2026', 'Shapiro Library 204', 'Rapid deployment of modern, responsive front-end user interfaces using pure Python and custom Tailwind styles.')" class="underline hover:text-ink">View Details</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- INTERDISCIPLINARY MATRIX -->
+    <section id="matrix" class="border-t border-border pt-16 space-y-8">
+      <div class="flex flex-col md:flex-row justify-between md:items-end border-b border-border pb-4 gap-4">
+        <div>
+          <span class="text-xs font-serif italic text-crimson">Analytical Tool — Section 004</span>
+          <h2 class="text-3xl font-serif font-bold text-ink">Interdisciplinary Synthesis Matrix</h2>
+        </div>
+        <span class="text-xs font-serif text-muted italic">Selection: <span id="matrix-active-label" class="text-ink font-sans font-semibold">Health + Tech</span></span>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <div class="lg:col-span-5 space-y-4 text-xs">
+          <div>
+            <span class="text-muted font-serif italic block mb-2">Primary Domain (Axis I)</span>
+            <div id="y-axis-container" class="flex flex-wrap gap-1.5"></div>
+          </div>
+          <div class="pt-2">
+            <span class="text-muted font-serif italic block mb-2">Secondary Domain (Axis II)</span>
+            <div id="x-axis-container" class="flex flex-wrap gap-1.5"></div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-7 bg-card p-6 border border-border min-h-[220px]" id="matrix-output">
+          <!-- Injected via Script -->
+        </div>
+      </div>
+    </section>
+
+    <!-- FELLOWS / LEADERSHIP ARCHIVE -->
+    <section id="leadership" class="border-t border-border pt-16 space-y-8">
+      <div class="max-w-xl space-y-2">
+        <span class="text-xs font-serif italic text-crimson">Governance & Direction — Section 005</span>
+        <h2 class="text-3xl font-serif font-bold text-ink">Executive Council & Steering Guild</h2>
+        <p class="text-xs text-muted leading-relaxed">
+          Guided by students and faculty across LSA, Engineering, and Business to foster inclusive computational literacy.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <div class="border border-border p-5 bg-card space-y-3">
+          <span class="text-[10px] font-serif italic text-pTech">Director of Academic Affairs</span>
+          <h4 class="font-serif font-bold text-ink text-base">Executive Directorate</h4>
+          <p class="text-xs text-muted leading-relaxed">
+            Oversees cross-departmental coordination with PCAS, curriculum design, and university sponsorship compliance.
+          </p>
+          <div class="text-[11px] text-muted font-mono pt-2 border-t border-border">
+            Michigan Uniqname: <span class="text-ink">computex-exec@umich.edu</span>
+          </div>
+        </div>
+
+        <div class="border border-border p-5 bg-card space-y-3">
+          <span class="text-[10px] font-serif italic text-pBiz">Head of Pedagogy</span>
+          <h4 class="font-serif font-bold text-ink text-base">Curriculum Committee</h4>
+          <p class="text-xs text-muted leading-relaxed">
+            Designs non-prerequisite workshop modules spanning biosignals, algorithmic equity, and generative design.
+          </p>
+          <div class="text-[11px] text-muted font-mono pt-2 border-t border-border">
+            Curriculum Lead: <span class="text-ink">workshops@computex.org</span>
+          </div>
+        </div>
+
+        <div class="border border-border p-5 bg-card space-y-3">
+          <span class="text-[10px] font-serif italic text-pHealth">Academic Sponsor</span>
+          <h4 class="font-serif font-bold text-ink text-base">PCAS Faculty Advisory</h4>
+          <p class="text-xs text-muted leading-relaxed">
+            Provides academic mentorship, venue resources, and structural integration with College of LSA initiatives.
+          </p>
+          <div class="text-[11px] text-muted font-mono pt-2 border-t border-border">
+            Affiliation: <span class="text-ink">LSA Program in Computing</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-border mt-20 py-12 bg-card text-xs text-muted">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+      <div class="space-y-1 text-center md:text-left">
+        <p class="font-serif font-bold text-ink text-sm tracking-wide">COMPUTEX ACADEMIC ARCHIVE</p>
+        <p>University of Michigan, Ann Arbor • Established 2026</p>
+      </div>
+      <div class="flex gap-6">
+        <button onclick="document.getElementById('pcas-modal').classList.remove('hidden')" class="hover:text-ink transition-colors">PCAS Details</button>
+        <button onclick="document.getElementById('register-modal').classList.remove('hidden')" class="hover:text-ink transition-colors">Launch Registry</button>
+        <a href="#manifesto" class="hover:text-ink transition-colors">Back to Top ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL: PCAS -->
+  <div id="pcas-modal" class="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4 hidden">
+    <div class="bg-paper border border-border max-w-lg w-full p-8 space-y-6">
+      <div class="border-b border-border pb-3">
+        <span class="text-xs font-serif italic text-crimson">Academic Sponsor</span>
+        <h3 class="text-xl font-serif font-bold text-ink mt-1">Program in Computing for the Arts & Sciences</h3>
+      </div>
+      <p class="text-xs text-muted leading-relaxed font-sans">
+        PCAS provides University of Michigan students with tailored interdisciplinary coursework and project support designed to integrate software development seamlessly into non-traditional domain fields.
+      </p>
+      <div class="flex justify-between items-center pt-4 border-t border-border text-xs">
+        <span class="text-muted italic font-serif">College of LSA</span>
+        <button onclick="document.getElementById('pcas-modal').classList.add('hidden')" class="px-4 py-2 bg-ink text-paper font-sans font-semibold hover:bg-muted transition-colors">
+          Close Window
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: WORKSHOP DETAILS -->
+  <div id="detail-modal" class="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4 hidden">
+    <div class="bg-paper border border-border max-w-lg w-full p-8 space-y-6">
+      <div class="border-b border-border pb-3">
+        <span class="text-xs font-serif italic text-crimson" id="modal-date">Date</span>
+        <h3 class="text-xl font-serif font-bold text-ink mt-1" id="modal-title">Workshop Title</h3>
+        <span class="text-xs font-mono text-muted block mt-1" id="modal-location">Location</span>
+      </div>
+      <p class="text-xs text-muted leading-relaxed font-sans" id="modal-desc">
+        Workshop description goes here.
+      </p>
+      <div class="flex justify-end pt-4 border-t border-border text-xs">
+        <button onclick="document.getElementById('detail-modal').classList.add('hidden')" class="px-4 py-2 bg-ink text-paper font-sans font-semibold hover:bg-muted transition-colors">
+          Dismiss
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: REGISTER -->
+  <div id="register-modal" class="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4 hidden">
+    <div class="bg-paper border border-border max-w-lg w-full p-8 space-y-6">
+      <div class="border-b border-border pb-3">
+        <span class="text-xs font-serif italic text-crimson">Membership Registry</span>
+        <h3 class="text-xl font-serif font-bold text-ink mt-1">Join the ComputeX Guild</h3>
+      </div>
+      <p class="text-xs text-muted leading-relaxed font-sans">
+        Open to all undergraduate and graduate scholars at the University of Michigan regardless of prior experience.
+      </p>
+      <form onsubmit="event.preventDefault(); alert('Interest logged in archive registry.'); document.getElementById('register-modal').classList.add('hidden');" class="space-y-4 text-xs">
+        <div>
+          <label class="block font-serif italic text-muted mb-1">University Uniqname / Email</label>
+          <input type="email" required placeholder="uniqname@umich.edu" class="w-full bg-card border border-border px-3 py-2 text-ink focus:outline-none focus:border-crimson font-mono" />
+        </div>
+        <div>
+          <label class="block font-serif italic text-muted mb-1">Primary Discipline / Major</label>
+          <input type="text" required placeholder="e.g. Biopsychology, Data Science, Fine Art" class="w-full bg-card border border-border px-3 py-2 text-ink focus:outline-none focus:border-ink" />
+        </div>
+        <div class="flex justify-between items-center pt-4 border-t border-border">
+          <button type="button" onclick="document.getElementById('register-modal').classList.add('hidden')" class="text-muted hover:text-ink">Cancel</button>
+          <button type="submit" class="px-4 py-2 bg-crimson text-ink font-sans font-semibold hover:bg-opacity-90 transition-colors">Submit Registration</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const pillarData = [
+      { id: 'Tech', num: 'I', title: 'Technology', focus: 'CS, AI Systems, Robotics', tools: ['Python', 'Docker', 'C++'], desc: 'Foundational software systems and machine learning architecture.', colorClass: 'text-pTech', borderClass: 'border-pTech', bgClass: 'bg-pTech' },
+      { id: 'Business', num: 'II', title: 'Business', focus: 'Intelligence, FinTech, Strategy', tools: ['SQL', 'pandas', 'Excel'], desc: 'Translating data metrics into enterprise strategy and financial models.', colorClass: 'text-pBiz', borderClass: 'border-pBiz', bgClass: 'bg-pBiz' },
+      { id: 'Health', num: 'III', title: 'Health', focus: 'Biosignals, Bioinformatics', tools: ['PyTorch', 'mne-python'], desc: 'Applying ML to neural EEG signals and genomic datasets.', colorClass: 'text-pHealth', borderClass: 'border-pHealth', bgClass: 'bg-pHealth' },
+      { id: 'Art', num: 'IV', title: 'Art & Design', focus: 'UI/UX, Generative Design', tools: ['p5.js', 'Figma', 'Three.js'], desc: 'Designing intuitive visual interfaces and creative media.', colorClass: 'text-pArt', borderClass: 'border-pArt', bgClass: 'bg-pArt' },
+      { id: 'Governance', num: 'V', title: 'Governance', focus: 'AI Policy, Bias Auditing', tools: ['Fairlearn', 'SHAP'], desc: 'Evaluating software systems for fairness and societal safety.', colorClass: 'text-pGov', borderClass: 'border-pGov', bgClass: 'bg-pGov' }
+    ];
+
+    const matrixData = {
+      'Health-Tech': { name: 'Apple Healthcare & Neuralink', giant: 'Apple Watch biosignal cardiovascular detection.', frontier: 'Neuralink brain-computer interfaces.' },
+      'Health-Business': { name: 'Epic Systems & Insilico', giant: 'Epic SQL databases powering EHRs.', frontier: 'Insilico generative AI drug discovery.' },
+      'Health-Art': { name: 'Philips & BrainGate', giant: 'Philips patient-centered ambient designs.', frontier: 'BrainGate neural signal artwork.' },
+      'Health-Governance': { name: 'Azure Health & Cradle Bio', giant: 'Azure HIPAA-compliant medical cloud auditing.', frontier: 'Cradle protein engineering safety rails.' },
+      'Tech-Business': { name: 'AWS & Boston Dynamics', giant: 'AWS enterprise cloud databases.', frontier: 'Boston Dynamics autonomous robotics.' },
+      'Tech-Art': { name: 'NVIDIA & Looking Glass', giant: 'NVIDIA GPU simulation engines.', frontier: 'Looking Glass holographic light-field displays.' },
+      'Tech-Governance': { name: 'IBM & Worldcoin', giant: 'IBM enterprise bias auditing suites.', frontier: 'World biometric proof-of-personhood.' },
+      'Business-Art': { name: 'Adobe & Raspberry AI', giant: 'Adobe commercially safe generative tools.', frontier: 'Raspberry AI sketch to 3D models.' },
+      'Business-Governance': { name: 'Palantir & Hugging Face', giant: 'Palantir compliance enterprise platforms.', frontier: 'Hugging Face open-source AI safety hub.' },
+      'Art-Governance': { name: 'Getty AI & Holly+', giant: 'Getty AI trained on licensed artwork.', frontier: 'Holly Herndon autonomous voice licensing.' }
+    };
+
+    const domains = [
+      { name: 'Tech', color: '#38BDF8' },
+      { name: 'Business', color: '#818CF8' },
+      { name: 'Health', color: '#2DD4BF' },
+      { name: 'Art', color: '#E879F9' },
+      { name: 'Governance', color: '#94A3B8' }
+    ];
+
+    let activeY = 'Health';
+    let activeX = 'Tech';
+
+    function renderPillars() {
+      document.getElementById('pillars-container').innerHTML = pillarData.map(p => `
+        <div class="border-t-2 ${p.borderClass} pt-4 space-y-3 bg-card/50 p-3 rounded-b-sm">
+          <span class="font-serif italic text-xs ${p.colorClass}">Pillar ${p.num}</span>
+          <h4 class="font-serif font-bold text-ink text-base">${p.title}</h4>
+          <p class="text-[11px] text-muted leading-relaxed">${p.desc}</p>
+          <div class="pt-2 text-[10px] space-y-1 font-mono">
+            <div class="text-muted">${p.focus}</div>
+            <div class="${p.colorClass} font-semibold">${p.tools.join(', ')}</div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function renderMatrixControls() {
+      document.getElementById('y-axis-container').innerHTML = domains.map(d => {
+        const isActive = activeY === d.name;
+        return `<button onclick="setY('${d.name}')" class="px-2.5 py-1 border text-[11px] transition-colors" style="${isActive ? `background-color: ${d.color}; border-color: ${d.color}; color: #141619; font-weight: 600;` : `border-color: #272E36; color: #94A3B8;`}">${d.name}</button>`;
+      }).join('');
+
+      document.getElementById('x-axis-container').innerHTML = domains.map(d => {
+        const isActive = activeX === d.name;
+        return `<button onclick="setX('${d.name}')" class="px-2.5 py-1 border text-[11px] transition-colors" style="${isActive ? `background-color: ${d.color}; border-color: ${d.color}; color: #141619; font-weight: 600;` : `border-color: #272E36; color: #94A3B8;`}">${d.name}</button>`;
+      }).join('');
+    }
+
+    function setY(d) { activeY = d; updateMatrix(); }
+    function setX(d) { activeX = d; updateMatrix(); }
+
+    function updateMatrix() {
+      document.getElementById('matrix-active-label').innerText = `${activeY} + ${activeX}`;
+      renderMatrixControls();
+      const output = document.getElementById('matrix-output');
+      if (activeY === activeX) {
+        output.innerHTML = `<p class="text-xs text-muted font-serif italic">Select two distinct domain disciplines to examine historical and frontier synthesis examples.</p>`;
+        return;
+      }
+      const data = matrixData[`${activeY}-${activeX}`] || matrixData[`${activeX}-${activeY}`];
+      
+      const yColor = domains.find(d => d.name === activeY)?.color || '#4C7A9C';
+      const xColor = domains.find(d => d.name === activeX)?.color || '#4C7A9C';
+
+      if (data) {
+        output.innerHTML = `
+          <div class="space-y-4 text-xs">
+            <h4 class="font-serif font-bold text-ink text-lg border-b border-border pb-2">${data.name}</h4>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div><span class="font-serif italic block mb-1" style="color: ${yColor};">Established Industry Leader (${activeY})</span><p class="text-muted leading-relaxed">${data.giant}</p></div>
+              <div><span class="font-serif italic block mb-1" style="color: ${xColor};">Emerging Frontier Pioneer (${activeX})</span><p class="text-muted leading-relaxed">${data.frontier}</p></div>
+            </div>
+          </div>
+        `;
+      }
+    }
+
+    function showDetails(title, date, location, desc) {
+      document.getElementById('modal-title').innerText = title;
+      document.getElementById('modal-date').innerText = date;
+      document.getElementById('modal-location').innerText = location;
+      document.getElementById('modal-desc').innerText = desc;
+      document.getElementById('detail-modal').classList.remove('hidden');
+    }
+
+    renderPillars();
+    updateMatrix();
+  </script>
+</body>
+</html>
