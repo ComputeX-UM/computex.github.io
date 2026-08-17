@@ -780,12 +780,11 @@
         class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto relative z-10"
       >
         <input 
-          type="email" 
+          type="text" 
           id="EMAIL"
           name="EMAIL"
           placeholder="umich email address..." 
           class="w-full px-5 py-3.5 rounded-xl bg-black/60 border border-white/10 text-white placeholder-slate-500 font-mono text-sm focus:outline-none focus:border-brand-cyan transition-all"
-          required
         >
 
         <!-- Brevo Config Fields -->
@@ -880,9 +879,15 @@
         form.addEventListener('submit', async (e) => {
           e.preventDefault(); 
           const emailValue = emailInput.value.trim().toLowerCase();
+          if (!emailValue) {
+            statusBox.className = 'mt-4 p-3 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-400 text-sm font-medium max-w-md mx-auto relative z-10';
+            statusBox.innerHTML = '🛑 Please enter an email address to join!';
+            statusBox.classList.remove('hidden');
+            return;
+          }
           if (!emailValue.endsWith('@umich.edu')) {
             statusBox.className = 'mt-4 p-3 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-400 text-sm font-medium max-w-md mx-auto relative z-10';
-            statusBox.innerHTML = '⚠️ Please enter a valid U-M email address ending in <strong>@umich.edu</strong>!';
+            statusBox.innerHTML = '⚠️ Please enter a valid U-M email ending in <strong>@umich.edu</strong>!';
             statusBox.classList.remove('hidden');
             return; // exit if email invalid
           }
