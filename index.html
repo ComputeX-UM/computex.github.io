@@ -185,7 +185,7 @@
         <div class="flex flex-wrap items-center gap-3">
           <div class="inline-flex items-center gap-2 px-3.5 py-2 rounded-full bg-white/5 text-xs font-mono text-slate-300 border border-white/10">
             <span class="w-1.5 h-1.5 rounded-full bg-brand-emerald animate-ping"></span>
-            Launching Fall Semester 2026
+            Launching Fall 2026
           </div>
         </div>
         <p class="text-lg text-slate-300 max-w-xl font-normal leading-relaxed">
@@ -233,7 +233,7 @@
               }
             </div>
             <div class="text-slate-400 bg-slate-950/60 p-3 rounded-lg border border-slate-800/60">
-              <span class="text-lime-400 font-semibold"># Pro tip:</span> Looking for official computing courses tailored for non-CS majors? Check out PCAS' own <span class="text-brand-magenta font-semibold">COMPFOR</span> courses!
+              <span class="text-lime-400 font-semibold"># Pro tip:</span> Looking for official computing courses tailored for non-CS majors? Check out PCAS's <span class="text-brand-magenta font-semibold">COMPFOR</span> courses!
             </div>
           </div>
           <div class="mt-6 pt-4 border-t border-white/5 flex items-center justify-between font-mono text-[11px]">
@@ -260,8 +260,8 @@
           </span>
         </h2>
       </div>
-      <p class="text-sm text-slate-300 font-sans leading-relaxed pt-1">
-        These are the 5 domains where ComputeX operates—exploring how computing powers business, art, health, ethics, and engineering.
+      <p class="text-md text-slate-300 font-sans leading-relaxed pt-1">
+        ComputeX operates across 5 core domains, giving you a structured way to explore applied technology, no matter your major. Select a pillar below to see where computing intersects with your field and what specific tools you might run into.
       </p>
     </div>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -304,8 +304,8 @@
         </span>
       </div>
       <p class="text-slate-300 leading-relaxed font-sans text-md sm:text-sm">
-        We know having a "Tech" pillar to apply tech to seems a bit redundant! While our other pillars focus on domain application, Tech + Engineering acts as our foundational anchor, 
-        covering broad computing topics that help power workshops across our other pillars. We'll also be sure to cover some applications of tech in more traditional engineering fields, so stay tuned!
+        A "Tech" pillar inside an applied computing club might sound redundant, but hear us out! While our other pillars focus on interdisciplinary applications, 
+        Tech + Engineering serves as our foundational anchor. In these workshops, we'll cover the core computing skills that power the remaining pillars. Plus, we'll look at how computing can transform traditional engineering fields!
       </p>
     </div>
 
@@ -773,17 +773,32 @@
         Sign up to get notified about our mass meetings, tabling, first events, and more coming-soon content. We promise not to spam your inbox!
       </p>
 
-      <form class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto relative z-10" onsubmit="event.preventDefault(); alert('Connected!');">
+      <form 
+        id="newsletter-form"
+        action="https://f2e4cbbe.sibforms.com/serve/MUIFAMYZLJGddTah52_LzHw1ISVBUYXmDleNJ4a5j01VBCejKWYp-YuQzQdBKEdGRI3YN7twogBYWtrvKXAyqL8DFKg5gu0jWv-fUP3ktcM_y4J3t9qM7VYfLvfqijpfrhAaWVd7_ynjlxcC1Gg2yAhJYsnQPWFXQeVdHPs75wplf7qJ51HjSQR5M88WfEauKBZX73zXVs7KCYIKGQ==" 
+        method="POST" 
+        class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto relative z-10"
+      >
         <input 
           type="email" 
+          id="EMAIL"
+          name="EMAIL"
           placeholder="umich email address..." 
           class="w-full px-5 py-3.5 rounded-xl bg-black/60 border border-white/10 text-white placeholder-slate-500 font-mono text-sm focus:outline-none focus:border-brand-cyan transition-all"
           required
         >
-        <button type="submit" class="px-8 py-3.5 rounded-xl bg-white text-black font-semibold text-sm hover:bg-slate-300 transition-all whitespace-nowrap">
+
+        <!-- Brevo Config Fields -->
+        <input type="text" name="email_address_check" value="" class="hidden" style="display:none;" />
+        <input type="hidden" name="locale" value="en" />
+        <input type="hidden" name="html_type" value="simple" />
+
+        <button id="submit-btn" type="submit" class="px-8 py-3.5 rounded-xl bg-white text-black font-semibold text-sm hover:bg-slate-300 transition-all whitespace-nowrap">
           Notify Me
         </button>
       </form>
+
+      <div id="form-status" class="hidden mt-4 text-sm font-medium transition-all max-w-md mx-auto relative z-10"></div>
     </div>
   </section>
 
@@ -813,7 +828,7 @@
           <span>compute-x@umich.edu</span>
         </a>
           <div class="flex items-center gap-1.5">
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" 
+              <a href="https://www.instagram.com/computex_um/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" 
               class="p-2.5 rounded-lg bg-white/5 hover:bg-brand-magenta/10 border border-white/10 hover:border-brand-magenta/40 text-[url(#ig-grad)] hover:scale-105 group">
               <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
                 <defs>
@@ -836,7 +851,7 @@
               </svg>
             </a>
             <div class="flex items-center gap-2"> </div>
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub" 
+            <a href="https://github.com/ComputeX-UM" target="_blank" rel="noopener noreferrer" aria-label="GitHub" 
               class="p-2.5 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/30 text-white hover:scale-105">
               <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
