@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full antialiased">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ComputeX | Quick Links</title>
+  
+  <!-- Google Fonts: Inter & Geist Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['"Geist Mono"', 'monospace'],
+          },
+          colors: {
+            brand: {
+              bg: '#08080a',
+              panel: '#101116',
+              card: '#161820',
+              border: 'rgba(255, 255, 255, 0.08)',
+              cyan: '#00F0FF',
+              amber: '#FFB800',
+              emerald: '#00E599',
+              magenta: '#FF2E93',
+              purple: '#9D4EDD',
+              grey: '#acacbf',
+              maize: '#FFCB05',
+              blue: '#00274C',
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="min-h-screen bg-brand-bg text-slate-100 font-sans flex flex-col justify-between px-4 py-8 max-w-md mx-auto relative overflow-x-hidden selection:bg-brand-magenta selection:text-white">
+
+  <!-- SVG GRADIENT DEFINITIONS (REQUIRED FOR INSTAGRAM) -->
+  <svg width="0" height="0" class="absolute pointer-events-none opacity-0" aria-hidden="true">
+    <defs>
+      <linearGradient id="ig-gradient" x1="100%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#833AB4" />
+        <stop offset="50%" stop-color="#FD1D1D" />
+        <stop offset="100%" stop-color="#FCB045" />
+      </linearGradient>
+    </defs>
+  </svg>
+
+  <!-- Ambient Glow Background Artifacts -->
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-72 h-72 bg-brand-cyan/15 rounded-full blur-3xl pointer-events-none z-0"></div>
+  <div class="absolute bottom-10 right-0 w-60 h-60 bg-brand-purple/15 rounded-full blur-3xl pointer-events-none z-0"></div>
+
+  <!-- MAIN CONTAINER -->
+  <main class="relative z-10 space-y-6 my-auto">
+
+    <!-- Header Section -->
+    <header class="text-center space-y-3">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-brand-border text-xs font-mono text-brand-emerald">
+        <span class="w-2 h-2 rounded-full bg-brand-emerald animate-pulse"></span>
+        <span>QUICK LINKS</span>
+      </div>
+      
+      <h1 class="text-3xl font-extrabold text-white tracking-tight">
+        Welcome to
+        <span style="background: linear-gradient(90deg, #00F0FF 0%, #00E599 18%, #FFB800 53%, #FF2E93 70%, #9d4edd 100%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+          ComputeX
+        </span>
+      </h1>
+
+      <p class="text-brand-grey text-sm leading-relaxed max-w-xs mx-auto">
+        Our goal is to help you answer the question "What can computing do in my field?" 
+        <br>Zero coding experience required, just bring your curiosity!
+      </p>
+    </header>
+
+    <!-- Newsletter Card -->
+    <div class="bg-brand-panel/90 border border-brand-border rounded-2xl p-5 shadow-2xl backdrop-blur-xl space-y-3">
+      <div class="flex items-center justify-between">
+        <h2 class="text-sm font-semibold text-white tracking-wide">Stay Updated</h2>
+        <span class="text-[10px] font-mono text-brand-grey">NEWSLETTER</span>
+      </div>
+      <p class="text-xs text-brand-grey">Sign up to get notified about our mass meetings, tabling, first events, and more coming-soon content. We promise not to spam your inbox!</p>
+      
+      <form onsubmit="event.preventDefault();" class="space-y-2 pt-1">
+        <input 
+          type="email" 
+          placeholder="umich email..." 
+          required
+          class="w-full px-3.5 py-2.5 rounded-xl bg-brand-card border border-brand-border text-sm text-white placeholder-slate-500 focus:outline-none focus:border-brand-purple transition-colors"
+        />
+        <button 
+          type="submit" 
+          class="w-full py-2.5 rounded-xl font-medium text-sm text-slate-950 transition-all duration-200 active:scale-[0.98] shadow-lg bg-gradient-to-r from-brand-magenta via-brand-purple to-brand-cyan"
+        >
+          Subscribe
+        </button>
+      </form>
+    </div>
+
+    <!-- Embedded Link Buttons (Ordered: Website -> Instagram -> Slack -> GitHub -> Email) -->
+    <div class="space-y-2.5 pt-2">
+      
+      <!-- 1. Website (fa-code, Cyan) -->
+      <a href="https://computex.org" target="_blank" class="flex items-center justify-between px-4 py-3 rounded-xl bg-white/5 border border-brand-border hover:border-white/20 active:bg-white/10 transition-all group">
+        <div class="flex items-center gap-3">
+          <i class="fa-solid fa-code text-base text-brand-cyan w-5 text-center shrink-0"></i>
+          <div class="text-sm">
+            <span class="font-bold text-white">Website</span>
+            <span class="text-brand-grey font-normal ml-1"></span>
+          </div>
+        </div>
+        <i class="fa-solid fa-arrow-up-right-from-square text-xs text-brand-grey group-hover:text-white transition-colors"></i>
+      </a>
+
+      <!-- 2. Instagram (Gradient Icon) -->
+      <a href="https://instagram.com/computex.umich" target="_blank" class="flex items-center justify-between px-4 py-3 rounded-xl bg-white/5 border border-brand-border hover:border-white/20 active:bg-white/10 transition-all group">
+        <div class="flex items-center gap-3">
+          <svg class="w-5 h-5 shrink-0 aspect-square" viewBox="0 0 448 512" aria-hidden="true">
+            <path fill="url(#ig-gradient)" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c-14.9 0-27 12.1-27 27s12.1 27 27 27 27-12.1 27-27-12.1-27-27-27zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/>
+          </svg>
+          <div class="text-sm">
+            <span class="font-bold text-white">Instagram</span>
+            <span class="text-brand-grey font-normal ml-1"> -> @computex_um</span>
+          </div>
+        </div>
+        <i class="fa-solid fa-arrow-up-right-from-square text-xs text-brand-grey group-hover:text-white transition-colors"></i>
+      </a>
+
+      <!-- 3. Slack (Official 4-Color Pinwheel) -->
+      <a href="#" target="_blank" class="flex items-center justify-between px-4 py-3 rounded-xl bg-white/5 border border-brand-border hover:border-white/20 active:bg-white/10 transition-all group">
+        <div class="flex items-center gap-3">
+          <svg class="w-5 h-5 shrink-0" viewBox="0 0 60 60" fill="none" aria-hidden="true">
+            <path d="M22,12 a6,6 0 1 1 6,-6 v6z M22,16 a6,6 0 0 1 0,12 h-16 a6,6 0 1 1 0,-12" fill="#36C5F0"/>
+            <path d="M48,22 a6,6 0 1 1 6,6 h-6z M32,6 a6,6 0 1 1 12,0 v16 a6,6 0 0 1 -12,0z" fill="#2EB67D"/>
+            <path d="M38,48 a6,6 0 1 1 -6,6 v-6z M54,32 a6,6 0 0 1 0,12 h-16 a6,6 0 1 1 0,-12" fill="#ECB22E"/>
+            <path d="M12,38 a6,6 0 1 1 -6,-6 h6z M16,38 a6,6 0 1 1 12,0 v16 a6,6 0 0 1 -12,0z" fill="#E01E5A"/>
+          </svg>
+          <div class="text-sm">
+            <span class="font-bold text-white">Slack</span>
+            <span class="text-brand-grey font-normal ml-1"> -> smth</span>
+          </div>
+        </div>
+        <i class="fa-solid fa-arrow-up-right-from-square text-xs text-brand-grey group-hover:text-white transition-colors"></i>
+      </a>
+
+      <!-- 4. GitHub (White/Light Grey Brand Color) -->
+      <a href="https://github.com/computex-umich" target="_blank" class="flex items-center justify-between px-4 py-3 rounded-xl bg-white/5 border border-brand-border hover:border-white/20 active:bg-white/10 transition-all group">
+        <div class="flex items-center gap-3">
+          <i class="fa-brands fa-github text-base text-white w-5 text-center shrink-0"></i>
+          <div class="text-sm">
+            <span class="font-bold text-white">GitHub</span>
+            <span class="text-brand-grey font-normal ml-1"> -> ComputeX-UM</span>
+          </div>
+        </div>
+        <i class="fa-solid fa-arrow-up-right-from-square text-xs text-brand-grey group-hover:text-white transition-colors"></i>
+      </a>
+
+      <!-- 5. Email (Emerald) -->
+      <a href="mailto:contact@computex.org" class="flex items-center justify-between px-4 py-3 rounded-xl bg-white/5 border border-brand-border hover:border-white/20 active:bg-white/10 transition-all group">
+        <div class="flex items-center gap-3">
+          <i class="fa-regular fa-envelope text-base text-brand-emerald w-5 text-center shrink-0"></i>
+          <div class="text-sm">
+            <span class="font-bold text-white">Email</span>
+            <span class="text-brand-grey font-normal ml-1"> -> compute-x@umich.edu</span>
+          </div>
+        </div>
+        <i class="fa-solid fa-arrow-up-right-from-square text-xs text-brand-grey group-hover:text-white transition-colors"></i>
+      </a>
+
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="relative z-10 text-center text-xs font-mono text-brand-grey pt-6">
+    © 2026 ComputeX • Sponsored by the Program in Computing for the Arts & Sciences
+  </footer>
+
+</body>
+</html>

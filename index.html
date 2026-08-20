@@ -886,7 +886,7 @@
             statusBox.className = 'mt-4 p-3 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-400 text-sm font-medium max-w-md mx-auto relative z-10';
             statusBox.innerHTML = '⚠️ Please enter a valid U-M email ending in <strong>@umich.edu</strong>!';
             statusBox.classList.remove('hidden');
-            return; // exit if email invalid
+            return; 
           }
           submitBtn.disabled = true;
           submitBtn.innerText = 'Submitting...';         
