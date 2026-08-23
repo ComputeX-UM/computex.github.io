@@ -93,20 +93,32 @@
       </div>
       <p class="text-xs text-brand-grey">Sign up to get notified about our mass meetings, tabling, first events, and more coming-soon content. We promise not to spam your inbox!</p>
       
-      <form onsubmit="event.preventDefault();" class="space-y-2 pt-1">
+      <form 
+        id="newsletter-form"
+        action="https://f2e4cbbe.sibforms.com/serve/MUIFAMYZLJGddTah52_LzHw1ISVBUYXmDleNJ4a5j01VBCejKWYp-YuQzQdBKEdGRI3YN7twogBYWtrvKXAyqL8DFKg5gu0jWv-fUP3ktcM_y4J3t9qM7VYfLvfqijpfrhAaWVd7_ynjlxcC1Gg2yAhJYsnQPWFXQeVdHPs75wplf7qJ51HjSQR5M88WfEauKBZX73zXVs7KCYIKGQ==" 
+        method="POST" 
+        class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto relative z-10"
+      >
         <input 
-          type="email" 
-          placeholder="umich email..." 
-          required
+          type="text" 
+          id="EMAIL"
+          name="EMAIL"
+          placeholder="umich email address..." 
           class="w-full px-3.5 py-2.5 rounded-xl bg-brand-card border border-brand-border text-sm text-white placeholder-slate-500 focus:outline-none focus:border-brand-purple transition-colors"
         />
+        <!-- Brevo Config Fields -->
+        <input type="text" name="email_address_check" value="" class="hidden" style="display:none;" />
+        <input type="hidden" name="locale" value="en" />
+        <input type="hidden" name="html_type" value="simple" />
         <button 
+          id="submit-btn"
           type="submit" 
           class="w-full py-2.5 rounded-xl font-medium text-sm text-slate-950 transition-all duration-200 active:scale-[0.98] shadow-lg bg-gradient-to-r from-brand-magenta via-brand-purple to-brand-cyan"
         >
           Subscribe
         </button>
       </form>
+      <div id="form-status" class="hidden mt-4 text-sm font-medium transition-all max-w-md mx-auto relative z-10"></div>
     </div>
 
     <!-- Embedded Link Buttons (Ordered: Website -> Instagram -> Slack -> GitHub -> Email) -->
@@ -182,6 +194,54 @@
   <footer class="relative z-10 text-center text-xs font-mono text-brand-grey pt-6">
     © 2026 ComputeX • Sponsored by the Program in Computing for the Arts & Sciences
   </footer>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.getElementById('newsletter-form');
+      const statusBox = document.getElementById('form-status');
+      const submitBtn = document.getElementById('submit-btn');
+      const emailInput = document.getElementById('EMAIL');
+      if (form) {
+        form.addEventListener('submit', async (e) => {
+          e.preventDefault(); 
+          const emailValue = emailInput.value.trim().toLowerCase();
+          if (!emailValue) {
+            statusBox.className = 'mt-4 p-3 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-400 text-sm font-medium max-w-md mx-auto relative z-10';
+            statusBox.innerHTML = '🛑 Please enter an email address to join!';
+            statusBox.classList.remove('hidden');
+            return;
+          }
+          if (!emailValue.endsWith('@umich.edu')) {
+            statusBox.className = 'mt-4 p-3 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-400 text-sm font-medium max-w-md mx-auto relative z-10';
+            statusBox.innerHTML = '⚠️ Please enter a valid U-M email ending in <strong>@umich.edu</strong>!';
+            statusBox.classList.remove('hidden');
+            return; 
+          }
+          submitBtn.disabled = true;
+          submitBtn.innerText = 'Submitting...';         
+          const formData = new FormData(form);
+          try {
+            await fetch(form.action, {
+              method: 'POST',
+              body: formData,
+              mode: 'no-cors'
+            });
+            statusBox.className = 'mt-4 p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-sm font-medium max-w-md mx-auto relative z-10';
+            statusBox.innerHTML = '🎉 Successfully subscribed!';
+            statusBox.classList.remove('hidden');
+            form.reset();
+            submitBtn.disabled = false;
+            submitBtn.innerText = 'Notify Me';
+          } catch (err) {
+            statusBox.className = 'mt-4 p-3 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-400 text-sm font-medium max-w-md mx-auto relative z-10';
+            statusBox.innerHTML = '❌ Something went wrong. Please try again.';
+            statusBox.classList.remove('hidden');           
+            submitBtn.disabled = false;
+            submitBtn.innerText = 'Notify Me';
+          }
+        });
+      }
+    });
+  </script>
 
 </body>
 </html>

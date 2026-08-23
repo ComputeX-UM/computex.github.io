@@ -3,13 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ComputeX | Roadmap & Guide</title>
-  
+  <title>ComputeX | Member Guide & Roadmap</title>
+
   <!-- Inter & Geist Mono Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   
+  <!-- Font Awesome Icons CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -33,23 +36,37 @@
               magenta: '#FF2E93',
               purple: '#9D4EDD',
               grey: '#acacbf',
-              maize: '#FFCB05',
-              blue: '#00274C',
             }
           }
         }
       }
     }
   </script>
+
   <style>
     .bg-grid {
-      background-size: 40px 40px;
+      background-size: 60px 60px;
       background-image: 
-        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
     }
-    .radial-glow {
-      background: radial-gradient(circle at 50% 20%, rgba(0, 240, 255, 0.08) 0%, rgba(157, 78, 221, 0.05) 40%, transparent 70%);
+    .mesh-glow-1 {
+      position: absolute;
+      width: 650px;
+      height: 650px;
+      background: radial-gradient(circle, rgba(0, 240, 255, 0.12) 0%, rgba(157, 78, 221, 0.08) 40%, transparent 70%);
+      filter: blur(100px);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .mesh-glow-2 {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(255, 46, 147, 0.1) 0%, rgba(0, 229, 153, 0.06) 50%, transparent 75%);
+      filter: blur(110px);
+      border-radius: 50%;
+      pointer-events: none;
     }
     .glass-card {
       background: rgba(18, 19, 24, 0.7);
@@ -60,31 +77,25 @@
 </head>
 
 <body class="bg-brand-bg text-slate-200 font-sans antialiased min-h-screen selection:bg-brand-grey/20 overflow-x-hidden">
-
-  <!-- Background Grid & Lighting -->
   <div class="fixed inset-0 bg-grid pointer-events-none z-0"></div>
-  <div class="fixed inset-0 radial-glow pointer-events-none z-0"></div>
+  <div class="mesh-glow-1 top-[-150px] right-[-150px] z-0"></div>
+  <div class="mesh-glow-2 top-[45%] left-[-250px] z-0"></div>
 
-  <!-- Navigation -->
-  <nav class="sticky top-0 z-40 border-b border-white/5 bg-brand-bg/80 backdrop-blur-md">
-    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-      <a href="../index.html" class="font-mono text-lg font-bold tracking-tight text-white flex items-center gap-2">
-        <span class="inline-block w-2.5 h-2.5 rounded-full bg-brand-cyan animate-pulse"></span>
-        COMPUTEX<span class="text-brand-cyan">//</span>
+  <!-- Top bar navigation -->
+  <nav class="sticky top-0 z-50 bg-brand-bg/60 backdrop-blur-xl border-b border-white/5">
+    <div class="max-w-7xl mx-auto px-8 h-20 flex items-center justify-between">
+      <a href="../index.html" class="font-mono text-xl font-bold tracking-tight text-white flex items-center gap-2">
+        <img src="../assets/computex-logo.png" alt="ComputeX Logo" class="h-11 w-auto object-contain" />
       </a>
-      
-      <div class="flex items-center gap-6 text-sm font-mono text-slate-400">
-        <a href="../team/index.html" class="hover:text-white transition-colors">TEAM</a>
+      <div class="flex items-center gap-8 text-sm font-mono text-slate-400">
         <a href="../pillars/index.html" class="hover:text-white transition-colors">PILLARS</a>
+        <a href="../team/index.html" class="hover:text-white transition-colors">TEAM</a>
         <a href="#" class="text-white font-semibold underline decoration-brand-cyan underline-offset-4">ROADMAP</a>
-        <!-- Launch Button (Original static state, Rainbow gradient on hover) -->
-        <a href="../join/index.html" class="group relative px-3.5 py-1.5 rounded-md bg-white/10 text-white border border-white/10 font-semibold transition-all hover:border-transparent">
-          <!-- Rainbow Border Ring (Only shows 1px outer ring on hover) -->
-          <span class="absolute -inset-[1px] rounded-md bg-gradient-to-r from-brand-emerald via-brand-cyan to-brand-purple opacity-0 group-hover:opacity-100 transition-opacity p-[1px] pointer-events-none">
-            <span class="w-full h-full block rounded-[5px] bg-[#121318]"></span>
+        <a href="../join/index.html" class="group relative px-5 py-2 rounded-lg bg-white/10 text-white border border-white/10 font-semibold transition-all hover:border-transparent">
+          <span class="absolute -inset-[1px] rounded-lg bg-gradient-to-r from-brand-magenta via-brand-purple to-brand-cyan opacity-0 group-hover:opacity-100 transition-opacity p-[1px] pointer-events-none">
+            <span class="w-full h-full block rounded-[7px] bg-[#121318]"></span>
           </span>
-          <!-- Rainbow Text (Only text changes color) -->
-          <span class="relative z-10 group-hover:bg-gradient-to-r group-hover:from-brand-emerald group-hover:via-brand-cyan group-hover:to-brand-purple group-hover:bg-clip-text group-hover:text-transparent transition-all">
+          <span class="relative z-10 group-hover:bg-gradient-to-r group-hover:from-brand-magenta group-hover:via-brand-purple group-hover:to-brand-cyan group-hover:bg-clip-text group-hover:text-transparent transition-all">
             JOIN →
           </span>
         </a>
@@ -92,204 +103,322 @@
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <section class="relative z-10 pt-16 pb-8 px-6 max-w-4xl mx-auto text-center">
-    <div class="font-mono text-xs text-brand-cyan uppercase tracking-widest mb-3">// PARTICIPANT_GUIDE & ROADMAP</div>
-    <h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-white mb-4">
-      The ComputeX <span class="bg-gradient-to-r from-brand-cyan via-brand-emerald to-brand-purple bg-clip-text text-transparent">Roadmap</span>
+  <!-- HERO HEADER SECTION -->
+  <header class="relative z-10 pt-16 pb-12 px-6 max-w-5xl mx-auto text-center">
+    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.1]">
+      The ComputeX 
+      <span class="bg-gradient-to-r from-brand-purple via-brand-cyan to-brand-emerald bg-clip-text text-transparent">
+        Guide
+      </span>
     </h1>
-    <p class="text-slate-400 text-sm sm:text-base max-w-2xl mx-auto font-normal leading-relaxed">
-      ComputeX isn't a rigid curriculum—it's a launchpad. Whether you're here to explore concepts across domains or build portfolio-ready code, <strong class="text-slate-200 font-semibold">you control your path</strong>. No prerequisites, no locked tracks, zero pressure.
+    <p class="text-slate-400 text-base sm:text-lg font-normal leading-relaxed max-w-2xl mx-auto mt-4">
+      Everything you need to know about how ComputeX operates, what we offer week-to-week, and how you can get involved!
     </p>
-  </section>
+  </header>
 
-  <!-- Workshop Framework Section -->
-  <section class="relative z-10 py-6 px-6 max-w-4xl mx-auto">
-    <div class="font-mono text-xs text-brand-cyan uppercase tracking-widest mb-4 flex items-center gap-2">
-      <span>// 01. PARTICIPATION_FRAMEWORK</span>
-    </div>
-    
-    <div class="grid md:grid-cols-2 gap-4 mb-4">
-      <!-- Exploratory Card -->
-      <div class="glass-card p-6 rounded-2xl border border-brand-cyan/30 relative overflow-hidden">
-        <div class="inline-block px-2.5 py-1 rounded-full bg-brand-cyan/10 border border-brand-cyan/40 text-brand-cyan font-mono text-[11px] font-bold uppercase tracking-wider mb-3">
-          Exploratory Workshop
-        </div>
-        <h3 class="text-xl font-bold text-white mb-2 font-mono">Conceptual & Architecture</h3>
-        <ul class="text-xs sm:text-sm text-slate-300 space-y-2 font-sans">
-          <li class="flex items-start gap-2">
-            <span class="text-brand-cyan font-mono">▸</span>
-            <span><strong class="text-white">Focus:</strong> System architecture, math foundations, "under the hood" mechanics, and ethics.</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-brand-cyan font-mono">▸</span>
-            <span><strong class="text-white">Requirement:</strong> No laptop or code environment needed.</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-brand-cyan font-mono">▸</span>
-            <span><strong class="text-white">Experience:</strong> Sit back, learn concepts, and join the discussion.</span>
-          </li>
-        </ul>
-      </div>
+  <!-- TIMELINE -->
+  <section class="relative z-10 pb-20 px-4 sm:px-6 max-w-5xl mx-auto">
+    <!-- Ambient Background Glow -->
+    <div class="absolute inset-0 bg-gradient-to-r from-brand-cyan/5 via-brand-purple/5 to-brand-emerald/5 blur-3xl pointer-events-none rounded-3xl -z-10"></div>
 
-      <!-- Applied Card -->
-      <div class="glass-card p-6 rounded-2xl border border-brand-emerald/30 relative overflow-hidden">
-        <div class="inline-block px-2.5 py-1 rounded-full bg-brand-emerald/10 border border-brand-emerald/40 text-brand-emerald font-mono text-[11px] font-bold uppercase tracking-wider mb-3">
-          Applied Workshop
-        </div>
-        <h3 class="text-xl font-bold text-white mb-2 font-mono">Hands-On & Implementation</h3>
-        <ul class="text-xs sm:text-sm text-slate-300 space-y-2 font-sans">
-          <li class="flex items-start gap-2">
-            <span class="text-brand-emerald font-mono">▸</span>
-            <span><strong class="text-white">Focus:</strong> Writing syntax, leveraging APIs, building pipelines, and using tools.</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-brand-emerald font-mono">▸</span>
-            <span><strong class="text-white">Requirement:</strong> Bring a laptop with VS Code / Python / Git.</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="text-brand-emerald font-mono">▸</span>
-            <span><strong class="text-white">Experience:</strong> Live coding and leaving with a working project artifact.</span>
-          </li>
-        </ul>
-      </div>
-    </div>
+    <div class="relative pl-8 sm:pl-12 space-y-12">
+      <!-- Continuous Left-Side Gradient Vertical Line -->
+      <div class="absolute left-3 sm:left-4 top-6 bottom-4 w-0.5" style="background: linear-gradient(#FFB800 0%, #FF2e93 40%, #9d4edd 80%);"></div>
+   
 
-    <!-- Callout Banner -->
-    <div class="glass-card p-4 rounded-xl border border-brand-purple/40 bg-brand-purple/5 text-slate-300 font-mono text-xs sm:text-sm flex items-start gap-3">
-      <span class="text-brand-purple text-base">⚡</span>
-      <div>
-        <strong class="text-white uppercase tracking-wider">Mix & Match Anytime:</strong> You can attend an <span class="text-brand-cyan">Exploratory</span> workshop in Health on Tuesday and an <span class="text-brand-emerald">Applied</span> workshop in Tech on Thursday. You are never locked into one format or pillar!
-      </div>
-    </div>
-  </section>
-
-  <!-- Sample Pathways Section -->
-  <section class="relative z-10 py-6 px-6 max-w-4xl mx-auto">
-    <div class="font-mono text-xs text-brand-cyan uppercase tracking-widest mb-4">
-      // 02. SAMPLE_MEMBER_PATHWAYS
-    </div>
-
-    <div class="grid sm:grid-cols-3 gap-4">
-      <div class="glass-card p-5 rounded-xl border border-white/10">
-        <div class="font-mono text-xs text-brand-amber font-semibold mb-1">PATH_A //</div>
-        <h4 class="text-base font-bold text-white mb-2">The Curious Explorer</h4>
-        <p class="text-slate-400 text-xs leading-relaxed mb-3">Wants to learn how tech impacts health and art without needing years of coding experience.</p>
-        <p class="text-slate-300 text-xs font-mono bg-white/5 p-2 rounded border border-white/5">
-          → Attends Exploratory Workshops across Health & Art.
-        </p>
-      </div>
-
-      <div class="glass-card p-5 rounded-xl border border-white/10">
-        <div class="font-mono text-xs text-brand-emerald font-semibold mb-1">PATH_B //</div>
-        <h4 class="text-base font-bold text-white mb-2">The Deep Builder</h4>
-        <p class="text-slate-400 text-xs leading-relaxed mb-3">CS or Data Science major looking for hands-on, portfolio-ready technical projects.</p>
-        <p class="text-slate-300 text-xs font-mono bg-white/5 p-2 rounded border border-white/5">
-          → Dives straight into Applied Workshops & Project Teams.
-        </p>
-      </div>
-
-      <div class="glass-card p-5 rounded-xl border border-white/10">
-        <div class="font-mono text-xs text-brand-purple font-semibold mb-1">PATH_C //</div>
-        <h4 class="text-base font-bold text-white mb-2">The Cross-Pioneer</h4>
-        <p class="text-slate-400 text-xs leading-relaxed mb-3">Interested in tech policy, business strategy, and algorithmic fairness.</p>
-        <p class="text-slate-300 text-xs font-mono bg-white/5 p-2 rounded border border-white/5">
-          → Combines Exploratory Ethics with Applied Business.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Timeline Section Title -->
-  <section class="relative z-10 pt-8 px-6 max-w-4xl mx-auto">
-    <div class="font-mono text-xs text-brand-cyan uppercase tracking-widest mb-1">// 03. OPERATIONAL_TIMELINE</div>
-    <h2 class="text-2xl font-bold text-white font-mono">Semester & Platform Progression</h2>
-  </section>
-
-  <!-- Existing Roadmap Timeline Section -->
-  <section class="relative z-10 py-6 px-6 max-w-4xl mx-auto">
-    <div class="space-y-6 relative before:absolute before:inset-0 before:left-7 before:w-0.5 before:bg-white/10">
-
-      <!-- Milestone 1: Completed -->
-      <div class="relative flex items-start gap-6 group">
-        <div class="relative z-10 w-14 h-14 rounded-2xl bg-brand-cyan/10 border border-brand-cyan/40 flex items-center justify-center shrink-0 text-brand-cyan font-mono text-xs font-bold shadow-lg">
+      <!-- Item 01 -->
+      <div class="relative">
+        <div class="absolute -left-[35px] sm:-left-[41px] top-6 w-8 h-8 rounded-lg bg-slate-900 border-2 border-brand-amber text-brand-amber font-mono font-bold text-xs flex items-center justify-center shadow-lg shadow-brand-amber/20 z-10">
           01
         </div>
-        <div class="glass-card p-6 rounded-2xl flex-1 border border-white/10 relative overflow-hidden">
-          <div class="absolute top-0 right-0 px-3 py-1 bg-brand-cyan/10 text-brand-cyan font-mono text-[10px] font-semibold rounded-bl-xl border-l border-b border-brand-cyan/30">
-            COMPLETED // Q2 2026
+
+        <div class="bg-gradient-to-r from-brand-amber/10 to-slate-900/90 border border-brand-amber/30 rounded-2xl p-6 sm:p-8 shadow-xl relative overflow-hidden">
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-white/10 pb-6 mb-6">
+            <div>
+              <div class="flex items-center gap-3 mb-1">
+                <span class="font-mono text-xs text-brand-amber font-bold uppercase tracking-widest">// KICKOFF</span>
+              </div>
+              <h2 class="text-2xl sm:text-3xl font-bold text-white font-mono">
+                Mass Meetings
+              </h2>
+            </div>
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-brand-amber/10 border border-brand-amber/20 text-xs font-mono text-brand-amber">
+              <span class="w-2 h-2 rounded-full bg-brand-amber animate-ping"></span>
+              Open to All Majors
+            </div>
           </div>
-          <div class="font-mono text-xs text-slate-400 uppercase tracking-widest mb-1">Phase 1: Foundation & Architecture</div>
-          <h3 class="text-xl font-bold text-white mb-2">Core Infrastructure & 5 Pillars Definition</h3>
-          <p class="text-slate-300 text-xs sm:text-sm leading-relaxed font-sans mb-4">
-            Established the official core disciplines (Tech + Engineering, Business + Strategy, Health + Medicine, Art + Design, Ethics + Impact) and built the initial codebase architecture and component design system.
-          </p>
-          <div class="flex flex-wrap gap-2 font-mono text-[11px]">
-            <span class="px-2.5 py-1 rounded bg-white/5 border border-white/10 text-brand-cyan">✓ Design System Built</span>
-            <span class="px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-300">✓ 5 Pillars Defined</span>
+
+          <div class="grid md:grid-cols-2 gap-6 items-center">
+            <div class="space-y-3">
+              <p class="text-slate-300 text-sm leading-relaxed">
+                Attend either identical session during onboarding week to meet the board and learn more about ComputeX. In-person + Zoom livestream options will be available for anyone interested!
+              </p>
+              <div class="space-y-2 font-mono text-xs text-slate-300">
+                <div class="flex items-center gap-2 bg-white/5 p-2.5 rounded-lg border border-white/10">
+                  <span class="text-brand-amber font-bold">Session 1:</span>
+                  <span>Tuesday, Sept 8 @ 7:00 PM (BBB 1670)</span>
+                </div>
+                <div class="flex items-center gap-2 bg-white/5 p-2.5 rounded-lg border border-white/10">
+                  <span class="text-brand-amber font-bold">Session 2:</span>
+                  <span>Wednesday, Sept 9 @ 7:00 PM (BBB 1670)</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Direct Action Buttons -->
+            <div class="flex flex-col sm:flex-row md:flex-col gap-3 justify-center">
+              <a href="https://discord.gg/example" target="_blank" class="w-full px-5 py-3 rounded-xl bg-brand-amber text-white font-mono text-xs font-bold hover:bg-brand-amber/90 transition-all text-center shadow-lg shadow-brand-amber/20 flex items-center justify-center gap-2">
+                <i class="fa-regular fa-circle"></i> JOIN smth
+              </a>
+              <a href="#" class="w-full px-5 py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-white font-mono text-xs font-semibold transition-all text-center flex items-center justify-center gap-2">
+                <i class="fa-regular fa-calendar-plus"></i> Add smth
+              </a>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Milestone 2: Active / Current -->
-      <div class="relative flex items-start gap-6 group">
-        <div class="relative z-10 w-14 h-14 rounded-2xl bg-brand-emerald/10 border border-brand-emerald/40 flex items-center justify-center shrink-0 text-brand-emerald font-mono text-xs font-bold shadow-lg animate-pulse">
+     <!-- Item 02 -->
+      <div class="relative">
+        <div class="absolute -left-[35px] sm:-left-[41px] top-6 w-8 h-8 rounded-lg bg-slate-900 border-2 border-brand-magenta text-brand-magenta font-mono font-bold text-xs flex items-center justify-center shadow-lg shadow-brand-magenta/20 z-10">
           02
         </div>
-        <div class="glass-card p-6 rounded-2xl flex-1 border border-brand-emerald/30 relative overflow-hidden shadow-xl">
-          <div class="absolute top-0 right-0 px-3 py-1 bg-brand-emerald/15 text-brand-emerald font-mono text-[10px] font-semibold rounded-bl-xl border-l border-b border-brand-emerald/40">
-            ACTIVE // Q3 2026
+        <div class="bg-gradient-to-r from-brand-magenta/10 to-slate-900/90 border border-brand-magenta/30 rounded-2xl p-6 sm:p-8 shadow-xl relative overflow-hidden">
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-white/10 pb-6 mb-6">
+            <div class="flex flex-col md:flex-row md:items-center gap-2 md:gap-4">
+              <div>
+                <div class="font-mono text-xs text-brand-magenta font-bold uppercase tracking-widest mb-1">// MAIN EVENT </div>
+                <h2 class="text-2xl sm:text-3xl font-bold text-white font-mono">
+                  Weekly Workshops
+                </h2>
+              </div>
+              <div class="hidden md:block w-px h-12 bg-white/15 self-center ml-2 mr-1"></div>
+              <p class="text-slate-300 text-xs sm:text-sm font-sans md:self-center">
+                Our workshops are held on <strong class="text-white font-semibold">Monday evenings from 7:30 to 8:30 PM</strong>. 
+                We cycle through workshops focused on each of our five pillars, with occasional ones that span multiple domains. Depending on what fits
+                the topic, each workshop takes on either an <strong class="text-white font-semibold">applied</strong> or <strong class="text-white font-semibold">
+                exploratory</strong> approach. Click through below to see examples of each approach!
+              </p>
+            </div>
           </div>
-          <div class="font-mono text-xs text-brand-emerald uppercase tracking-widest mb-1">Phase 2: Platform & Recruitment</div>
-          <h3 class="text-xl font-bold text-white mb-2">Interactive Platform Launch & Core Team Recruitment</h3>
-          <p class="text-slate-300 text-xs sm:text-sm leading-relaxed font-sans mb-4">
-            Deploying interactive pillar simulation modules, launching the community workshop request queue, and opening applications for core engineering, design, and research leads.
-          </p>
-          <div class="flex flex-wrap gap-2 font-mono text-[11px]">
-            <span class="px-2.5 py-1 rounded bg-brand-emerald/10 border border-brand-emerald/30 text-brand-emerald">⚡ Interactive Simulators Live</span>
-            <span class="px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-300">⏳ Core Team Applications</span>
+          <div id="content-format-a" class="space-y-4">
+            <div class="relative inline-flex p-1 rounded-xl bg-slate-950/80 border border-white/10 font-mono text-xs overflow-hidden">
+              <div 
+                id="sliding-pill" 
+                class="absolute top-1 bottom-1 left-1 w-[calc(50%-4px)] rounded-lg transition-all duration-300 ease-out bg-[#f28dd2]/20 border border-[#f28dd2]/50 shadow-[0_0_15px_rgba(243,92,165,0.3)] pointer-events-none">
+              </div>
+              <button 
+                id="tab-format-a"
+                onclick="switchFormat('A')" 
+                class="relative z-10 w-28 py-2 text-center rounded-lg text-white font-bold transition-colors duration-200">
+                Exploratory
+              </button>
+              <button 
+                id="tab-format-b"
+                onclick="switchFormat('B')" 
+                class="relative z-10 w-28 py-2 text-center rounded-lg text-slate-400 font-semibold hover:text-slate-200 transition-colors duration-200">
+                Applied
+              </button>
+            </div>
+            <p class="text-slate-300 text-sm leading-relaxed">
+              Deep dives into system architectures, mathematical foundations, societal impact, and open-floor debates.
+            </p>
+            <div class="space-y-2 pt-2">
+              <div class="font-mono text-xs text-slate-400 uppercase tracking-wider">// Sample Topics</div>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-3 font-mono text-xs">
+                <div class="bg-slate-950 p-3.5 rounded-xl border border-white/5 text-slate-200">
+                  <span class="text-purple-400 font-mono font-bold block mb-1">ETHICS</span>
+                  <h4 class="text-white font-mono font-semibold text-xs mb-1">Data Center Infrastructure</h4>
+                  <p class="text-slate-400 text-[11px] leading-normal">
+                    Analyzing the environmental cost, power constraints, and resource allocation trade-offs behind global AI compute hubs.
+                  </p>
+                </div>
+                <div class="bg-slate-950 p-3.5 rounded-xl border border-white/5 text-slate-200">
+                  <span class="text-emerald-400 font-mono font-bold block mb-1">HEALTH & MEDICINE</span>
+                  <h4 class="text-white font-mono font-semibold text-xs mb-1">Medical Imaging Mechanics</h4>
+                  <p class="text-slate-400 text-[11px] leading-normal">
+                    Exploring how raw signal scans are processed into diagnostic images using computer vision and reconstruction algorithms.
+                  </p>
+                </div>
+                <div class="bg-slate-950 p-3.5 rounded-xl border border-white/5 text-slate-200">
+                  <span class="text-amber-400 font-mono font-bold block mb-1">BUSINESS</span>
+                  <h4 class="text-white font-mono font-semibold text-xs mb-1">Recommendation Algorithms</h4>
+                  <p class="text-slate-400 text-[11px] leading-normal">
+                    Deconstructing consumer data loops, collaborative filtering, and how feed optimization drives user engagement.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="content-format-b" class="space-y-4 hidden">
+            <div class="relative inline-flex p-1 rounded-xl bg-slate-950/80 border border-white/10 font-mono text-xs overflow-hidden">
+              <div 
+                id="sliding-pill" 
+                class="absolute top-1 bottom-1 left-1 w-[calc(50%-4px)] translate-x-full rounded-lg transition-all duration-300 ease-out bg-[#f28dd2]/20 border border-[#f28dd2]/50 shadow-[0_0_15px_rgba(243,92,165,0.3)] pointer-events-none">
+              </div>
+              <button 
+                onclick="switchFormat('A')" 
+                class="relative z-10 w-28 py-2 text-center rounded-lg text-slate-400 font-semibold hover:text-slate-200 transition-colors duration-200">
+                Exploratory
+              </button>
+              <button 
+                onclick="switchFormat('B')" 
+                class="relative z-10 w-28 py-2 text-center rounded-lg text-white font-bold transition-colors duration-200">
+                Applied
+              </button>
+            </div>
+
+            <p class="text-slate-300 text-sm leading-relaxed">
+              Hands-on implementation focused on clean code, live tool setups, data pipelines, and API integrations.
+            </p>
+            <div class="space-y-2 pt-2">
+              <div class="font-mono text-xs text-slate-400 uppercase tracking-wider">// Sample Topics</div>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-3 font-mono text-xs">
+                <div class="bg-slate-950 p-3.5 rounded-xl border border-white/5 text-slate-200">
+                  <span class="text-amber-400 font-mono font-bold block mb-1">BUSINESS</span>
+                  <h4 class="text-white font-mono font-semibold text-xs mb-1">DIY Analytics Dashboard</h4>
+                  <p class="text-slate-400 text-[11px] leading-normal">
+                    Scraping live web data and rendering interactive visual metrics for market analysis using Python data pipelines.
+                  </p>
+                </div>
+                <div class="bg-slate-950 p-3.5 rounded-xl border border-white/5 text-slate-200">
+                  <span class="text-brand-magenta font-mono font-bold block mb-1">ART & DESIGN</span>
+                  <h4 class="text-white font-mono font-semibold text-xs mb-1">Unity Interactive Systems</h4>
+                  <p class="text-slate-400 text-[11px] leading-normal">
+                    Building a real-time 3D interactive scene from scratch using Unity components, particle effects, and C# scripting.
+                  </p>
+                </div>
+                <div class="bg-slate-950 p-3.5 rounded-xl border border-white/5 text-slate-200">
+                  <span class="text-brand-cyan font-mono font-bold block mb-1">ENGINEERING</span>
+                  <h4 class="text-white font-mono font-semibold text-xs mb-1">Pulse Light Sensor Circuit</h4>
+                  <p class="text-slate-400 text-[11px] leading-normal">
+                    Breadboarding photoplethysmography (PPG) optical sensors to isolate analog biological signals into pulsing LEDs.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-
-      <!-- Milestone 3: Upcoming -->
-      <div class="relative flex items-start gap-6 group">
-        <div class="relative z-10 w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 text-slate-400 font-mono text-xs font-bold">
+      <!-- Item 03 -->
+      <div class="relative">
+        <div class="absolute -left-[35px] sm:-left-[41px] top-6 w-8 h-8 rounded-lg bg-slate-900 border-2 border-brand-purple text-brand-purple font-mono font-bold text-xs flex items-center justify-center shadow-lg shadow-brand-purple/20 z-10">
           03
         </div>
-        <div class="glass-card p-6 rounded-2xl flex-1 border border-white/10 relative overflow-hidden opacity-90">
-          <div class="absolute top-0 right-0 px-3 py-1 bg-white/5 text-slate-400 font-mono text-[10px] font-semibold rounded-bl-xl border-l border-b border-white/10">
-            PLANNED // Q4 2026
-          </div>
-          <div class="font-mono text-xs text-slate-400 uppercase tracking-widest mb-1">Phase 3: Workshops & Pilot Cohorts</div>
-          <h3 class="text-xl font-bold text-white mb-2">First Cross-Disciplinary Workshop Series & Project Teams</h3>
-          <p class="text-slate-300 text-xs sm:text-sm leading-relaxed font-sans mb-4">
-            Kick off hands-on workshop sessions across all 5 tracks (such as EEG signal filtering, automated market scrapers, and generative p5.js visuals) with initial student project cohorts.
-          </p>
-          <div class="flex flex-wrap gap-2 font-mono text-[11px]">
-            <span class="px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-400">📅 Pilot Workshops</span>
-            <span class="px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-400">📅 Project Cohort Formation</span>
-          </div>
-        </div>
-      </div>
 
-      <!-- Milestone 4: Future -->
-      <div class="relative flex items-start gap-6 group">
-        <div class="relative z-10 w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 text-slate-400 font-mono text-xs font-bold">
-          04
-        </div>
-        <div class="glass-card p-6 rounded-2xl flex-1 border border-white/10 relative overflow-hidden opacity-80">
-          <div class="absolute top-0 right-0 px-3 py-1 bg-white/5 text-slate-400 font-mono text-[10px] font-semibold rounded-bl-xl border-l border-b border-white/10">
-            FUTURE // 2027
+         <div class="bg-gradient-to-r from-brand-purple/10 to-slate-900/90 border border-brand-purple/30 rounded-2xl p-6 sm:p-8 shadow-xl relative overflow-hidden">
+          <div class="md:items-center justify-between gap-4 border-b border-white/10 pb-6 mb-6">
+            <div class="font-mono text-xs text-brand-purple font-bold uppercase tracking-widest mb-1">// EXTRAS</div>
+            <h2 class="text-2xl sm:text-3xl font-bold text-white font-mono">
+              Other Offerings
+            </h2>
+            <p class="text-slate-400 text-xs sm:text-sm mt-1">
+              Explore other ways to learn, connect, and get involved — from weekly resources and casual socials to conversations with professionals and trips beyond campus!
+            </p>
           </div>
-          <div class="font-mono text-xs text-slate-400 uppercase tracking-widest mb-1">Phase 4: Institutional Scaling & Showcase</div>
-          <h3 class="text-xl font-bold text-white mb-2">University Showcase & Open-Source MedTech Releases</h3>
-          <p class="text-slate-300 text-xs sm:text-sm leading-relaxed font-sans mb-4">
-            Hosting the annual ComputeX end-of-year demo day showcasing open-source student builds, research integrations, and industry sponsor partnerships.
-          </p>
-          <div class="flex flex-wrap gap-2 font-mono text-[11px]">
-            <span class="px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-400">🚀 Annual Demo Day</span>
-            <span class="px-2.5 py-1 rounded bg-white/5 border border-white/10 text-slate-400">🚀 Open-Source Releases</span>
+
+          <!-- Command Console Layout -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            <!-- Left Command Nav -->
+            <div class="lg:col-span-5 flex flex-col gap-6 font-mono text-xs mt-5">
+              <button onclick="switchTab('newsletter', this)" class="cmd-tab-btn active w-full text-left p-3 rounded-xl border border-purple-500/70 bg-gradient-to-r from-purple-900/40 via-purple-800/20 to-transparent text-white transition-all flex items-center justify-between group shadow-[0_0_25px_rgba(168,85,247,0.25)]">
+                <div class="flex items-center gap-3">
+                  <span class="text-brand-purple font-bold">01.</span>
+                  <div>
+                    <div class="font-semibold text-sm font-sans">Newsletter</div>
+                    <div class="text-slate-400 text-[11px] font-mono">Curated info + resources for every pillar</div>
+                  </div>
+                </div>
+                <span class="w-2 h-2 rounded-full bg-purple-400 shadow-[0_0_10px_rgba(192,132,252,0.9)]"></span>
+              </button>
+
+              <button onclick="switchTab('talks', this)" class="cmd-tab-btn w-full text-left p-3 rounded-xl border border-slate-800 bg-slate-950/40 text-slate-400 transition-all flex items-center justify-between group hover:border-brand-purple/30 hover:bg-slate-900/40 hover:text-slate-200">
+                <div class="flex items-center gap-3">
+                  <span class="text-slate-600 font-bold">02.</span>
+                  <div>
+                    <div class="font-semibold text-sm font-sans">Guest Talks</div>
+                    <div class="text-slate-500 text-[11px] font-mono">Hear from professionals in your field</div>
+                  </div>
+                </div>
+                <span class="w-2 h-2 rounded-full bg-slate-700"></span>
+              </button>
+
+              <button onclick="switchTab('coffee-chats', this)" class="cmd-tab-btn w-full text-left p-3 rounded-xl border border-slate-800 bg-slate-950/40 text-slate-400 transition-all flex items-center justify-between group hover:border-brand-purple/30 hover:bg-slate-900/40 hover:text-slate-200">
+                <div class="flex items-center gap-3">
+                  <span class="text-slate-600 font-bold">03.</span>
+                  <div>
+                    <div class="font-semibold text-sm font-sans">Coffee Chats</div>
+                    <div class="text-slate-500 text-[11px] font-mono">Meet with any of our board members to yap</div>
+                  </div>
+                </div>
+                <span class="w-2 h-2 rounded-full bg-slate-700"></span>
+              </button>
+
+              <button onclick="switchTab('socials', this)" class="cmd-tab-btn w-full text-left p-3 rounded-xl border border-slate-800 bg-slate-950/40 text-slate-400 transition-all flex items-center justify-between group hover:border-brand-purple/30 hover:bg-slate-900/40 hover:text-slate-200">
+                <div class="flex items-center gap-3">
+                  <span class="text-slate-600 font-bold">04.</span>
+                  <div>
+                    <div class="font-semibold text-sm font-sans">Socials</div>
+                    <div class="text-slate-500 text-[11px] font-mono">Meet peers for free food, games, and more</div>
+                  </div>
+                </div>
+                <span class="w-2 h-2 rounded-full bg-slate-700"></span>
+              </button>
+
+              <button onclick="switchTab('treks', this)" class="cmd-tab-btn w-full text-left p-3 rounded-xl border border-slate-800 bg-slate-950/40 text-slate-400 transition-all flex items-center justify-between group hover:border-brand-purple/30 hover:bg-slate-900/40 hover:text-slate-200">
+                <div class="flex items-center gap-3">
+                  <span class="text-slate-600 font-bold">05.</span>
+                  <div>
+                    <div class="font-semibold text-sm font-sans">Company Visits</div>
+                    <div class="text-slate-500 text-[11px] font-mono">Day trips to nearby company offices</div>
+                  </div>
+                </div>
+                <span class="w-2 h-2 rounded-full bg-slate-700"></span>
+              </button>
+            </div>
+
+            <!-- Right Terminal Display -->
+            <div class="lg:col-span-7 bg-slate-950 border border-slate-800 rounded-xl p-5 flex flex-col justify-between relative overflow-hidden h-[450px]">
+              <div class="flex items-center justify-between border-b border-slate-800 pb-3 mb-4 text-xs font-mono">
+                <div class="flex items-center gap-2">
+                  <span class="w-3.5 h-3.5 rounded-full bg-red-500/40 border border-red-500/50"></span>
+                  <span class="w-3.5 h-3.5 rounded-full bg-yellow-500/40 border border-yellow-500/50"></span>
+                  <span class="w-3.5 h-3.5 rounded-full bg-green-500/40 border border-green-500/50"></span>
+                </div>
+                <div id="tab-status-chip" class="px-2.5 py-1 rounded-md bg-amber-500/10 border border-amber-500/30 text-amber-400 text-[11px] font-mono font-medium tracking-wide">
+                  STATUS: STARTING MID-SEPTEMBER
+                </div>
+              </div>
+
+              <!-- Console Body -->
+              <div id="console-display" class="transition-opacity duration-150">
+                <div class="space-y-3">
+                  <h3 class="text-xl font-bold text-white tracking-tight">The Weekly Pillar Digest</h3>
+                  <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+                    A weekly roundup of interesting ideas, discoveries, technologies, and resources across all five ComputeX pillars. Each issue explores what's new across different fields so you don't have to follow them all yourself!
+                  </p>
+                  <div class="pt-2">
+                    <div class="text-xs font-mono font-bold text-slate-400 mb-2">HIGHLIGHTS</div>
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-300">
+                      <li class="flex items-center gap-2 bg-slate-900 p-2 rounded-lg border border-slate-800"><span class="text-brand-purple">//</span> A section for every pillar</li>
+                      <li class="flex items-center gap-2 bg-slate-900 p-2 rounded-lg border border-slate-800"><span class="text-brand-purple">//</span> New ideas, tech, and research</li>
+                      <li class="flex items-center gap-2 bg-slate-900 p-2 rounded-lg border border-slate-800"><span class="text-brand-purple">//</span> Companies in the space</li>
+                      <li class="flex items-center gap-2 bg-slate-900 p-2 rounded-lg border border-slate-800"><span class="text-brand-purple">//</span> Resources to learn more</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Console Footer -->
+              <div class="mt-6 pt-3 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-3">
+                <div class="font-mono text-[13px] text-slate-400 flex items-center gap-2">
+                  <span id="tab-footer-text">Sent every Tuesday - Sent to anyone on the newsletter!</span>
+                </div>
+                <a id="tab-cta-btn" href="#schedule" class="w-full sm:w-auto px-4 py-2 rounded-lg bg-brand-cyan text-slate-950 hover:bg-brand-cyan/90 font-mono text-xs font-bold transition-all text-center shadow-md shadow-brand-cyan/20">
+                  Read Latest Edition &rarr;
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -297,28 +426,233 @@
     </div>
   </section>
 
-  <!-- Bottom CTA Section -->
-  <section class="relative z-10 py-12 px-6 max-w-4xl mx-auto text-center">
-    <div class="glass-card p-8 sm:p-10 rounded-2xl border border-white/10 relative overflow-hidden">
-      <h3 class="text-2xl font-bold text-white font-mono mb-2">Ready to Start Your Journey?</h3>
-      <p class="text-slate-400 text-sm max-w-xl mx-auto mb-6">
-        No formal application or prerequisites required to attend workshops. Pick an upcoming session or explore our pillar tracks.
-      </p>
-      <div class="flex flex-wrap justify-center gap-4 font-mono text-xs font-semibold">
-        <a href="../pillars/index.html" class="px-5 py-2.5 rounded-lg bg-brand-cyan text-brand-bg hover:bg-brand-cyan/90 transition-all shadow-lg shadow-brand-cyan/10">
-          EXPLORE 5 PILLARS →
-        </a>
-        <a href="../launch/index.html" class="px-5 py-2.5 rounded-lg bg-white/5 text-white hover:bg-white/10 border border-white/10 transition-all">
-          JOIN COMPUTEX
-        </a>
+  <!-- FINAL CTA SECTION -->
+  <section class="relative z-10 pb-20 px-6 max-w-4xl mx-auto">
+    <div class="relative group p-[1px] rounded-3xl bg-gradient-to-r from-brand-cyan/30 via-brand-purple/40 to-brand-amber/30 shadow-2xl">
+      <div class="glass-card p-8 sm:p-12 rounded-[23px] text-center relative overflow-hidden">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-[1px] bg-gradient-to-r from-transparent via-brand-cyan/50 to-transparent"></div>
+        <h3 class="text-2xl sm:text-3xl font-bold text-white font-mono mb-3 tracking-tight">
+          Get Involved
+        </h3>
+        <p class="text-slate-300 text-md sm:text-md max-w-xl mx-auto font-sans leading-relaxed mb-6">
+          Whether you've never written a line of code in your life or you build apps in your sleep, ComputeX is where tech meets every major at Michigan. Come explore, build, and socialize!
+        </p>
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-950/80 border border-white/10 font-mono text-xs text-slate-300 mb-8">
+          <span class="text-brand-purple font-bold">LSA</span>
+          <span class="text-slate-600">+</span>
+          <span class="text-brand-cyan font-bold">CoE</span>
+          <span class="text-slate-600">+</span>
+          <span class="text-brand-amber font-bold">ROSS</span>
+          <span class="text-slate-600">+</span>
+          <span class="text-brand-magenta font-bold">STAMPS</span>
+          <span class="text-slate-600">•</span>
+          <span class="text-slate-400">All Schools Welcome</span>
+        </div>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 font-mono text-md font-semibold">
+          <a href="../pillars/index.html" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/10 transition-all text-center">
+            EXPLORE OUR PILLARS
+          </a>
+          <a href="../join/index.html" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-brand-emerald text-slate-950 hover:bg-brand-emerald/80 transition-all shadow-lg shadow-brand-emerald/20 hover:shadow-brand-emerald/30 font-bold text-center">
+            JOIN COMPUTEX →
+          </a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="relative z-10 border-t border-white/5 py-8 text-center font-mono text-xs text-slate-500">
-    <p>© 2026 ComputeX @ University of Michigan.</p>
+
+ <!------------------------------------------------->
+  <!-- FOOTER -->
+  <footer class="relative z-10 border-t border-white/10 bg-[#090a0f] pt-12 pb-8 px-6 sm:px-12 text-slate-400 font-sans">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-8 pb-10 border-b border-white/5">
+        <!-- Left side computex + pcas logos -->
+        <div class="flex flex-wrap items-center justify-center md:justify-start sm:gap-3">
+          <a href="../index.html" class="flex items-center group">
+            <img src="../assets/computex-logo.png" alt="ComputeX Logo" class="h-11 w-auto object-contain transition-all duration-300" />
+          </a>
+          <span class="h-10 w-[1px] bg-white/35 hidden sm:block"></span>
+          <a href="https://lsa.umich.edu/computingfor" target="_blank" rel="noopener noreferrer" class="flex items-center opacity-70 hover:opacity-100 transition-all">
+            <img src="../assets/pcas-logo.png" alt="UMich PCAS Logo" class="h-10 w-auto object-contain transition-all duration-300" />
+          </a>
+        </div>
+
+        <!-- Right side email + socials -->
+        <div class="flex flex-wrap items-center justify-center gap-4">
+          <a href="mailto:compute-x@umich.edu" class="px-3.5 py-2 rounded-lg bg-white/5 hover:bg-brand-emerald/10 border border-white/10 hover:border-brand-emerald/30 text-xs font-mono text-slate-300 hover:text-white transition-all flex items-center gap-2 group hover:scale-105">
+          <svg class="w-7 h-7 text-brand-emerald duration-200" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+          </svg>
+          <span>compute-x@umich.edu</span>
+        </a>
+          <div class="flex items-center gap-1.5">
+              <a href="https://www.instagram.com/computex_um/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" 
+              class="p-2.5 rounded-lg bg-white/5 hover:bg-brand-magenta/10 border border-white/10 hover:border-brand-magenta/40 text-[url(#ig-grad)] hover:scale-105 group">
+              <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+                <defs>
+                  <linearGradient id="ig-grad" x1="0%" y1="100%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#fdf497" />
+                    <stop offset="5%" stop-color="#fdf497" />
+                    <stop offset="45%" stop-color="#fd5949" />
+                    <stop offset="60%" stop-color="#d6249f" />
+                    <stop offset="100%" stop-color="#285AEB" />
+                  </linearGradient>
+                </defs>
+                <path class="fill-[url(#ig-grad)] duration-200" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+            </a>
+            <div class="flex items-center gap-2"> </div>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" 
+              class="p-2.5 rounded-lg bg-white/5 hover:bg-[#0A66C2]/10 border border-white/10 hover:border-[#0A66C2]/40 text-[#0A66C2] hover:scale-105">
+              <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.239-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+              </svg>
+            </a>
+            <div class="flex items-center gap-2"> </div>
+            <a href="https://github.com/ComputeX-UM" target="_blank" rel="noopener noreferrer" aria-label="GitHub" 
+              class="p-2.5 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/30 text-white hover:scale-105">
+              <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom row copyright message -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs text-slate-500">
+        <p>© 2026 ComputeX at the University of Michigan.</p>
+        <p class="text-[11px] text-center sm:text-right">Sponsored by the UMich Program in Computing for the Arts & Sciences (PCAS)</p>
+      </div>
+    </div>
   </footer>
 
+  <!-- JAVASCRIPT FOR INTERACTIVE TABS -->
+  <script>
+    function switchFormat(format) {
+      const tabA = document.getElementById('tab-format-a');
+      const tabB = document.getElementById('tab-format-b');
+      const contentA = document.getElementById('content-format-a');
+      const contentB = document.getElementById('content-format-b');
+      const slider = document.getElementById('sliding-pill');
+
+     if (format === 'A') {
+        // Slide highlight to the Left
+        slider.style.transform = 'translateX(0px)';
+        
+        tabA.className = "relative z-10 w-28 py-2 text-center rounded-lg text-white font-bold transition-colors duration-200";
+        tabB.className = "relative z-10 w-28 py-2 text-center rounded-lg text-slate-400 font-semibold hover:text-slate-200 transition-colors duration-200";
+
+        contentA.classList.remove('hidden');
+        contentB.classList.add('hidden');
+      } else {
+        // Slide highlight to the Right
+        slider.style.transform = 'translateX(100%)';
+        
+        tabB.className = "relative z-10 w-28 py-2 text-center rounded-lg text-white font-bold transition-colors duration-200";
+        tabA.className = "relative z-10 w-28 py-2 text-center rounded-lg text-slate-400 font-semibold hover:text-slate-200 transition-colors duration-200";
+
+        contentB.classList.remove('hidden');
+        contentA.classList.add('hidden');
+      }
+    }
+
+    const tabData = {
+      'newsletter': {
+        status: 'STATUS: STARTING MID-SEPTEMBER',
+        title: 'The Weekly Pillar Digest',
+        desc: 'A weekly roundup of interesting ideas, discoveries, technologies, and resources across all five ComputeX pillars. Each issue explores what\'s new across different fields so you don\'t have to follow them all yourself!',
+        bullets: ['A section for every pillar', 'New ideas, tech, and research', 'Companies in the space', 'Resources to learn more'],
+        footer: 'Sent every Tuesday - Sent to anyone on the newsletter!',
+        ctaText: 'Read Latest Edition →',
+        ctaHref: '#digest'
+      },
+      'coffee-chats': {
+        status: 'STATUS: ACTIVE!',
+        title: 'Coffee Chats With e-Board',
+        desc: 'Have a one-on-one conversation with a ComputeX board member about whatever you\'re curious about — a field you\'re exploring, a career you\'re considering, a project you\'re working on, or just something you\'re passionate about!',
+        bullets: ['Explore our five pillars', 'Get another set of eyes on a resume', 'Talk through classes or career paths', 'Just grab coffee and yap'],
+        footer: 'In person or virtual - Open to everyone!',
+        ctaText: 'Schedule a Time to Chat →',
+        ctaHref: '#coffee-chats'
+      },
+      'talks': {
+        status: 'STATUS: PLANNING...',
+        title: 'Talks From Industry Experts',
+        desc: 'Go beyond the classroom with people working, researching, and creating across our five pillars. Hear how technology is being used in different fields, ask questions, and stick around afterward to connect with the speaker and other attendees!',
+        bullets: ['Industry professionals', 'Niche topics', 'Q&A sections', 'Networking opportunities'],
+        footer: 'Occasional - Open to everyone!',
+        ctaText: 'Details loading...',
+        ctaHref: '#speakers'
+      },
+      'socials': {
+        status: 'STATUS: PLANNING...',
+        title: 'Social Events',
+        desc: 'Take a break from classes and meet the board as well as other members. Our casual hangouts bring members and newcomers together over free food, games, and whatever else we feel like doing that month!',
+        bullets: ['Free food', 'Games and activities', 'Meet people', 'Just chill'],
+        footer: 'Monthly - Open to everyone!',
+        ctaText: 'Details loading...',
+        ctaHref: '#socials'
+      },
+      'treks': {
+        status: 'STATUS: UNDER CONSTRUCTION',
+        title: 'Treks to Local Companies',
+        desc: 'Step outside campus and see how technology is actually used in the real world. We\'ll visit organizations across different industries — from tech and design to healthcare and business — for a closer look at the people, teams, and work behind the field.',
+        bullets: ['Visits to local offices', 'Behind-the-scenes industry exposure', 'Career path exploration', 'Networking opportunities'],
+        footer: 'Occasional - Limited seats!',
+        ctaText: 'Details loading...',
+        ctaHref: '#lab-tours'
+      }
+    };
+
+    function switchTab(key, btnElement) {
+      const data = tabData[key];
+      if (!data) return;
+
+      document.querySelectorAll('.cmd-tab-btn').forEach(btn => {
+        btn.className = 'cmd-tab-btn w-full text-left p-3 rounded-xl border border-slate-800 bg-slate-950/40 text-slate-400 transition-all flex items-center justify-between group hover:border-brand-purple/30 hover:bg-slate-900/40 hover:text-slate-200';
+        const numSpan = btn.querySelector('.flex .font-bold');
+        if (numSpan) numSpan.className = 'text-purple-300 font-bold';
+        const indicator = btn.querySelector('span:last-child');
+        if (indicator) indicator.className = 'w-2 h-2 rounded-full bg-slate-700';
+      });
+
+      btnElement.className = 'cmd-tab-btn active w-full text-left p-3 rounded-xl border border-purple-500/70 bg-gradient-to-r from-purple-900/40 via-purple-800/20 to-transparent text-white transition-all flex items-center justify-between group shadow-[0_0_25px_rgba(168,85,247,0.25)]';
+      const activeNum = btnElement.querySelector('.flex .font-bold');
+      if (activeNum) activeNum.className = 'text-brand-purple font-bold';
+      const activeIndicator = btnElement.querySelector('span:last-child');
+      if (activeIndicator) activeIndicator.className = 'w-2 h-2 rounded-full bg-purple-400 shadow-[0_0_10px_rgba(192,132,252,0.9)]';
+
+      const consoleDisplay = document.getElementById('console-display');
+      consoleDisplay.style.opacity = '0';
+
+      setTimeout(() => {
+        document.getElementById('tab-status-chip').textContent = data.status;
+        const bulletsHTML = data.bullets.map(b => `
+          <li class="flex items-center gap-2 bg-slate-900 p-2 rounded-lg border border-slate-800">
+            <span class="text-brand-purple">//</span> ${b}
+          </li>
+        `).join('');
+
+        consoleDisplay.innerHTML = `
+          <div class="space-y-3">
+            <h3 class="text-xl font-bold text-white tracking-tight">${data.title}</h3>
+            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">${data.desc}</p>
+            <div class="pt-2">
+              <div class="text-xs font-mono font-bold text-slate-400 mb-2">HIGHLIGHTS</div>
+              <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-300">${bulletsHTML}</ul>
+            </div>
+          </div>
+        `;
+
+        document.getElementById('tab-footer-text').textContent = data.footer;
+        const ctaBtn = document.getElementById('tab-cta-btn');
+        ctaBtn.textContent = data.ctaText;
+        ctaBtn.href = data.ctaHref;
+        consoleDisplay.style.opacity = '1';
+      }, 120);
+    }
+  </script>
 </body>
 </html>

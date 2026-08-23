@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ComputeX - Business + Finance Pillar Spotlight</title>
+
+  <!-- Inter & Geist Mono Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['"Geist Mono"', 'monospace'],
+          },
+          colors: {
+            brand: {
+              bg: '#050507',
+              panel: '#0d0e12',
+              card: '#12141c',
+              border: 'rgba(255, 255, 255, 0.12)',
+              cyan: '#00F0FF',
+              amber: '#FFB800',
+              emerald: '#00E599',
+              magenta: '#FF2E93',
+              purple: '#9D4EDD',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Strict 16:9 Ratio Canvas Container */
+    .canvas-16-9 {
+      width: 1280px;
+      height: 720px;
+    }
+
+    /* Grid Overlay */
+    .bg-grid {
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    }
+
+    /* Vibrant Ambient Glows (Amber/Business Focus) */
+    .glow-amber-main {
+      position: absolute;
+      top: -10%;
+      left: 10%;
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(255, 184, 0, 0.22) 0%, transparent 70%);
+      filter: blur(100px);
+      pointer-events: none;
+    }
+
+    .glow-cyan-secondary {
+      position: absolute;
+      bottom: -15%;
+      right: -5%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(0, 240, 255, 0.15) 0%, transparent 70%);
+      filter: blur(90px);
+      pointer-events: none;
+    }
+  </style>
+</head>
+
+<body class="bg-black text-slate-100 font-sans antialiased min-h-screen flex items-center justify-center p-0 m-0 overflow-hidden select-none">
+  
+  <!-- Outer Fixed 16:9 Frame -->
+  <div class="canvas-16-9 relative bg-brand-bg rounded-none border border-white/15 shadow-2xl overflow-hidden flex flex-col justify-between p-8">
+    
+    <!-- Background Decor -->
+    <div class="absolute inset-0 bg-grid pointer-events-none z-0"></div>
+    <div class="glow-amber-main z-0"></div>
+    <div class="glow-cyan-secondary z-0"></div>
+
+    <!-- Header Section -->
+    <header class="relative z-10 flex items-center justify-between border-b border-white/15 pb-4 flex-shrink-0">
+      <div class="flex items-center gap-4">
+        <div class="font-mono text-4xl font-black tracking-tighter text-white flex items-center gap-3">
+          <span class="inline-block w-4 h-4 rounded-full bg-brand-amber shadow-[0_0_18px_#FFB800]"></span>
+          <span>COMPUTEX</span>
+        </div>
+        <span class="text-xs font-mono px-3.5 py-1.5 rounded-full bg-brand-amber/15 border border-brand-amber/30 text-brand-amber font-bold">
+          PILLAR SPOTLIGHT // BUSINESS &amp; STRATEGY
+        </span>
+      </div>
+
+      <div class="flex items-center gap-4 font-mono text-sm">
+        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-amber/20 text-brand-amber border border-brand-amber/50 font-bold tracking-wide shadow-[0_0_20px_rgba(255,184,0,0.2)]">
+          <span class="w-2.5 h-2.5 rounded-full bg-brand-amber animate-ping"></span>
+          LAUNCHING FALL 2026
+        </span>
+        <span class="text-slate-600">|</span>
+        <span class="text-slate-300 font-bold">SPONSORED BY PCAS</span>
+      </div>
+    </header>
+
+    <!-- Main Grid Layout -->
+    <main class="relative z-10 grid grid-cols-12 gap-6 my-auto items-stretch py-2 flex-1">
+      
+      <!-- Left Column: Spotlight Hero & Finance Code (7 Cols) -->
+      <div class="col-span-7 flex flex-col justify-between space-y-4">
+        
+        <!-- Pillar Headline -->
+        <div class="space-y-2">
+          <div class="inline-flex items-center gap-2 font-mono text-xs text-brand-amber tracking-widest uppercase font-extrabold px-3 py-1 bg-brand-amber/15 border border-brand-amber/30 rounded-md">
+            <span>📈</span> FINTECH • ALGORITHMIC TRADING • QUANT ANALYTICS
+          </div>
+          
+          <h1 class="text-5xl font-black tracking-tight text-white leading-[1.05]">
+            Power market intelligence with <br />
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-amber via-brand-cyan to-brand-emerald">
+              code &amp; analytics.
+            </span>
+          </h1>
+
+          <p class="text-base text-slate-200 leading-snug font-normal pt-1">
+            Explore how modern computing reshapes commerce—from quantitative modeling and price elasticity to tech strategy and fintech disruption. Open to all majors, no prior coding required.
+          </p>
+        </div>
+
+        <!-- Business / Finance Code Terminal -->
+        <div class="bg-brand-panel border border-brand-amber/30 rounded-xl p-4 font-mono text-xs text-slate-300 shadow-xl space-y-3">
+          <div class="flex items-center justify-between border-b border-white/10 pb-2 text-slate-500 text-xs">
+            <div class="flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-red-500/80 inline-block"></span>
+              <span class="w-3 h-3 rounded-full bg-yellow-500/80 inline-block"></span>
+              <span class="w-3 h-3 rounded-full bg-green-500/80 inline-block"></span>
+              <span class="ml-2 font-bold text-brand-amber">market_pricing_model.py</span>
+            </div>
+            <span class="text-slate-400">Microeconomics / Micro Models</span>
+          </div>
+
+          <!-- Internal Terminal Layout -->
+          <div class="grid grid-cols-12 gap-4 items-center">
+            
+            <!-- Code Block -->
+            <div class="col-span-7">
+              <pre class="text-slate-300 leading-relaxed text-xs"><span class="text-brand-magenta">import</span> market_lab <span class="text-brand-magenta">as</span> ml
+<span class="text-brand-magenta">import</span> numpy, pandas, statsmodels
+
+<span class="text-slate-500"># Calculate price elasticity &amp; optimal margin</span>
+demand = ml.load_demand_data(<span class="text-brand-amber">"q3_sales"</span>)
+elasticity = ml.calc_elasticity(demand)
+price_opt = ml.monopoly_pricing(elasticity)
+
+price_opt.summary() <span class="text-brand-amber"># 📊 Business + Biz</span></pre>
+            </div>
+
+            <!-- Integrated QR & CTA Box -->
+            <div class="col-span-5 bg-brand-card/90 border border-brand-amber/40 p-3 rounded-lg flex items-center justify-between gap-3">
+              <div class="space-y-1">
+                <span class="inline-block font-mono text-[10px] text-brand-amber tracking-wider uppercase font-black px-1.5 py-0.5 bg-brand-amber/20 rounded">
+                  // JOIN BIZ TRACK
+                </span>
+                <div class="text-sm font-black text-white">Get Involved</div>
+                <div class="text-[10px] text-slate-400">Join our listserv</div>
+                <div class="text-[10px] font-bold font-mono text-brand-amber pt-0.5">compute-x@umich.edu</div>
+              </div>
+
+              <!-- Vector QR Code -->
+              <div class="bg-white p-2 rounded-md shadow-xl flex-shrink-0">
+                <svg class="w-16 h-16 text-slate-950" viewBox="0 0 100 100" fill="currentColor">
+                  <rect x="5" y="5" width="28" height="28" rx="4" fill="none" stroke="currentColor" stroke-width="6"/>
+                  <rect x="11" y="11" width="16" height="16" rx="2" fill="currentColor"/>
+                  
+                  <rect x="67" y="5" width="28" height="28" rx="4" fill="none" stroke="currentColor" stroke-width="6"/>
+                  <rect x="73" y="11" width="16" height="16" rx="2" fill="currentColor"/>
+                  
+                  <rect x="5" y="67" width="28" height="28" rx="4" fill="none" stroke="currentColor" stroke-width="6"/>
+                  <rect x="11" y="73" width="16" height="16" rx="2" fill="currentColor"/>
+
+                  <rect x="38" y="8" width="8" height="8" />
+                  <rect x="50" y="8" width="8" height="8" />
+                  <rect x="38" y="20" width="16" height="8" />
+                  <rect x="80" y="38" width="8" height="8" />
+                  <rect x="8" y="38" width="8" height="16" />
+                  <rect x="20" y="42" width="12" height="8" />
+                  <rect x="38" y="38" width="12" height="12" />
+                  <rect x="54" y="38" width="16" height="8" />
+                  <rect x="74" y="50" width="14" height="8" />
+                  <rect x="38" y="54" width="8" height="16" />
+                  <rect x="50" y="54" width="18" height="8" />
+                  <rect x="62" y="66" width="8" height="16" />
+                  <rect x="38" y="74" width="16" height="16" />
+                  <rect x="78" y="78" width="10" height="10" />
+                </svg>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Pillar-Specific Activities -->
+        <div class="grid grid-cols-4 gap-2.5">
+          <div class="px-3 py-2 rounded-xl bg-white/5 border border-brand-amber/20 text-center font-mono text-xs font-bold text-slate-200">📊 Quant Trading</div>
+          <div class="px-3 py-2 rounded-xl bg-white/5 border border-brand-amber/20 text-center font-mono text-xs font-bold text-slate-200">💼 Tech Strategy</div>
+          <div class="px-3 py-2 rounded-xl bg-white/5 border border-brand-amber/20 text-center font-mono text-xs font-bold text-slate-200">💳 FinTech Systems</div>
+          <div class="px-3 py-2 rounded-xl bg-white/5 border border-brand-amber/20 text-center font-mono text-xs font-bold text-slate-200">📉 Market Models</div>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Focus Card + Other Pillars Nav (5 Cols) -->
+      <div class="col-span-5 flex flex-col justify-between h-full space-y-3">
+        
+        <!-- Large Active Pillar Feature Card -->
+        <div class="bg-brand-panel border-2 border-brand-amber p-5 rounded-xl shadow-[0_0_30px_rgba(255,184,0,0.15)] flex-1 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="font-mono text-xs font-black text-brand-amber bg-brand-amber/20 px-2.5 py-1 rounded border border-brand-amber/40">// FEATURED PILLAR</span>
+              <span class="font-mono text-xs text-slate-400">TRACK 02</span>
+            </div>
+
+            <h2 class="text-2xl font-black text-white mt-3">Business + Finance Spotlight</h2>
+            <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+              Tailored for Ross students, Economics majors, aspiring quants, and startup founders. Learn how data science, automated financial pipelines, and algorithmic logic are transforming the global economy.
+            </p>
+
+            <div class="mt-4 space-y-2 font-mono text-xs">
+              <div class="flex items-center gap-2 text-slate-200">
+                <span class="text-brand-amber">▸</span> Financial modeling &amp; Python data analysis workshops
+              </div>
+              <div class="flex items-center gap-2 text-slate-200">
+                <span class="text-brand-amber">▸</span> Guest talks from FinTech founders &amp; Quantitative analysts
+              </div>
+              <div class="flex items-center gap-2 text-slate-200">
+                <span class="text-brand-amber">▸</span> Collaborative business-tech case studies &amp; projects
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs font-mono text-slate-400">
+            <span>Ideal for: Ross, Econ, CS, Stats, Business</span>
+            <span class="text-brand-amber font-bold">No coding req.</span>
+          </div>
+        </div>
+
+        <!-- Mini-Nav Acknowledging Other Pillars -->
+        <div class="bg-brand-card/80 border border-white/15 p-3 rounded-xl space-y-2">
+          <div class="flex items-center justify-between text-[11px] font-mono text-slate-400">
+            <span>Explore all 5 ComputeX Pillars:</span>
+            <span class="text-brand-cyan">Multi-domain club</span>
+          </div>
+
+          <div class="grid grid-cols-5 gap-1.5 font-mono text-[10px] text-center font-bold">
+            <div class="p-1.5 rounded bg-white/5 text-brand-cyan border border-brand-cyan/20">01 Tech</div>
+            <div class="p-1.5 rounded bg-brand-amber text-black font-black shadow-[0_0_10px_#FFB800]">02 Biz</div>
+            <div class="p-1.5 rounded bg-white/5 text-brand-emerald border border-brand-emerald/20">03 Health</div>
+            <div class="p-1.5 rounded bg-white/5 text-brand-magenta border border-brand-magenta/20">04 Art</div>
+            <div class="p-1.5 rounded bg-white/5 text-brand-purple border border-brand-purple/20">05 Ethics</div>
+          </div>
+        </div>
+
+      </div>
+
+    </main>
+
+    <!-- Footer Bar -->
+    <footer class="relative z-10 border-t border-white/15 pt-3 flex items-center justify-between font-mono text-xs text-slate-300 flex-shrink-0">
+      <div>© 2026 ComputeX at the University of Michigan</div>
+      <div class="flex items-center gap-8">
+        <span>Instagram: <strong class="text-white">@computex_um</strong></span>
+        <span>GitHub: <strong class="text-white">ComputeX-UM</strong></span>
+      </div>
+    </footer>
+
+  </div>
+
+</body>
+</html>
