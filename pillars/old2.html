@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ComputeX | Interdisciplinary Pillars</title>
+
+  <!-- Inter & Geist Mono Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['"Geist Mono"', 'monospace'],
+          },
+          colors: {
+            brand: {
+              bg: '#08080a',
+              panel: '#101116',
+              card: '#161820',
+              border: 'rgba(255, 255, 255, 0.08)',
+              cyan: '#00F0FF',
+              amber: '#FFB800',
+              emerald: '#00E599',
+              magenta: '#FF2E93',
+              purple: '#9D4EDD',
+              grey: '#acacbf',
+              maize: '#FFCB05',
+              blue: '#00274C',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Subtle grid in bg */
+    .bg-grid {
+      background-size: 60px 60px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    }
+
+    /* Ambient light glows (Identical to index.html) */
+    .mesh-glow-1 {
+      position: absolute;
+      width: 550px;
+      height: 550px;
+      background: radial-gradient(circle, rgba(0, 240, 255, 0.15) 0%, rgba(157, 78, 221, 0.12) 40%, transparent 70%);
+      filter: blur(80px);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .mesh-glow-2 {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(255, 46, 147, 0.12) 0%, rgba(0, 229, 153, 0.08) 50%, transparent 75%);
+      filter: blur(90px);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    /* Faint circle in bg */
+    .curved-ring {
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 50%;
+      position: absolute;
+      pointer-events: none;
+    }
+
+    /* Pillar tab active highlights */
+    .tab-btn.active-tech {
+      background: rgba(0, 240, 255, 0.1);
+      border-color: #00F0FF;
+      color: #00F0FF;
+    }
+    .tab-btn.active-business {
+      background: rgba(255, 184, 0, 0.1);
+      border-color: #FFB800;
+      color: #FFB800;
+    }
+    .tab-btn.active-health {
+      background: rgba(0, 229, 153, 0.1);
+      border-color: #00E599;
+      color: #00E599;
+    }
+    .tab-btn.active-art {
+      background: rgba(255, 46, 147, 0.1);
+      border-color: #FF2E93;
+      color: #FF2E93;
+    }
+    .tab-btn.active-ethics {
+      background: rgba(157, 78, 221, 0.1);
+      border-color: #9D4EDD;
+      color: #9D4EDD;
+    }
+  </style>
+</head>
+
+<body class="bg-brand-bg text-slate-200 font-sans antialiased min-h-screen selection:bg-brand-grey/20 overflow-x-hidden flex flex-col justify-between">
+  
+  <!-- Background Grid & Glows (Exact match from index.html) -->
+  <div class="fixed inset-0 bg-grid pointer-events-none z-0"></div>
+  <div class="mesh-glow-1 top-[-100px] right-[-100px] z-0"></div>
+  <div class="mesh-glow-2 top-[40%] left-[-200px] z-0"></div>
+
+  <!-- HEADER / TOP BAR NAVIGATION -->
+  <nav class="sticky top-0 z-50 bg-brand-bg/60 backdrop-blur-xl border-b border-white/5">
+    <div class="max-w-7xl mx-auto px-8 h-20 flex items-center justify-between">
+      <a href="../index.html" class="font-mono text-xl font-bold tracking-tight text-white flex items-center gap-2">
+        <img src="../assets/computex-logo.png" alt="ComputeX Logo" class="h-11 w-auto object-contain" />
+      </a>
+      <div class="flex items-center gap-8 text-sm font-mono text-slate-400">
+        <a href="#" class="text-white font-semibold underline decoration-brand-cyan underline-offset-4">PILLARS</a>
+        <a href="../team/index.html" class="hover:text-white transition-colors">TEAM</a>
+        <a href="../roadmap/index.html" class="hover:text-white transition-colors">ROADMAP</a>
+        <a href="../join/index.html" class="group relative px-5 py-2 rounded-lg bg-white/10 text-white border border-white/10 font-semibold transition-all hover:border-transparent">
+          <span class="absolute -inset-[1px] rounded-lg bg-gradient-to-r from-brand-magenta via-brand-purple to-brand-cyan opacity-0 group-hover:opacity-100 transition-opacity p-[1px] pointer-events-none">
+            <span class="w-full h-full block rounded-[7px] bg-[#121318]"></span>
+          </span>
+          <span class="relative z-10 group-hover:bg-gradient-to-r group-hover:from-brand-magenta group-hover:via-brand-purple group-hover:to-brand-cyan group-hover:bg-clip-text group-hover:text-transparent transition-all">
+            JOIN →
+          </span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+ <!-- HERO & TAB SELECTOR CONTAINER -->
+<section class="relative z-10 pt-12 pb-8 px-6 md:px-8 max-w-7xl mx-auto text-center space-y-6">
+  <!-- Centered Hero -->
+  <div class="max-w-3xl mx-auto space-y-3">
+    <h1 class="text-3xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+      Explore Our 
+      <span class="bg-gradient-to-r from-brand-purple via-brand-magenta to-brand-amber bg-clip-text text-transparent">
+        Five Pillars
+      </span>
+    </h1>
+    <p class="text-slate-400 text-sm md:text-base font-sans leading-relaxed">
+      Computation isn't an isolated major—it's an operating layer for every industry. Select a pillar to explore domain focus areas, industry applications, and key technical stacks.
+    </p>
+  </div>
+
+  <!-- Sticky / Floating Horizontal Segmented Rail -->
+  <div class="pt-4 sticky top-4 z-30">
+    <div class="inline-flex flex-wrap items-center justify-center gap-2 p-1.5 bg-black/60 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl max-w-full overflow-x-auto" role="tablist">
+      
+      <!-- Tab 01 -->
+      <button data-tab="tech" role="tab" aria-selected="true" class="tab-btn px-4 py-2.5 rounded-xl border border-brand-cyan/40 bg-brand-cyan/10 text-slate-50 flex items-center gap-2.5 group transition-all font-mono text-xs sm:text-sm whitespace-nowrap">
+        <span class="text-brand-cyan font-bold">01</span>
+        <span>Tech + Engineering</span>
+      </button>
+
+      <!-- Tab 02 -->
+      <button data-tab="business" role="tab" aria-selected="false" class="tab-btn px-4 py-2.5 rounded-xl border border-transparent hover:border-brand-amber/30 hover:bg-brand-amber/5 text-slate-400 hover:text-slate-200 flex items-center gap-2.5 group transition-all font-mono text-xs sm:text-sm whitespace-nowrap">
+        <span class="text-brand-amber/70 font-bold">02</span>
+        <span>Business + Strategy</span>
+      </button>
+
+      <!-- Tab 03 -->
+      <button data-tab="health" role="tab" aria-selected="false" class="tab-btn px-4 py-2.5 rounded-xl border border-transparent hover:border-brand-emerald/30 hover:bg-brand-emerald/5 text-slate-400 hover:text-slate-200 flex items-center gap-2.5 group transition-all font-mono text-xs sm:text-sm whitespace-nowrap">
+        <span class="text-brand-emerald/70 font-bold">03</span>
+        <span>Health + Medicine</span>
+      </button>
+
+      <!-- Tab 04 -->
+      <button data-tab="art" role="tab" aria-selected="false" class="tab-btn px-4 py-2.5 rounded-xl border border-transparent hover:border-brand-magenta/30 hover:bg-brand-magenta/5 text-slate-400 hover:text-slate-200 flex items-center gap-2.5 group transition-all font-mono text-xs sm:text-sm whitespace-nowrap">
+        <span class="text-brand-magenta/70 font-bold">04</span>
+        <span>Art + Design</span>
+      </button>
+
+      <!-- Tab 05 -->
+      <button data-tab="ethics" role="tab" aria-selected="false" class="tab-btn px-4 py-2.5 rounded-xl border border-transparent hover:border-brand-purple/30 hover:bg-brand-purple/5 text-slate-400 hover:text-slate-200 flex items-center gap-2.5 group transition-all font-mono text-xs sm:text-sm whitespace-nowrap">
+        <span class="text-brand-purple/70 font-bold">05</span>
+        <span>Ethics + Impact</span>
+      </button>
+
+    </div>
+  </div>
+</section>
+  <!-- DYNAMIC TAB PANELS -->
+  <main class="px-8 max-w-5xl mx-auto w-full relative z-10 flex-grow mb-16">
+
+    <!-- ================================================================= -->
+  <!-- PILLAR 01: TECH + ENGINEERING -->
+  <!-- ================================================================= -->
+  <div id="panel-tech" class="tab-panel space-y-6">  
+
+    <!-- Main Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      
+      <!-- LEFT: 2 Focus Area Cards -->
+      <div class="lg:col-span-5 space-y-6 flex flex-col">
+        <div class="bg-brand-card p-5 rounded-2xl border border-white/10 space-y-3 flex-1">
+          <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-brand-cyan/10 text-brand-cyan border border-brand-cyan/30">TRACK 01 // CORE CS & AI/ML</span>
+          <h3 class="text-base font-bold text-white">Computer Science & AI Systems</h3>
+          <p class="text-xs text-slate-300">Software engineering principles, algorithmic efficiency, and foundational machine learning architectures.</p>
+          <div class="p-2.5 rounded-xl bg-white/5 border border-white/10 font-mono text-[11px] text-slate-300">
+            <span class="text-brand-cyan font-bold">⚡ Hook:</span> Neural network backpropagation & reproducible software environments.
+          </div>
+        </div>
+
+        <div class="bg-brand-card p-5 rounded-2xl border border-white/10 space-y-3 flex-1">
+          <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-brand-cyan/10 text-brand-cyan border border-brand-cyan/30">TRACK 02 // HARDWARE & SYSTEMS</span>
+          <h3 class="text-base font-bold text-white">Embedded Systems & Robotics</h3>
+          <p class="text-xs text-slate-300">Microcontrollers, real-time sensor processing, and dynamic hardware control loops.</p>
+          <div class="p-2.5 rounded-xl bg-white/5 border border-white/10 font-mono text-[11px] text-slate-300">
+            <span class="text-brand-cyan font-bold">⚡ Hook:</span> Hardware-software interfaces & autonomous PID loops.
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Sandbox Terminal -->
+      <div class="lg:col-span-7 bg-[#0b0c10] border border-white/10 rounded-2xl p-5 font-mono flex flex-col justify-between shadow-2xl">
+        <div>
+          <div class="flex items-center justify-between pb-3 border-b border-white/10 mb-4">
+            <div class="flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-red-500/80 inline-block"></span>
+              <span class="w-3 h-3 rounded-full bg-yellow-500/80 inline-block"></span>
+              <span class="w-3 h-3 rounded-full bg-emerald-500/80 inline-block"></span>
+              <span class="text-xs text-slate-400 font-bold ml-2">system_control.py</span>
+            </div>
+            <button onclick="runCode('tech', 'PID Controller Locked | Target Altitude: 100m')" class="px-3 py-1 rounded-lg bg-brand-cyan/20 border border-brand-cyan/40 text-brand-cyan text-xs font-bold hover:bg-brand-cyan/30 transition-all flex items-center gap-1.5">
+              <span>▶ Run Snippet</span>
+            </button>
+          </div>
+
+          <pre class="text-[11px] text-slate-300 leading-relaxed overflow-x-auto bg-black/40 p-3 rounded-xl border border-white/5"><code><span class="text-brand-purple">class</span> <span class="text-brand-cyan">PIDController</span>:
+      <span class="text-brand-purple">def</span> <span class="text-brand-cyan">__init__</span>(self, kp, ki, kd):
+          self.kp, self.ki, self.kd = kp, ki, kd
+      <span class="text-brand-purple">def</span> <span class="text-brand-cyan">compute</span>(self, target, current):
+          err = target - current
+          <span class="text-brand-purple">return</span> self.kp * err
+
+  pid = PIDController(1.2, 0.05, 0.1)
+  output = pid.compute(100, 84.5)
+  <span class="text-brand-cyan">print</span>(f<span class="text-brand-amber">"PID Signal: {output:.2f}"</span>)</code></pre>
+
+          <div class="mt-3">
+            <span class="text-[10px] text-slate-500 uppercase tracking-wider block mb-1">// TERMINAL_OUTPUT</span>
+            <div id="console-output-tech" class="p-3 bg-black/60 rounded-xl border border-white/5 text-xs text-brand-cyan font-mono min-h-[48px] flex items-center">
+              Click "▶ Run Snippet" to execute system logic...
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- BOTTOM: Tool Stack -->
+    <div class="bg-brand-panel p-5 rounded-2xl border border-white/10 space-y-3">
+      <div class="flex items-center justify-between">
+        <span class="font-mono text-xs text-slate-400 font-bold uppercase tracking-wider">// TECH_STACK (Click to inspect)</span>
+        <span id="tool-desc-tech" class="font-mono text-xs text-brand-cyan italic truncate max-w-md">Click a badge to inspect its role...</span>
+      </div>
+      <div class="flex flex-wrap gap-2 font-mono text-xs">
+        <button onclick="inspectTool('tech', 'Python', 'Versatile programming language powering AI models, backend services, and script automation.')" class="px-3 py-1.5 rounded-xl bg-white/5 hover:bg-brand-cyan/20 border border-white/10 hover:border-brand-cyan text-slate-200 transition-all">Python</button>
+        <button onclick="inspectTool('tech', 'Docker', 'Containerization engine ensuring code runs identically across developer laptops and cloud servers.')" class="px-3 py-1.5 rounded-xl bg-white/5 hover:bg-brand-cyan/20 border border-white/10 hover:border-brand-cyan text-slate-200 transition-all">Docker</button>
+        <button onclick="inspectTool('tech', 'Git / GitHub', 'Version control infrastructure for collaborative codebase management and CI/CD workflows.')" class="px-3 py-1.5 rounded-xl bg-white/5 hover:bg-brand-cyan/20 border border-white/10 hover:border-brand-cyan text-slate-200 transition-all">Git/GitHub</button>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- ================================================================= -->
+  <!-- PILLAR 02: BUSINESS + STRATEGY -->
+  <!-- ================================================================= -->
+  <div id="panel-business" class="tab-panel space-y-6">
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      
+      <div class="lg:col-span-5 space-y-6 flex flex-col">
+        <div class="bg-brand-card p-5 rounded-2xl border border-white/10 space-y-3 flex-1">
+          <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-brand-amber/10 text-brand-amber border border-brand-amber/30">TRACK 01 // DATA & INTELLIGENCE</span>
+          <h3 class="text-base font-bold text-white">Business Intelligence & Enterprise Tech</h3>
+          <p class="text-xs text-slate-300">Extracting actionable metrics from relational databases to build live executive reporting tools.</p>
+          <div class="p-2.5 rounded-xl bg-white/5 border border-white/10 font-mono text-[11px] text-slate-300">
+            <span class="text-brand-amber font-bold">⚡ Hook:</span> SQL window functions & automated data visual pipelines.
+          </div>
+        </div>
+
+        <div class="bg-brand-card p-5 rounded-2xl border border-white/10 space-y-3 flex-1">
+          <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-brand-amber/10 text-brand-amber border border-brand-amber/30">TRACK 02 // QUANT & FINTECH</span>
+          <h3 class="text-base font-bold text-white">FinTech & Quantitative Modeling</h3>
+          <p class="text-xs text-slate-300">High-frequency time-series analysis, automated trading algorithms, and risk analysis systems.</p>
+          <div class="p-2.5 rounded-xl bg-white/5 border border-white/10 font-mono text-[11px] text-slate-300">
+            <span class="text-brand-amber font-bold">⚡ Hook:</span> Vectorized portfolio optimization & risk analytics.
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-7 bg-[#0b0c10] border border-white/10 rounded-2xl p-5 font-mono flex flex-col justify-between shadow-2xl">
+        <div>
+          <div class="flex items-center justify-between pb-3 border-b border-white/10 mb-4">
+            <div class="flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-red-500/80 inline-block"></span>
+              <span class="w-3 h-3 rounded-full bg-yellow-500/80 inline-block"></span>
+              <span class="w-3 h-3 rounded-full bg-emerald-500/80 inline-block"></span>
+              <span class="text-xs text-slate-400 font-bold ml-2">fintech_query.sql</span>
+            </div>
+            <button onclick="runCode('business', 'Query OK: 142,390 transactions aggregated in 12ms')" class="px-3 py-1 rounded-lg bg-brand-amber/20 border border-brand-amber/40 text-brand-amber text-xs font-bold hover:bg-brand-amber/30 transition-all flex items-center gap-1.5">
+              <span>▶ Run Snippet</span>
+            </button>
+          </div>
+
+          <pre class="text-[11px] text-slate-300 leading-relaxed overflow-x-auto bg-black/40 p-3 rounded-xl border border-white/5"><code><span class="text-brand-purple">SELECT</span> 
+    account_id,
+    SUM(amount) <span class="text-brand-purple">AS</span> total_volume,
+    AVG(amount) <span class="text-brand-purple">OVER</span> (<span class="text-brand-purple">PARTITION BY</span> region) <span class="text-brand-purple">AS</span> regional_avg
+  <span class="text-brand-purple">FROM</span> ledger_transactions
+  <span class="text-brand-purple">WHERE</span> transaction_date >= NOW() - <span class="text-brand-purple">INTERVAL</span> <span class="text-brand-amber">'30 days'</span>
+  <span class="text-brand-purple">GROUP BY</span> account_id, region;</code></pre>
+
+          <div class="mt-3">
+            <span class="text-[10px] text-slate-500 uppercase tracking-wider block mb-1">// TERMINAL_OUTPUT</span>
+            <div id="console-output-business" class="p-3 bg-black/60 rounded-xl border border-white/5 text-xs text-brand-amber font-mono min-h-[48px] flex items-center">
+              Click "▶ Run Snippet" to query transactional ledger...
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="bg-brand-panel p-5 rounded-2xl border border-white/10 space-y-3">
+      <div class="flex items-center justify-between">
+        <span class="font-mono text-xs text-slate-400 font-bold uppercase tracking-wider">// TECH_STACK (Click to inspect)</span>
+        <span id="tool-desc-business" class="font-mono text-xs text-brand-amber italic truncate max-w-md">Click a badge to inspect its role...</span>
+      </div>
+      <div class="flex flex-wrap gap-2 font-mono text-xs">
+        <button onclick="inspectTool('business', 'pandas', 'Python library for fast data wrangling, cleaning, and time-series calculations.')" class="px-3 py-1.5 rounded-xl bg-white/5 hover:bg-brand-amber/20 border border-white/10 hover:border-brand-amber text-slate-200 transition-all">pandas</button>
+        <button onclick="inspectTool('business', 'SQL', 'The industry standard database query language for retrieving enterprise data.')" class="px-3 py-1.5 rounded-xl bg-white/5 hover:bg-brand-amber/20 border border-white/10 hover:border-brand-amber text-slate-200 transition-all">SQL</button>
+        <button onclick="inspectTool('business', 'Tableau', 'Business intelligence platform for designing interactive stakeholder dashboards.')" class="px-3 py-1.5 rounded-xl bg-white/5 hover:bg-brand-amber/20 border border-white/10 hover:border-brand-amber text-slate-200 transition-all">Tableau</button>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- ================================================================= -->
+  <!-- PILLAR 03: HEALTH + MEDICINE -->
+  <!-- ================================================================= -->
+  <div id="panel-health" class="tab-panel space-y-6">
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      
+      <div class="lg:col-span-5 space-y-6 flex flex-col">
+        <div class="bg-brand-card p-5 rounded-2xl border border-white/10 space-y-3 flex-1">
+          <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-brand-emerald/10 text-brand-emerald border border-brand-emerald/30">TRACK 01 // GENOMICS & BIO-INFO</span>
+          <h3 class="text-base font-bold text-white">Bioinformatics & DNA Analytics</h3>
+          <p class="text-xs text-slate-300">Applying sequence alignment algorithms to analyze biological structures and genomic datasets.</p>
+          <div class="p-2.5 rounded-xl bg-white/5 border border-white/10 font-mono text-[11px] text-slate-300">
+            <span class="text-brand-emerald font-bold">⚡ Hook:</span> Burrows-Wheeler DNA transformations & variant calling.
+          </div>
+        </div>
+
+        <div class="bg-brand-card p-5 rounded-2xl border border-white/10 space-y-3 flex-1">
+          <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-brand-emerald/10 text-brand-emerald border border-brand-emerald/30">TRACK 02 // MEDICAL DEVICES & DIAGNOSTICS</span>
+          <h3 class="text-base font-bold text-white">Clinical Vision & Signal Processing</h3>
+          <p class="text-xs text-slate-300">Processing MRI scans, CT spatial data, and live electrophysiology telemetry.</p>
+          <div class="p-2.5 rounded-xl bg-white/5 border border-white/10 font-mono text-[11px] text-slate-300">
+            <span class="text-brand-emerald font-bold">⚡ Hook:</span> 3D Convolutional tumor segmentation & Fourier filters.
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-7 bg-[#0b0c10] border border-white/10 rounded-2xl p-5 font-mono flex flex-col justify-between shadow-2xl">
+        <div>
+          <div class="flex items-center justify-between pb-3 border-b border-white/10 mb-4">
+            <div class="flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-red-500/80 inline-block"></span>
+              <span class="w-3 h-3 rounded-full bg-yellow-500/80 inline-block"></span>
+              <span class="w-3 h-3 rounded-full bg-emerald-500/80 inline-block"></span>
+              <span class="text-xs text-slate-400 font-bold ml-2">mne_pipeline.py</span>
+            </div>
+            <button onclick="runCode('health', 'Filtered Bandpass: 0.5-30Hz | EEG Spike Detected at t=4.2s')" class="px-3 py-1 rounded-lg bg-brand-emerald/20 border border-brand-emerald/40 text-brand-emerald text-xs font-bold hover:bg-brand-emerald/30 transition-all flex items-center gap-1.5">
+              <span>▶ Run Snippet</span>
+            </button>
+          </div>
+
+          <pre class="text-[11px] text-slate-300 leading-relaxed overflow-x-auto bg-black/40 p-3 rounded-xl border border-white/5"><code><span class="text-brand-purple">import</span> mne
+
+  <span class="text-slate-500"># Load raw EEG telemetry data</span>
+  raw = mne.io.read_raw_edf(<span class="text-brand-amber">"patient_eeg.edf"</span>, preload=<span class="text-brand-purple">True</span>)
+  raw.filter(l_freq=0.5, h_freq=30.0)
+
+  <span class="text-slate-500"># Compute Power Spectral Density</span>
+  psd = raw.compute_psd(fmax=40)
+  <span class="text-brand-cyan">print</span>(f<span class="text-brand-amber">"Channels Processed: {len(raw.ch_names)}"</span>)</code></pre>
+
+          <div class="mt-3">
+            <span class="text-[10px] text-slate-500 uppercase tracking-wider block mb-1">// TERMINAL_OUTPUT</span>
+            <div id="console-output-health" class="p-3 bg-black/60 rounded-xl border border-white/5 text-xs text-brand-emerald font-mono min-h-[48px] flex items-center">
+              Click "▶ Run Snippet" to process bio-signal telemetry...
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="bg-brand-panel p-5 rounded-2xl border border-white/10 space-y-3">
+      <div class="flex items-center justify-between">
+        <span class="font-mono text-xs text-slate-400 font-bold uppercase tracking-wider">// TECH_STACK (Click to inspect)</span>
+        <span id="tool-desc-health" class="font-mono text-xs text-brand-emerald italic truncate max-w-md">Click a badge to inspect its role...</span>
+      </div>
+      <div class="flex flex-wrap gap-2 font-mono text-xs">
+        <button onclick="inspectTool('health', 'PyTorch', 'Deep learning framework used to train neural networks on medical images and scans.')" class="px-3 py-1.5 rounded-xl bg-white/5 hover:bg-brand-emerald/20 border border-white/10 hover:border-brand-emerald text-slate-200 transition-all">PyTorch</button>
+        <button onclick="inspectTool('health', 'OpenCV', 'Computer vision library used for image transformations, spatial filters, and edge detection.')" class="px-3 py-1.5 rounded-xl bg-white/5 hover:bg-brand-emerald/20 border border-white/10 hover:border-brand-emerald text-slate-200 transition-all">OpenCV</button>
+        <button onclick="inspectTool('health', 'mne-python', 'Specialized electrophysiology toolkit for analyzing EEG, MEG, and neural signals.')" class="px-3 py-1.5 rounded-xl bg-white/5 hover:bg-brand-emerald/20 border border-white/10 hover:border-brand-emerald text-slate-200 transition-all">mne-python</button>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- ================================================================= -->
+  <!-- PILLAR 04: ART + DESIGN -->
+  <!-- ================================================================= -->
+  <div id="panel-art" class="tab-panel space-y-6">
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      
+      <div class="lg:col-span-5 space-y-6 flex flex-col">
+        <div class="bg-brand-card p-5 rounded-2xl border border-white/10 space-y-3 flex-1">
+          <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-brand-magenta/10 text-brand-magenta border border-brand-magenta/30">TRACK 01 // INTERACTIVE ART & GAMES</span>
+          <h3 class="text-base font-bold text-white">Generative Media & Game Design</h3>
+          <p class="text-xs text-slate-300">Algorithmic artwork, real-time WebGL shaders, and game mechanics built in code.</p>
+          <div class="p-2.5 rounded-xl bg-white/5 border border-white/10 font-mono text-[11px] text-slate-300">
+            <span class="text-brand-magenta font-bold">⚡ Hook:</span> Procedural mesh generation & particle physics shaders.
+          </div>
+        </div>
+
+        <div class="bg-brand-card p-5 rounded-2xl border border-white/10 space-y-3 flex-1">
+          <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-brand-magenta/10 text-brand-magenta border border-brand-magenta/30">TRACK 02 // UI/UX & SPATIAL SYSTEMS</span>
+          <h3 class="text-base font-bold text-white">Product Design & Immersive UX</h3>
+          <p class="text-xs text-slate-300">Designing complex software interfaces, design tokens, and WebXR spatial experiences.</p>
+          <div class="p-2.5 rounded-xl bg-white/5 border border-white/10 font-mono text-[11px] text-slate-300">
+            <span class="text-brand-magenta font-bold">⚡ Hook:</span> Interactive Figma token pipelines & 3D WebGL canvases.
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-7 bg-[#0b0c10] border border-white/10 rounded-2xl p-5 font-mono flex flex-col justify-between shadow-2xl">
+        <div>
+          <div class="flex items-center justify-between pb-3 border-b border-white/10 mb-4">
+            <div class="flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-red-500/80 inline-block"></span>
+              <span class="w-3 h-3 rounded-full bg-yellow-500/80 inline-block"></span>
+              <span class="w-3 h-3 rounded-full bg-emerald-500/80 inline-block"></span>
+              <span class="text-xs text-slate-400 font-bold ml-2">scene_render.js</span>
+            </div>
+            <button onclick="runCode('art', 'Scene Compiled | Rendered 10,000 Shader Particles @ 60FPS')" class="px-3 py-1 rounded-lg bg-brand-magenta/20 border border-brand-magenta/40 text-brand-magenta text-xs font-bold hover:bg-brand-magenta/30 transition-all flex items-center gap-1.5">
+              <span>▶ Run Snippet</span>
+            </button>
+          </div>
+
+          <pre class="text-[11px] text-slate-300 leading-relaxed overflow-x-auto bg-black/40 p-3 rounded-xl border border-white/5"><code><span class="text-brand-purple">import</span> * <span class="text-brand-purple">as</span> THREE <span class="text-brand-purple">from</span> <span class="text-brand-amber">'three'</span>;
+
+  <span class="text-slate-500">// Initialize 3D WebGL Canvas</span>
+  <span class="text-brand-purple">const</span> scene = <span class="text-brand-purple">new</span> THREE.Scene();
+  <span class="text-brand-purple">const</span> geo = <span class="text-brand-purple">new</span> THREE.IcosahedronGeometry(2, 1);
+  <span class="text-brand-purple">const</span> mat = <span class="text-brand-purple">new</span> THREE.MeshNormalMaterial({ wireframe: <span class="text-brand-purple">true</span> });
+  <span class="text-brand-purple">const</span> mesh = <span class="text-brand-purple">new</span> THREE.Mesh(geo, mat);
+
+  scene.add(mesh);
+  <span class="text-brand-cyan">console</span>.log(<span class="text-brand-amber">"Mesh Initialized with vertices:"</span>, geo.attributes.position.count);</code></pre>
+
+          <div class="mt-3">
+            <span class="text-[10px] text-slate-500 uppercase tracking-wider block mb-1">// TERMINAL_OUTPUT</span>
+            <div id="console-output-art" class="p-3 bg-black/60 rounded-xl border border-white/5 text-xs text-brand-magenta font-mono min-h-[48px] flex items-center">
+              Click "▶ Run Snippet" to render WebGL scene...
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="bg-brand-panel p-5 rounded-2xl border border-white/10 space-y-3">
+      <div class="flex items-center justify-between">
+        <span class="font-mono text-xs text-slate-400 font-bold uppercase tracking-wider">// TECH_STACK (Click to inspect)</span>
+        <span id="tool-desc-art" class="font-mono text-xs text-brand-magenta italic truncate max-w-md">Click a badge to inspect its role...</span>
+      </div>
+      <div class="flex flex-wrap gap-2 font-mono text-xs">
+        <button onclick="inspectTool('art', 'p5.js', 'Creative coding JavaScript library for building interactive 2D graphics and visual canvas sketches.')" class="px-3 py-1.5 rounded-xl bg-white/5 hover:bg-brand-magenta/20 border border-white/10 hover:border-brand-magenta text-slate-200 transition-all">p5.js</button>
+        <button onclick="inspectTool('art', 'Figma', 'Prototyping platform used to architect user experience flows and component libraries.')" class="px-3 py-1.5 rounded-xl bg-white/5 hover:bg-brand-magenta/20 border border-white/10 hover:border-brand-magenta text-slate-200 transition-all">Figma</button>
+        <button onclick="inspectTool('art', 'Three.js', '3D WebGL engine for creating interactive real-time spatial graphics right in the browser.')" class="px-3 py-1.5 rounded-xl bg-white/5 hover:bg-brand-magenta/20 border border-white/10 hover:border-brand-magenta text-slate-200 transition-all">Three.js</button>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- ================================================================= -->
+  <!-- PILLAR 05: ETHICS + IMPACT -->
+  <!-- ================================================================= -->
+  <div id="panel-ethics" class="tab-panel space-y-6">
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      
+      <div class="lg:col-span-5 space-y-6 flex flex-col">
+        <div class="bg-brand-card p-5 rounded-2xl border border-white/10 space-y-3 flex-1">
+          <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-brand-purple/10 text-brand-purple border border-brand-purple/30">TRACK 01 // ALGORITHMIC BIAS & POLICY</span>
+          <h3 class="text-base font-bold text-white">Algorithmic Fairness & AI Governance</h3>
+          <p class="text-xs text-slate-300">Auditing AI models to detect disparity metrics, prevent discrimination, and shape tech policy.</p>
+          <div class="p-2.5 rounded-xl bg-white/5 border border-white/10 font-mono text-[11px] text-slate-300">
+            <span class="text-brand-purple font-bold">⚡ Hook:</span> Demographic parity calculations & equalized odds auditing.
+          </div>
+        </div>
+
+        <div class="bg-brand-card p-5 rounded-2xl border border-white/10 space-y-3 flex-1">
+          <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-brand-purple/10 text-brand-purple border border-brand-purple/30">TRACK 02 // EXPLAINABILITY & PRIVACY</span>
+          <h3 class="text-base font-bold text-white">Explainable AI (XAI) & Data Privacy</h3>
+          <p class="text-xs text-slate-300">Unpacking "black-box" models and building zero-knowledge, privacy-first data pipelines.</p>
+          <div class="p-2.5 rounded-xl bg-white/5 border border-white/10 font-mono text-[11px] text-slate-300">
+            <span class="text-brand-purple font-bold">⚡ Hook:</span> SHAP feature attribution & differential privacy noise.
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-7 bg-[#0b0c10] border border-white/10 rounded-2xl p-5 font-mono flex flex-col justify-between shadow-2xl">
+        <div>
+          <div class="flex items-center justify-between pb-3 border-b border-white/10 mb-4">
+            <div class="flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-red-500/80 inline-block"></span>
+              <span class="w-3 h-3 rounded-full bg-yellow-500/80 inline-block"></span>
+              <span class="w-3 h-3 rounded-full bg-emerald-500/80 inline-block"></span>
+              <span class="text-xs text-slate-400 font-bold ml-2">bias_audit.py</span>
+            </div>
+            <button onclick="runCode('ethics', 'Disparate Impact Ratio: 0.94 | Status: WITHIN_FAIRNESS_THRESHOLD')" class="px-3 py-1 rounded-lg bg-brand-purple/20 border border-brand-purple/40 text-brand-purple text-xs font-bold hover:bg-brand-purple/30 transition-all flex items-center gap-1.5">
+              <span>▶ Run Snippet</span>
+            </button>
+          </div>
+
+          <pre class="text-[11px] text-slate-300 leading-relaxed overflow-x-auto bg-black/40 p-3 rounded-xl border border-white/5"><code><span class="text-brand-purple">from</span> fairlearn.metrics <span class="text-brand-purple">import</span> MetricFrame, selection_rate
+
+  <span class="text-slate-500"># Audit model decisions across demographic groups</span>
+  metric_frame = MetricFrame(
+      metrics=selection_rate,
+      y_true=y_test,
+      y_pred=model_predictions,
+      sensitive_features=protected_group
+  )
+
+  <span class="text-brand-cyan">print</span>(f<span class="text-brand-amber">"Demographic Selection Gap: {metric_frame.difference():.3f}"</span>)</code></pre>
+          <div class="mt-3">
+            <span class="text-[10px] text-slate-500 uppercase tracking-wider block mb-1">// TERMINAL_OUTPUT</span>
+            <div id="console-output-ethics" class="p-3 bg-black/60 rounded-xl border border-white/5 text-xs text-brand-purple font-mono min-h-[48px] flex items-center">
+              Click "▶ Run Snippet" to perform fairness audit...
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-brand-panel p-5 rounded-2xl border border-white/10 space-y-3">
+      <div class="flex items-center justify-between">
+        <span class="font-mono text-xs text-slate-400 font-bold uppercase tracking-wider">// TECH_STACK (Click to inspect)</span>
+        <span id="tool-desc-ethics" class="font-mono text-xs text-brand-purple italic truncate max-w-md">Click a badge to inspect its role...</span>
+      </div>
+      <div class="flex flex-wrap gap-2 font-mono text-xs">
+        <button onclick="inspectTool('ethics', 'Fairlearn', 'Toolkit for assessing and improving algorithmic fairness in machine learning models.')" class="px-3 py-1.5 rounded-xl bg-white/5 hover:bg-brand-purple/20 border border-white/10 hover:border-brand-purple text-slate-200 transition-all">Fairlearn</button>
+        <button onclick="inspectTool('ethics', 'SHAP', 'Game-theoretic framework for explaining black-box model predictions by calculating feature importance.')" class="px-3 py-1.5 rounded-xl bg-white/5 hover:bg-brand-purple/20 border border-white/10 hover:border-brand-purple text-slate-200 transition-all">SHAP</button>
+        <button onclick="inspectTool('ethics', 'AIF360', 'IBM library containing algorithms to detect and mitigate bias in datasets and models.')" class="px-3 py-1.5 rounded-xl bg-white/5 hover:bg-brand-purple/20 border border-white/10 hover:border-brand-purple text-slate-200 transition-all">AIF360</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================================================================= -->
+  <!-- SHARED INTERACTIVE JAVASCRIPT -->
+  <!-- ================================================================= -->
+  <script>
+    function runCode(pillar, outputMessage) {
+      const out = document.getElementById(`console-output-${pillar}`);
+      out.innerText = "Running pipeline execution...";
+      out.className = "p-3 bg-black/60 rounded-xl border border-white/5 text-xs text-slate-400 font-mono min-h-[48px] flex items-center animate-pulse";
+
+      setTimeout(() => {
+        out.innerText = `> ${outputMessage}`;
+        out.className = "p-3 bg-black/60 rounded-xl border border-white/5 text-xs text-brand-emerald font-mono min-h-[48px] flex items-center";
+      }, 500);
+    }
+
+    function inspectTool(pillar, name, desc) {
+      const target = document.getElementById(`tool-desc-${pillar}`);
+      target.innerHTML = `<strong class="text-white">${name}:</strong> ${desc}`;
+    }
+  </script>
+</main>
+
+  <!-- COMMUNITY WORKSHOP & PROJECT REQUEST HUB -->
+  <section class="relative z-10 py-12 px-8 max-w-5xl mx-auto w-full mb-12">
+    <div class="bg-brand-panel p-8 rounded-2xl border border-white/10">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+        <div>
+          <span class="font-mono text-[10px] font-semibold px-2.5 py-1 rounded bg-brand-magenta/10 text-brand-magenta border border-brand-magenta/30">// COMMUNITY_DRIVEN_BUILD</span>
+          <h3 class="text-2xl font-bold text-white mt-2">Request a Workshop or Submit a Project Idea</h3>
+          <p class="text-sm text-slate-400 font-sans mt-1">Have an interdisciplinary idea or want a hands-on workshop session? Submit it here!</p>
+        </div>
+      </div>
+
+      <form onsubmit="handleWorkshopSubmit(event)" class="space-y-4 font-mono text-xs">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-slate-400 mb-1.5">Your U-M Email</label>
+            <input type="text" required placeholder="e.g., nobody@umich.edu" class="w-full px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-brand-cyan transition-all" />
+          </div>
+          <div>
+            <label class="block text-slate-400 mb-1.5">Target Pillar (Optional)</label>
+            <select class="w-full px-4 py-2.5 rounded-xl bg-brand-card border border-white/10 text-white focus:outline-none focus:border-brand-cyan transition-all">
+              <option value="none">✦ Leave blank / Cross-Disciplinary</option>
+              <option value="tech">⚙️ Tech + Engineering</option>
+              <option value="business">📊 Business + Strategy</option>
+              <option value="health">🧬 Health + Medicine</option>
+              <option value="art">🎨 Art + Design</option>
+              <option value="ethics">⚖️ Ethics + Impact</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-slate-400 mb-1.5">Workshop Topic or Project Idea Title</label>
+          <input type="text" required placeholder="e.g., Building a Real-Time Vital Sensor Dashboard" class="w-full px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-brand-cyan transition-all" />
+        </div>
+
+        <div>
+          <label class="block text-slate-400 mb-1.5">Brief Description & Technical Goals</label>
+          <textarea rows="3" required placeholder="Describe what members will learn, build, or analyze..." class="w-full px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-brand-cyan transition-all font-sans"></textarea>
+        </div>
+
+        <button type="submit" class="px-6 py-3 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold transition-all flex items-center gap-2">
+          <span>🚀 Submit to Community Pipeline</span>
+        </button>
+      </form>
+
+      <div id="submit-toast" class="hidden mt-4 p-4 bg-brand-emerald/10 border border-brand-emerald/30 text-brand-emerald rounded-xl font-mono text-xs flex items-center justify-between">
+        <span>✓ Success! Your proposal has been added to the community queue.</span>
+        <span class="text-slate-400 cursor-pointer" onclick="this.parentElement.classList.add('hidden')">✕ Dismiss</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER (Exact Footer directly from index.html) -->
+  <footer class="relative z-10 border-t border-white/10 bg-[#090a0f] pt-12 pb-8 px-6 sm:px-12 text-slate-400 font-sans">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-8 pb-10 border-b border-white/5">
+        <!-- Left side computex + pcas logos -->
+        <div class="flex flex-wrap items-center justify-center md:justify-start sm:gap-3">
+          <a href="../index.html" class="flex items-center group">
+            <img src="../assets/computex-logo.png" alt="ComputeX Logo" class="h-11 w-auto object-contain transition-all duration-300" />
+          </a>
+          <span class="h-10 w-[1px] bg-white/35 hidden sm:block"></span>
+          <a href="https://lsa.umich.edu/computingfor" target="_blank" rel="noopener noreferrer" class="flex items-center opacity-70 hover:opacity-100 transition-all">
+            <img src="../assets/pcas-logo.png" alt="UMich PCAS Logo" class="h-10 w-auto object-contain transition-all duration-300" />
+          </a>
+        </div>
+
+        <!-- Right side email + socials -->
+        <div class="flex flex-wrap items-center justify-center gap-4">
+          <a href="mailto:compute-x@umich.edu" class="px-3.5 py-2 rounded-lg bg-white/5 hover:bg-brand-emerald/10 border border-white/10 hover:border-brand-emerald/30 text-xs font-mono text-slate-300 hover:text-white transition-all flex items-center gap-2 group hover:scale-105">
+            <svg class="w-7 h-7 text-brand-emerald duration-200" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+              <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+            </svg>
+            <span>compute-x@umich.edu</span>
+          </a>
+          <div class="flex items-center gap-1.5">
+            <a href="https://www.instagram.com/computex_um/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" 
+              class="p-2.5 rounded-lg bg-white/5 hover:bg-brand-magenta/10 border border-white/10 hover:border-brand-magenta/40 text-[url(#ig-grad)] hover:scale-105 group">
+              <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+                <defs>
+                  <linearGradient id="ig-grad" x1="0%" y1="100%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#fdf497" />
+                    <stop offset="5%" stop-color="#fdf497" />
+                    <stop offset="45%" stop-color="#fd5949" />
+                    <stop offset="60%" stop-color="#d6249f" />
+                    <stop offset="100%" stop-color="#285AEB" />
+                  </linearGradient>
+                </defs>
+                <path class="fill-[url(#ig-grad)] duration-200" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" 
+              class="p-2.5 rounded-lg bg-white/5 hover:bg-[#0A66C2]/10 border border-white/10 hover:border-[#0A66C2]/40 text-[#0A66C2] hover:scale-105">
+              <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.239-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+              </svg>
+            </a>
+            <a href="https://github.com/ComputeX-UM" target="_blank" rel="noopener noreferrer" aria-label="GitHub" 
+              class="p-2.5 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/30 text-white hover:scale-105">
+              <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom row copyright message -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs text-slate-500">
+        <p>© 2026 ComputeX at the University of Michigan.</p>
+        <p class="text-[11px] text-center sm:text-right">Sponsored by the UMich Program in Computing for the Arts & Sciences (PCAS)</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- INTERACTIVE TAB SWITCHING SCRIPT -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+  const tabButtons = document.querySelectorAll("[data-tab]");
+  const tabPanels = document.querySelectorAll(".tab-panel");
+
+  // Dynamic color configuration map matching your custom brand tokens
+  const pillarColors = {
+    tech: {
+      activeClass: "active-tech",
+      text: "text-brand-cyan",
+      border: "border-brand-cyan",
+      bg: "bg-brand-cyan/10"
+    },
+    business: {
+      activeClass: "active-business",
+      text: "text-brand-amber",
+      border: "border-brand-amber",
+      bg: "bg-brand-amber/10"
+    },
+    health: {
+      activeClass: "active-health",
+      text: "text-brand-emerald",
+      border: "border-brand-emerald",
+      bg: "bg-brand-emerald/10"
+    },
+    art: {
+      activeClass: "active-art",
+      text: "text-brand-magenta",
+      border: "border-brand-magenta",
+      bg: "bg-brand-magenta/10"
+    },
+    ethics: {
+      activeClass: "active-ethics",
+      text: "text-brand-purple",
+      border: "border-brand-purple",
+      bg: "bg-brand-purple/10"
+    }
+  };
+
+  function switchTab(targetPillar) {
+    // 1. Hide all panels
+    tabPanels.forEach((panel) => {
+      panel.classList.add("hidden");
+      panel.setAttribute("aria-hidden", "true");
+    });
+
+    // 2. Clear active states from all tab buttons
+    tabButtons.forEach((btn) => {
+      btn.setAttribute("aria-selected", "false");
+      btn.classList.add("border-transparent", "text-slate-400");
+      btn.classList.remove("active");
+
+      // Remove any leftover active pillar class or dynamic Tailwind classes
+      Object.values(pillarColors).forEach((cfg) => {
+        btn.classList.remove(cfg.activeClass, cfg.text, cfg.border, cfg.bg);
+      });
+    });
+
+    // 3. Activate the target panel & tab button
+    const activePanel = document.getElementById(`panel-${targetPillar}`);
+    const activeBtn = document.querySelector(`[data-tab="${targetPillar}"]`);
+
+    if (activePanel) {
+      activePanel.classList.remove("hidden");
+      activePanel.setAttribute("aria-hidden", "false");
+    }
+
+    if (activeBtn) {
+      const config = pillarColors[targetPillar] || pillarColors.tech;
+      activeBtn.classList.remove("border-transparent", "text-slate-400");
+      activeBtn.classList.add("active", config.activeClass, config.text, config.border, config.bg);
+      activeBtn.setAttribute("aria-selected", "true");
+    }
+
+    // 4. Update URL Hash
+    if (history.pushState) {
+      history.pushState(null, null, `#${targetPillar}`);
+    } else {
+      location.hash = `#${targetPillar}`;
+    }
+  }
+
+  // Add click listeners
+  tabButtons.forEach((button) => {
+    button.addEventListener("click", (e) => {
+      e.preventDefault();
+      const pillar = button.getAttribute("data-tab");
+      switchTab(pillar);
+    });
+  });
+
+  // Handle URL Hash on load
+  const initialHash = window.location.hash.replace("#", "");
+  const validPillars = Object.keys(pillarColors);
+
+  if (initialHash && validPillars.includes(initialHash)) {
+    switchTab(initialHash);
+  } else {
+    switchTab("health"); 
+  }
+});
+  </script>
+</body>
+</html>

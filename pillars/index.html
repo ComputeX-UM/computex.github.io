@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ComputeX | Our Five Pillars</title>
-  
+  <title>ComputeX | Pillars</title>
+
   <!-- Inter & Geist Mono Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -41,30 +41,260 @@
       }
     }
   </script>
+
   <style>
+    /* Subtle grid in bg */
     .bg-grid {
-      background-size: 40px 40px;
+      background-size: 60px 60px;
       background-image: 
-        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
     }
-    .radial-glow {
-      background: radial-gradient(circle at 50% 20%, rgba(0, 240, 255, 0.08) 0%, rgba(157, 78, 221, 0.05) 40%, transparent 70%);
+
+    /* Ambient light glows */
+    .mesh-glow-1 {
+      position: absolute;
+      width: 550px;
+      height: 550px;
+      background: radial-gradient(circle, rgba(0, 240, 255, 0.15) 0%, rgba(157, 78, 221, 0.12) 40%, transparent 70%);
+      filter: blur(80px);
+      border-radius: 50%;
+      pointer-events: none;
     }
-    .glass-card {
-      background: rgba(18, 19, 24, 0.7);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+
+    .mesh-glow-2 {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(255, 46, 147, 0.12) 0%, rgba(0, 229, 153, 0.08) 50%, transparent 75%);
+      filter: blur(90px);
+      border-radius: 50%;
+      pointer-events: none;
     }
+
+    /* faint circle in bg */
+    .curved-ring {
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 50%;
+      position: absolute;
+      pointer-events: none;
+    }
+
+    /* Pillar-specific accent helpers */
+    .accent-transition {
+      transition:
+        color 300ms ease,
+        background-color 300ms ease,
+        border-color 300ms ease,
+        box-shadow 300ms ease,
+        opacity 300ms ease;
+    }
+
+    .pillar-panel {
+      transition:
+        border-color 300ms ease,
+        box-shadow 300ms ease;
+    }
+
+    .pillar-tab {
+      transition:
+        color 200ms ease,
+        background-color 200ms ease,
+        border-color 200ms ease,
+        transform 200ms ease;
+    }
+
+    .pillar-tab:hover {
+      transform: translateY(-1px);
+    }
+
+    .focus-card {
+      transition:
+        transform 200ms ease,
+        border-color 200ms ease,
+        background-color 200ms ease;
+    }
+
+    .focus-card:hover {
+      transform: translateY(-2px);
+    }
+
+    .tool-item {
+      transition:
+        background-color 180ms ease,
+        border-color 180ms ease,
+        color 180ms ease,
+        transform 180ms ease;
+    }
+
+    .tool-item:hover {
+      transform: translateY(-1px);
+    }
+
+    .terminal-cursor::after {
+      content: "";
+      display: inline-block;
+      width: 7px;
+      height: 14px;
+      margin-left: 4px;
+      background: currentColor;
+      vertical-align: -2px;
+      animation: blink 1s steps(1) infinite;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    .scanline {
+      background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(255,255,255,.025) 50%,
+        transparent 100%
+      );
+      background-size: 100% 8px;
+    }
+
+    .section-reveal {
+      animation: sectionReveal 420ms ease both;
+    }
+
+    @keyframes sectionReveal {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .bar-grow {
+      animation: barGrow 700ms cubic-bezier(.2,.8,.2,1) both;
+      transform-origin: left;
+    }
+
+    @keyframes barGrow {
+      from { transform: scaleX(0); }
+      to { transform: scaleX(1); }
+    }
+
+    .pulse-dot {
+      animation: pulseDot 2s ease-in-out infinite;
+    }
+
+    @keyframes pulseDot {
+      0%, 100% { opacity: .45; transform: scale(.95); }
+      50% { opacity: 1; transform: scale(1); }
+    }
+
+    .demo-output {
+      min-height: 230px;
+    }
+
+    .chart-bar {
+      transition: width 800ms cubic-bezier(.2,.8,.2,1);
+    }
+
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .hide-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    @media (max-width: 640px) {
+      .mesh-glow-1,
+      .mesh-glow-2 {
+        opacity: .45;
+      }
+    }
+
+    /* Pillar selector ------------------------------------------------ */
+
+    #pillarTabs {
+      position: relative;
+      isolation: isolate;
+    }
+
+    /* Sliding active outline */
+    #pillarTabs::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      pointer-events: none;
+
+      top: var(--indicator-top);
+      left: var(--indicator-left);
+      width: var(--indicator-width);
+      height: var(--indicator-height);
+
+      border: 1px solid var(--indicator-color);
+
+      background: color-mix(
+        in srgb,
+        var(--indicator-color) 7%,
+        transparent
+      );
+
+      border-radius: 0.75rem;
+
+      box-shadow:
+        0 0 18px color-mix(
+          in srgb,
+          var(--indicator-color) 10%,
+          transparent
+        );
+
+      transition:
+        left 350ms cubic-bezier(0.22, 1, 0.36, 1),
+        top 350ms cubic-bezier(0.22, 1, 0.36, 1),
+        width 350ms cubic-bezier(0.22, 1, 0.36, 1),
+        height 350ms cubic-bezier(0.22, 1, 0.36, 1),
+        background 250ms ease,
+        border-color 250ms ease;
+    }
+
+
+    /* Hover state */
+    .pillar-tab:hover .pillar-name {
+      color: #f1f5f9;
+      font-weight: 700;
+    }
+
+    .pillar-tab:hover .pillar-number {
+      color: var(--pillar-color) !important;
+    }
+
+    /* Keep active name slightly stronger */
+    .pillar-tab[aria-selected="true"] .pillar-name {
+      color: #f8fafc;
+      font-weight: 600;
+    }
+
   </style>
 </head>
 
-<body class="bg-brand-bg text-slate-200 font-sans antialiased min-h-screen selection:bg-brand-grey/20 overflow-x-hidden">
+<body
+  class="bg-brand-bg text-slate-200 font-sans antialiased min-h-screen selection:bg-brand-grey/20 overflow-x-hidden"
+>
+
+  <!-- Background -->
   <div class="fixed inset-0 bg-grid pointer-events-none z-0"></div>
   <div class="mesh-glow-1 top-[-100px] right-[-100px] z-0"></div>
-  <div class="mesh-glow-2 top-[50%] left-[-200px] z-0"></div>
+  <div class="mesh-glow-2 top-[40%] left-[-200px] z-0"></div>
 
-  <!-- Top bar navigation -->
+  <!-- Decorative rings -->
+  <div class="curved-ring w-[650px] h-[650px] -top-[280px] -right-[220px] opacity-40"></div>
+  <div class="curved-ring w-[900px] h-[900px] top-[38%] -left-[550px] opacity-20"></div>
+
+  <!-- =========================================================
+       NAVIGATION
+       ========================================================= -->
   <nav class="sticky top-0 z-50 bg-brand-bg/60 backdrop-blur-xl border-b border-white/5">
     <div class="max-w-7xl mx-auto px-8 h-20 flex items-center justify-between">
       <a href="../index.html" class="font-mono text-xl font-bold tracking-tight text-white flex items-center gap-2">
@@ -86,198 +316,597 @@
     </div>
   </nav>
 
+  <main class="relative z-10">
 
-  <!-- Hero Section & Official 5 Pillar Selector -->
-  <section class="relative z-10 pt-16 pb-6 px-6 max-w-5xl mx-auto text-center">
-    <div id="domain-tag" class="font-mono text-xs text-brand-cyan uppercase tracking-widest mb-3">// SELECT_DOMAIN_PILLAR</div>
-    <h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-white mb-4">
-      Explore <span id="domain-title" class="bg-gradient-to-r from-brand-cyan to-brand-purple bg-clip-text text-transparent">Tech + Engineering.</span>
-    </h1>
-    <p id="domain-desc" class="text-slate-400 text-sm sm:text-base max-w-2xl mx-auto font-normal leading-relaxed">
-      Explore how software, data science, and hardware transform traditional disciplines into high-throughput computational systems.
-    </p>
-
-    <!-- Official 5 Pillar Selector Tabs -->
-    <div class="flex flex-wrap items-center justify-center gap-2 mt-8 font-mono text-xs">
-      <button onclick="selectPillar('tech')" id="tab-tech" class="px-4 py-2 rounded-lg bg-white/5 text-slate-400 border border-white/5 hover:text-white hover:bg-white/10 transition-all">
-        ⚙️ TECH + ENGINEERING
-      </button>
-      <button onclick="selectPillar('business')" id="tab-business" class="px-4 py-2 rounded-lg bg-white/5 text-slate-400 border border-white/5 hover:text-white hover:bg-white/10 transition-all">
-        📊 BUSINESS + STRATEGY
-      </button>
-      <button onclick="selectPillar('health')" id="tab-health" class="px-4 py-2 rounded-lg bg-white/10 text-white border border-brand-cyan/50 font-semibold transition-all">
-        🧬 HEALTH + MEDICINE
-      </button>
-      <button onclick="selectPillar('art')" id="tab-art" class="px-4 py-2 rounded-lg bg-white/5 text-slate-400 border border-white/5 hover:text-white hover:bg-white/10 transition-all">
-        🎨 ART + DESIGN
-      </button>
-      <button onclick="selectPillar('ethics')" id="tab-ethics" class="px-4 py-2 rounded-lg bg-white/5 text-slate-400 border border-white/5 hover:text-white hover:bg-white/10 transition-all">
-        ⚖️ ETHICS + IMPACT
-      </button>
-    </div>
-  </section>
-
-  <!-- Interactive Pillar Hero Box: "Before vs. Powered by Tech" -->
-  <section class="relative z-10 py-6 px-6 max-w-5xl mx-auto">
-    <div id="spotlight-card" class="glass-card p-8 rounded-2xl relative overflow-hidden transition-all duration-300 border-l-4 border-l-brand-emerald">
-      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
-        <div>
-          <span id="spotlight-badge" class="font-mono text-[10px] font-semibold px-2.5 py-1 rounded bg-brand-emerald/10 text-brand-emerald border border-brand-emerald/30">// CORE_DISCIPLINE_ENGINE</span>
-          <h2 id="spotlight-heading" class="text-2xl sm:text-3xl font-bold text-white mt-2">Tech + Engineering</h2>
-        </div>
-        <button onclick="openSimulationModal()" class="px-4 py-2 rounded-xl bg-gradient-to-r from-brand-cyan/20 to-brand-emerald/20 border border-brand-cyan/40 text-white hover:border-brand-cyan font-mono text-xs font-bold transition-all flex items-center gap-2 shadow-lg">
-          <span>⚡ Run Code Simulation</span>
-          <span class="text-brand-cyan">→</span>
-        </button>
+    <!-- HERO-->
+    <section class="max-w-7xl mx-auto px-6 md:px-8 pt-24 md:pt-36 pb-16 md:pb-24">
+      <div class="max-w-4xl space-y-3">
+        <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold text-white tracking-tight leading-tight">
+          Explore Our
+          <span class="bg-gradient-to-r from-brand-purple via-brand-magenta to-brand-amber bg-clip-text text-transparent">
+            Five Pillars
+          </span>
+        </h1>
+        <p class="mt-8 max-w-2xl text-lg md:text-xl leading-8 text-slate-400 font-light">
+          Our pillars aren't separate divisions—they're different ways of exploring
+          how computing intersects with the world.
+        </p>
       </div>
 
-      <!-- Before vs. Powered by Tech Side-by-Side Comparison -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-        
-        <!-- Traditional Method Card -->
-        <div class="p-5 bg-white/[0.01] border border-white/5 rounded-xl space-y-3">
-          <div class="flex items-center gap-2 font-mono text-xs text-rose-400 font-bold uppercase tracking-wider">
-            <span>✕</span>
-            <span>Traditional Approach</span>
+      <!-- Pillar selector -->
+      <div class="mt-10 md:mt-12">
+        <div class="flex justify-center">
+          <div
+            id="pillarTabs"
+            role="tablist"
+            class="inline-flex flex-nowrap items-center justify-start gap-1.5 p-2.5 bg-black/60 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl max-w-full overflow-x-auto"
+          >
+          <!-- 🛑 Populated by JS 🛑 -->
           </div>
-          <ul id="traditional-list" class="space-y-2 text-xs sm:text-sm text-slate-300 font-sans">
-            <!-- Populated via JS -->
-          </ul>
         </div>
+      </div>
+    </section>
 
-        <!-- Powered by Tech Card -->
-        <div class="p-5 bg-gradient-to-br from-white/[0.03] to-white/[0.01] border border-white/10 rounded-xl space-y-3">
-          <div class="flex items-center gap-2 font-mono text-xs text-brand-emerald font-bold uppercase tracking-wider">
-            <span>⚡</span>
-            <span>Powered by Computing</span>
+
+    <!-- =======================================================
+         PILLAR CONTENT
+         ======================================================= -->
+    <div
+      id="pillarContent"
+      class="section-reveal"
+    >
+
+      <!-- =====================================================
+           01 — INTRO
+           ===================================================== -->
+      <section class="max-w-7xl mx-auto px-6 md:px-8 pb-20">
+
+        <div class="border-t border-white/10 pt-10">
+
+          <div class="grid lg:grid-cols-[180px_1fr] gap-8">
+
+            <div>
+              <span class="font-mono text-xs text-slate-600">
+                01
+              </span>
+
+              <p class="font-mono text-[10px] tracking-[0.18em] uppercase text-slate-600 mt-2">
+                INTRO
+              </p>
+            </div>
+
+            <div class="max-w-4xl">
+
+              <div class="flex items-center gap-3 mb-5">
+                <span
+                  id="pillarEyebrow"
+                  class="font-mono text-xs tracking-[0.16em] uppercase"
+                  style="color:#00F0FF"
+                >
+                  TECH + ENGINEERING
+                </span>
+
+                <span class="h-px w-10 bg-white/10"></span>
+              </div>
+
+              <h2
+                id="pillarIntro"
+                class="text-3xl md:text-5xl font-medium tracking-[-0.035em] text-white leading-tight"
+              >
+                Computing is the foundation behind the systems we build,
+                understand, and control.
+              </h2>
+
+              <p
+                id="pillarIntroSub"
+                class="mt-6 text-slate-400 text-base md:text-lg leading-8 max-w-3xl"
+              >
+                ComputeX treats this pillar as its technical anchor:
+                the computational foundations that power everything else we explore.
+              </p>
+
+            </div>
+
           </div>
-          <ul id="powered-list" class="space-y-2 text-xs sm:text-sm text-slate-200 font-sans">
-            <!-- Populated via JS -->
-          </ul>
         </div>
 
-      </div>
+      </section>
 
-      <!-- Interactive Tech Stack Inspector Bar -->
-      <div class="border-t border-white/10 pt-6">
-        <div class="flex items-center justify-between mb-3">
-          <div class="font-mono text-xs text-slate-400 uppercase tracking-wider">// TOOL_STACK (Click any tag for info and examples)</div>
-          <div class="font-mono text-[11px] text-slate-500">Interactive Tooltips</div>
-        </div>
-        <div id="stack-tags" class="flex flex-wrap gap-2">
-          <!-- Populated via JS -->
-        </div>
-      </div>
 
-    </div>
-  </section>
+      <!-- =====================================================
+           02 — WHY IT MATTERS
+           ===================================================== -->
+      <section class="max-w-7xl mx-auto px-6 md:px-8 pb-28">
 
-  <!-- ALWAYS-AVAILABLE SECTION 1: "RUN THE CODE" INTERACTIVE SIMULATION MODAL -->
-  <div id="simulation-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm hidden px-4">
-    <div class="glass-card max-w-2xl w-full p-6 sm:p-8 rounded-2xl border border-white/20 relative shadow-2xl">
-      <button onclick="closeSimulationModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white font-mono text-sm">✕ ESC</button>
-      
-      <div class="font-mono text-xs text-brand-cyan uppercase tracking-widest mb-1">// LIVE_PIPELINE_PREVIEW</div>
-      <h3 id="sim-modal-title" class="text-xl font-bold text-white mb-2">Health Signal Processing Simulation</h3>
-      <p id="sim-modal-desc" class="text-xs text-slate-400 font-sans mb-6">Test the live Python code snippet on simulated patient sensor streams.</p>
+        <div class="grid lg:grid-cols-[180px_1fr] gap-8">
 
-      <!-- Simulation Display Box -->
-      <div class="bg-black/60 border border-white/10 rounded-xl p-4 font-mono text-xs text-slate-300 mb-6 space-y-3">
-        <div class="flex items-center justify-between text-[11px] text-slate-500 pb-2 border-b border-white/5">
-          <span id="sim-status">// STATUS: RAW_INPUT_LOADED</span>
-          <span class="text-brand-emerald">Python 3.11</span>
-        </div>
-        <div id="sim-output-box" class="h-32 flex items-center justify-center text-center text-slate-400 bg-white/[0.02] rounded-lg border border-dashed border-white/10 p-4">
-          Click "Execute Pipeline" below to run the computation.
-        </div>
-      </div>
-
-      <!-- Controls -->
-      <div class="flex items-center justify-between">
-        <button onclick="runSimulation()" class="px-5 py-2.5 rounded-xl bg-brand-cyan text-brand-bg font-mono text-xs font-bold hover:bg-brand-cyan/90 transition-all flex items-center gap-2">
-          <span>▶ Execute Pipeline</span>
-        </button>
-        <button onclick="closeSimulationModal()" class="px-4 py-2 rounded-xl bg-white/5 text-slate-300 font-mono text-xs hover:bg-white/10 transition-all">
-          Close Preview
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- ALWAYS-AVAILABLE SECTION 2: TECH STACK CODE INSPECTOR MODAL/POPOVER -->
-  <div id="tech-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm hidden px-4">
-    <div class="glass-card max-w-lg w-full p-6 rounded-2xl border border-white/20 relative shadow-2xl">
-      <button onclick="closeTechModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white font-mono text-sm">✕ ESC</button>
-      
-      <div id="tech-modal-tag" class="font-mono text-xs text-brand-cyan uppercase tracking-widest mb-1">// TOOL_INSPECTION</div>
-      <h3 id="tech-modal-title" class="text-xl font-bold text-white mb-3">mne-python</h3>
-      <p id="tech-modal-desc" class="text-xs text-slate-300 font-sans mb-4 leading-relaxed">Used for processing continuous multi-channel neurophysiological data (EEG/MEG).</p>
-
-      <div class="bg-black/60 border border-white/10 rounded-xl p-3 font-mono text-[11px] text-slate-300 mb-6">
-        <div class="text-slate-500 mb-1">// SAMPLE_SYNTAX_SNIPPET</div>
-        <pre id="tech-modal-code" class="text-brand-cyan overflow-x-auto p-2">raw = mne.io.read_raw_edf('sleep_record.edf')
-raw.filter(l_freq=0.5, h_freq=30.0)</pre>
-      </div>
-
-      <button onclick="closeTechModal()" class="w-full py-2.5 rounded-xl bg-white/10 text-white font-mono text-xs font-bold hover:bg-white/20 transition-all">
-        Got it
-      </button>
-    </div>
-  </div>
-
-  <!-- ALWAYS-AVAILABLE SECTION 3: WORKSHOP & PROJECT REQUEST HUB (UNDERNEATH HERO) -->
-  <section class="relative z-10 py-12 px-6 max-w-5xl mx-auto">
-    <div class="glass-card p-8 rounded-2xl border border-white/10">
-      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
-        <div>
-          <span class="font-mono text-[10px] font-semibold px-2.5 py-1 rounded bg-brand-magenta/10 text-brand-magenta border border-brand-magenta/30">// COMMUNITY_DRIVEN_BUILD</span>
-          <h3 class="text-2xl font-bold text-white mt-2">Request a Workshop or Submit a Project Idea</h3>
-          <p class="text-sm text-slate-400 font-sans mt-1">Have an interdisciplinary idea or want a hands-on workshop session? Submit it here for us to look into!</p>
-        </div>
-      </div>
-
-      <!-- Submission Form -->
-      <form onsubmit="handleWorkshopSubmit(event)" class="space-y-4 font-mono text-xs">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
-            <label class="block text-slate-400 mb-1.5">Your Name / Uniqname</label>
-            <input type="text" id="req-name" required placeholder="e.g., nobody" class="w-full px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-brand-cyan transition-all" />
+            <span class="font-mono text-xs text-slate-600">
+              02
+            </span>
+
+            <p class="font-mono text-[10px] tracking-[0.18em] uppercase text-slate-600 mt-2">
+              WHY IT MATTERS
+            </p>
           </div>
+
           <div>
-            <label class="block text-slate-400 mb-1.5">Target Pillar (Optional)</label>
-            <select id="req-pillar" class="w-full px-4 py-2.5 rounded-xl bg-brand-card border border-white/10 text-white focus:outline-none focus:border-brand-cyan transition-all">
-              <option value="none">✦ Leave blank / Cross-Disciplinary / In-Between</option>
-              <option value="tech">⚙️ Tech + Engineering</option>
-              <option value="business">📊 Business + Strategy</option>
-              <option value="health">🧬 Health + Medicine</option>
-              <option value="art">🎨 Art + Design</option>
-              <option value="ethics">⚖️ Ethics + Impact</option>
-            </select>
+
+            <div class="max-w-4xl">
+              <h2 class="text-3xl md:text-5xl font-medium tracking-[-0.04em] text-white">
+                Why should computing matter here?
+              </h2>
+
+              <p
+                id="whyText"
+                class="mt-6 text-lg leading-8 text-slate-400"
+              ></p>
+            </div>
+
+            <div
+              id="whyConcepts"
+              class="grid md:grid-cols-3 gap-px bg-white/10 border border-white/10 rounded-2xl overflow-hidden mt-12"
+            >
+              <!-- JS -->
+            </div>
+
           </div>
         </div>
 
-        <div>
-          <label class="block text-slate-400 mb-1.5">Workshop Topic or Project Idea Title</label>
-          <input type="text" id="req-title" required placeholder="e.g., Building a Real-Time Vital Sensor Dashboard with C++ and Flask" class="w-full px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-brand-cyan transition-all" />
+      </section>
+
+
+      <!-- =====================================================
+           03 — WHERE IT'S HAPPENING
+           ===================================================== -->
+      <section class="border-y border-white/10 bg-white/[0.012]">
+
+        <div class="max-w-7xl mx-auto px-6 md:px-8 py-28">
+
+          <div class="grid lg:grid-cols-[180px_1fr] gap-8">
+
+            <div>
+              <span class="font-mono text-xs text-slate-600">
+                03
+              </span>
+
+              <p class="font-mono text-[10px] tracking-[0.18em] uppercase text-slate-600 mt-2">
+                WHERE IT'S HAPPENING
+              </p>
+            </div>
+
+            <div>
+
+              <div class="max-w-3xl mb-12">
+                <h2 class="text-3xl md:text-5xl font-medium tracking-[-0.04em] text-white">
+                  From idea to the real world.
+                </h2>
+
+                <p class="mt-5 text-slate-400 leading-7">
+                  Computing is already reshaping the fields around us.
+                  Here are some of the places where these intersections become tangible.
+                </p>
+              </div>
+
+              <div class="grid lg:grid-cols-[260px_1fr] gap-4">
+
+                <!-- Examples -->
+                <div
+                  id="exampleTabs"
+                  class="flex lg:flex-col gap-2 overflow-x-auto hide-scrollbar"
+                >
+                  <!-- JS -->
+                </div>
+
+                <!-- Example detail -->
+                <div
+                  id="exampleDetail"
+                  class="rounded-2xl border border-white/10 bg-brand-panel/80 p-7 md:p-9 min-h-[330px]"
+                >
+                  <!-- JS -->
+                </div>
+
+              </div>
+
+              <div class="mt-5 font-mono text-[10px] text-slate-700">
+                PLACEHOLDER — Replace or expand these examples with ComputeX-approved organizations,
+                projects, links, and statistics before publishing.
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+
+      <!-- =====================================================
+           04 — WHAT WE EXPLORE
+           ===================================================== -->
+      <section class="max-w-7xl mx-auto px-6 md:px-8 py-28">
+
+        <div class="grid lg:grid-cols-[180px_1fr] gap-8">
+
+          <div>
+            <span class="font-mono text-xs text-slate-600">
+              04
+            </span>
+
+            <p class="font-mono text-[10px] tracking-[0.18em] uppercase text-slate-600 mt-2">
+              WHAT WE EXPLORE
+            </p>
+          </div>
+
+          <div>
+
+            <div class="max-w-3xl mb-12">
+              <h2 class="text-3xl md:text-5xl font-medium tracking-[-0.04em] text-white">
+                Where ComputeX goes deeper.
+              </h2>
+
+              <p class="mt-5 text-slate-400 leading-7">
+                These are the specific intersections we want to investigate,
+                build around, and bring into workshops and projects.
+              </p>
+            </div>
+
+            <div class="grid lg:grid-cols-[1fr_1.25fr] gap-5">
+
+              <div
+                id="focusCards"
+                class="grid sm:grid-cols-2 lg:grid-cols-1 gap-2"
+              >
+                <!-- JS -->
+              </div>
+
+              <div
+                id="focusDetail"
+                class="border border-white/10 bg-brand-panel rounded-2xl p-7 md:p-9 min-h-[360px]"
+              >
+                <!-- JS -->
+              </div>
+
+            </div>
+
+          </div>
+
         </div>
 
-        <div>
-          <label class="block text-slate-400 mb-1.5">Brief Description & Technical Goals</label>
-          <textarea id="req-desc" rows="3" required placeholder="Describe what members will learn, build, or analyze..." class="w-full px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-brand-cyan transition-all font-sans"></textarea>
+      </section>
+
+
+      <!-- =====================================================
+           05 — TOOLKIT
+           ===================================================== -->
+      <section class="border-y border-white/10 bg-white/[0.012]">
+
+        <div class="max-w-7xl mx-auto px-6 md:px-8 py-28">
+
+          <div class="grid lg:grid-cols-[180px_1fr] gap-8">
+
+            <div>
+              <span class="font-mono text-xs text-slate-600">
+                05
+              </span>
+
+              <p class="font-mono text-[10px] tracking-[0.18em] uppercase text-slate-600 mt-2">
+                THE TOOLKIT
+              </p>
+            </div>
+
+            <div>
+
+              <div class="max-w-3xl mb-12">
+                <h2 class="text-3xl md:text-5xl font-medium tracking-[-0.04em] text-white">
+                  The ecosystem behind the work.
+                </h2>
+
+                <p class="mt-5 text-slate-400 leading-7">
+                  Computing isn't synonymous with writing code.
+                  Languages, frameworks, methods, platforms, and design tools
+                  all become part of the toolkit.
+                </p>
+              </div>
+
+              <div class="grid lg:grid-cols-[1fr_1.15fr] gap-5">
+
+                <div class="space-y-8">
+
+                  <div>
+                    <div class="font-mono text-[10px] tracking-[0.18em] text-slate-600 mb-3">
+                      LANGUAGES / FRAMEWORKS
+                    </div>
+
+                    <div
+                      id="languageTools"
+                      class="flex flex-wrap gap-2"
+                    ></div>
+                  </div>
+
+                  <div>
+                    <div class="font-mono text-[10px] tracking-[0.18em] text-slate-600 mb-3">
+                      METHODS
+                    </div>
+
+                    <div
+                      id="methodTools"
+                      class="flex flex-wrap gap-2"
+                    ></div>
+                  </div>
+
+                  <div>
+                    <div class="font-mono text-[10px] tracking-[0.18em] text-slate-600 mb-3">
+                      TOOLS
+                    </div>
+
+                    <div
+                      id="softwareTools"
+                      class="flex flex-wrap gap-2"
+                    ></div>
+                  </div>
+
+                </div>
+
+                <div
+                  id="toolDetail"
+                  class="border border-white/10 bg-brand-panel rounded-2xl p-7 md:p-9 min-h-[300px]"
+                >
+                  <!-- JS -->
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+
+      <!-- =====================================================
+           06 — TRY IT YOURSELF
+           ===================================================== -->
+      <section class="max-w-7xl mx-auto px-6 md:px-8 py-28">
+
+        <div class="grid lg:grid-cols-[180px_1fr] gap-8">
+
+          <div>
+            <span class="font-mono text-xs text-slate-600">
+              06
+            </span>
+
+            <p class="font-mono text-[10px] tracking-[0.18em] uppercase text-slate-600 mt-2">
+              TRY IT YOURSELF
+            </p>
+          </div>
+
+          <div>
+
+            <div class="max-w-3xl mb-12">
+
+              <h2 class="text-3xl md:text-5xl font-medium tracking-[-0.04em] text-white">
+                Can computation reveal something we couldn't see before?
+              </h2>
+
+              <p
+                id="demoIntro"
+                class="mt-5 text-slate-400 leading-7"
+              ></p>
+
+            </div>
+
+            <!-- IDE -->
+            <div
+              class="rounded-2xl border border-white/10 bg-[#0c0d10] overflow-hidden shadow-2xl shadow-black/30"
+            >
+
+              <!-- IDE header -->
+              <div class="h-11 border-b border-white/10 bg-white/[0.02] flex items-center justify-between px-4">
+
+                <div class="flex items-center gap-2">
+
+                  <span class="w-2.5 h-2.5 rounded-full bg-red-500/60"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-yellow-500/60"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-green-500/60"></span>
+
+                </div>
+
+                <span
+                  id="demoFile"
+                  class="font-mono text-[10px] text-slate-600"
+                >
+                  analyze.py
+                </span>
+
+                <span class="w-12"></span>
+
+              </div>
+
+
+              <!-- Code -->
+              <div class="grid lg:grid-cols-[1fr_1fr]">
+
+                <div class="border-b lg:border-b-0 lg:border-r border-white/10">
+
+                  <div class="px-5 py-4 border-b border-white/5 flex items-center justify-between">
+                    <span class="font-mono text-[10px] tracking-[0.15em] text-slate-600">
+                      SOURCE
+                    </span>
+
+                    <span class="font-mono text-[10px] text-slate-700">
+                      browser runtime
+                    </span>
+                  </div>
+
+                  <pre
+                    id="demoCode"
+                    class="p-5 md:p-7 text-[11px] md:text-xs leading-6 font-mono text-slate-400 overflow-x-auto min-h-[340px]"
+                  ></pre>
+
+                </div>
+
+
+                <!-- Terminal -->
+                <div>
+
+                  <div class="px-5 py-4 border-b border-white/5 flex items-center justify-between">
+
+                    <span class="font-mono text-[10px] tracking-[0.15em] text-slate-600">
+                      TERMINAL
+                    </span>
+
+                    <span class="flex items-center gap-2 font-mono text-[10px] text-slate-600">
+                      <span
+                        id="terminalStatusDot"
+                        class="w-1.5 h-1.5 rounded-full"
+                        style="background:#4b5563"
+                      ></span>
+                      <span id="terminalStatus">
+                        idle
+                      </span>
+                    </span>
+
+                  </div>
+
+                  <div
+                    id="terminal"
+                    class="demo-output p-5 md:p-7 font-mono text-[11px] md:text-xs leading-6 text-slate-400 overflow-x-auto scanline"
+                  >
+                    <div class="text-slate-600">
+                      $ ready
+                    </div>
+
+                    <div class="mt-3 text-slate-700">
+                      Run the analysis to see computation happen in real time.
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+
+
+              <!-- Run bar -->
+              <div class="border-t border-white/10 bg-white/[0.02] p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+
+                <div class="font-mono text-[10px] text-slate-600">
+                  <span id="demoCommand">
+                    $ python analyze.py
+                  </span>
+                </div>
+
+                <button
+                  id="runDemo"
+                  class="group relative inline-flex items-center justify-center px-5 py-2.5 rounded-lg bg-white text-black font-mono text-xs font-semibold transition-all hover:scale-[1.01] disabled:opacity-40 disabled:cursor-not-allowed"
+                >
+                  RUN ANALYSIS
+                  <span class="ml-2 transition-transform group-hover:translate-x-0.5">
+                    →
+                  </span>
+                </button>
+
+              </div>
+
+            </div>
+
+
+            <!-- What happened -->
+            <div
+              id="demoExplanation"
+              class="mt-6 border border-white/10 rounded-2xl bg-brand-panel/50 p-6 md:p-7"
+            >
+              <!-- JS -->
+            </div>
+
+          </div>
+
         </div>
 
-        <button type="submit" class="px-6 py-3 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold transition-all flex items-center gap-2">
-          <span>🚀 Submit to Community Pipeline</span>
-        </button>
-      </form>
+      </section>
 
-      <!-- Success Notification Toast -->
-      <div id="submit-toast" class="hidden mt-4 p-4 bg-brand-emerald/10 border border-brand-emerald/30 text-brand-emerald rounded-xl font-mono text-xs flex items-center justify-between">
-        <span>✓ Success! Your proposal has been added to the community queue.</span>
-        <span class="text-slate-400 cursor-pointer" onclick="this.parentElement.classList.add('hidden')">✕ Dismiss</span>
-      </div>
+
+      <!-- =====================================================
+           07 — QUESTIONS
+           ===================================================== -->
+      <section class="border-y border-white/10 bg-white/[0.012]">
+
+        <div class="max-w-7xl mx-auto px-6 md:px-8 py-28">
+
+          <div class="grid lg:grid-cols-[180px_1fr] gap-8">
+
+            <div>
+              <span class="font-mono text-xs text-slate-600">
+                07
+              </span>
+
+              <p class="font-mono text-[10px] tracking-[0.18em] uppercase text-slate-600 mt-2">
+                QUESTIONS
+              </p>
+            </div>
+
+            <div>
+
+              <div class="max-w-3xl mb-12">
+
+                <h2 class="text-3xl md:text-5xl font-medium tracking-[-0.04em] text-white">
+                  The interesting part is what we don't know yet.
+                </h2>
+
+                <p class="mt-5 text-slate-400 leading-7">
+                  Every new capability creates another set of questions.
+                  These are some of the problems worth sitting with.
+                </p>
+
+              </div>
+
+              <div
+                id="questionList"
+                class="border-t border-white/10"
+              >
+                <!-- JS -->
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
     </div>
-  </section>
+
+    <!-- =======================================================
+         08 — PEOPLE
+         ======================================================= -->
+    <section class="max-w-5xl mx-auto px-6 md:px-8 py-20 font-mono">
+      <div class="bg-[#0b0c16] border border-indigo-500/20 rounded-2xl overflow-hidden relative p-10 md:p-16 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-10 shadow-2xl">
+        <div class="absolute left-0 top-0 bottom-0 w-1.5 bg-gradient-to-b from-brand-cyan via-indigo-500 to-purple-500"></div>
+        <div class="absolute inset-0 bg-gradient-to-br from-brand-cyan/5 via-indigo-500/5 to-purple-500/5 pointer-events-none"></div>
+        <div class="space-y-5 max-w-xl pl-2 font-sans">
+          <h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight leading-tight">
+            Technology rarely stays in one field.
+          </h2>
+          <p class="text-base text-slate-300 leading-relaxed">
+            The most interesting problems often sit between disciplines. Curious whether someone on our team shares your interests?
+          </p>
+        </div>
+        <div class="flex flex-col sm:flex-row lg:flex-col gap-3.5 w-full lg:w-64 shrink-0">
+          <a href="../team/index.html" class="px-6 py-4 rounded-xl bg-white text-black font-bold text-xs hover:bg-slate-200 transition-colors flex items-center justify-between gap-4">
+            <span>Meet the Team</span>
+            <span>→</span>
+          </a>
+          <a href="../join/index.html" class="px-6 py-4 rounded-xl bg-indigo-500/10 border border-indigo-400/30 text-indigo-200 text-xs font-bold hover:bg-indigo-500/20 transition-colors flex items-center justify-between gap-4">
+            <span>Find Your Intersection</span>
+            <span>→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+    
+  </main>
+
 
   <!------------------------------------------------->
   <!-- FOOTER -->
@@ -346,298 +975,2547 @@ raw.filter(l_freq=0.5, h_freq=30.0)</pre>
     </div>
   </footer>
 
-  <!-- JavaScript Logic -->
+  <!-- =========================================================
+       JAVASCRIPT
+       ========================================================= -->
   <script>
-    const pillarData = {
+
+    /*
+     * ==========================================================
+     * COMPUTEX PILLAR DATA
+     * ==========================================================
+     *
+     * Most page content lives here.
+     *
+     * Replace PLACEHOLDER content with the exact examples,
+     * organizations, resources, etc. you want to publish.
+     */
+
+    const pillars = {
+
       tech: {
-        tag: "// TRACK_01",
-        title: "Tech + Engineering",
-        gradient: "from-brand-cyan to-brand-purple",
-        accentBorder: "border-l-brand-cyan",
-        badgeBg: "bg-brand-cyan/10 text-brand-cyan border-brand-cyan/30",
-        desc: "Software systems, low-level C++ firmware, microcontroller interfaces, and automated CI/CD pipelines.",
-        traditional: [
-          "Manual hardware monitoring and device troubleshooting",
-          "High-level software built without understanding underlying system memory limits",
-          "Disconnected scripts with no automated deployment or version control workflows"
+        number: "01",
+        name: "Tech + Engineering",
+        shortName: "TECH",
+        accent: "#00F0FF",
+
+        intro:
+          "Computing is the foundation behind the systems we build, understand, and control.",
+
+        introSub:
+          "ComputeX treats Tech + Engineering as its foundational anchor: the core computing skills that power our other pillars, plus the ways computation can transform traditional engineering.",
+
+        why:
+          "Modern engineering systems increasingly depend on computation to sense, model, simulate, optimize, and act. Computing doesn't just make existing engineering workflows faster—it makes new kinds of systems possible.",
+
+        concepts: [
+          {
+            label: "SCALE",
+            text: "Simulate systems, process datasets, and search solution spaces far beyond what manual workflows can handle."
+          },
+          {
+            label: "CONTROL",
+            text: "Software can translate sensor data into decisions and physical actions in real time."
+          },
+          {
+            label: "NEW SYSTEMS",
+            text: "Robotics, autonomous vehicles, intelligent devices, and computational materials depend on tightly coupled hardware and software."
+          }
         ],
-        powered: [
-          "Bare-metal C/C++ firmware & pointer management for high-throughput computing",
-          "Microcontroller sensor streaming (Arduino, ESP32) over serial & Wi-Fi",
-          "Automated Linux command-line workflows and robust GitHub CI/CD pipelines"
+
+        examples: [
+          {
+            title: "Robotics",
+            tag: "MICHIGAN",
+            description:
+              "Michigan Robotics brings together perception, machine learning, planning, control, hardware, and human interaction to build systems that operate in the physical world.",
+            computing:
+              "Computer vision · Machine learning · Control · Embedded systems",
+            organization:
+              "University of Michigan Robotics"
+          },
+          {
+            title: "Autonomous Systems",
+            tag: "ENGINEERING",
+            description:
+              "Autonomous systems combine sensing, reasoning, and acting into a computational loop that allows machines to respond to changing environments.",
+            computing:
+              "Sensor fusion · Localization · Planning · Control",
+            organization:
+              "PLACEHOLDER — Add a specific autonomous-systems organization or project."
+          },
+          {
+            title: "Embedded Devices",
+            tag: "SYSTEMS",
+            description:
+              "Small computers increasingly live inside physical products, from medical devices and vehicles to industrial equipment and consumer electronics.",
+            computing:
+              "Microcontrollers · Real-time systems · Sensors · Firmware",
+            organization:
+              "PLACEHOLDER — Add an embedded-systems example."
+          }
         ],
-        stack: [
-          { name: "C / C++", desc: "Low-level system programming and memory management.", code: "int* ptr = new int[100];\n// Efficient memory buffer handling" },
-          { name: "Embedded Microcontrollers", desc: "ESP32 & Arduino hardware sensor integration.", code: "void setup() { Serial.begin(115200); }\nvoid loop() { /* Read sensors */ }" },
-          { name: "Python & Linux", desc: "System automation and scripting workflows.", code: "import subprocess\nsubprocess.run(['systemctl', 'restart', 'service'])" },
-          { name: "Git & CI/CD", desc: "Version control and automated deployment pipelines.", code: "git push origin main\n# Triggers automated GitHub Actions test suite" }
+
+        focusAreas: [
+          {
+            title: "Computer Science",
+            description:
+              "The algorithms, abstractions, and systems that turn computation into usable software.",
+            encounter:
+              "Data structures · Algorithms · Systems · Networking · Software architecture",
+            practice:
+              "Used to build the computational foundations behind applications, infrastructure, simulations, and intelligent systems."
+          },
+          {
+            title: "AI / ML",
+            description:
+              "Methods that allow systems to learn patterns, make predictions, and adapt from data.",
+            encounter:
+              "Neural networks · Representation learning · Model evaluation · Inference",
+            practice:
+              "Used for perception, prediction, language, recommendation, robotics, and decision support."
+          },
+          {
+            title: "Embedded Systems",
+            description:
+              "Computing constrained by the physical world—where software meets sensors, electronics, timing, and hardware.",
+            encounter:
+              "Microcontrollers · Firmware · Real-time systems · Sensor interfaces",
+            practice:
+              "Used in vehicles, wearables, medical devices, industrial systems, and connected products."
+          },
+          {
+            title: "Robotics",
+            description:
+              "Computational systems that sense, reason about, and act on the physical world.",
+            encounter:
+              "Computer vision · Motion planning · Control · Robot learning",
+            practice:
+              "Used in manufacturing, transportation, healthcare, exploration, logistics, and human-robot interaction."
+          }
         ],
-        sim: {
-          title: "C++ Memory & Register Simulation",
-          desc: "Allocate a mock memory buffer and write hex register commands to a simulated microcontroller.",
-          code: "Allocating 1024-byte buffer at 0x7FFF...\nRegister state: [OK] Sensor ACK received.\nThroughput: 115,200 baud stream stable."
-        }
+
+        toolkit: {
+          languages: [
+            {
+              name: "Python",
+              description: "A general-purpose language used extensively across AI, data science, automation, and prototyping.",
+              usedFor: "Machine learning · Data processing · Prototyping"
+            },
+            {
+              name: "C / C++",
+              description: "Languages commonly used when performance, memory control, and hardware integration matter.",
+              usedFor: "Embedded systems · Robotics · High-performance computing"
+            }
+          ],
+
+          methods: [
+            {
+              name: "Machine Learning",
+              description: "Algorithms that learn patterns from data to make predictions or decisions.",
+              usedFor: "Prediction · Classification · Perception · Control"
+            },
+            {
+              name: "Control",
+              description: "Mathematical methods for steering dynamic systems toward desired behavior.",
+              usedFor: "Robotics · Vehicles · Industrial systems"
+            },
+            {
+              name: "Simulation",
+              description: "Computational models used to study systems before deploying them in the physical world.",
+              usedFor: "Engineering design · Testing · Optimization"
+            }
+          ],
+
+          tools: [
+            {
+              name: "Docker",
+              description: "A platform for packaging applications and their dependencies into portable containers.",
+              usedFor: "Development environments · Deployment · Reproducibility"
+            },
+            {
+              name: "Git / GitHub",
+              description: "Version-control and collaboration infrastructure for building software with teams.",
+              usedFor: "Source control · Collaboration · Project workflows"
+            }
+          ]
+        },
+
+        demo: {
+          file: "robot_path.py",
+          command: "$ python robot_path.py",
+          intro:
+            "A robot does not need to understand the whole world. It needs enough computation to turn observations into a useful next action.",
+          code:
+`# Grid-based path planning
+
+grid = [
+  ["S", ".", ".", "#", "."],
+  ["#", "#", ".", "#", "."],
+  [".", ".", ".", ".", "."],
+  [".", "#", "#", "#", "."],
+  [".", ".", ".", ".", "G"]
+]
+
+start = (0, 0)
+goal  = (4, 4)
+
+path = find_shortest_path(
+  grid,
+  start,
+  goal
+)
+
+print(path)`,
+
+          explanation:
+            "The demo searches a grid for a valid path from a starting position to a goal. The same basic idea scales into much more sophisticated planning systems used in robotics."
+        },
+
+        questions: [
+          {
+            q: "How much intelligence can we move from software into the physical world?",
+            a: "As sensors, processors, and models become cheaper and more capable, more decisions can happen locally on devices rather than in centralized systems."
+          },
+          {
+            q: "What should happen when an autonomous system is uncertain?",
+            a: "Reliable autonomy isn't only about making good predictions. It also requires knowing when the system should slow down, ask for help, or stop."
+          },
+          {
+            q: "Where should the boundary between simulation and reality be?",
+            a: "Simulation can accelerate development, but physical systems introduce uncertainty that models cannot perfectly capture."
+          }
+        ]
       },
+
+
       business: {
-        tag: "// TRACK_02",
-        title: "Business + Strategy",
-        gradient: "bg-gradient-to-r from-brand-amber from-50% to-brand-emerald",
-        accentBorder: "border-l-brand-amber",
-        badgeBg: "bg-brand-amber/10 text-brand-amber border-brand-amber/30",
-        desc: "Automated data extraction, SQL intelligence pipelines, and product management metrics.",
-        traditional: [
-          "Manual web research and copying competitor pricing into static spreadsheets",
-          "Delayed quarterly reporting based on subjective market surveys",
-          "Siloed financial models with zero programmatic data ingestion"
+        number: "02",
+        name: "Business + Strategy",
+        shortName: "BUSINESS",
+        accent: "#FFB800",
+
+        intro:
+          "Computing is transforming how organizations understand markets, make decisions, build products, and compete.",
+
+        introSub:
+          "ComputeX explores the computational systems behind better decisions—from analytics and forecasting to financial technology, automation, and new digital products.",
+
+        why:
+          "Computing changes more than the tools people use. It changes what organizations can measure, predict, automate, and create.",
+
+        concepts: [
+          {
+            label: "SCALE",
+            text: "Organizations can analyze millions of transactions, interactions, and signals that no individual could examine manually."
+          },
+          {
+            label: "SPEED",
+            text: "Models and software can compress cycles of analysis, experimentation, forecasting, and decision-making."
+          },
+          {
+            label: "CAPABILITY",
+            text: "Computational systems create products and business models that could not exist without software, data, and networks."
+          }
         ],
-        powered: [
-          "Automated web scraping pipelines (`BeautifulSoup`, `Selenium`) extracting structured JSON data",
-          "Optimized SQL data warehouses handling complex joins and real-time aggregations",
-          "Interactive executive dashboards (`Tableau`/`PowerBI`) driven by live SQL feeds"
+
+        examples: [
+          {
+            title: "Retail Forecasting",
+            tag: "RETAIL",
+            description:
+              "Demand forecasting systems use historical sales and other signals to estimate what products may be needed, helping organizations make decisions about inventory and operations.",
+            computing:
+              "Forecasting · Statistics · Optimization · Data engineering",
+            organization:
+              "PLACEHOLDER — Add a specific retailer and verified example."
+          },
+          {
+            title: "Financial Technology",
+            tag: "FINTECH",
+            description:
+              "Financial institutions use computational systems to process transactions, identify unusual activity, assess risk, and support increasingly automated financial workflows.",
+            computing:
+              "Machine learning · Statistical modeling · Anomaly detection",
+            organization:
+              "PLACEHOLDER — Add a specific financial institution and verified application."
+          },
+          {
+            title: "Enterprise AI",
+            tag: "ENTERPRISE",
+            description:
+              "Organizations are building software systems that combine data, automation, and AI to support internal workflows and decision-making.",
+            computing:
+              "Data pipelines · APIs · Machine learning · Automation",
+            organization:
+              "PLACEHOLDER — Add a verified enterprise example."
+          }
         ],
-        stack: [
-          { name: "SQL", desc: "Complex relational queries, window functions, and data aggregation.", code: "SELECT department, AVG(revenue) \nFROM market_data \nGROUP BY department;" },
-          { name: "Python Scrapers", desc: "Automated web data harvesting with BeautifulSoup and Selenium.", code: "soup = BeautifulSoup(html_content, 'html.parser')\nprices = [item.text for item in soup.find_all('span', class_='price')]" },
-          { name: "Tableau & PowerBI", desc: "Interactive executive dashboarding.", code: "# Connect live SQL warehouse to visualization layer" },
-          { name: "Financial Modeling", desc: "Metric forecasting and unit economic evaluations in Python/Sheets." }
+
+        focusAreas: [
+          {
+            title: "Business Intelligence",
+            description:
+              "Using data systems to turn operational information into insights people can act on.",
+            encounter:
+              "Dashboards · Forecasting · Experimentation · Visualization",
+            practice:
+              "Used to understand customers, measure outcomes, identify trends, and support organizational decisions."
+          },
+          {
+            title: "FinTech",
+            description:
+              "Computing applied to financial products, infrastructure, markets, and risk.",
+            encounter:
+              "Risk modeling · Fraud detection · Algorithmic systems · Digital payments",
+            practice:
+              "Used to automate financial workflows, detect anomalies, model uncertainty, and build new financial products."
+          },
+          {
+            title: "Enterprise Tech",
+            description:
+              "Software and computational infrastructure designed around large-scale organizational workflows.",
+            encounter:
+              "Cloud systems · APIs · Automation · Data platforms",
+            practice:
+              "Used to coordinate information, automate repetitive work, and connect people, products, and processes."
+          }
         ],
-        sim: {
-          title: "Automated Web Scraper Simulation",
-          desc: "Execute a mock BeautifulSoup parser against raw competitor landing page markup.",
-          code: "Fetching target URL: https://api.marketdata.io/competitors...\nParsing HTML DOM nodes... Found 42 product records.\nExporting to SQL table: [SUCCESS]"
-        }
+
+        toolkit: {
+          languages: [
+            {
+              name: "pandas",
+              description: "A Python library for manipulating and analyzing structured data.",
+              usedFor: "Data cleaning · Aggregation · Analysis"
+            },
+            {
+              name: "SQL",
+              description: "A language for querying and working with relational databases.",
+              usedFor: "Data retrieval · Transformation · Reporting"
+            }
+          ],
+
+          methods: [
+            {
+              name: "Forecasting",
+              description: "Using historical patterns and other signals to estimate future outcomes.",
+              usedFor: "Demand · Revenue · Operations · Planning"
+            },
+            {
+              name: "Experimentation",
+              description: "Structured testing used to estimate whether a change actually causes an outcome.",
+              usedFor: "Product decisions · Marketing · Optimization"
+            },
+            {
+              name: "Optimization",
+              description: "Finding strong solutions under a set of objectives and constraints.",
+              usedFor: "Pricing · Scheduling · Logistics · Resource allocation"
+            }
+          ],
+
+          tools: [
+            {
+              name: "Tableau",
+              description: "A platform for turning data into interactive visualizations and dashboards.",
+              usedFor: "Business intelligence · Reporting · Data exploration"
+            },
+            {
+              name: "Jupyter",
+              description: "An interactive environment for combining code, data, visualizations, and explanation.",
+              usedFor: "Analysis · Prototyping · Data storytelling"
+            }
+          ]
+        },
+
+        demo: {
+          file: "analyze.py",
+          command: "$ python analyze.py",
+          intro:
+            "Can a dataset tell us something we couldn't see before? This small analysis turns thousands of sales observations into a few decision-relevant patterns.",
+          code:
+`import pandas as pd
+
+sales = pd.read_csv(
+  "sales_data.csv"
+)
+
+monthly = (
+  sales
+    .groupby("month")
+    ["sales"]
+    .sum()
+)
+
+regional = (
+  sales
+    .groupby("region")
+    ["sales"]
+    .sum()
+)
+
+print(monthly)
+print(regional)`,
+
+          explanation:
+            "A few operations turn thousands of individual observations into aggregate patterns. The important part isn't the code itself—it's the transition from raw observations to information that can guide a decision."
+        },
+
+        questions: [
+          {
+            q: "When should an organization trust an algorithm over human judgment?",
+            a: "The answer depends on the quality of the data, the objective being optimized, the consequences of errors, and how well humans understand the system."
+          },
+          {
+            q: "Can better data actually lead to worse decisions?",
+            a: "Absolutely. More data can create false confidence, optimize the wrong objective, or reinforce patterns that should have been questioned."
+          },
+          {
+            q: "What happens when optimization becomes the goal instead of the tool?",
+            a: "A system can become extremely good at maximizing a metric while moving further away from the human outcome the metric was supposed to represent."
+          }
+        ]
       },
+
+
       health: {
-        tag: "// TRACK_03",
-        title: "Health + Medicine",
-        gradient: "bg-gradient-to-r from-brand-emerald from-50% to-brand-cyan",
-        accentBorder: "border-l-brand-emerald",
-        badgeBg: "bg-brand-emerald/10 text-brand-emerald border-brand-emerald/30",
-        desc: "Bioinformatics, medical machine learning, physiological signal processing (EEG/ECG), and clinical datasets.",
-        traditional: [
-          "Manual paper charts and subjective visual inspection of raw biological signals",
-          "Slow, manual clinical sleep scoring and diagnostic evaluations",
-          "Isolated medical datasets with no scalable machine learning pipelines"
+        number: "03",
+        name: "Health + Medicine",
+        shortName: "HEALTH",
+        accent: "#00E599",
+
+        intro:
+          "Computing is changing how we understand, diagnose, monitor, and interact with the human body.",
+
+        introSub:
+          "ComputeX explores the intersection of computation and medicine—from intelligent medical devices and imaging to biological data and computational approaches to health.",
+
+        why:
+          "Medicine generates enormous amounts of complex data, from medical images and physiological signals to genomic information. Computing provides ways to analyze that information, detect patterns, and build new tools for clinicians and patients.",
+
+        concepts: [
+          {
+            label: "MEASUREMENT",
+            text: "Computational tools can extract signals and patterns from data that is too large or complex to inspect manually."
+          },
+          {
+            label: "PERSONALIZATION",
+            text: "Models can help account for differences between patients, environments, and biological systems."
+          },
+          {
+            label: "NEW TOOLS",
+            text: "Software increasingly becomes part of the medical device, diagnostic workflow, and patient experience itself."
+          }
         ],
-        powered: [
-          "Automated signal filtering and noise removal using `mne-python` and NumPy",
-          "Supervised machine learning models classifying EEG sleep stages in real time",
-          "Predictive clinical risk modeling using public databases like PhysioNet and MIMIC-III"
+
+        examples: [
+          {
+            title: "Medical Imaging",
+            tag: "DIAGNOSTICS",
+            description:
+              "Mayo Clinic describes AI work using imaging and clinical data to help generate medical insights and investigate conditions that may be difficult to detect through conventional analysis alone.",
+            computing:
+              "Computer vision · Deep learning · Medical imaging",
+            organization:
+              "Mayo Clinic"
+          },
+          {
+            title: "Medical Devices",
+            tag: "DEVICES",
+            description:
+              "Modern medical devices increasingly combine sensors, embedded computation, signal processing, and software to monitor or assist patients.",
+            computing:
+              "Signal processing · Embedded systems · Machine learning",
+            organization:
+              "PLACEHOLDER — Add a specific medical-device organization/project."
+          },
+          {
+            title: "Bioinformatics",
+            tag: "BIOLOGY",
+            description:
+              "Biological datasets can be enormous and highly structured, creating problems where algorithms, statistics, and domain knowledge intersect.",
+            computing:
+              "Data analysis · Statistical modeling · Machine learning",
+            organization:
+              "PLACEHOLDER — Add a specific bioinformatics organization/project."
+          }
         ],
-        stack: [
-          { name: "mne-python", desc: "Neurophysiological signal filtering and EEG analysis.", code: "raw = mne.io.read_raw_edf('patient_01.edf')\nraw.filter(l_freq=0.5, h_freq=40.0)" },
-          { name: "PhysioNet / MIMIC", desc: "Public clinical database integration and preprocessing.", code: "import wfdb\nrecord = wfdb.rdrecord('physionet/s001') " },
-          { name: "PyTorch & NumPy", desc: "Supervised machine learning for physiological classification.", code: "outputs = model(eeg_tensor)\nloss = criterion(outputs, labels)" },
-          { name: "Time-Series Analysis", desc: "Real-time vital sign feature extraction and anomaly detection." }
+
+        focusAreas: [
+          {
+            title: "Health Tech",
+            description:
+              "Digital systems designed around prevention, monitoring, diagnosis, treatment, and patient experience.",
+            encounter:
+              "Remote monitoring · Digital health · Clinical decision support",
+            practice:
+              "Used to collect patient signals, support clinical workflows, and create new ways for people to interact with healthcare."
+          },
+          {
+            title: "Medical Devices",
+            description:
+              "Physical healthcare technologies where computation becomes part of the device itself.",
+            encounter:
+              "Sensors · Embedded systems · Signal processing · Control",
+            practice:
+              "Used in monitoring systems, prosthetics, imaging equipment, surgical technologies, and other medical hardware."
+          },
+          {
+            title: "Bioinformatics",
+            description:
+              "Computational methods for working with biological data at scales that require software and statistics.",
+            encounter:
+              "Genomics · Statistical modeling · Data pipelines · Machine learning",
+            practice:
+              "Used to study biological systems, identify patterns, compare sequences, and support research."
+          }
         ],
-        sim: {
-          title: "Health Signal Processing Simulation",
-          desc: "Apply a 0.5Hz–30Hz bandpass filter to noisy physiological sensor readings.",
-          code: "Loading raw EDF file (Sampling Rate: 250Hz)...\nApplying 4th-order Butterworth bandpass filter...\nArtifacts removed. Clean Alpha/Delta frequency bands isolated."
-        }
+
+        toolkit: {
+          languages: [
+            {
+              name: "Python",
+              description: "A common language for scientific computing, machine learning, and biological data analysis.",
+              usedFor: "Data analysis · Machine learning · Research"
+            },
+            {
+              name: "mne-python",
+              description: "A Python ecosystem for exploring and analyzing neurophysiological data.",
+              usedFor: "EEG · MEG · Neural signal analysis"
+            }
+          ],
+
+          methods: [
+            {
+              name: "Deep Learning",
+              description: "A family of machine-learning methods especially useful for complex high-dimensional data.",
+              usedFor: "Medical imaging · Signal analysis · Prediction"
+            },
+            {
+              name: "Signal Processing",
+              description: "Methods for extracting useful information from measurements collected over time or space.",
+              usedFor: "Physiological signals · Sensors · Imaging"
+            },
+            {
+              name: "Bioinformatics",
+              description: "Computational approaches for analyzing biological information.",
+              usedFor: "Genomics · Proteomics · Biological datasets"
+            }
+          ],
+
+          tools: [
+            {
+              name: "PyTorch",
+              description: "A machine-learning framework widely used for building and training neural networks.",
+              usedFor: "Deep learning · Computer vision · Research"
+            },
+            {
+              name: "OpenCV",
+              description: "A computer-vision library for image and video processing.",
+              usedFor: "Medical imaging · Vision · Image processing"
+            }
+          ]
+        },
+
+        demo: {
+          file: "signal.py",
+          command: "$ python signal.py",
+          intro:
+            "A noisy signal can hide the pattern we're looking for. This demo applies a moving average to reveal the underlying trend.",
+          code:
+`signal = [
+  12, 15, 11, 30,
+  14, 17, 31, 18,
+  21, 35, 23, 26
+]
+
+window = 3
+
+smoothed = moving_average(
+  signal,
+  window
+)
+
+plot(smoothed)`,
+
+          explanation:
+            "Smoothing doesn't magically create information—it changes how we represent noisy measurements so that larger patterns become easier to inspect."
+        },
+
+        questions: [
+          {
+            q: "What should a medical AI system do when it doesn't know?",
+            a: "Uncertainty is especially important when computational outputs can influence high-stakes decisions. A useful system needs mechanisms for communicating limits, not just predictions."
+          },
+          {
+            q: "How do we validate a model across different populations?",
+            a: "A model can perform well in one dataset while behaving differently elsewhere. Generalization, data quality, and population differences all matter."
+          },
+          {
+            q: "When does a medical device become a software system?",
+            a: "Increasingly, the answer is: earlier than we think. Software can influence sensing, interpretation, control, personalization, and the user experience of physical devices."
+          }
+        ]
       },
+
+
       art: {
-        tag: "// TRACK_04",
-        title: "Art + Design",
-        gradient: "from-brand-magenta to-brand-amber",
-        accentBorder: "border-l-brand-magenta",
-        badgeBg: "bg-brand-magenta/10 text-brand-magenta border-brand-magenta/30",
-        desc: "Creative coding, generative mathematical algorithms, HTML5 canvas graphics, and UI/UX design systems.",
-        traditional: [
-          "Static digital graphics created manually in isolated design files",
-          "Fixed visual layouts that do not respond to user input or real-time data",
-          "Disconnected handoffs between design mockups and front-end code"
+        number: "04",
+        name: "Art + Design",
+        shortName: "ART",
+        accent: "#FF2E93",
+
+        intro:
+          "Computing is becoming a medium for creating, designing, experiencing, and interacting with art.",
+
+        introSub:
+          "ComputeX explores the space where computation becomes a creative material—from interfaces and generative systems to immersive environments, graphics, and games.",
+
+        why:
+          "Computing doesn't only automate creative work. It creates entirely new materials for artists and designers: interactive systems, procedural worlds, generative models, real-time graphics, and experiences that respond to their audiences.",
+
+        concepts: [
+          {
+            label: "INTERACTION",
+            text: "A computational work can respond to its audience instead of remaining static."
+          },
+          {
+            label: "GENERATIVE SYSTEMS",
+            text: "Rules, randomness, and models can become part of the creative process itself."
+          },
+          {
+            label: "IMMERSION",
+            text: "Real-time computation makes spaces, interfaces, and digital worlds responsive and spatial."
+          }
         ],
-        powered: [
-          "Generative mathematical algorithms and trigonometry creating reactive visual art (`p5.js`)",
-          "Real-time interactive HTML5 canvas rendering mouse and physics simulations",
-          "State-driven UI/UX design systems built with Tailwind CSS and component frameworks"
+
+        examples: [
+          {
+            title: "Generative Creativity",
+            tag: "CREATIVE AI",
+            description:
+              "Adobe's Firefly ecosystem demonstrates how generative models can become part of creative ideation, editing, and production workflows.",
+            computing:
+              "Generative models · Image processing · Creative automation",
+            organization:
+              "Adobe"
+          },
+          {
+            title: "Interactive Art",
+            tag: "EXPERIENCE",
+            description:
+              "Computational art can react to movement, sound, sensors, or audience behavior, making the work itself an interactive system.",
+            computing:
+              "Creative coding · Sensors · Real-time graphics",
+            organization:
+              "PLACEHOLDER — Add an artist, studio, museum, or installation."
+          },
+          {
+            title: "Games + Virtual Worlds",
+            tag: "3D",
+            description:
+              "Games combine simulation, rendering, interaction, sound, physics, and software engineering into real-time computational worlds.",
+            computing:
+              "Game engines · Graphics · Physics · Interaction",
+            organization:
+              "PLACEHOLDER — Add a specific studio, game, or technology."
+          }
         ],
-        stack: [
-          { name: "p5.js", desc: "Generative mathematical art and creative coding.", code: "function draw() {\n  ellipse(mouseX, mouseY, sin(frameCount)*50, 50);\n}" },
-          { name: "HTML5 Canvas / WebGL", desc: "High-performance browser graphics rendering.", code: "const ctx = canvas.getContext('2d');\nctx.fillStyle = '#00F0FF'; ctx.fillRect(10, 10, 100, 100);" },
-          { name: "Figma UI/UX", desc: "Auto-layout design tokens and collaborative component systems." },
-          { name: "NiceGUI & Tailwind", desc: "Interactive Python-driven web user interfaces." }
+
+        focusAreas: [
+          {
+            title: "UI / UX",
+            description:
+              "Designing the interfaces through which people understand and interact with computational systems.",
+            encounter:
+              "Interaction design · Prototyping · Information architecture · Accessibility",
+            practice:
+              "Used to turn complex systems into experiences that people can understand and use."
+          },
+          {
+            title: "Immersive Art",
+            description:
+              "Creative experiences that use computation to create responsive or spatial environments.",
+            encounter:
+              "Projection · Sensors · Spatial interaction · Real-time graphics",
+            practice:
+              "Used in installations, exhibitions, performances, interactive environments, and experimental media."
+          },
+          {
+            title: "CGI",
+            description:
+              "Computer-generated imagery built through mathematical models of geometry, light, materials, and motion.",
+            encounter:
+              "3D graphics · Rendering · Animation · Simulation",
+            practice:
+              "Used in film, visualization, games, product design, advertising, and virtual environments."
+          },
+          {
+            title: "Game Design",
+            description:
+              "Designing systems of interaction, rules, feedback, narrative, and challenge that unfold through computation.",
+            encounter:
+              "Game mechanics · Simulation · AI · Interactive storytelling",
+            practice:
+              "Used to build experiences where software rules become part of the creative medium."
+          }
         ],
-        sim: {
-          title: "Generative Particle Canvas Simulation",
-          desc: "Initialize a p5.js trigonometric particle loop reacting to mouse coordinates.",
-          code: "Initializing WebGL Canvas context (800x600)...\nSpawning 500 reactive particle nodes...\nFPS stable at 60.0. Mouse listener active."
-        }
+
+        toolkit: {
+          languages: [
+            {
+              name: "p5.js",
+              description: "A JavaScript library designed to make creative coding and interactive graphics approachable.",
+              usedFor: "Generative art · Interaction · Visual experiments"
+            },
+            {
+              name: "JavaScript",
+              description: "The primary language of the web and a powerful medium for interactive creative experiences.",
+              usedFor: "Web interaction · Creative coding · Prototyping"
+            }
+          ],
+
+          methods: [
+            {
+              name: "Generative Design",
+              description: "Using rules, algorithms, or models to create and explore many possible outputs.",
+              usedFor: "Visual systems · Typography · Art · Product exploration"
+            },
+            {
+              name: "Interaction Design",
+              description: "Designing how people communicate with and experience computational systems.",
+              usedFor: "Interfaces · Games · Installations · Products"
+            },
+            {
+              name: "Real-Time Graphics",
+              description: "Generating visual output continuously as inputs or scenes change.",
+              usedFor: "Games · Immersive art · 3D · Interactive installations"
+            }
+          ],
+
+          tools: [
+            {
+              name: "Figma",
+              description: "A collaborative interface-design and prototyping platform.",
+              usedFor: "UI/UX · Prototyping · Design systems"
+            },
+            {
+              name: "Three.js",
+              description: "A JavaScript library for creating and displaying 3D graphics in the browser.",
+              usedFor: "3D web experiences · Visualization · Interactive art"
+            }
+          ]
+        },
+
+        demo: {
+          file: "generative.js",
+          command: "$ node generative.js",
+          intro:
+            "What happens when a few rules become a visual system? This demo generates a field of points from deterministic mathematical relationships.",
+          code:
+`const points = []
+
+for (let i = 0; i < 180; i++) {
+
+  const angle = i * 0.37
+  const radius = i * 1.8
+
+  points.push({
+    x: cos(angle) * radius,
+    y: sin(angle) * radius
+  })
+}
+
+draw(points)`,
+
+          explanation:
+            "The image isn't manually specified point by point. A compact set of rules creates a larger visual system. That's one of the central ideas behind generative art."
+        },
+
+        questions: [
+          {
+            q: "If a system generates the output, where does authorship live?",
+            a: "It can live in the model, the dataset, the rules, the prompts, the selection process, or some combination of them."
+          },
+          {
+            q: "Can computational constraints become part of creativity?",
+            a: "Absolutely. Constraints can create a design language, just as a physical material or formal rule can shape a traditional medium."
+          },
+          {
+            q: "What does an interface become when it can change itself?",
+            a: "The designer is no longer only arranging static elements. They are designing the rules that govern how an experience responds."
+          }
+        ]
       },
+
+
       ethics: {
-        tag: "// TRACK_05",
-        title: "Ethics + Impact",
-        gradient: "from-brand-purple to-brand-magenta",
-        accentBorder: "border-l-brand-purple",
-        badgeBg: "bg-brand-purple/10 text-brand-purple border-brand-purple/30",
-        desc: "Algorithmic fairness auditing, explainable AI (XAI), data privacy regulations, and responsible computing.",
-        traditional: [
-          "Post-hoc policy debates and qualitative ethical guidelines without code verification",
-          "Black-box machine learning deployments deployed without bias or disparity testing",
-          "Manual compliance checklists disconnected from model training pipelines"
+        number: "05",
+        name: "Ethics + Impact",
+        shortName: "ETHICS",
+        accent: "#9D4EDD",
+
+        intro:
+          "Computing does not simply reflect society. At scale, computational systems can shape decisions, opportunities, privacy, and power.",
+
+        introSub:
+          "ComputeX explores the technical and social questions that emerge when algorithms interact with real people—from fairness and explainability to privacy, governance, and policy.",
+
+        why:
+          "Computational systems increasingly influence decisions that affect people. Understanding how these systems work is therefore inseparable from understanding who benefits, who bears the risks, and what should happen when the system gets something wrong.",
+
+        concepts: [
+          {
+            label: "POWER",
+            text: "Automated systems can influence decisions at scales and speeds that amplify their underlying assumptions."
+          },
+          {
+            label: "VISIBILITY",
+            text: "Data and models can make some patterns measurable while hiding others or encoding choices invisibly."
+          },
+          {
+            label: "ACCOUNTABILITY",
+            text: "Technical systems need mechanisms for auditing, explaining, challenging, and correcting their outcomes."
+          }
         ],
-        powered: [
-          "Programmatic algorithmic fairness auditing using Fairlearn and IBM AIF360",
-          "Explainable AI feature attribution (`SHAP`/`LIME`) inspecting hidden model biases",
-          "Automated data privacy governance enforcing HIPAA and GDPR standards"
+
+        examples: [
+          {
+            title: "Algorithmic Fairness",
+            tag: "AI",
+            description:
+              "IBM Research introduced AI Fairness 360 as an open-source toolkit for measuring unwanted bias in datasets and machine-learning models and exploring mitigation techniques.",
+            computing:
+              "Fairness metrics · Model evaluation · Bias mitigation",
+            organization:
+              "IBM Research"
+          },
+          {
+            title: "Privacy",
+            tag: "DATA",
+            description:
+              "Modern systems constantly create and process data about people, creating a technical question as much as a legal or social one: what information should be collected, stored, inferred, and shared?",
+            computing:
+              "Encryption · Access control · Anonymization · Privacy-preserving computation",
+            organization:
+              "PLACEHOLDER — Add a specific privacy case study."
+          },
+          {
+            title: "AI Governance",
+            tag: "POLICY",
+            description:
+              "As organizations deploy increasingly capable AI systems, technical development is happening alongside new questions about evaluation, accountability, transparency, and governance.",
+            computing:
+              "Model evaluation · Auditing · Documentation · Risk assessment",
+            organization:
+              "PLACEHOLDER — Add a specific policy or governance example."
+          }
         ],
-        stack: [
-          { name: "Fairlearn / AIF360", desc: "Algorithmic bias auditing and demographic parity testing.", code: "metric_frame = MetricFrame(metrics=accuracy_score,\n                            y_true=y_true, y_pred=y_pred,\n                            sensitive_features=protected_attr)" },
-          { name: "SHAP & LIME", desc: "Explainable AI (XAI) feature importance inspection.", code: "explainer = shap.TreeExplainer(model)\nshap_values = explainer.shap_values(X)" },
-          { name: "Algorithmic Auditing", desc: "Systematic parity checking across sensitive demographics." },
-          { name: "Data Privacy Standards", desc: "HIPAA, GDPR, and responsible AI whitepaper governance." }
+
+        focusAreas: [
+          {
+            title: "AI Policy",
+            description:
+              "The rules, institutions, and governance systems that shape how computational technologies are developed and deployed.",
+            encounter:
+              "Regulation · Governance · Standards · Risk assessment",
+            practice:
+              "Used to establish responsibilities, limits, evaluation requirements, and accountability around technology."
+          },
+          {
+            title: "Data Privacy",
+            description:
+              "Technical and social approaches to controlling how information about people is collected and used.",
+            encounter:
+              "Encryption · Access control · Data minimization · Privacy-preserving methods",
+            practice:
+              "Used to reduce unnecessary exposure of personal information while preserving useful computation."
+          },
+          {
+            title: "Algorithmic Bias",
+            description:
+              "Understanding how data, models, objectives, and deployment contexts can produce unequal outcomes.",
+            encounter:
+              "Fairness metrics · Dataset analysis · Model evaluation",
+            practice:
+              "Used to identify disparities, investigate their causes, and evaluate possible mitigation strategies."
+          },
+          {
+            title: "Explainable AI",
+            description:
+              "Methods for making model behavior more understandable to people who need to evaluate or use it.",
+            encounter:
+              "Feature importance · Local explanations · Model interpretation",
+            practice:
+              "Used when people need to understand why a model produced a particular output or how its behavior changes."
+          }
         ],
-        sim: {
-          title: "Algorithmic Fairness Audit Simulation",
-          desc: "Run a Fairlearn disparity audit across sensitive demographic features.",
-          code: "Running Fairlearn demographic parity assessment...\nDetected selection rate disparity: 0.18.\nApplying mitigation constraint... Disparity reduced to 0.02 [PASS]."
-        }
+
+        toolkit: {
+          languages: [
+            {
+              name: "Python",
+              description: "A common language for evaluating datasets and machine-learning systems.",
+              usedFor: "Model analysis · Data science · Fairness evaluation"
+            },
+            {
+              name: "SQL",
+              description: "A practical language for inspecting and analyzing structured datasets.",
+              usedFor: "Data auditing · Cohort analysis · Data quality"
+            }
+          ],
+
+          methods: [
+            {
+              name: "Fairness Metrics",
+              description: "Quantitative measures used to investigate differences in model outcomes across groups.",
+              usedFor: "Auditing · Model evaluation · Risk analysis"
+            },
+            {
+              name: "Explainability",
+              description: "Methods for investigating and communicating how models produce outputs.",
+              usedFor: "Interpretation · Debugging · Human oversight"
+            },
+            {
+              name: "Privacy",
+              description: "Technical strategies for limiting unnecessary exposure or use of sensitive information.",
+              usedFor: "Data protection · System design · Governance"
+            }
+          ],
+
+          tools: [
+            {
+              name: "Fairlearn",
+              description: "An open-source Python toolkit for assessing and improving fairness in machine-learning systems.",
+              usedFor: "Fairness assessment · Model evaluation · Mitigation"
+            },
+            {
+              name: "SHAP",
+              description: "A framework for explaining model predictions using feature attribution methods.",
+              usedFor: "Model interpretation · Feature attribution"
+            },
+            {
+              name: "AIF360",
+              description: "IBM Research's open-source toolkit for detecting and mitigating unwanted algorithmic bias.",
+              usedFor: "Fairness metrics · Bias mitigation · Model auditing"
+            }
+          ]
+        },
+
+        demo: {
+          file: "fairness.py",
+          command: "$ python fairness.py",
+          intro:
+            "Two groups can receive different model outcomes even when the overall accuracy looks good. This toy example computes selection rates to make the difference visible.",
+          code:
+`group_a = [1, 1, 0, 1, 0, 1]
+group_b = [1, 0, 0, 0, 1, 0]
+
+rate_a = mean(group_a)
+rate_b = mean(group_b)
+
+difference = abs(
+  rate_a - rate_b
+)
+
+print(rate_a)
+print(rate_b)
+print(difference)`,
+
+          explanation:
+            "This isn't a complete fairness analysis. It demonstrates the first step: making a potentially important difference measurable. Real evaluation requires context, multiple metrics, causal reasoning, and careful attention to the application."
+        },
+
+        questions: [
+          {
+            q: "Can a model be accurate and still be unfair?",
+            a: "Yes. Overall performance can hide differences in error rates or outcomes across groups."
+          },
+          {
+            q: "Who gets to define what 'fair' means?",
+            a: "Different fairness definitions can conflict. Choosing a metric is therefore partly a technical decision and partly a normative one."
+          },
+          {
+            q: "How much explanation is enough?",
+            a: "An explanation can be technically faithful without being useful to a person affected by a decision. Interpretability has to be considered in context."
+          }
+        ]
       }
+
     };
 
-    let activeKey = 'art';
-    let currentSimData = null;
 
-    // Switch active pillar view
-    function selectPillar(key, updateHash = true) {
-      activeKey = key;
-      const data = pillarData[key];
-      if (!data) return;
-      currentSimData = data.sim;
+    /*
+     * ==========================================================
+     * STATE
+     * ==========================================================
+     */
 
-      // Update URL hash without jumping the page
-      if (updateHash && history.pushState) {
-        history.pushState(null, null, `#${key}`);
-      }
+    let activePillar = "tech";
+    let activeExample = 0;
+    let activeFocus = 0;
+    let activeTool = null;
+    let demoRunning = false;
 
-      // Update Tabs Style
-      Object.keys(pillarData).forEach(k => {
-        const tab = document.getElementById(`tab-${k}`);
-        if (k === key) {
-          tab.className = "px-4 py-2 rounded-lg bg-white/10 text-white border border-brand-cyan/50 font-semibold transition-all";
-        } else {
-          tab.className = "px-4 py-2 rounded-lg bg-white/5 text-slate-400 border border-white/5 hover:text-white hover:bg-white/10 transition-all font-mono text-xs";
-        }
+
+    /*
+     * ==========================================================
+     * DOM REFERENCES
+     * ==========================================================
+     */
+
+    const pillarTabs = document.getElementById("pillarTabs");
+    const pillarContent = document.getElementById("pillarContent");
+
+    const pillarEyebrow = document.getElementById("pillarEyebrow");
+    const pillarIntro = document.getElementById("pillarIntro");
+    const pillarIntroSub = document.getElementById("pillarIntroSub");
+
+    const whyText = document.getElementById("whyText");
+    const whyConcepts = document.getElementById("whyConcepts");
+
+    const exampleTabs = document.getElementById("exampleTabs");
+    const exampleDetail = document.getElementById("exampleDetail");
+
+    const focusCards = document.getElementById("focusCards");
+    const focusDetail = document.getElementById("focusDetail");
+
+    const languageTools = document.getElementById("languageTools");
+    const methodTools = document.getElementById("methodTools");
+    const softwareTools = document.getElementById("softwareTools");
+    const toolDetail = document.getElementById("toolDetail");
+
+    const demoIntro = document.getElementById("demoIntro");
+    const demoFile = document.getElementById("demoFile");
+    const demoCommand = document.getElementById("demoCommand");
+    const demoCode = document.getElementById("demoCode");
+    const terminal = document.getElementById("terminal");
+    const terminalStatus = document.getElementById("terminalStatus");
+    const terminalStatusDot = document.getElementById("terminalStatusDot");
+    const runDemo = document.getElementById("runDemo");
+    const demoExplanation = document.getElementById("demoExplanation");
+
+    const questionList = document.getElementById("questionList");
+
+
+    /*
+     * ==========================================================
+     * UTILITY
+     * ==========================================================
+     */
+
+    function escapeHtml(value) {
+      return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    function setAccent(element, property = "color") {
+      if (!element) return;
+      element.style[property] = pillars[activePillar].accent;
+    }
+
+    function accentAlpha(hex, alpha) {
+      const bigint = parseInt(hex.slice(1), 16);
+
+      const r = (bigint >> 16) & 255;
+      const g = (bigint >> 8) & 255;
+      const b = bigint & 255;
+
+      return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+    }
+
+    /*
+     * ==========================================================
+     * PILLAR TABS
+     * ==========================================================
+     */
+
+    function renderPillarTabs() {
+  pillarTabs.innerHTML = Object.entries(pillars)
+    .map(([key, pillar]) => {
+
+      const active = key === activePillar;
+
+      return `
+        <button
+          type="button"
+          data-pillar="${key}"
+          role="tab"
+          aria-selected="${active}"
+          class="
+            pillar-tab
+            relative
+            px-4 sm:px-5
+            py-3 sm:py-3.5
+            rounded-xl
+            border border-transparent
+            flex items-center gap-2.5
+            group
+            transition-all duration-200
+            font-mono
+            text-xs sm:text-sm
+            whitespace-nowrap
+            ${active ? "text-slate-50" : "text-slate-500"}
+          "
+          style="
+            --pillar-color: ${pillar.accent};
+          "
+        >
+
+          <span
+            class="
+              pillar-number
+              font-bold
+              transition-colors duration-200
+            "
+            style="
+              color: ${active ? pillar.accent : `${pillar.accent}99`};
+            "
+          >
+            ${pillar.number}
+          </span>
+
+          <span
+            class="
+              pillar-name
+              font-medium
+              transition-all duration-200
+            "
+          >
+            ${pillar.name}
+          </span>
+
+        </button>
+      `;
+
+    })
+    .join("");
+
+  pillarTabs.querySelectorAll("[data-pillar]").forEach(button => {
+
+    button.addEventListener("click", () => {
+
+      const selected = button.dataset.pillar;
+
+      if (selected === activePillar) return;
+
+      activePillar = selected;
+      activeExample = 0;
+      activeFocus = 0;
+      activeTool = null;
+
+      pillarContent.classList.remove("section-reveal");
+
+      // Force animation restart.
+      void pillarContent.offsetWidth;
+
+      pillarContent.classList.add("section-reveal");
+
+      renderAll();
+
+    });
+
+  });
+
+  requestAnimationFrame(updatePillarIndicator);
+}
+
+
+function updatePillarIndicator() {
+
+  const activeButton = pillarTabs.querySelector(
+    `[data-pillar="${activePillar}"]`
+  );
+
+  if (!activeButton) return;
+
+  pillarTabs.style.setProperty(
+    "--indicator-left",
+    `${activeButton.offsetLeft}px`
+  );
+
+  pillarTabs.style.setProperty(
+    "--indicator-top",
+    `${activeButton.offsetTop}px`
+  );
+
+  pillarTabs.style.setProperty(
+    "--indicator-width",
+    `${activeButton.offsetWidth}px`
+  );
+
+  pillarTabs.style.setProperty(
+    "--indicator-height",
+    `${activeButton.offsetHeight}px`
+  );
+
+  pillarTabs.style.setProperty(
+    "--indicator-color",
+    activeButton.style.getPropertyValue("--pillar-color")
+  );
+}
+
+
+  window.addEventListener("resize", updatePillarIndicator);
+  window.addEventListener("load", async () => {
+    await document.fonts.ready;
+    requestAnimationFrame(() => {
+      updatePillarIndicator();
+    });
+  });
+
+    /*
+     * ==========================================================
+     * INTRO
+     * ==========================================================
+     */
+
+    function renderIntro() {
+      const pillar = pillars[activePillar];
+      pillarEyebrow.textContent = pillar.name.toUpperCase();
+      pillarEyebrow.style.color = pillar.accent;
+      pillarIntro.textContent = pillar.intro;
+      pillarIntroSub.textContent = pillar.introSub;
+    }
+
+
+    /*
+     * ==========================================================
+     * WHY IT MATTERS
+     * ==========================================================
+     */
+
+    function renderWhy() {
+
+      const pillar = pillars[activePillar];
+
+      whyText.textContent = pillar.why;
+
+      whyConcepts.innerHTML = pillar.concepts
+        .map((concept, index) => `
+          <div class="bg-brand-panel p-6 md:p-7">
+
+            <div class="flex items-center justify-between">
+
+              <span
+                class="font-mono text-[10px] tracking-[0.16em]"
+                style="color:${pillar.accent}"
+              >
+                ${concept.label}
+              </span>
+
+              <span class="font-mono text-[10px] text-slate-700">
+                0${index + 1}
+              </span>
+
+            </div>
+
+            <p class="mt-5 text-sm leading-7 text-slate-400">
+              ${concept.text}
+            </p>
+
+          </div>
+        `)
+        .join("");
+    }
+
+
+    /*
+     * ==========================================================
+     * REAL WORLD EXAMPLES
+     * ==========================================================
+     */
+
+    function renderExamples() {
+
+      const pillar = pillars[activePillar];
+      const examples = pillar.examples;
+
+      exampleTabs.innerHTML = examples
+        .map((example, index) => {
+
+          const active = index === activeExample;
+
+          return `
+            <button
+              type="button"
+              data-example="${index}"
+              class="pillar-example text-left rounded-xl border px-4 py-4 min-w-[210px] lg:min-w-0"
+              style="
+                border-color:${active ? accentAlpha(pillar.accent, .35) : "rgba(255,255,255,.06)"};
+                background:${active ? accentAlpha(pillar.accent, .06) : "rgba(255,255,255,.015)"};
+              "
+            >
+
+              <div class="flex items-center justify-between">
+
+                <span
+                  class="font-mono text-[9px] tracking-[0.14em]"
+                  style="color:${active ? pillar.accent : "#4b5563"}"
+                >
+                  ${example.tag}
+                </span>
+
+                <span class="font-mono text-[9px] text-slate-700">
+                  0${index + 1}
+                </span>
+
+              </div>
+
+              <div class="mt-3 text-sm ${active ? "text-white" : "text-slate-500"}">
+                ${example.title}
+              </div>
+
+            </button>
+          `;
+
+        })
+        .join("");
+
+      exampleTabs.querySelectorAll("[data-example]").forEach(button => {
+        button.addEventListener("click", () => {
+
+          activeExample = Number(button.dataset.example);
+
+          renderExamples();
+
+        });
       });
 
-      // Update Header Text
-      document.getElementById('domain-tag').textContent = data.tag;
-      
-      const titleEl = document.getElementById('domain-title');
-      titleEl.textContent = data.title;
-      titleEl.className = `bg-gradient-to-r ${data.gradient} bg-clip-text text-transparent`;
-      
-      document.getElementById('domain-desc').textContent = data.desc;
+      const example = examples[activeExample];
 
-      // Update Card Styling
-      const card = document.getElementById('spotlight-card');
-      card.className = `glass-card p-8 rounded-2xl relative overflow-hidden transition-all duration-300 border-l-4 ${data.accentBorder}`;
+      exampleDetail.innerHTML = `
+        <div class="flex flex-col h-full">
 
-      const badge = document.getElementById('spotlight-badge');
-      badge.className = `font-mono text-[10px] font-semibold px-2.5 py-1 rounded ${data.badgeBg}`;
+          <div class="flex items-center justify-between gap-4">
 
-      document.getElementById('spotlight-heading').textContent = data.title;
+            <span
+              class="font-mono text-[10px] tracking-[0.16em]"
+              style="color:${pillar.accent}"
+            >
+              ${example.tag}
+            </span>
 
-      // Update Traditional List
-      document.getElementById('traditional-list').innerHTML = data.traditional.map(item => `
-        <li class="flex items-start gap-2">
-          <span class="text-rose-400 font-bold shrink-0">✕</span>
-          <span>${item}</span>
-        </li>
-      `).join('');
+            <span class="font-mono text-[10px] text-slate-600">
+              ${pillar.number}.${String(activeExample + 1).padStart(2, "0")}
+            </span>
 
-      // Update Powered List
-      document.getElementById('powered-list').innerHTML = data.powered.map(item => `
-        <li class="flex items-start gap-2">
-          <span class="text-brand-cyan font-bold shrink-0">⚡</span>
-          <span>${item}</span>
-        </li>
-      `).join('');
+          </div>
 
-      // Update Stack Tags
-      document.getElementById('stack-tags').innerHTML = data.stack.map(tool => `
-        <button onclick="openTechModal('${tool.name.replace(/'/g, "\\'")}', '${(tool.desc || '').replace(/'/g, "\\'")}', '${(tool.code || '# Standard tool implementation').replace(/'/g, "\\'").replace(/\n/g, '\\n')}')" class="px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 font-mono text-xs text-slate-300 hover:text-white transition-all flex items-center gap-1.5">
-          <span class="w-1.5 h-1.5 rounded-full bg-brand-cyan"></span>
-          <span>${tool.name}</span>
-          <span class="text-slate-500 text-[10px]">↗</span>
-        </button>
-      `).join('');
+          <h3 class="mt-6 text-2xl md:text-3xl text-white font-medium tracking-[-0.025em]">
+            ${example.title}
+          </h3>
+
+          <p class="mt-4 text-sm md:text-base leading-7 text-slate-400 max-w-2xl">
+            ${example.description}
+          </p>
+
+          <div class="mt-auto pt-8 grid sm:grid-cols-2 gap-5">
+
+            <div>
+              <div class="font-mono text-[9px] tracking-[0.15em] text-slate-700">
+                COMPUTING INVOLVED
+              </div>
+
+              <div class="mt-2 text-xs leading-6 text-slate-500">
+                ${example.computing}
+              </div>
+            </div>
+
+            <div>
+              <div class="font-mono text-[9px] tracking-[0.15em] text-slate-700">
+                EXAMPLE
+              </div>
+
+              <div class="mt-2 text-xs leading-6 text-slate-500">
+                ${example.organization}
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      `;
     }
 
-    // Modal 1: Run Simulation
-    function openSimulationModal() {
-      if (!currentSimData) currentSimData = pillarData[activeKey].sim;
-      document.getElementById('sim-modal-title').textContent = currentSimData.title;
-      document.getElementById('sim-modal-desc').textContent = currentSimData.desc;
-      document.getElementById('sim-status').textContent = "// STATUS: READY_TO_EXECUTE";
-      document.getElementById('sim-output-box').innerHTML = 'Click "Execute Pipeline" below to run the computation.';
-      document.getElementById('simulation-modal').classList.remove('hidden');
+
+    /*
+     * ==========================================================
+     * FOCUS AREAS
+     * ==========================================================
+     */
+
+    function renderFocusAreas() {
+
+      const pillar = pillars[activePillar];
+      const focusAreas = pillar.focusAreas;
+
+      focusCards.innerHTML = focusAreas
+        .map((focus, index) => {
+
+          const active = index === activeFocus;
+
+          return `
+            <button
+              type="button"
+              data-focus="${index}"
+              class="focus-card text-left rounded-xl border p-5"
+              style="
+                border-color:${active ? accentAlpha(pillar.accent, .35) : "rgba(255,255,255,.06)"};
+                background:${active ? accentAlpha(pillar.accent, .055) : "rgba(255,255,255,.015)"};
+              "
+            >
+
+              <div class="flex items-center gap-3">
+
+                <span
+                  class="font-mono text-[10px]"
+                  style="color:${active ? pillar.accent : "#4b5563"}"
+                >
+                  ${String(index + 1).padStart(2, "0")}
+                </span>
+
+                <span class="text-sm ${active ? "text-white" : "text-slate-500"}">
+                  ${focus.title}
+                </span>
+
+              </div>
+
+            </button>
+          `;
+
+        })
+        .join("");
+
+      focusCards.querySelectorAll("[data-focus]").forEach(button => {
+        button.addEventListener("click", () => {
+
+          activeFocus = Number(button.dataset.focus);
+
+          renderFocusAreas();
+
+        });
+      });
+
+      const focus = focusAreas[activeFocus];
+
+      focusDetail.innerHTML = `
+        <div class="flex flex-col h-full">
+
+          <div class="flex items-center justify-between">
+
+            <span
+              class="font-mono text-[10px] tracking-[0.16em]"
+              style="color:${pillar.accent}"
+            >
+              ${pillar.number} / FOCUS AREA
+            </span>
+
+            <span class="font-mono text-[10px] text-slate-700">
+              ${String(activeFocus + 1).padStart(2, "0")} / ${String(focusAreas.length).padStart(2, "0")}
+            </span>
+
+          </div>
+
+          <h3 class="mt-6 text-2xl md:text-3xl font-medium tracking-[-0.03em] text-white">
+            ${focus.title}
+          </h3>
+
+          <p class="mt-4 text-sm md:text-base leading-7 text-slate-400">
+            ${focus.description}
+          </p>
+
+          <div class="mt-auto pt-10 grid sm:grid-cols-2 gap-6">
+
+            <div>
+
+              <div class="font-mono text-[9px] tracking-[0.15em] text-slate-700">
+                YOU'LL ENCOUNTER
+              </div>
+
+              <div class="mt-2 text-xs leading-6 text-slate-500">
+                ${focus.encounter}
+              </div>
+
+            </div>
+
+            <div>
+
+              <div class="font-mono text-[9px] tracking-[0.15em] text-slate-700">
+                IN PRACTICE
+              </div>
+
+              <div class="mt-2 text-xs leading-6 text-slate-500">
+                ${focus.practice}
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      `;
     }
 
-    function closeSimulationModal() {
-      document.getElementById('simulation-modal').classList.add('hidden');
+
+    /*
+     * ==========================================================
+     * TOOLKIT
+     * ==========================================================
+     */
+
+    function renderToolGroup(container, tools, category) {
+
+      const pillar = pillars[activePillar];
+
+      container.innerHTML = tools
+        .map((tool, index) => {
+
+          const id = `${category}-${index}`;
+          const active = activeTool === id;
+
+          return `
+            <button
+              type="button"
+              data-tool-id="${id}"
+              class="tool-item font-mono text-xs px-3 py-2 rounded-lg border"
+              style="
+                color:${active ? pillar.accent : "#7b8192"};
+                border-color:${active ? accentAlpha(pillar.accent, .35) : "rgba(255,255,255,.08)"};
+                background:${active ? accentAlpha(pillar.accent, .055) : "rgba(255,255,255,.015)"};
+              "
+            >
+              ${tool.name}
+            </button>
+          `;
+        })
+        .join("");
+
+      container.querySelectorAll("[data-tool-id]").forEach(button => {
+
+        button.addEventListener("click", () => {
+
+          const id = button.dataset.toolId;
+
+          activeTool = activeTool === id ? null : id;
+
+          renderToolkit();
+
+        });
+
+      });
     }
 
-    function runSimulation() {
-      document.getElementById('sim-status').textContent = "// STATUS: COMPUTING_IN_PROGRESS...";
-      document.getElementById('sim-output-box').innerHTML = '<span class="text-brand-cyan animate-pulse">Running computational kernel... Processing stream data...</span>';
-      setTimeout(() => {
-        document.getElementById('sim-status').textContent = "// STATUS: EXECUTION_SUCCESS";
-        document.getElementById('sim-output-box').innerHTML = `<pre class="text-left text-brand-emerald">${currentSimData.code}</pre>`;
-      }, 700);
-    }
 
-    // Modal 2: Tech Stack Inspector
-    function openTechModal(name, desc, code) {
-      document.getElementById('tech-modal-title').textContent = name;
-      document.getElementById('tech-modal-tag').textContent = `// TOOL_INSPECTION_${name.toUpperCase().replace(/[^A-Z0-9]/g, '_')}`;
-      document.getElementById('tech-modal-desc').textContent = desc;
-      document.getElementById('tech-modal-code').textContent = code;
-      document.getElementById('tech-modal').classList.remove('hidden');
-    }
+    function renderToolkit() {
 
-    function closeTechModal() {
-      document.getElementById('tech-modal').classList.add('hidden');
-    }
+      const pillar = pillars[activePillar];
 
-    // Workshop & Project Submission
-    function handleWorkshopSubmit(e) {
-      e.preventDefault();
-      const name = document.getElementById('req-name').value;
-      const pillar = document.getElementById('req-pillar').value;
-      const title = document.getElementById('req-title').value;
-      const desc = document.getElementById('req-desc').value;
+      renderToolGroup(
+        languageTools,
+        pillar.toolkit.languages,
+        "language"
+      );
 
-      // Show success toast
-      document.getElementById('submit-toast').classList.remove('hidden');
-      e.target.reset();
+      renderToolGroup(
+        methodTools,
+        pillar.toolkit.methods,
+        "method"
+      );
 
-      // Scroll toast into view smoothly
-      document.getElementById('submit-toast').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    }
+      renderToolGroup(
+        softwareTools,
+        pillar.toolkit.tools,
+        "software"
+      );
 
-    // Initialize default selection on Art + Design
-    // Smart Router: Check URL hash on page load (e.g. /pillars/index.html#tech -> opens 'tech')
-    function initFromHash() {
-      const hash = window.location.hash.replace('#', '');
-      if (pillarData[hash]) {
-        selectPillar(hash, false); // false prevents pushing duplicate history state on load
-      } else {
-        selectPillar('art', false);
+      let selectedTool = null;
+
+      for (const [category, tools] of Object.entries({
+        language: pillar.toolkit.languages,
+        method: pillar.toolkit.methods,
+        software: pillar.toolkit.tools
+      })) {
+
+        tools.forEach((tool, index) => {
+
+          if (activeTool === `${category}-${index}`) {
+            selectedTool = tool;
+          }
+
+        });
+
       }
+
+      if (!selectedTool) {
+
+        toolDetail.innerHTML = `
+          <div class="h-full flex flex-col justify-between">
+
+            <div>
+
+              <div
+                class="font-mono text-[10px] tracking-[0.16em]"
+                style="color:${pillar.accent}"
+              >
+                TOOLKIT / OVERVIEW
+              </div>
+
+              <h3 class="mt-6 text-2xl md:text-3xl font-medium text-white tracking-[-0.03em]">
+                A map of the ecosystem.
+              </h3>
+
+              <p class="mt-4 text-sm leading-7 text-slate-400 max-w-xl">
+                Select a language, method, or tool to see where it fits.
+                The point isn't to memorize a stack—it's to understand the
+                different kinds of computation that can become part of a project.
+              </p>
+
+            </div>
+
+            <div class="mt-10 flex items-center gap-2 font-mono text-[10px] text-slate-600">
+              <span
+                class="w-1.5 h-1.5 rounded-full"
+                style="background:${pillar.accent}"
+              ></span>
+              SELECT AN ITEM
+            </div>
+
+          </div>
+        `;
+
+        return;
+      }
+
+      toolDetail.innerHTML = `
+        <div class="h-full flex flex-col">
+
+          <div class="flex items-center justify-between">
+
+            <span
+              class="font-mono text-[10px] tracking-[0.16em]"
+              style="color:${pillar.accent}"
+            >
+              TOOL / METHOD
+            </span>
+
+            <span class="font-mono text-[10px] text-slate-700">
+              ACTIVE
+            </span>
+
+          </div>
+
+          <h3 class="mt-6 text-2xl md:text-3xl font-medium text-white tracking-[-0.03em]">
+            ${selectedTool.name}
+          </h3>
+
+          <p class="mt-4 text-sm leading-7 text-slate-400 max-w-xl">
+            ${selectedTool.description}
+          </p>
+
+          <div class="mt-auto pt-10">
+
+            <div class="font-mono text-[9px] tracking-[0.15em] text-slate-700">
+              COMMONLY USED FOR
+            </div>
+
+            <div class="mt-2 text-xs leading-6 text-slate-500">
+              ${selectedTool.usedFor}
+            </div>
+
+          </div>
+
+        </div>
+      `;
     }
 
-    // Run on initial load
-    initFromHash();
 
-    // Support browser back/forward buttons
-    window.addEventListener('popstate', () => {
-      const hash = window.location.hash.replace('#', '');
-      if (pillarData[hash]) {
-        selectPillar(hash, false);
+    /*
+     * ==========================================================
+     * DEMO
+     * ==========================================================
+     */
+
+    function renderDemo() {
+
+      const pillar = pillars[activePillar];
+      const demo = pillar.demo;
+
+      demoIntro.textContent = demo.intro;
+      demoFile.textContent = demo.file;
+      demoCommand.textContent = demo.command;
+
+      demoCode.textContent = demo.code;
+
+      demoExplanation.innerHTML = `
+        <div class="flex items-start gap-4">
+
+          <div
+            class="mt-1 w-2 h-2 rounded-full shrink-0"
+            style="background:${pillar.accent}"
+          ></div>
+
+          <div>
+
+            <div class="font-mono text-[9px] tracking-[0.16em] text-slate-700">
+              WHAT JUST HAPPENED?
+            </div>
+
+            <p class="mt-3 text-sm leading-7 text-slate-400">
+              ${demo.explanation}
+            </p>
+
+          </div>
+
+        </div>
+      `;
+
+      resetTerminal();
+    }
+
+
+    function resetTerminal() {
+
+      terminal.innerHTML = `
+        <div class="text-slate-600">
+          $ ready
+        </div>
+
+        <div class="mt-3 text-slate-700">
+          Run the analysis to see computation happen in real time.
+        </div>
+      `;
+
+      terminalStatus.textContent = "idle";
+      terminalStatusDot.style.background = "#4b5563";
+
+      runDemo.disabled = false;
+      demoRunning = false;
+    }
+
+
+    function terminalLine(text, className = "") {
+
+      const line = document.createElement("div");
+
+      line.className = className;
+      line.textContent = text;
+
+      terminal.appendChild(line);
+
+      terminal.scrollTop = terminal.scrollHeight;
+
+      return line;
+    }
+
+
+    function sleep(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+
+    /*
+     * Real computations for each demo.
+     */
+
+    function businessComputation() {
+
+      const rows = [
+        { region: "North", month: "Jan", sales: 420 },
+        { region: "North", month: "Feb", sales: 470 },
+        { region: "North", month: "Mar", sales: 510 },
+        { region: "South", month: "Jan", sales: 390 },
+        { region: "South", month: "Feb", sales: 382 },
+        { region: "South", month: "Mar", sales: 374 },
+        { region: "West", month: "Jan", sales: 410 },
+        { region: "West", month: "Feb", sales: 455 },
+        { region: "West", month: "Mar", sales: 480 }
+      ];
+
+      const regions = {};
+
+      rows.forEach(row => {
+
+        if (!regions[row.region]) {
+          regions[row.region] = 0;
+        }
+
+        regions[row.region] += row.sales;
+
+      });
+
+      const growth = {};
+
+      ["North", "South", "West"].forEach(region => {
+
+        const first = rows.find(
+          row => row.region === region && row.month === "Jan"
+        ).sales;
+
+        const last = rows.find(
+          row => row.region === region && row.month === "Mar"
+        ).sales;
+
+        growth[region] = ((last - first) / first) * 100;
+
+      });
+
+      const bestRegion = Object.entries(growth)
+        .sort((a, b) => b[1] - a[1])[0];
+
+      return {
+        rows,
+        regions,
+        growth,
+        bestRegion
+      };
+    }
+
+
+    function healthComputation() {
+
+      const signal = [
+        12, 15, 11, 30,
+        14, 17, 31, 18,
+        21, 35, 23, 26
+      ];
+
+      const window = 3;
+
+      const smoothed = [];
+
+      for (let i = 0; i <= signal.length - window; i++) {
+
+        const slice = signal.slice(i, i + window);
+
+        const average =
+          slice.reduce((sum, value) => sum + value, 0)
+          / slice.length;
+
+        smoothed.push(Number(average.toFixed(2)));
+
       }
-    });
+
+      return {
+        signal,
+        smoothed
+      };
+    }
+
+
+    function fairnessComputation() {
+
+      const groupA = [1, 1, 0, 1, 0, 1];
+      const groupB = [1, 0, 0, 0, 1, 0];
+
+      const mean = arr =>
+        arr.reduce((sum, value) => sum + value, 0) / arr.length;
+
+      const rateA = mean(groupA);
+      const rateB = mean(groupB);
+
+      return {
+        rateA,
+        rateB,
+        difference: Math.abs(rateA - rateB)
+      };
+    }
+
+
+    function robotComputation() {
+
+      const grid = [
+        ["S", ".", ".", "#", "."],
+        ["#", "#", ".", "#", "."],
+        [".", ".", ".", ".", "."],
+        [".", "#", "#", "#", "."],
+        [".", ".", ".", ".", "G"]
+      ];
+
+      const start = [0, 0];
+      const goal = [4, 4];
+
+      const queue = [[start]];
+      const visited = new Set(["0,0"]);
+
+      const directions = [
+        [1, 0],
+        [-1, 0],
+        [0, 1],
+        [0, -1]
+      ];
+
+      let result = null;
+
+      while (queue.length) {
+
+        const path = queue.shift();
+        const [r, c] = path[path.length - 1];
+
+        if (r === goal[0] && c === goal[1]) {
+          result = path;
+          break;
+        }
+
+        for (const [dr, dc] of directions) {
+
+          const nr = r + dr;
+          const nc = c + dc;
+
+          if (
+            nr < 0 ||
+            nc < 0 ||
+            nr >= grid.length ||
+            nc >= grid[0].length
+          ) continue;
+
+          if (grid[nr][nc] === "#") continue;
+
+          const key = `${nr},${nc}`;
+
+          if (visited.has(key)) continue;
+
+          visited.add(key);
+
+          queue.push([
+            ...path,
+            [nr, nc]
+          ]);
+
+        }
+
+      }
+
+      return {
+        grid,
+        path: result
+      };
+    }
+
+
+    function artComputation() {
+
+      const points = [];
+
+      for (let i = 0; i < 180; i++) {
+
+        const angle = i * 0.37;
+        const radius = i * 1.8;
+
+        points.push({
+          x: Math.cos(angle) * radius,
+          y: Math.sin(angle) * radius
+        });
+
+      }
+
+      return {
+        points
+      };
+    }
+
+
+    async function runBusinessDemo() {
+
+      const result = businessComputation();
+
+      terminalLine("$ python analyze.py", "text-slate-300");
+
+      await sleep(500);
+
+      terminalLine("Loading sales_data.csv", "text-slate-500");
+
+      await sleep(600);
+
+      terminalLine("9 records found", "text-slate-500");
+
+      await sleep(500);
+
+      terminalLine("Calculating regional totals...", "text-slate-500");
+
+      await sleep(650);
+
+      Object.entries(result.regions).forEach(([region, total]) => {
+        terminalLine(`  ${region.padEnd(8)} $${total.toLocaleString()}`, "text-slate-400");
+      });
+
+      await sleep(500);
+
+      terminalLine("Comparing January → March...", "text-slate-500");
+
+      await sleep(700);
+
+      Object.entries(result.growth).forEach(([region, value]) => {
+
+        const sign = value >= 0 ? "+" : "";
+
+        terminalLine(
+          `  ${region.padEnd(8)} ${sign}${value.toFixed(1)}%`,
+          value >= 0 ? "text-slate-300" : "text-red-400"
+        );
+
+      });
+
+      await sleep(600);
+
+      terminalLine("RESULT", "text-brand-amber font-semibold");
+
+      await sleep(300);
+
+      terminalLine(
+        `Highest growth: ${result.bestRegion[0]} (${result.bestRegion[1].toFixed(1)}%)`,
+        "text-white"
+      );
+
+      renderBusinessChart(result);
+    }
+
+
+    function renderBusinessChart(result) {
+
+      const chart = document.createElement("div");
+
+      chart.className =
+        "mt-5 pt-5 border-t border-white/5";
+
+      chart.innerHTML = `
+        <div class="font-mono text-[9px] tracking-[0.15em] text-slate-700 mb-4">
+          REGIONAL GROWTH
+        </div>
+
+        <div class="space-y-3">
+
+          ${Object.entries(result.growth).map(([region, value]) => {
+
+            const width = Math.min(
+              100,
+              Math.max(8, Math.abs(value) * 4)
+            );
+
+            return `
+              <div>
+
+                <div class="flex justify-between font-mono text-[9px] mb-1.5">
+                  <span class="text-slate-500">${region}</span>
+                  <span class="text-slate-400">${value.toFixed(1)}%</span>
+                </div>
+
+                <div class="h-1.5 bg-white/5 rounded-full overflow-hidden">
+
+                  <div
+                    class="chart-bar h-full rounded-full"
+                    style="
+                      width:0%;
+                      background:${pillars.business.accent};
+                    "
+                    data-width="${width}%"
+                  ></div>
+
+                </div>
+
+              </div>
+            `;
+
+          }).join("")}
+
+        </div>
+      `;
+
+      terminal.appendChild(chart);
+
+      requestAnimationFrame(() => {
+
+        chart.querySelectorAll(".chart-bar").forEach(bar => {
+          bar.style.width = bar.dataset.width;
+        });
+
+      });
+    }
+
+
+    async function runHealthDemo() {
+
+      const result = healthComputation();
+
+      terminalLine("$ python signal.py", "text-slate-300");
+
+      await sleep(500);
+
+      terminalLine("Loading physiological signal...", "text-slate-500");
+
+      await sleep(600);
+
+      terminalLine(`${result.signal.length} observations found`, "text-slate-500");
+
+      await sleep(500);
+
+      terminalLine("Applying moving average...", "text-slate-500");
+
+      await sleep(700);
+
+      terminalLine(
+        `Window size: 3`,
+        "text-slate-400"
+      );
+
+      await sleep(400);
+
+      terminalLine("Smoothed signal:", "text-slate-500");
+
+      await sleep(300);
+
+      terminalLine(
+        `[ ${result.smoothed.join(" · ")} ]`,
+        "text-white"
+      );
+
+      await sleep(500);
+
+      terminalLine("RESULT", "text-brand-emerald font-semibold");
+
+      await sleep(300);
+
+      terminalLine(
+        "Noise reduced; larger-scale trend is easier to inspect.",
+        "text-white"
+      );
+
+      renderMiniSignal(result);
+    }
+
+
+    function renderMiniSignal(result) {
+
+      const wrapper = document.createElement("div");
+
+      wrapper.className =
+        "mt-5 pt-5 border-t border-white/5";
+
+      const max = Math.max(...result.signal);
+
+      wrapper.innerHTML = `
+        <div class="font-mono text-[9px] tracking-[0.15em] text-slate-700 mb-4">
+          SIGNAL / SMOOTHED
+        </div>
+
+        <div class="flex items-end gap-1 h-28">
+
+          ${result.smoothed.map(value => {
+
+            const height = (value / max) * 100;
+
+            return `
+              <div
+                class="flex-1 rounded-t-sm opacity-80"
+                style="
+                  height:${height}%;
+                  min-height:4px;
+                  background:${pillars.health.accent};
+                "
+              ></div>
+            `;
+
+          }).join("")}
+
+        </div>
+      `;
+
+      terminal.appendChild(wrapper);
+    }
+
+
+    async function runFairnessDemo() {
+
+      const result = fairnessComputation();
+
+      terminalLine("$ python fairness.py", "text-slate-300");
+
+      await sleep(500);
+
+      terminalLine("Loading model outcomes...", "text-slate-500");
+
+      await sleep(600);
+
+      terminalLine("12 observations found", "text-slate-500");
+
+      await sleep(500);
+
+      terminalLine("Calculating selection rates...", "text-slate-500");
+
+      await sleep(700);
+
+      terminalLine(
+        `Group A: ${(result.rateA * 100).toFixed(1)}%`,
+        "text-slate-400"
+      );
+
+      await sleep(300);
+
+      terminalLine(
+        `Group B: ${(result.rateB * 100).toFixed(1)}%`,
+        "text-slate-400"
+      );
+
+      await sleep(500);
+
+      terminalLine("Difference", "text-slate-500");
+
+      await sleep(300);
+
+      terminalLine(
+        `${(result.difference * 100).toFixed(1)} percentage points`,
+        "text-white"
+      );
+
+      await sleep(500);
+
+      terminalLine("RESULT", "text-brand-purple font-semibold");
+
+      await sleep(300);
+
+      terminalLine(
+        "A difference is measurable. Explaining why it exists is the next problem.",
+        "text-white"
+      );
+    }
+
+
+    async function runRobotDemo() {
+
+      const result = robotComputation();
+
+      terminalLine("$ python robot_path.py", "text-slate-300");
+
+      await sleep(500);
+
+      terminalLine("Loading environment...", "text-slate-500");
+
+      await sleep(500);
+
+      terminalLine("5 × 5 grid detected", "text-slate-500");
+
+      await sleep(500);
+
+      terminalLine("Searching valid paths...", "text-slate-500");
+
+      await sleep(700);
+
+      terminalLine(
+        `${result.path.length - 1} moves found`,
+        "text-slate-400"
+      );
+
+      await sleep(500);
+
+      terminalLine("RESULT", "text-brand-cyan font-semibold");
+
+      await sleep(300);
+
+      terminalLine(
+        `Shortest path: ${result.path.map(([r, c]) => `(${r},${c})`).join(" → ")}`,
+        "text-white"
+      );
+
+      renderRobotGrid(result);
+    }
+
+
+    function renderRobotGrid(result) {
+
+      const wrapper = document.createElement("div");
+
+      wrapper.className =
+        "mt-5 pt-5 border-t border-white/5";
+
+      const pathKeys = new Set(
+        result.path.map(([r, c]) => `${r},${c}`)
+      );
+
+      wrapper.innerHTML = `
+        <div class="font-mono text-[9px] tracking-[0.15em] text-slate-700 mb-4">
+          COMPUTED PATH
+        </div>
+
+        <div
+          class="grid grid-cols-5 gap-1 max-w-[210px]"
+        >
+
+          ${result.grid.flatMap((row, r) =>
+            row.map((cell, c) => {
+
+              const key = `${r},${c}`;
+              const isPath = pathKeys.has(key);
+
+              return `
+                <div
+                  class="aspect-square rounded-sm flex items-center justify-center font-mono text-[9px]"
+                  style="
+                    background:${isPath
+                      ? accentAlpha(pillars.tech.accent, .12)
+                      : "rgba(255,255,255,.025)"
+                    };
+                    color:${isPath
+                      ? pillars.tech.accent
+                      : "#4b5563"
+                    };
+                    border:1px solid ${isPath
+                      ? accentAlpha(pillars.tech.accent, .18)
+                      : "rgba(255,255,255,.04)"
+                    };
+                  "
+                >
+                  ${cell === "#" ? "×" : cell === "." && isPath ? "•" : cell}
+                </div>
+              `;
+
+            })
+          ).join("")}
+
+        </div>
+      `;
+
+      terminal.appendChild(wrapper);
+    }
+
+
+    async function runArtDemo() {
+
+      const result = artComputation();
+
+      terminalLine("$ node generative.js", "text-slate-300");
+
+      await sleep(500);
+
+      terminalLine("Initializing canvas...", "text-slate-500");
+
+      await sleep(500);
+
+      terminalLine("Generating 180 points...", "text-slate-500");
+
+      await sleep(700);
+
+      terminalLine(
+        `Computed ${result.points.length} positions`,
+        "text-slate-400"
+      );
+
+      await sleep(500);
+
+      terminalLine("Rendering system...", "text-slate-500");
+
+      await sleep(700);
+
+      terminalLine("RESULT", "text-brand-magenta font-semibold");
+
+      await sleep(300);
+
+      terminalLine(
+        "A small rule set produced a larger visual structure.",
+        "text-white"
+      );
+
+      renderArtCanvas(result);
+    }
+
+
+    function renderArtCanvas(result) {
+
+      const wrapper = document.createElement("div");
+
+      wrapper.className =
+        "mt-5 pt-5 border-t border-white/5";
+
+      wrapper.innerHTML = `
+        <div class="font-mono text-[9px] tracking-[0.15em] text-slate-700 mb-4">
+          GENERATED OUTPUT
+        </div>
+
+        <canvas
+          width="420"
+          height="220"
+          class="w-full rounded-lg border border-white/5 bg-black/20"
+        ></canvas>
+      `;
+
+      terminal.appendChild(wrapper);
+
+      const canvas = wrapper.querySelector("canvas");
+      const ctx = canvas.getContext("2d");
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      ctx.save();
+
+      ctx.translate(
+        canvas.width / 2,
+        canvas.height / 2
+      );
+
+      result.points.forEach((point, index) => {
+
+        const scale = .8;
+
+        const x = point.x * scale;
+        const y = point.y * scale;
+
+        const alpha =
+          .25 + (index / result.points.length) * .7;
+
+        ctx.fillStyle =
+          `rgba(255,46,147,${alpha})`;
+
+        ctx.beginPath();
+        ctx.arc(x, y, 1.5, 0, Math.PI * 2);
+        ctx.fill();
+
+      });
+
+      ctx.restore();
+    }
+
+
+    async function runDemoHandler() {
+
+      if (demoRunning) return;
+
+      demoRunning = true;
+      runDemo.disabled = true;
+
+      const pillar = pillars[activePillar];
+
+      terminal.innerHTML = "";
+
+      terminalStatus.textContent = "running";
+      terminalStatusDot.style.background = pillar.accent;
+
+      terminalLine(
+        "initializing browser runtime...",
+        "text-slate-600"
+      );
+
+      await sleep(500);
+
+      if (activePillar === "business") {
+        await runBusinessDemo();
+      }
+
+      if (activePillar === "health") {
+        await runHealthDemo();
+      }
+
+      if (activePillar === "ethics") {
+        await runFairnessDemo();
+      }
+
+      if (activePillar === "tech") {
+        await runRobotDemo();
+      }
+
+      if (activePillar === "art") {
+        await runArtDemo();
+      }
+
+      terminalStatus.textContent = "complete";
+      terminalStatusDot.style.background = pillar.accent;
+
+      runDemo.disabled = false;
+      demoRunning = false;
+    }
+
+
+    runDemo.addEventListener(
+      "click",
+      runDemoHandler
+    );
+
+
+    /*
+     * ==========================================================
+     * QUESTIONS
+     * ==========================================================
+     */
+
+    function renderQuestions() {
+
+      const pillar = pillars[activePillar];
+
+      questionList.innerHTML = pillar.questions
+        .map((item, index) => `
+          <details
+            class="group border-b border-white/10"
+          >
+
+            <summary
+              class="list-none cursor-pointer py-6 md:py-7 flex items-center justify-between gap-6"
+            >
+
+              <div class="flex items-start gap-5">
+
+                <span
+                  class="font-mono text-[10px] pt-1"
+                  style="color:${pillar.accent}"
+                >
+                  ${String(index + 1).padStart(2, "0")}
+                </span>
+
+                <span class="text-lg md:text-xl text-slate-300 group-open:text-white transition-colors">
+                  ${item.q}
+                </span>
+
+              </div>
+
+              <span class="font-mono text-xl text-slate-700 group-open:rotate-45 transition-transform">
+                +
+              </span>
+
+            </summary>
+
+            <div class="pb-7 pl-10 md:pl-[3.15rem] max-w-3xl">
+
+              <p class="text-sm leading-7 text-slate-500">
+                ${item.a}
+              </p>
+
+            </div>
+
+          </details>
+        `)
+        .join("");
+    }
+
+
+    /*
+     * ==========================================================
+     * RENDER EVERYTHING
+     * ==========================================================
+     */
+
+    function renderAll() {
+
+      renderPillarTabs();
+      renderIntro();
+      renderWhy();
+      renderExamples();
+      renderFocusAreas();
+      renderToolkit();
+      renderDemo();
+      renderQuestions();
+
+    }
+
+
+    /*
+     * ==========================================================
+     * INITIALIZE
+     * ==========================================================
+     */
+
+    renderAll();
+
   </script>
 
 </body>

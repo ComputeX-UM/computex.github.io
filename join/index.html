@@ -1,28 +1,506 @@
-
-
-
-
-<nav style="margin-bottom: 2rem; border-bottom: 1px dashed #00ffcc; padding-bottom: 1rem;">
-    <a href="../index.html" style="color: #00ffcc; margin-right: 1.5rem; text-decoration: none; font-weight: bold;">HOME</a>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>join plsssss</title>
-    <style>
-        body {
-            background-color: #2c2e3fff;
-            color: #e2e8f0;
-            font-family: 'Courier New', Courier; 
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ComputeX | Interdisciplinary Tech Club at Michigan</title>
+
+  <!-- Inter & Geist Mono Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['"Geist Mono"', 'monospace'],
+          },
+          colors: {
+            brand: {
+              bg: '#08080a',
+              panel: '#101116',
+              card: '#161820',
+              border: 'rgba(255, 255, 255, 0.08)',
+              cyan: '#00F0FF',
+              amber: '#FFB800',
+              emerald: '#00E599',
+              magenta: '#FF2E93',
+              purple: '#9D4EDD',
+              grey: '#acacbf',
+              maize: '#FFCB05',
+              blue: '#00274C',
+            }
+          }
         }
-        h1, h2, h3 {
-            color: #46bdcdff; 
-            border-bottom: 1px solid #a600ffff;
-        }
-    </style>
+      }
+    }
+  </script>
+
+  <style>
+    /* Subtle grid in bg */
+    .bg-grid {
+      background-size: 60px 60px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    }
+
+    /* Ambient light glows */
+    .mesh-glow-1 {
+      position: absolute;
+      width: 550px;
+      height: 550px;
+      background: radial-gradient(circle, rgba(0, 240, 255, 0.15) 0%, rgba(157, 78, 221, 0.12) 40%, transparent 70%);
+      filter: blur(80px);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .mesh-glow-2 {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(255, 46, 147, 0.12) 0%, rgba(0, 229, 153, 0.08) 50%, transparent 75%);
+      filter: blur(90px);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    /* faint circle in bg */
+    .curved-ring {
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 50%;
+      position: absolute;
+      pointer-events: none;
+    }
+
+    /* Pillar card light glows */
+    .aurora-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .aurora-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: var(--aurora-gradient);
+      opacity: 0.12;
+      filter: blur(40px);
+      transition: opacity 0.5s ease;
+      pointer-events: none;
+    }
+
+    .aurora-card:hover::before {
+      opacity: 0.28;
+    }
+
+    /* Ambient fluid lights */
+    @keyframes floatGlow1 {
+    0%, 100% {
+        transform: translate(0px, 0px) scale(1);
+        opacity: 0.5;
+    }
+    50% {
+        transform: translate(35px, 25px) scale(1.15);
+        opacity: 0.75;
+    }
+    }
+
+    @keyframes floatGlow2 {
+    0%, 100% {
+        transform: translate(0px, 0px) scale(1);
+        opacity: 0.5;
+    }
+    50% {
+        transform: translate(-35px, -25px) scale(1.18);
+        opacity: 0.75;
+    }
+    }
+
+    .animate-glow-1 {
+    animation: floatGlow1 12s ease-in-out infinite;
+    }
+
+    .animate-glow-2 {
+    animation: floatGlow2 14s ease-in-out infinite;
+    }
+
+    
+  </style>
 </head>
-<body>
-    <p>We are smth or other join pls ^^ </p>
+
+<!------------------------------------------------->
+<body class="bg-brand-bg text-slate-200 font-sans antialiased min-h-screen selection:bg-brand-grey/20 overflow-x-hidden">
+  <div class="fixed inset-0 bg-grid pointer-events-none z-0"></div>
+  <div class="mesh-glow-1 top-[-100px] right-[-100px] z-0"></div>
+  <div class="mesh-glow-2 top-[40%] left-[-200px] z-0"></div>
+  <!-- Top bar navigation -->
+  <nav class="sticky top-0 z-50 bg-brand-bg/60 backdrop-blur-xl border-b border-white/5">
+    <div class="max-w-7xl mx-auto px-8 h-20 flex items-center justify-between">
+      <a href="../index.html" class="font-mono text-xl font-bold tracking-tight text-white flex items-center gap-2">
+        <img src="../assets/computex-logo.png" alt="ComputeX Logo" class="h-11 w-auto object-contain" />
+        <!-- COMPUTEX in top bar (in addition to logo?)
+        <span class="inline-block w-2.5 h-2.5 rounded-full bg-brand-cyan animate-pulse"></span><span class="text-white">  COMPUTEX</span> -->
+      </a>
+      <div class="flex items-center gap-8 text-sm font-mono text-slate-400">
+        <a href="../pillars/index.html" class="hover:text-white transition-colors">PILLARS</a>
+        <a href="../team/index.html" class="hover:text-white transition-colors">TEAM</a>
+        <a href="../roadmap/index.html" class="hover:text-white transition-colors">ROADMAP</a>
+        <a href="#" class="group relative px-5 py-2 rounded-lg bg-white/10 text-brand-cyan font-bold border border-brand-cyan/50 font-semibold transition-all hover:border-transparent">
+          <span class="absolute -inset-[1px] rounded-lg bg-gradient-to-r from-brand-magenta via-brand-purple to-brand-cyan opacity-0 group-hover:opacity-100 transition-opacity p-[1px] pointer-events-none">
+            <span class="w-full h-full block rounded-[7px] bg-[#121318]"></span>
+          </span>
+          <span class="relative z-10 group-hover:bg-gradient-to-r group-hover:from-brand-magenta group-hover:via-brand-purple group-hover:to-brand-cyan group-hover:bg-clip-text group-hover:text-transparent">
+            JOIN →
+          </span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT WRAPPER -->
+  <main class="flex-grow">
+
+    <!-- HERO SECTION -->
+    <section class="relative z-10 pt-16 pb-12 px-6 md:px-8 max-w-6xl mx-auto text-center">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-slate-400 mb-6">
+        <span class="w-2 h-2 rounded-full bg-brand-emerald animate-pulse"></span>
+        Applications Open • Cohort 2026-2027
+      </div>
+      <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-white mb-6 leading-tight max-w-4xl mx-auto">
+        Find Your <span style="background: linear-gradient(90deg, #00F0FF 0%, #00E599 40%, #FF2E93 100%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Convergence Point</span>
+      </h1>
+      <p class="text-slate-300 text-base md:text-lg max-w-2xl mx-auto font-sans leading-relaxed mb-8">
+        Whether you code, conduct clinical research, design interfaces, or analyze markets—computation is your force multiplier. Select your track and join the network.
+      </p>
+      
+      <!-- Quick Nav Buttons -->
+      <div class="flex flex-wrap items-center justify-center gap-4 text-xs font-mono">
+        <a href="#persona-tracks" class="px-4 py-2 rounded-lg bg-white/5 border border-white/10 hover:border-brand-cyan/50 hover:text-brand-cyan transition-all">
+          ↓ Select Persona Track
+        </a>
+        <a href="#apply-form" class="px-4 py-2 rounded-lg bg-white/5 border border-white/10 hover:border-brand-emerald/50 hover:text-brand-emerald transition-all">
+          ↓ Direct Application
+        </a>
+      </div>
+    </section>
+
+    <!-- PERSONA TRACKS SECTION -->
+    <section id="persona-tracks" class="px-6 md:px-8 max-w-6xl mx-auto mb-20 scroll-mt-24">
+      <div class="text-center mb-10">
+        <h2 class="text-xs font-mono uppercase tracking-widest text-slate-400 mb-2">// Engagement Paths</h2>
+        <p class="text-2xl font-bold text-white">How Do You Want to Contribute?</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Persona 1: Students -->
+        <div class="p-6 rounded-2xl border border-white/10 bg-slate-900/50 hover:border-brand-cyan/50 transition-all flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-xs font-mono text-brand-cyan bg-brand-cyan/10 px-2.5 py-1 rounded-md border border-brand-cyan/20">Track 01</span>
+              <span class="text-2xl">🎓</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-cyan transition-colors">Students & Fellows</h3>
+            <p class="text-slate-400 text-sm leading-relaxed mb-6">
+              Join cross-disciplinary project teams, build real-world computational tools, access technical workshops, and publish applied projects.
+            </p>
+            <ul class="text-xs text-slate-300 space-y-2 font-mono mb-6">
+              <li class="flex items-center gap-2">
+                <span class="text-brand-cyan">✓</span> Technical & Non-Technical welcome
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-brand-cyan">✓</span> Portfolio-grade project builds
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-brand-cyan">✓</span> Dedicated industry mentor pairing
+              </li>
+            </ul>
+          </div>
+          <a href="#apply-form" class="w-full py-2.5 text-center text-xs font-mono font-bold rounded-xl border border-brand-cyan/30 bg-brand-cyan/10 text-brand-cyan hover:bg-brand-cyan hover:text-slate-950 transition-all">
+            Apply as Fellow →
+          </a>
+        </div>
+
+        <!-- Persona 2: Industry Partners -->
+        <div class="p-6 rounded-2xl border border-white/10 bg-slate-900/50 hover:border-brand-amber/50 transition-all flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-xs font-mono text-brand-amber bg-brand-amber/10 px-2.5 py-1 rounded-md border border-brand-amber/20">Track 02</span>
+              <span class="text-2xl">⚡</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-amber transition-colors">Industry & Research</h3>
+            <p class="text-slate-400 text-sm leading-relaxed mb-6">
+              Sponsor real-world domain challenges, access top cross-functional talent, and collaborate on cutting-edge computational R&D.
+            </p>
+            <ul class="text-xs text-slate-300 space-y-2 font-mono mb-6">
+              <li class="flex items-center gap-2">
+                <span class="text-brand-amber">✓</span> Pitch custom pillar projects
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-brand-amber">✓</span> Direct access to student talent pipeline
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-brand-amber">✓</span> Co-branded hackathons & sprints
+              </li>
+            </ul>
+          </div>
+          <a href="#apply-form" class="w-full py-2.5 text-center text-xs font-mono font-bold rounded-xl border border-brand-amber/30 bg-brand-amber/10 text-brand-amber hover:bg-brand-amber hover:text-slate-950 transition-all">
+            Partner With Us →
+          </a>
+        </div>
+
+        <!-- Persona 3: Mentors & Advisors -->
+        <div class="p-6 rounded-2xl border border-white/10 bg-slate-900/50 hover:border-brand-magenta/50 transition-all flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-xs font-mono text-brand-magenta bg-brand-magenta/10 px-2.5 py-1 rounded-md border border-brand-magenta/20">Track 03</span>
+              <span class="text-2xl">🧠</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-magenta transition-colors">Mentors & Speakers</h3>
+            <p class="text-slate-400 text-sm leading-relaxed mb-6">
+              Guide student teams, review project architecture, deliver guest lectures, and help bridge theoretical concepts with industry execution.
+            </p>
+            <ul class="text-xs text-slate-300 space-y-2 font-mono mb-6">
+              <li class="flex items-center gap-2">
+                <span class="text-brand-magenta">✓</span> Flexible commitment (1-3 hrs/month)
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-brand-magenta">✓</span> Keynote & panel opportunities
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-brand-magenta">✓</span> Advisory board network inclusion
+              </li>
+            </ul>
+          </div>
+          <a href="#apply-form" class="w-full py-2.5 text-center text-xs font-mono font-bold rounded-xl border border-brand-magenta/30 bg-brand-magenta/10 text-brand-magenta hover:bg-brand-magenta hover:text-slate-950 transition-all">
+            Become an Advisor →
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- APPLICATION FORM SECTION -->
+    <section id="apply-form" class="px-6 md:px-8 max-w-4xl mx-auto mb-20 scroll-mt-24">
+      <div class="p-8 md:p-10 rounded-3xl border border-white/10 bg-slate-900/80 backdrop-blur-md relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-brand-cyan via-brand-emerald to-brand-magenta"></div>
+
+        <div class="mb-8">
+          <h2 class="text-2xl md:text-3xl font-extrabold text-white mb-2">Join the Initiative</h2>
+          <p class="text-slate-400 text-sm">Complete this application to join as a student fellow, industry partner, or mentor.</p>
+        </div>
+
+        <form onsubmit="event.preventDefault(); alert('Application submitted successfully!');" class="space-y-6">
+          
+          <!-- Basic Info -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-mono text-slate-300 mb-2">Full Name *</label>
+              <input type="text" required placeholder="Ada Lovelace" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-white/10 text-white placeholder-slate-600 focus:outline-none focus:border-brand-cyan text-sm transition-all"/>
+            </div>
+            <div>
+              <label class="block text-xs font-mono text-slate-300 mb-2">Email Address *</label>
+              <input type="email" required placeholder="ada@domain.edu" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-white/10 text-white placeholder-slate-600 focus:outline-none focus:border-brand-cyan text-sm transition-all"/>
+            </div>
+          </div>
+
+          <!-- Track & Background -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-mono text-slate-300 mb-2">Primary Role / Track *</label>
+              <select required class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-white/10 text-white focus:outline-none focus:border-brand-cyan text-sm transition-all">
+                <option value="" disabled selected>Select your track</option>
+                <option value="student">Student / Fellow</option>
+                <option value="partner">Industry / Research Partner</option>
+                <option value="mentor">Mentor / Speaker</option>
+                <option value="other">Other Collaboration</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-mono text-slate-300 mb-2">Primary Academic Major / Field</label>
+              <input type="text" placeholder="e.g. Computer Science, Bio, Finance, Fine Arts" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-white/10 text-white placeholder-slate-600 focus:outline-none focus:border-brand-cyan text-sm transition-all"/>
+            </div>
+          </div>
+
+          <!-- Pillar Checkboxes -->
+          <div>
+            <label class="block text-xs font-mono text-slate-300 mb-2">Which Pillar(s) Align Best With Your Work? (Select all that apply)</label>
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 font-mono text-xs">
+              
+              <label class="flex items-center gap-2 p-3 rounded-xl border border-white/10 bg-slate-950 cursor-pointer hover:border-brand-cyan/50 transition-all">
+                <input type="checkbox" class="accent-brand-cyan rounded"/>
+                <span class="text-slate-300">01 Tech + Eng</span>
+              </label>
+
+              <label class="flex items-center gap-2 p-3 rounded-xl border border-white/10 bg-slate-950 cursor-pointer hover:border-brand-amber/50 transition-all">
+                <input type="checkbox" class="accent-brand-amber rounded"/>
+                <span class="text-slate-300">02 Business</span>
+              </label>
+
+              <label class="flex items-center gap-2 p-3 rounded-xl border border-white/10 bg-slate-950 cursor-pointer hover:border-brand-emerald/50 transition-all">
+                <input type="checkbox" class="accent-brand-emerald rounded"/>
+                <span class="text-slate-300">03 Health</span>
+              </label>
+
+              <label class="flex items-center gap-2 p-3 rounded-xl border border-white/10 bg-slate-950 cursor-pointer hover:border-brand-magenta/50 transition-all">
+                <input type="checkbox" class="accent-brand-magenta rounded"/>
+                <span class="text-slate-300">04 Art + Design</span>
+              </label>
+
+              <label class="flex items-center gap-2 p-3 rounded-xl border border-white/10 bg-slate-950 cursor-pointer hover:border-brand-purple/50 transition-all">
+                <input type="checkbox" class="accent-brand-purple rounded"/>
+                <span class="text-slate-300">05 Ethics</span>
+              </label>
+
+            </div>
+          </div>
+
+          <!-- Links & Details -->
+          <div>
+            <label class="block text-xs font-mono text-slate-300 mb-2">LinkedIn / GitHub / Portfolio Link</label>
+            <input type="url" placeholder="https://" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-white/10 text-white placeholder-slate-600 focus:outline-none focus:border-brand-cyan text-sm transition-all mb-4"/>
+            
+            <label class="block text-xs font-mono text-slate-300 mb-2">What cross-disciplinary problem or project do you want to work on? *</label>
+            <textarea rows="4" required placeholder="Briefly describe your goals, skills, or what you hope to gain/contribute..." class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-white/10 text-white placeholder-slate-600 focus:outline-none focus:border-brand-cyan text-sm transition-all resize-none"></textarea>
+          </div>
+
+          <button type="submit" class="w-full py-4 rounded-xl font-mono text-sm font-bold bg-gradient-to-r from-brand-cyan via-brand-emerald to-brand-magenta text-slate-950 hover:opacity-90 transition-opacity">
+            Submit Application →
+          </button>
+
+        </form>
+      </div>
+    </section>
+
+    <!-- TIMELINE SECTION -->
+    <section class="px-6 md:px-8 max-w-4xl mx-auto mb-20">
+      <div class="text-center mb-10">
+        <h2 class="text-xs font-mono uppercase tracking-widest text-slate-400 mb-2">// Timeline</h2>
+        <p class="text-2xl font-bold text-white">Cohort Onboarding Roadmap</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 font-mono text-xs">
+        <div class="p-4 rounded-xl border border-white/10 bg-slate-900/40">
+          <span class="text-brand-cyan font-bold block mb-1">01. Applications</span>
+          <p class="text-slate-300 text-sm font-sans mb-1 font-bold">Rolling Admissions</p>
+          <p class="text-slate-400 font-sans text-xs">Applications reviewed bi-weekly for cohort placement.</p>
+        </div>
+
+        <div class="p-4 rounded-xl border border-white/10 bg-slate-900/40">
+          <span class="text-brand-emerald font-bold block mb-1">02. Matching</span>
+          <p class="text-slate-300 text-sm font-sans mb-1 font-bold">Pillar Team Formation</p>
+          <p class="text-slate-400 font-sans text-xs">Pairing technical leads with domain specialists and advisors.</p>
+        </div>
+
+        <div class="p-4 rounded-xl border border-white/10 bg-slate-900/40">
+          <span class="text-brand-magenta font-bold block mb-1">03. Sprint</span>
+          <p class="text-slate-300 text-sm font-sans mb-1 font-bold">Project Execution</p>
+          <p class="text-slate-400 font-sans text-xs">Hands-on build cycle, guest workshops, and showcase prep.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="px-6 md:px-8 max-w-3xl mx-auto mb-24">
+      <div class="text-center mb-8">
+        <h2 class="text-xs font-mono uppercase tracking-widest text-slate-400 mb-2">// FAQ</h2>
+        <p class="text-2xl font-bold text-white">Frequently Asked Questions</p>
+      </div>
+
+      <div class="space-y-4 text-sm font-sans">
+        <details class="p-4 rounded-xl border border-white/10 bg-slate-900/40 group">
+          <summary class="font-bold text-white cursor-pointer list-none flex justify-between items-center">
+            <span>Do I need advanced coding experience to join as a student?</span>
+            <span class="text-brand-cyan group-open:rotate-45 transition-transform">+</span>
+          </summary>
+          <p class="text-slate-400 mt-3 text-xs leading-relaxed">
+            No! We explicitly assemble interdisciplinary teams. Domain specialists in finance, biology, design, or philosophy work alongside technical software leads to ensure solutions have genuine real-world impact.
+          </p>
+        </details>
+
+        <details class="p-4 rounded-xl border border-white/10 bg-slate-900/40 group">
+          <summary class="font-bold text-white cursor-pointer list-none flex justify-between items-center">
+            <span>What is the weekly time commitment for fellows?</span>
+            <span class="text-brand-cyan group-open:rotate-45 transition-transform">+</span>
+          </summary>
+          <p class="text-slate-400 mt-3 text-xs leading-relaxed">
+            Expect around 3 to 5 hours per week, including team standups, project work, and optional guest mentor workshops.
+          </p>
+        </details>
+
+        <details class="p-4 rounded-xl border border-white/10 bg-slate-900/40 group">
+          <summary class="font-bold text-white cursor-pointer list-none flex justify-between items-center">
+            <span>How can companies submit custom project challenges?</span>
+            <span class="text-brand-cyan group-open:rotate-45 transition-transform">+</span>
+          </summary>
+          <p class="text-slate-400 mt-3 text-xs leading-relaxed">
+            Select "Industry / Research Partner" in the application form above or email our partnerships team directly to discuss scope and dataset sharing.
+          </p>
+        </details>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-white/10 bg-slate-950 py-12 px-6 md:px-8 font-mono text-xs text-slate-500">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+      
+      <!-- Brand Summary -->
+      <div class="md:col-span-2">
+        <a href="index.html" class="flex items-center gap-2 text-sm font-bold tracking-wider text-white mb-3">
+          <span class="w-2.5 h-2.5 rounded-full bg-brand-cyan"></span>
+          <span>COMPUTATION<span class="text-brand-cyan">//</span>LAYER</span>
+        </a>
+        <p class="text-slate-400 font-sans text-xs leading-relaxed max-w-sm">
+          Computation isn't an isolated major—it's an operating layer for every industry. Bridging technology, strategy, health, art, and ethics.
+        </p>
+      </div>
+
+      <!-- Quick Nav Links -->
+      <div>
+        <span class="text-slate-300 font-bold block mb-3 uppercase tracking-wider">// Navigation</span>
+        <ul class="space-y-2">
+          <li><a href="index.html" class="hover:text-brand-cyan transition-colors">Home</a></li>
+          <li><a href="pillars.html" class="hover:text-brand-cyan transition-colors">Five Pillars</a></li>
+          <li><a href="roadmap.html" class="hover:text-brand-cyan transition-colors">Roadmap</a></li>
+          <li><a href="team.html" class="hover:text-brand-cyan transition-colors">Board & Team</a></li>
+          <li><a href="join.html" class="hover:text-brand-cyan transition-colors">Join Us</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact & Social -->
+      <div>
+        <span class="text-slate-300 font-bold block mb-3 uppercase tracking-wider">// Connect</span>
+        <ul class="space-y-2">
+          <li><a href="https://github.com" target="_blank" rel="noopener" class="hover:text-white transition-colors">GitHub ↗</a></li>
+          <li><a href="https://linkedin.com" target="_blank" rel="noopener" class="hover:text-white transition-colors">LinkedIn ↗</a></li>
+          <li><a href="mailto:contact@domain.edu" class="hover:text-white transition-colors">contact@domain.edu</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="max-w-6xl mx-auto pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-600">
+      <p>© 2026 Computational Initiative. All rights reserved.</p>
+      <div class="flex gap-4">
+        <a href="#" class="hover:underline">Privacy Policy</a>
+        <a href="#" class="hover:underline">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
 </body>
 </html>
