@@ -357,526 +357,601 @@
     >
 
       <!-- =====================================================
-           01 — INTRO
-           ===================================================== -->
-      <section class="max-w-7xl mx-auto px-6 md:px-8 pb-20">
+     01 — INTRO
+     ===================================================== -->
+<section
+  class="max-w-7xl mx-auto px-6 md:px-8 pb-20"
+>
 
-        <div class="border-t border-white/10 pt-10">
+  <div
+    class="relative overflow-hidden rounded-2xl p-6 sm:p-8 md:p-10"
+    style="
+      border: 1px solid color-mix(in srgb, var(--pillar-color) 20%, transparent);
+      background:
+        linear-gradient(
+          90deg,
+          color-mix(in srgb, var(--pillar-color) 10%, transparent),
+          rgba(15, 23, 42, 0.9) 45%,
+          rgba(2, 6, 23, 0.95)
+        );
+      box-shadow: 0 20px 45px color-mix(in srgb, var(--pillar-color) 5%, transparent);
+    "
+  >
 
-          <div class="grid lg:grid-cols-[180px_1fr] gap-8">
+    <!-- Ambient glow -->
+    <div
+      class="absolute -top-32 -right-32 w-72 h-72 blur-3xl rounded-full pointer-events-none"
+      style="
+        background: color-mix(in srgb, var(--pillar-color) 10%, transparent);
+      "
+    ></div>
 
-            <div>
-              <span class="font-mono text-xs text-slate-600">
-                01
-              </span>
+    <div class="relative">
 
-              <p class="font-mono text-[10px] tracking-[0.18em] uppercase text-slate-600 mt-2">
-                INTRO
-              </p>
-            </div>
+      <!-- Section header -->
+      <div class="flex items-center justify-between gap-4 mb-8">
 
-            <div class="max-w-4xl">
+        <div class="flex items-center gap-3">
 
-              <div class="flex items-center gap-3 mb-5">
-                <span
-                  id="pillarEyebrow"
-                  class="font-mono text-xs tracking-[0.16em] uppercase"
-                  style="color:#00F0FF"
-                >
-                  TECH + ENGINEERING
-                </span>
-
-                <span class="h-px w-10 bg-white/10"></span>
-              </div>
-
-              <h2
-                id="pillarIntro"
-                class="text-3xl md:text-5xl font-medium tracking-[-0.035em] text-white leading-tight"
-              >
-                Computing is the foundation behind the systems we build,
-                understand, and control.
-              </h2>
-
-              <p
-                id="pillarIntroSub"
-                class="mt-6 text-slate-400 text-base md:text-lg leading-8 max-w-3xl"
-              >
-                ComputeX treats this pillar as its technical anchor:
-                the computational foundations that power everything else we explore.
-              </p>
-
-            </div>
-
+          <div
+            class="w-9 h-9 rounded-lg bg-slate-900 font-mono font-bold text-xs flex items-center justify-center"
+            style="
+              border: 2px solid var(--pillar-color);
+              color: var(--pillar-color);
+              box-shadow: 0 10px 25px color-mix(in srgb, var(--pillar-color) 20%, transparent);
+            "
+          >
+            01
           </div>
-        </div>
-
-      </section>
-
-
-      <!-- =====================================================
-           02 — WHY IT MATTERS
-           ===================================================== -->
-      <section class="max-w-7xl mx-auto px-6 md:px-8 pb-28">
-
-        <div class="grid lg:grid-cols-[180px_1fr] gap-8">
 
           <div>
-            <span class="font-mono text-xs text-slate-600">
-              02
-            </span>
-
-            <p class="font-mono text-[10px] tracking-[0.18em] uppercase text-slate-600 mt-2">
-              WHY IT MATTERS
+            <p class="font-mono text-[10px] tracking-[0.18em] uppercase text-slate-500">
+              INTRO
             </p>
           </div>
 
-          <div>
-
-            <div class="max-w-4xl">
-              <h2 class="text-3xl md:text-5xl font-medium tracking-[-0.04em] text-white">
-                Why should computing matter here?
-              </h2>
-
-              <p
-                id="whyText"
-                class="mt-6 text-lg leading-8 text-slate-400"
-              ></p>
-            </div>
-
-            <div
-              id="whyConcepts"
-              class="grid md:grid-cols-3 gap-px bg-white/10 border border-white/10 rounded-2xl overflow-hidden mt-12"
-            >
-              <!-- JS -->
-            </div>
-
-          </div>
         </div>
 
-      </section>
+      </div>
 
 
-      <!-- =====================================================
-           03 — WHERE IT'S HAPPENING
-           ===================================================== -->
-      <section class="border-y border-white/10 bg-white/[0.012]">
+      <!-- Content -->
+      <div class="max-w-5xl">
 
-        <div class="max-w-7xl mx-auto px-6 md:px-8 py-28">
+        <div class="flex items-center gap-3 mb-5">
 
-          <div class="grid lg:grid-cols-[180px_1fr] gap-8">
+          <span
+            id="pillarEyebrow"
+            class="font-mono text-xs tracking-[0.16em] uppercase font-bold"
+            style="color: var(--pillar-color);"
+          >
+            TECH + ENGINEERING
+          </span>
 
-            <div>
-              <span class="font-mono text-xs text-slate-600">
-                03
-              </span>
-
-              <p class="font-mono text-[10px] tracking-[0.18em] uppercase text-slate-600 mt-2">
-                WHERE IT'S HAPPENING
-              </p>
-            </div>
-
-            <div>
-
-              <div class="max-w-3xl mb-12">
-                <h2 class="text-3xl md:text-5xl font-medium tracking-[-0.04em] text-white">
-                  From idea to the real world.
-                </h2>
-
-                <p class="mt-5 text-slate-400 leading-7">
-                  Computing is already reshaping the fields around us.
-                  Here are some of the places where these intersections become tangible.
-                </p>
-              </div>
-
-              <div class="grid lg:grid-cols-[260px_1fr] gap-4">
-
-                <!-- Examples -->
-                <div
-                  id="exampleTabs"
-                  class="flex lg:flex-col gap-2 overflow-x-auto hide-scrollbar"
-                >
-                  <!-- JS -->
-                </div>
-
-                <!-- Example detail -->
-                <div
-                  id="exampleDetail"
-                  class="rounded-2xl border border-white/10 bg-brand-panel/80 p-7 md:p-9 min-h-[330px]"
-                >
-                  <!-- JS -->
-                </div>
-
-              </div>
-
-              <div class="mt-5 font-mono text-[10px] text-slate-700">
-                PLACEHOLDER — Replace or expand these examples with ComputeX-approved organizations,
-                projects, links, and statistics before publishing.
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-
-
-      <!-- =====================================================
-           04 — WHAT WE EXPLORE
-           ===================================================== -->
-      <section class="max-w-7xl mx-auto px-6 md:px-8 py-28">
-
-        <div class="grid lg:grid-cols-[180px_1fr] gap-8">
-
-          <div>
-            <span class="font-mono text-xs text-slate-600">
-              04
-            </span>
-
-            <p class="font-mono text-[10px] tracking-[0.18em] uppercase text-slate-600 mt-2">
-              WHAT WE EXPLORE
-            </p>
-          </div>
-
-          <div>
-
-            <div class="max-w-3xl mb-12">
-              <h2 class="text-3xl md:text-5xl font-medium tracking-[-0.04em] text-white">
-                Where ComputeX goes deeper.
-              </h2>
-
-              <p class="mt-5 text-slate-400 leading-7">
-                These are the specific intersections we want to investigate,
-                build around, and bring into workshops and projects.
-              </p>
-            </div>
-
-            <div class="grid lg:grid-cols-[1fr_1.25fr] gap-5">
-
-              <div
-                id="focusCards"
-                class="grid sm:grid-cols-2 lg:grid-cols-1 gap-2"
-              >
-                <!-- JS -->
-              </div>
-
-              <div
-                id="focusDetail"
-                class="border border-white/10 bg-brand-panel rounded-2xl p-7 md:p-9 min-h-[360px]"
-              >
-                <!-- JS -->
-              </div>
-
-            </div>
-
-          </div>
+          <span
+            class="h-px w-10"
+            style="
+              background: color-mix(in srgb, var(--pillar-color) 30%, transparent);
+            "
+          ></span>
 
         </div>
 
-      </section>
-
-
-      <!-- =====================================================
-           05 — TOOLKIT
-           ===================================================== -->
-      <section class="border-y border-white/10 bg-white/[0.012]">
-
-        <div class="max-w-7xl mx-auto px-6 md:px-8 py-28">
-
-          <div class="grid lg:grid-cols-[180px_1fr] gap-8">
-
-            <div>
-              <span class="font-mono text-xs text-slate-600">
-                05
-              </span>
-
-              <p class="font-mono text-[10px] tracking-[0.18em] uppercase text-slate-600 mt-2">
-                THE TOOLKIT
-              </p>
-            </div>
-
-            <div>
-
-              <div class="max-w-3xl mb-12">
-                <h2 class="text-3xl md:text-5xl font-medium tracking-[-0.04em] text-white">
-                  The ecosystem behind the work.
-                </h2>
-
-                <p class="mt-5 text-slate-400 leading-7">
-                  Computing isn't synonymous with writing code.
-                  Languages, frameworks, methods, platforms, and design tools
-                  all become part of the toolkit.
-                </p>
-              </div>
-
-              <div class="grid lg:grid-cols-[1fr_1.15fr] gap-5">
-
-                <div class="space-y-8">
-
-                  <div>
-                    <div class="font-mono text-[10px] tracking-[0.18em] text-slate-600 mb-3">
-                      LANGUAGES / FRAMEWORKS
-                    </div>
-
-                    <div
-                      id="languageTools"
-                      class="flex flex-wrap gap-2"
-                    ></div>
-                  </div>
-
-                  <div>
-                    <div class="font-mono text-[10px] tracking-[0.18em] text-slate-600 mb-3">
-                      METHODS
-                    </div>
-
-                    <div
-                      id="methodTools"
-                      class="flex flex-wrap gap-2"
-                    ></div>
-                  </div>
-
-                  <div>
-                    <div class="font-mono text-[10px] tracking-[0.18em] text-slate-600 mb-3">
-                      TOOLS
-                    </div>
-
-                    <div
-                      id="softwareTools"
-                      class="flex flex-wrap gap-2"
-                    ></div>
-                  </div>
-
-                </div>
-
-                <div
-                  id="toolDetail"
-                  class="border border-white/10 bg-brand-panel rounded-2xl p-7 md:p-9 min-h-[300px]"
-                >
-                  <!-- JS -->
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-
-
-      <!-- =====================================================
-           06 — TRY IT YOURSELF
-           ===================================================== -->
-      <section class="max-w-7xl mx-auto px-6 md:px-8 py-28">
-
-        <div class="grid lg:grid-cols-[180px_1fr] gap-8">
-
-          <div>
-            <span class="font-mono text-xs text-slate-600">
-              06
-            </span>
-
-            <p class="font-mono text-[10px] tracking-[0.18em] uppercase text-slate-600 mt-2">
-              TRY IT YOURSELF
-            </p>
-          </div>
-
-          <div>
-
-            <div class="max-w-3xl mb-12">
-
-              <h2 class="text-3xl md:text-5xl font-medium tracking-[-0.04em] text-white">
-                Can computation reveal something we couldn't see before?
-              </h2>
-
-              <p
-                id="demoIntro"
-                class="mt-5 text-slate-400 leading-7"
-              ></p>
-
-            </div>
-
-            <!-- IDE -->
-            <div
-              class="rounded-2xl border border-white/10 bg-[#0c0d10] overflow-hidden shadow-2xl shadow-black/30"
-            >
-
-              <!-- IDE header -->
-              <div class="h-11 border-b border-white/10 bg-white/[0.02] flex items-center justify-between px-4">
-
-                <div class="flex items-center gap-2">
-
-                  <span class="w-2.5 h-2.5 rounded-full bg-red-500/60"></span>
-                  <span class="w-2.5 h-2.5 rounded-full bg-yellow-500/60"></span>
-                  <span class="w-2.5 h-2.5 rounded-full bg-green-500/60"></span>
-
-                </div>
-
-                <span
-                  id="demoFile"
-                  class="font-mono text-[10px] text-slate-600"
-                >
-                  analyze.py
-                </span>
-
-                <span class="w-12"></span>
-
-              </div>
-
-
-              <!-- Code -->
-              <div class="grid lg:grid-cols-[1fr_1fr]">
-
-                <div class="border-b lg:border-b-0 lg:border-r border-white/10">
-
-                  <div class="px-5 py-4 border-b border-white/5 flex items-center justify-between">
-                    <span class="font-mono text-[10px] tracking-[0.15em] text-slate-600">
-                      SOURCE
-                    </span>
-
-                    <span class="font-mono text-[10px] text-slate-700">
-                      browser runtime
-                    </span>
-                  </div>
-
-                  <pre
-                    id="demoCode"
-                    class="p-5 md:p-7 text-[11px] md:text-xs leading-6 font-mono text-slate-400 overflow-x-auto min-h-[340px]"
-                  ></pre>
-
-                </div>
-
-
-                <!-- Terminal -->
-                <div>
-
-                  <div class="px-5 py-4 border-b border-white/5 flex items-center justify-between">
-
-                    <span class="font-mono text-[10px] tracking-[0.15em] text-slate-600">
-                      TERMINAL
-                    </span>
-
-                    <span class="flex items-center gap-2 font-mono text-[10px] text-slate-600">
-                      <span
-                        id="terminalStatusDot"
-                        class="w-1.5 h-1.5 rounded-full"
-                        style="background:#4b5563"
-                      ></span>
-                      <span id="terminalStatus">
-                        idle
-                      </span>
-                    </span>
-
-                  </div>
-
-                  <div
-                    id="terminal"
-                    class="demo-output p-5 md:p-7 font-mono text-[11px] md:text-xs leading-6 text-slate-400 overflow-x-auto scanline"
-                  >
-                    <div class="text-slate-600">
-                      $ ready
-                    </div>
-
-                    <div class="mt-3 text-slate-700">
-                      Run the analysis to see computation happen in real time.
-                    </div>
-                  </div>
-
-                </div>
-
-              </div>
-
-
-              <!-- Run bar -->
-              <div class="border-t border-white/10 bg-white/[0.02] p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-
-                <div class="font-mono text-[10px] text-slate-600">
-                  <span id="demoCommand">
-                    $ python analyze.py
-                  </span>
-                </div>
-
-                <button
-                  id="runDemo"
-                  class="group relative inline-flex items-center justify-center px-5 py-2.5 rounded-lg bg-white text-black font-mono text-xs font-semibold transition-all hover:scale-[1.01] disabled:opacity-40 disabled:cursor-not-allowed"
-                >
-                  RUN ANALYSIS
-                  <span class="ml-2 transition-transform group-hover:translate-x-0.5">
-                    →
-                  </span>
-                </button>
-
-              </div>
-
-            </div>
-
-
-            <!-- What happened -->
-            <div
-              id="demoExplanation"
-              class="mt-6 border border-white/10 rounded-2xl bg-brand-panel/50 p-6 md:p-7"
-            >
-              <!-- JS -->
-            </div>
-
-          </div>
-
-        </div>
-
-      </section>
-
-
-      <!-- =====================================================
-           07 — QUESTIONS
-           ===================================================== -->
-      <section class="border-y border-white/10 bg-white/[0.012]">
-
-        <div class="max-w-7xl mx-auto px-6 md:px-8 py-28">
-
-          <div class="grid lg:grid-cols-[180px_1fr] gap-8">
-
-            <div>
-              <span class="font-mono text-xs text-slate-600">
-                07
-              </span>
-
-              <p class="font-mono text-[10px] tracking-[0.18em] uppercase text-slate-600 mt-2">
-                QUESTIONS
-              </p>
-            </div>
-
-            <div>
-
-              <div class="max-w-3xl mb-12">
-
-                <h2 class="text-3xl md:text-5xl font-medium tracking-[-0.04em] text-white">
-                  The interesting part is what we don't know yet.
-                </h2>
-
-                <p class="mt-5 text-slate-400 leading-7">
-                  Every new capability creates another set of questions.
-                  These are some of the problems worth sitting with.
-                </p>
-
-              </div>
-
-              <div
-                id="questionList"
-                class="border-t border-white/10"
-              >
-                <!-- JS -->
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-      </section>
+        <h2
+          id="pillarIntro"
+          class="text-3xl md:text-5xl font-medium tracking-[-0.035em] text-white leading-tight max-w-4xl"
+        >
+          Computing is the foundation behind the systems we build,
+          understand, and control.
+        </h2>
+
+        <p
+          id="pillarIntroSub"
+          class="mt-6 text-slate-400 text-base md:text-lg leading-8 max-w-3xl"
+        >
+          ComputeX treats this pillar as its technical anchor:
+          the computational foundations that power everything else we explore.
+        </p>
+
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     02 — WHERE COMPUTING GOES
+     ===================================================== -->
+<section class="border-y border-white/10 bg-white/[0.012]">
+
+  <div class="max-w-7xl mx-auto px-6 md:px-8 py-28">
+
+    <!-- Section header -->
+    <div class="flex items-center gap-3 mb-10">
+
+      <div
+        class="w-9 h-9 rounded-lg bg-slate-900 font-mono font-bold text-xs flex items-center justify-center"
+        style="
+          border: 2px solid var(--pillar-color);
+          color: var(--pillar-color);
+          box-shadow: 0 10px 25px color-mix(in srgb, var(--pillar-color) 20%, transparent);
+        "
+      >
+        02
+      </div>
+      <h2 class="text-3xl md:text-5xl font-medium tracking-[-0.04em] text-white">
+        Here's how computing is transforming this field.
+      </h2>
+    </div>
+
+
+    <!-- Intro -->
+    <div class="max-w-3xl mb-12">
+
+      <p class="mt-5 text-slate-400 leading-7">
+        These are the areas where ComputeX goes deeper,
+        alongside the broader systems and applications where
+        computing becomes tangible.
+      </p>
 
     </div>
 
+
+    <!-- =================================================
+         INTERACTIVE EXPLORER
+         ================================================= -->
+    <div class="grid lg:grid-cols-[280px_1fr] gap-5">
+
+
+      <!-- ===============================================
+           LEFT — TOPIC NAVIGATION
+           =============================================== -->
+      <div class="space-y-6">
+
+
+        <!-- ComputeX Focus -->
+        <div>
+
+          <div class="flex items-center gap-3 mb-3 px-1">
+
+            <div
+              class="h-px w-5"
+              style="background: var(--pillar-color);"
+            ></div>
+
+            <span
+              class="font-mono text-[12px] tracking-[0.18em] uppercase font-bold"
+              style="color: var(--pillar-color);"
+            >
+              COMPUTEX'S FOCUS AREAS
+            </span>
+
+          </div>
+
+          <div
+            id="focusCards"
+            class="grid lg:grid-cols-1 gap-2"
+          >
+            <!-- JS -->
+          </div>
+
+        </div>
+
+        <!-- Other Real-World Applications -->
+        <div>
+
+          <div class="flex items-center gap-3 mb-3 px-1">
+
+            <div class="h-px w-5 bg-white/20"></div>
+
+            <span class="font-mono text-[12px] tracking-[0.18em] uppercase text-slate-400">
+              OTHER REAL-WORLD APPLICATIONS
+            </span>
+
+          </div>
+
+          <div
+            id="applicationTabs"
+            class="grid lg:grid-cols-1 gap-2"
+          >
+            <!-- JS -->
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- ===============================================
+           RIGHT — SHARED DETAIL PANEL
+           =============================================== -->
+      <div
+        id="topicDetail"
+        class="relative rounded-2xl p-7 md:p-9 min-h-[500px] shadow-xl shadow-black/20 overflow-hidden"
+        style="
+          border: 1px solid color-mix(in srgb, var(--pillar-color) 20%, transparent);
+          background:
+            linear-gradient(
+              135deg,
+              color-mix(in srgb, var(--pillar-color) 5%, transparent),
+              rgba(15, 23, 42, 0.92),
+              rgba(2, 6, 23, 0.97)
+            );
+        "
+      >
+
+        <!-- Ambient glow -->
+        <div
+          class="absolute -top-24 -right-24 w-72 h-72 blur-3xl rounded-full pointer-events-none"
+          style="
+            background: color-mix(in srgb, var(--pillar-color) 8%, transparent);
+          "
+        ></div>
+
+
+        <!-- Terminal-style header -->
+        <div
+          class="absolute top-0 left-0 right-0 h-10 border-b border-white/5 bg-white/[0.02] flex items-center justify-between px-4"
+        >
+
+          <div class="flex items-center gap-2">
+
+            <span class="w-2.5 h-2.5 rounded-full bg-red-500/60"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-yellow-500/60"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-green-500/60"></span>
+
+          </div>
+
+          <span
+            id="topicDetailLabel"
+            class="font-mono text-[10px] text-slate-600"
+          >
+            PLACEHOLDER
+          </span>
+
+          <span class="w-12"></span>
+
+        </div>
+
+
+        <!-- Detail content -->
+        <div
+          id="topicDetailContent"
+          class="relative pt-10"
+        >
+          <!-- JS -->
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- Placeholder note -->
+    <div class="mt-5 font-mono text-[10px] text-slate-700">
+      PLACEHOLDER — Replace or expand these topics with ComputeX-approved
+      organizations, projects, links, examples, and statistics before publishing.
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     03 — TOOLKIT
+     ===================================================== -->
+<section class="border-y border-white/10 bg-white/[0.012]">
+
+  <div class="max-w-7xl mx-auto px-6 md:px-8 py-28">
+
+    <!-- Section header -->
+    <div class="flex items-center gap-3 mb-10">
+
+      <div
+        class="w-9 h-9 rounded-lg bg-slate-900 font-mono font-bold text-xs flex items-center justify-center"
+        style="
+          border: 2px solid var(--pillar-color);
+          color: var(--pillar-color);
+          box-shadow: 0 10px 25px color-mix(in srgb, var(--pillar-color) 20%, transparent);
+        "
+      >
+        03
+      </div>
+      <h2 class="text-3xl md:text-5xl font-medium tracking-[-0.04em] text-white">
+        The ecosystem behind the work.
+      </h2>
+    </div>
+
+
+    <div>
+
+      <div class="max-w-3xl mb-12">
+        <p class="mt-5 text-slate-400 leading-7">
+          Computing isn't synonymous with writing code.
+          Languages, frameworks, methods, platforms, and design tools
+          all become part of the toolkit.
+        </p>
+
+      </div>
+
+
+      <div class="grid lg:grid-cols-[1fr_1.15fr] gap-5">
+
+        <!-- Toolkit categories -->
+        <div class="space-y-8">
+
+          <div>
+
+            <div class="font-mono text-[10px] tracking-[0.18em] text-slate-500 mb-3">
+              LANGUAGES / FRAMEWORKS
+            </div>
+
+            <div
+              id="languageTools"
+              class="flex flex-wrap gap-2"
+            ></div>
+
+          </div>
+
+
+          <div>
+
+            <div class="font-mono text-[10px] tracking-[0.18em] text-slate-500 mb-3">
+              METHODS
+            </div>
+
+            <div
+              id="methodTools"
+              class="flex flex-wrap gap-2"
+            ></div>
+
+          </div>
+
+
+          <div>
+
+            <div class="font-mono text-[10px] tracking-[0.18em] text-slate-500 mb-3">
+              TOOLS
+            </div>
+
+            <div
+              id="softwareTools"
+              class="flex flex-wrap gap-2"
+            ></div>
+
+          </div>
+
+        </div>
+
+
+        <!-- Tool detail -->
+        <div
+          id="toolDetail"
+          class="relative border border-brand-cyan/20 bg-gradient-to-br from-brand-cyan/5 via-brand-panel to-slate-950 rounded-2xl p-7 md:p-9 min-h-[300px] shadow-xl shadow-black/20 overflow-hidden"
+        >
+
+          <!-- Terminal header -->
+          <div class="absolute top-0 left-0 right-0 h-10 border-b border-white/5 bg-white/[0.02] flex items-center justify-between px-4">
+
+            <div class="flex items-center gap-2">
+
+              <span class="w-2.5 h-2.5 rounded-full bg-red-500/60"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-yellow-500/60"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-green-500/60"></span>
+
+            </div>
+
+            <span class="font-mono text-[10px] text-slate-600">
+              TOOLKIT.EXPLORER
+            </span>
+
+            <span class="w-12"></span>
+
+          </div>
+
+          <div class="relative pt-10">
+            <!-- JS -->
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     04 — TRY IT YOURSELF
+     ===================================================== -->
+<section class="max-w-7xl mx-auto px-6 md:px-8 py-28">
+
+  <div class="flex items-center gap-3 mb-10">
+    <div
+        class="w-9 h-9 rounded-lg bg-slate-900 font-mono font-bold text-xs flex items-center justify-center"
+        style="
+          border: 2px solid var(--pillar-color);
+          color: var(--pillar-color);
+          box-shadow: 0 10px 25px color-mix(in srgb, var(--pillar-color) 20%, transparent);
+        "
+      >
+        04
+      </div>
+      <h2 class="text-3xl md:text-5xl font-medium tracking-[-0.04em] text-white">
+        Can computation reveal something we couldn't see before?
+      </h2>
+  </div>
+
+  <div>
+    <div class="max-w-3xl mb-12">
+      <p
+        id="demoIntro"
+        class="mt-5 text-slate-400 leading-7"
+      ></p>
+    </div>
+
+    <!-- IDE -->
+    <div
+      class="relative rounded-2xl overflow-hidden shadow-2xl"
+      style="
+        border:1px solid color-mix(in srgb, var(--pillar-color) 22%, rgba(255,255,255,.08));
+        box-shadow:
+          0 0 0 1px color-mix(in srgb, var(--pillar-color) 5%, transparent),
+          0 20px 60px rgba(0,0,0,.45),
+          0 0 45px color-mix(in srgb, var(--pillar-color) 7%, transparent);
+      "
+    >
+      <!-- Subtle pillar glow -->
+      <div
+        class="absolute -top-32 left-1/2 -translate-x-1/2 w-[500px] h-[250px] blur-3xl rounded-full pointer-events-none opacity-20"
+        style="background:var(--pillar-color)"
+      ></div>
+      <!-- IDE header -->
+      <div
+        class="relative h-12 border-b border-white/10 bg-[#111318] flex items-center justify-between px-4"
+      >
+        <div class="flex items-center gap-2">
+
+          <span class="w-2.5 h-2.5 rounded-full bg-red-500/70"></span>
+          <span class="w-2.5 h-2.5 rounded-full bg-yellow-500/70"></span>
+          <span class="w-2.5 h-2.5 rounded-full bg-green-500/70"></span>
+
+        </div>
+
+        <span
+          id="demoFile"
+          class="font-mono text-[10px] text-slate-500"
+        >
+          analyze.py
+        </span>
+
+        <span class="w-12"></span>
+
+      </div>
+
+
+      <!-- Code -->
+      <div class="relative grid lg:grid-cols-[1fr_1fr] bg-[#0b0d11]">
+
+        <div class="border-b lg:border-b-0 lg:border-r border-white/10">
+
+          <div class="px-5 py-4 border-b border-white/5 bg-white/[0.025] flex items-center justify-between">
+
+            <span class="font-mono text-[10px] tracking-[0.15em] text-slate-500">
+              SOURCE
+            </span>
+
+            <span class="font-mono text-[10px] text-slate-600">
+              browser runtime
+            </span>
+
+          </div>
+
+          <pre
+            id="demoCode"
+            class="p-5 md:p-7 text-[11px] md:text-xs leading-6 font-mono text-slate-300 overflow-x-auto min-h-[340px]"
+          ></pre>
+
+        </div>
+
+
+        <!-- Terminal -->
+        <div>
+
+          <div class="px-5 py-4 border-b border-white/5 bg-white/[0.025] flex items-center justify-between">
+
+            <span class="font-mono text-[10px] tracking-[0.15em] text-slate-500">
+              TERMINAL
+            </span>
+
+            <span class="flex items-center gap-2 font-mono text-[10px] text-slate-500">
+
+              <span
+                id="terminalStatusDot"
+                class="w-1.5 h-1.5 rounded-full"
+                style="background:#4b5563"
+              ></span>
+
+              <span id="terminalStatus">
+                idle
+              </span>
+
+            </span>
+
+          </div>
+
+          <div
+            id="terminal"
+            class="demo-output p-5 md:p-7 font-mono text-[11px] md:text-xs leading-6 text-slate-300 overflow-x-auto scanline min-h-[340px]"
+          >
+
+            <div class="text-slate-500">
+              $ ready
+            </div>
+
+            <div class="mt-3 text-slate-600">
+              Run the analysis to see computation happen in real time.
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- Run bar -->
+      <div
+        class="relative border-t border-white/10 bg-[#111318] p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4"
+      >
+
+        <div class="font-mono text-[10px] text-slate-500">
+          <span id="demoCommand">
+            $ python analyze.py
+          </span>
+        </div>
+
+        <button
+          id="runDemo"
+          class="group relative inline-flex items-center justify-center px-5 py-2.5 rounded-lg text-black font-mono text-xs font-bold transition-all hover:scale-[1.01] disabled:opacity-40 disabled:cursor-not-allowed"
+          style="
+            background:var(--pillar-color);
+            box-shadow:0 0 20px color-mix(in srgb, var(--pillar-color) 18%, transparent);
+          "
+        >
+          RUN ANALYSIS
+
+          <span class="ml-2 transition-transform group-hover:translate-x-0.5">
+            →
+          </span>
+
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- What happened -->
+<div
+  id="demoExplanation"
+  class="relative mt-6 w-full rounded-2xl border border-white/10 bg-[#101217] overflow-hidden"
+>
+  <!-- JS -->
+</div>
+
+  </div>
+
+</section>
     <!-- =======================================================
          08 — PEOPLE
          ======================================================= -->
@@ -1971,8 +2046,8 @@ print(difference)`,
     const pillarIntro = document.getElementById("pillarIntro");
     const pillarIntroSub = document.getElementById("pillarIntroSub");
 
-    const whyText = document.getElementById("whyText");
-    const whyConcepts = document.getElementById("whyConcepts");
+    // const whyText = document.getElementById("whyText");
+    // const whyConcepts = document.getElementById("whyConcepts");
 
     const exampleTabs = document.getElementById("exampleTabs");
     const exampleDetail = document.getElementById("exampleDetail");
@@ -1994,9 +2069,6 @@ print(difference)`,
     const terminalStatusDot = document.getElementById("terminalStatusDot");
     const runDemo = document.getElementById("runDemo");
     const demoExplanation = document.getElementById("demoExplanation");
-
-    const questionList = document.getElementById("questionList");
-
 
     /*
      * ==========================================================
@@ -2176,6 +2248,10 @@ function updatePillarIndicator() {
 
     function renderIntro() {
       const pillar = pillars[activePillar];
+      document.documentElement.style.setProperty(
+        "--pillar-color",
+        pillar.accent
+      );
       pillarEyebrow.textContent = pillar.name.toUpperCase();
       pillarEyebrow.style.color = pillar.accent;
       pillarIntro.textContent = pillar.intro;
@@ -2187,7 +2263,7 @@ function updatePillarIndicator() {
      * ==========================================================
      * WHY IT MATTERS
      * ==========================================================
-     */
+     
 
     function renderWhy() {
 
@@ -2222,245 +2298,414 @@ function updatePillarIndicator() {
         `)
         .join("");
     }
+    */     
+
+   /*
+ * ==========================================================
+ * WHERE COMPUTING GOES
+ * ==========================================================
+ *
+ * Combines:
+ *   1. ComputeX Focus Areas
+ *   2. Other Real-World Applications
+ *
+ * Both groups share the same detail panel.
+ * ==========================================================
+ */
+
+let activeTopicType = "focus";
+let activeTopicIndex = 0;
 
 
-    /*
-     * ==========================================================
-     * REAL WORLD EXAMPLES
-     * ==========================================================
-     */
+/*
+ * ==========================================================
+ * RENDER FOCUS AREAS
+ * ==========================================================
+ */
 
-    function renderExamples() {
+function renderFocusAreas() {
 
-      const pillar = pillars[activePillar];
-      const examples = pillar.examples;
+  const pillar = pillars[activePillar];
+  const focusAreas = pillar.focusAreas;
 
-      exampleTabs.innerHTML = examples
-        .map((example, index) => {
+  focusCards.innerHTML = focusAreas
+    .map((focus, index) => {
 
-          const active = index === activeExample;
+      const active =
+        activeTopicType === "focus" &&
+        index === activeTopicIndex;
 
-          return `
-            <button
-              type="button"
-              data-example="${index}"
-              class="pillar-example text-left rounded-xl border px-4 py-4 min-w-[210px] lg:min-w-0"
-              style="
-                border-color:${active ? accentAlpha(pillar.accent, .35) : "rgba(255,255,255,.06)"};
-                background:${active ? accentAlpha(pillar.accent, .06) : "rgba(255,255,255,.015)"};
-              "
-            >
+      return `
+        <button
+          type="button"
+          data-focus="${index}"
+          class="focus-card group text-left rounded-xl border px-4 py-4 transition-all duration-200"
+          style="
+            border-color:${active
+              ? accentAlpha(pillar.accent, .35)
+              : "rgba(255,255,255,.06)"};
 
-              <div class="flex items-center justify-between">
+            background:${active
+              ? accentAlpha(pillar.accent, .055)
+              : "rgba(255,255,255,.015)"};
+          "
+        >
 
-                <span
-                  class="font-mono text-[9px] tracking-[0.14em]"
-                  style="color:${active ? pillar.accent : "#4b5563"}"
-                >
-                  ${example.tag}
-                </span>
-
-                <span class="font-mono text-[9px] text-slate-700">
-                  0${index + 1}
-                </span>
-
-              </div>
-
-              <div class="mt-3 text-sm ${active ? "text-white" : "text-slate-500"}">
-                ${example.title}
-              </div>
-
-            </button>
-          `;
-
-        })
-        .join("");
-
-      exampleTabs.querySelectorAll("[data-example]").forEach(button => {
-        button.addEventListener("click", () => {
-
-          activeExample = Number(button.dataset.example);
-
-          renderExamples();
-
-        });
-      });
-
-      const example = examples[activeExample];
-
-      exampleDetail.innerHTML = `
-        <div class="flex flex-col h-full">
-
-          <div class="flex items-center justify-between gap-4">
+          <div class="flex items-center gap-3">
 
             <span
-              class="font-mono text-[10px] tracking-[0.16em]"
-              style="color:${pillar.accent}"
+              class="font-mono text-[10px]"
+              style="
+                color:${active
+                  ? pillar.accent
+                  : "#4b5563"};
+              "
             >
-              ${example.tag}
+              ${String(index + 1).padStart(2, "0")}
             </span>
 
-            <span class="font-mono text-[10px] text-slate-600">
-              ${pillar.number}.${String(activeExample + 1).padStart(2, "0")}
+            <span
+              class="text-sm transition-colors"
+              style="
+                color:${active
+                  ? "#ffffff"
+                  : "#64748b"};
+              "
+            >
+              ${focus.title}
             </span>
 
           </div>
 
-          <h3 class="mt-6 text-2xl md:text-3xl text-white font-medium tracking-[-0.025em]">
-            ${example.title}
-          </h3>
+        </button>
+      `;
 
-          <p class="mt-4 text-sm md:text-base leading-7 text-slate-400 max-w-2xl">
-            ${example.description}
-          </p>
+    })
+    .join("");
 
-          <div class="mt-auto pt-8 grid sm:grid-cols-2 gap-5">
 
-            <div>
-              <div class="font-mono text-[9px] tracking-[0.15em] text-slate-700">
-                COMPUTING INVOLVED
-              </div>
+  focusCards
+    .querySelectorAll("[data-focus]")
+    .forEach(button => {
 
-              <div class="mt-2 text-xs leading-6 text-slate-500">
-                ${example.computing}
-              </div>
+      button.addEventListener("click", () => {
+
+        activeTopicType = "focus";
+        activeTopicIndex = Number(button.dataset.focus);
+
+        renderWhereComputingGoes();
+
+      });
+
+    });
+
+}
+
+
+/*
+ * ==========================================================
+ * RENDER REAL-WORLD APPLICATIONS
+ * ==========================================================
+ */
+
+function renderApplications() {
+
+  const pillar = pillars[activePillar];
+  const applications = pillar.examples;
+
+  applicationTabs.innerHTML = applications
+    .map((application, index) => {
+
+      const active =
+        activeTopicType === "application" &&
+        index === activeTopicIndex;
+
+      return `
+        <button
+          type="button"
+          data-application="${index}"
+          class="application-card group text-left rounded-xl border px-4 py-3.5 transition-all duration-200"
+          style="
+            border-color:${active
+              ? accentAlpha(pillar.accent, .25)
+              : "rgba(255,255,255,.05)"};
+
+            background:${active
+              ? accentAlpha(pillar.accent, .035)
+              : "rgba(255,255,255,.01)"};
+          "
+        >
+
+          <div class="flex items-center justify-between gap-3">
+
+            <span
+              class="font-mono text-[9px] tracking-[0.12em]"
+              style="
+                color:${active
+                  ? pillar.accent
+                  : "#475569"};
+              "
+            >
+              ${application.tag}
+            </span>
+
+            <span class="font-mono text-[9px] text-slate-700">
+              ${String(index + 1).padStart(2, "0")}
+            </span>
+
+          </div>
+
+          <div
+            class="mt-2 text-sm transition-colors"
+            style="
+              color:${active
+                ? "#ffffff"
+                : "#64748b"};
+            "
+          >
+            ${application.title}
+          </div>
+
+        </button>
+      `;
+
+    })
+    .join("");
+
+
+  applicationTabs
+    .querySelectorAll("[data-application]")
+    .forEach(button => {
+
+      button.addEventListener("click", () => {
+
+        activeTopicType = "application";
+        activeTopicIndex = Number(button.dataset.application);
+
+        renderWhereComputingGoes();
+
+      });
+
+    });
+
+}
+
+
+/*
+ * ==========================================================
+ * SHARED DETAIL PANEL
+ * ==========================================================
+ */
+
+function renderTopicDetail() {
+
+  const pillar = pillars[activePillar];
+
+  let topic;
+  let topicNumber;
+  let topicLabel;
+
+  /*
+   * --------------------------------------------
+   * ComputeX Focus Area
+   * --------------------------------------------
+   */
+
+  if (activeTopicType === "focus") {
+
+    const focusAreas = pillar.focusAreas;
+
+    topic = focusAreas[activeTopicIndex];
+
+    topicNumber =
+      `${pillar.number}.${String(activeTopicIndex + 1).padStart(2, "0")}`;
+
+    topicLabel = "FOCUS AREA";
+
+    topicDetailLabel.textContent = "COMPUTEX FOCUS";
+
+    topicDetailContent.innerHTML = `
+
+      <div class="flex flex-col min-h-[420px]">
+
+        <div class="flex items-center justify-between">
+
+          <span
+            class="font-mono text-[10px] tracking-[0.16em] font-bold"
+            style="color:${pillar.accent}"
+          >
+            ${pillar.number} / FOCUS AREA
+          </span>
+
+          <span class="font-mono text-[10px] text-slate-700">
+            ${topicNumber}
+          </span>
+
+        </div>
+
+
+        <h3 class="mt-6 text-2xl md:text-3xl font-medium tracking-[-0.03em] text-white">
+          ${topic.title}
+        </h3>
+
+
+        <p class="mt-4 text-sm md:text-base leading-7 text-slate-400 max-w-2xl">
+          ${topic.description}
+        </p>
+
+
+        <div class="mt-auto pt-10 grid sm:grid-cols-2 gap-6">
+
+          <div>
+
+            <div class="font-mono text-[9px] tracking-[0.15em] text-slate-700">
+              YOU'LL ENCOUNTER
             </div>
 
-            <div>
-              <div class="font-mono text-[9px] tracking-[0.15em] text-slate-700">
-                EXAMPLE
-              </div>
+            <div class="mt-2 text-xs leading-6 text-slate-500">
+              ${topic.encounter}
+            </div>
 
-              <div class="mt-2 text-xs leading-6 text-slate-500">
-                ${example.organization}
-              </div>
+          </div>
+
+
+          <div>
+
+            <div class="font-mono text-[9px] tracking-[0.15em] text-slate-700">
+              IN PRACTICE
+            </div>
+
+            <div class="mt-2 text-xs leading-6 text-slate-500">
+              ${topic.practice}
             </div>
 
           </div>
 
         </div>
-      `;
-    }
+
+      </div>
+
+    `;
+
+  }
 
 
-    /*
-     * ==========================================================
-     * FOCUS AREAS
-     * ==========================================================
-     */
+  /*
+   * --------------------------------------------
+   * Other Real-World Application
+   * --------------------------------------------
+   */
 
-    function renderFocusAreas() {
+  else {
 
-      const pillar = pillars[activePillar];
-      const focusAreas = pillar.focusAreas;
+    const applications = pillar.examples;
 
-      focusCards.innerHTML = focusAreas
-        .map((focus, index) => {
+    topic = applications[activeTopicIndex];
 
-          const active = index === activeFocus;
+    topicNumber =
+      `${pillar.number}.${String(activeTopicIndex + 1).padStart(2, "0")}`;
 
-          return `
-            <button
-              type="button"
-              data-focus="${index}"
-              class="focus-card text-left rounded-xl border p-5"
-              style="
-                border-color:${active ? accentAlpha(pillar.accent, .35) : "rgba(255,255,255,.06)"};
-                background:${active ? accentAlpha(pillar.accent, .055) : "rgba(255,255,255,.015)"};
-              "
-            >
+    topicLabel = "REAL-WORLD APPLICATION";
 
-              <div class="flex items-center gap-3">
+    topicDetailLabel.textContent = "REAL-WORLD APPLICATIONS";
 
-                <span
-                  class="font-mono text-[10px]"
-                  style="color:${active ? pillar.accent : "#4b5563"}"
-                >
-                  ${String(index + 1).padStart(2, "0")}
-                </span>
+    topicDetailContent.innerHTML = `
 
-                <span class="text-sm ${active ? "text-white" : "text-slate-500"}">
-                  ${focus.title}
-                </span>
+      <div class="flex flex-col min-h-[420px]">
 
-              </div>
+        <div class="flex items-center justify-between">
 
-            </button>
-          `;
+          <span
+            class="font-mono text-[10px] tracking-[0.16em] font-bold"
+            style="color:${pillar.accent}"
+          >
+            ${topic.tag}
+          </span>
 
-        })
-        .join("");
+          <span class="font-mono text-[10px] text-slate-700">
+            ${topicNumber}
+          </span>
 
-      focusCards.querySelectorAll("[data-focus]").forEach(button => {
-        button.addEventListener("click", () => {
+        </div>
 
-          activeFocus = Number(button.dataset.focus);
 
-          renderFocusAreas();
+        <h3 class="mt-6 text-2xl md:text-3xl font-medium tracking-[-0.03em] text-white">
+          ${topic.title}
+        </h3>
 
-        });
-      });
 
-      const focus = focusAreas[activeFocus];
+        <p class="mt-4 text-sm md:text-base leading-7 text-slate-400 max-w-2xl">
+          ${topic.description}
+        </p>
 
-      focusDetail.innerHTML = `
-        <div class="flex flex-col h-full">
 
-          <div class="flex items-center justify-between">
+        <div class="mt-auto pt-10 grid sm:grid-cols-2 gap-6">
 
-            <span
-              class="font-mono text-[10px] tracking-[0.16em]"
-              style="color:${pillar.accent}"
-            >
-              ${pillar.number} / FOCUS AREA
-            </span>
+          <div>
 
-            <span class="font-mono text-[10px] text-slate-700">
-              ${String(activeFocus + 1).padStart(2, "0")} / ${String(focusAreas.length).padStart(2, "0")}
-            </span>
+            <div class="font-mono text-[9px] tracking-[0.15em] text-slate-700">
+              COMPUTING INVOLVED
+            </div>
+
+            <div class="mt-2 text-xs leading-6 text-slate-500">
+              ${topic.computing}
+            </div>
 
           </div>
 
-          <h3 class="mt-6 text-2xl md:text-3xl font-medium tracking-[-0.03em] text-white">
-            ${focus.title}
-          </h3>
 
-          <p class="mt-4 text-sm md:text-base leading-7 text-slate-400">
-            ${focus.description}
-          </p>
+          <div>
 
-          <div class="mt-auto pt-10 grid sm:grid-cols-2 gap-6">
-
-            <div>
-
-              <div class="font-mono text-[9px] tracking-[0.15em] text-slate-700">
-                YOU'LL ENCOUNTER
-              </div>
-
-              <div class="mt-2 text-xs leading-6 text-slate-500">
-                ${focus.encounter}
-              </div>
-
+            <div class="font-mono text-[9px] tracking-[0.15em] text-slate-700">
+              EXAMPLE
             </div>
 
-            <div>
-
-              <div class="font-mono text-[9px] tracking-[0.15em] text-slate-700">
-                IN PRACTICE
-              </div>
-
-              <div class="mt-2 text-xs leading-6 text-slate-500">
-                ${focus.practice}
-              </div>
-
+            <div class="mt-2 text-xs leading-6 text-slate-500">
+              ${topic.organization}
             </div>
 
           </div>
 
         </div>
-      `;
-    }
 
+      </div>
+
+    `;
+
+  }
+
+}
+
+
+/*
+ * ==========================================================
+ * MASTER RENDER
+ * ==========================================================
+ */
+
+function renderWhereComputingGoes() {
+
+  const pillar = pillars[activePillar];
+
+  const topics =
+    activeTopicType === "focus"
+      ? pillar.focusAreas
+      : pillar.examples;
+
+  if (!topics || !topics.length) {
+    return;
+  }
+
+  if (activeTopicIndex >= topics.length) {
+    activeTopicIndex = 0;
+  }
+
+
+  renderFocusAreas();
+  renderApplications();
+  renderTopicDetail();
+
+}
 
     /*
      * ==========================================================
@@ -2652,27 +2897,45 @@ function updatePillarIndicator() {
       demoCode.textContent = demo.code;
 
       demoExplanation.innerHTML = `
-        <div class="flex items-start gap-4">
+      <div class="w-full">
 
-          <div
-            class="mt-1 w-2 h-2 rounded-full shrink-0"
-            style="background:${pillar.accent}"
-          ></div>
+        <!-- Explanation header -->
+        <div class="flex items-center justify-between gap-4 px-5 py-3.5 border-b border-white/10 bg-white/[0.025]">
 
-          <div>
+          <div class="flex items-center gap-3">
 
-            <div class="font-mono text-[9px] tracking-[0.16em] text-slate-700">
+            <span
+              class="font-mono text-[10px] tracking-[0.16em] font-bold"
+              style="color:${pillar.accent}"
+            >
               WHAT JUST HAPPENED?
-            </div>
+            </span>
 
-            <p class="mt-3 text-sm leading-7 text-slate-400">
-              ${demo.explanation}
-            </p>
+            <span class="h-px w-8 bg-white/10"></span>
 
           </div>
 
         </div>
-      `;
+
+        <!-- Explanation content -->
+        <div class="flex items-start gap-4 p-6 md:p-7">
+
+          <div
+            class="mt-2 w-2 h-2 rounded-full shrink-0"
+            style="
+              background:${pillar.accent};
+              box-shadow:0 0 10px ${pillar.accent};
+            "
+          ></div>
+
+          <p class="text-sm md:text-base leading-7 text-slate-300 max-w-4xl">
+            ${demo.explanation}
+          </p>
+
+        </div>
+
+      </div>
+    `;
 
       resetTerminal();
     }
@@ -3433,59 +3696,7 @@ function updatePillarIndicator() {
     );
 
 
-    /*
-     * ==========================================================
-     * QUESTIONS
-     * ==========================================================
-     */
-
-    function renderQuestions() {
-
-      const pillar = pillars[activePillar];
-
-      questionList.innerHTML = pillar.questions
-        .map((item, index) => `
-          <details
-            class="group border-b border-white/10"
-          >
-
-            <summary
-              class="list-none cursor-pointer py-6 md:py-7 flex items-center justify-between gap-6"
-            >
-
-              <div class="flex items-start gap-5">
-
-                <span
-                  class="font-mono text-[10px] pt-1"
-                  style="color:${pillar.accent}"
-                >
-                  ${String(index + 1).padStart(2, "0")}
-                </span>
-
-                <span class="text-lg md:text-xl text-slate-300 group-open:text-white transition-colors">
-                  ${item.q}
-                </span>
-
-              </div>
-
-              <span class="font-mono text-xl text-slate-700 group-open:rotate-45 transition-transform">
-                +
-              </span>
-
-            </summary>
-
-            <div class="pb-7 pl-10 md:pl-[3.15rem] max-w-3xl">
-
-              <p class="text-sm leading-7 text-slate-500">
-                ${item.a}
-              </p>
-
-            </div>
-
-          </details>
-        `)
-        .join("");
-    }
+   
 
 
     /*
@@ -3498,12 +3709,9 @@ function updatePillarIndicator() {
 
       renderPillarTabs();
       renderIntro();
-      renderWhy();
-      renderExamples();
-      renderFocusAreas();
+      renderWhereComputingGoes();
       renderToolkit();
       renderDemo();
-      renderQuestions();
 
     }
 
