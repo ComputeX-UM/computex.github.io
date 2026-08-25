@@ -198,7 +198,7 @@
           <a href="#pillars" class="px-8 py-4 rounded-xl bg-white/5 text-slate-300 font-medium hover:text-white hover:bg-white/10 transition-all border border-white/5">
             Explore Our Pillars ↓
           </a>
-          <a href="./launch/index.html" class="px-8 py-4 rounded-xl bg-slate-200 text-black font-bold hover:bg-white transition-all shadow-xl shadow-white/5">
+          <a href="./join/index.html" class="px-8 py-4 rounded-xl bg-slate-200 text-black font-bold hover:bg-white transition-all shadow-xl shadow-white/5">
             Get Involved
           </a>
         </div>
@@ -243,7 +243,8 @@
             <img src="./assets/pcas-logo.png" alt="UMich PCAS Logo" class="h-9 w-auto object-contain" />      
           </div>
         </a>
-        <div class="mt-4 -ml-6 lg:-ml-12 relative z-20 bg-brand-panel p-5 rounded-xl border border-white/10 shadow-2xl max-w-sm backdrop-blur-xl">
+
+        <div class="mt-4 relative z-20 bg-brand-panel p-5 rounded-xl border border-white/10 shadow-2xl backdrop-blur-xl">
           <div class="font-mono text-[16px] font-semibold text-brand-purple uppercase tracking-widest mb-1">// WHAT WE DO </div>
           <p class="text-sm text-slate-200 font-medium">Hands-On Workshops • Open Discussions • Guest Lectures • Coffee Chats • Socials • And More!</p>
         </div>
@@ -293,7 +294,7 @@
           <span class="px-2 py-0.5 rounded bg-white/5 border border-white/5 font-mono text-[10px] text-slate-300 transition-all duration-300 group-hover:bg-brand-cyan/10 group-hover:border-brand-cyan/30 group-hover:text-brand-cyan">Docker</span>
           <span class="px-2 py-0.5 rounded bg-white/5 border border-white/5 font-mono text-[10px] text-slate-300 transition-all duration-300 group-hover:bg-brand-cyan/10 group-hover:border-brand-cyan/30 group-hover:text-brand-cyan">Git/GitHub</span>
         </div>
-        <a href="./pillars/index.html#tech" class="inline-flex items-center font-mono text-xs text-brand-cyan hover:underline mt-1">
+        <a href="./pillars/index.html?pillar=tech" class="inline-flex items-center font-mono text-xs text-brand-cyan hover:underline mt-1">
           Explore Tech Domain →
         </a>
       </div>
@@ -333,7 +334,7 @@
           <strong class="text-slate-300 font-semibold">Focus Areas:</strong> Business Intelligence, FinTech, Enterprise Tech
         </p>
       </div>
-      <a href="./pillars/index.html#business" class="relative z-10 inline-flex items-center font-mono text-xs text-brand-amber hover:underline mt-auto">
+      <a href="./pillars/index.html?pillar=business" class="relative z-10 inline-flex items-center font-mono text-xs text-brand-amber hover:underline mt-auto">
         Explore Business Domain →
       </a>
     </div>
@@ -359,7 +360,7 @@
           <strong class="text-slate-300 font-semibold">Focus Areas:</strong> Health Tech, Medical Devices, Bioinformatics
         </p>
       </div>
-      <a href="./pillars/index.html#health" class="relative z-10 inline-flex items-center font-mono text-xs text-brand-emerald hover:underline mt-auto">
+      <a href="./pillars/index.html?pillar=health" class="relative z-10 inline-flex items-center font-mono text-xs text-brand-emerald hover:underline mt-auto">
         Explore Health Domain →
       </a>
     </div>
@@ -385,7 +386,7 @@
           <strong class="text-slate-300 font-semibold">Focus Areas:</strong> UI/UX, Immersive Art, CGI, Game Design
         </p>
       </div>
-      <a href="./pillars/index.html#art" class="relative z-10 inline-flex items-center font-mono text-xs text-brand-magenta hover:underline mt-auto">
+      <a href="./pillars/index.html?pillar=art" class="relative z-10 inline-flex items-center font-mono text-xs text-brand-magenta hover:underline mt-auto">
         Explore Art Domain →
       </a>
     </div>
@@ -411,7 +412,7 @@
           <strong class="text-slate-300 font-semibold">Focus Areas:</strong> AI Policy, Data Privacy, Algorithmic Bias, Explainable AI
         </p>
       </div>
-      <a href="./pillars/index.html#ethics" class="relative z-10 inline-flex items-center font-mono text-xs text-brand-purple hover:underline mt-auto">
+      <a href="./pillars/index.html?pillar=ethics" class="relative z-10 inline-flex items-center font-mono text-xs text-brand-purple hover:underline mt-auto">
         Explore Ethics Domain →
       </a>
     </div>
@@ -476,7 +477,7 @@
   <script>
     const domains = ['TECH', 'BUSINESS', 'HEALTH', 'ART', 'ETHICS'];
     const giantMsg = 'swap to see a tech giant in this space';
-    const frontierMsg = 'swap to see a startup or cutting-edge company in this space';
+    const frontierMsg = 'swap to see what\'s at the cutting edge';
     // Color configurations for each domain
     const domainColors = {
       'TECH': {
@@ -559,11 +560,11 @@
         giant: { badge: 'THE TECH GIANT', badgeColor: 'text-brand-amber bg-brand-amber/10 border-brand-amber/30', name: 'Getty Images', product: ' [ Commercially Safe AI ]', desc: 'Re-imagining creative interfaces by launching strictly ethical generative art tools. Their commercial AI generation models are trained entirely on licensed content, ensuring human creators are fairly compensated and protected from intellectual property theft.', toggleMsg: frontierMsg, url: 'https://www.gettyimages.com/' },
         frontier: { badge: 'THE CUTTING-EDGE', badgeColor: 'text-brand-magenta bg-brand-magenta/10 border-brand-magenta/30', name: 'Holly Herndon', product: ' [ Holly+ Voice DAO ]', desc: 'An avant-garde artist creating deep tech digital art. She built an AI clone of her own voice ("Holly+"), allowing anyone to upload audio files and have her voice interpret it, exploring how artists retain ownership and license their digital likeness.', toggleMsg: giantMsg, url: 'https://www.hollyherndon.com/' }
       },
-      'TECH-TECH': { isEgg: true, p1: 'Tech + Engineering', p2: 'Tech + Engineering', name: 'Tech', product: '...and tech', desc: 'Hmm... that\'s just pure CS! We love compilers and operating systems, but this platform is built for the magic that happens when you take code out of its silo.' },
-      'HEALTH-HEALTH': { isEgg: true, p1: 'Health + Medicine', p2: 'Health + Medicine', name: 'Health', product: '...and health', desc: 'Standard clinical rounds! Pair medicine with data pipelines or bio-sensors, and now you’re building future-ready computational medicine.' },
-      'ART-ART': { isEgg: true, p1: 'Art + Design', p2: 'Art + Design', name: 'Art', product: '...and art', desc: 'A pure gallery space! Beautiful, but add creative coding or UI systems and suddenly you’re crafting interactive generative digital worlds.' },
-      'BUSINESS-BUSINESS': { isEgg: true, p1: 'Business + Strategy', p2: 'Business + Strategy', name: 'Business', product: '...and business', desc: 'Sounds like a 50-page pitch deck meeting! Pair strategy with deeptech or digital health to launch an actual disruptive product.' },
-      'ETHICS-ETHICS': { isEgg: true, p1: 'Ethics + Impact', p2: 'Ethics + Impact', name: 'Ethics', product: '...and ethics', desc: 'Deep theoretical debate! Combine ethics with AI systems or tech strategy to actively build privacy-preserving software.' }
+      'TECH-TECH': { isEgg: true, p1: 'Tech + Engineering', p2: 'Tech + Engineering', name: 'Tech', product: '...and tech 🤔', desc: 'Just go to the EECS building and open 6 windows of VSCode. Godspeed' },
+      'HEALTH-HEALTH': { isEgg: true, p1: 'Health + Medicine', p2: 'Health + Medicine', name: 'Health', product: '...and health 🤔', desc: 'Yeah just go to the hospital OR you could stay here and learn about tiny robot hands doing surgery' },
+      'ART-ART': { isEgg: true, p1: 'Art + Design', p2: 'Art + Design', name: 'Art', product: '...and art 🤔', desc: 'Go make art. We support you' },
+      'BUSINESS-BUSINESS': { isEgg: true, p1: 'Business + Strategy', p2: 'Business + Strategy', name: 'Business', product: '...and business 🤔', desc: 'Straight to Ross. Go make slides (or come to our workshops and learn to make interactive dashboards with Tableau)' },
+      'ETHICS-ETHICS': { isEgg: true, p1: 'Ethics + Impact', p2: 'Ethics + Impact', name: 'Ethics', product: '...and ethics 🤔', desc: 'Okay calm down Plato' }
     };
 
     let activeY = 'HEALTH';
