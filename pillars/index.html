@@ -2509,10 +2509,8 @@ function renderTopicDetail() {
 
     topicLabel = "FOCUS AREA";
 
-    topicDetailLabel.textContent = "COMPUTEX FOCUS";
 
     const usesNewFormat = Array.isArray(topic.traditional);
-    topicDetailContent.innerHTML = `
 
     const bodyHtml = usesNewFormat
       ? `
@@ -2609,7 +2607,6 @@ function renderTopicDetail() {
           </span>
 
         </div>
-
 
         <h3 class="mt-6 text-2xl md:text-3xl font-medium tracking-[-0.03em] text-white">
           ${topic.title}
