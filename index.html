@@ -198,7 +198,7 @@
           <a href="#pillars" class="px-8 py-4 rounded-xl bg-white/5 text-slate-300 font-medium hover:text-white hover:bg-white/10 transition-all border border-white/5">
             Explore Our Pillars ↓
           </a>
-          <a href="./launch/index.html" class="px-8 py-4 rounded-xl bg-slate-200 text-black font-bold hover:bg-white transition-all shadow-xl shadow-white/5">
+          <a href="./join/index.html" class="px-8 py-4 rounded-xl bg-slate-200 text-black font-bold hover:bg-white transition-all shadow-xl shadow-white/5">
             Get Involved
           </a>
         </div>
@@ -243,7 +243,8 @@
             <img src="./assets/pcas-logo.png" alt="UMich PCAS Logo" class="h-9 w-auto object-contain" />      
           </div>
         </a>
-        <div class="mt-4 -ml-6 lg:-ml-12 relative z-20 bg-brand-panel p-5 rounded-xl border border-white/10 shadow-2xl max-w-sm backdrop-blur-xl">
+
+        <div class="mt-4 relative z-20 bg-brand-panel p-5 rounded-xl border border-white/10 shadow-2xl backdrop-blur-xl">
           <div class="font-mono text-[16px] font-semibold text-brand-purple uppercase tracking-widest mb-1">// WHAT WE DO </div>
           <p class="text-sm text-slate-200 font-medium">Hands-On Workshops • Open Discussions • Guest Lectures • Coffee Chats • Socials • And More!</p>
         </div>
@@ -293,7 +294,7 @@
           <span class="px-2 py-0.5 rounded bg-white/5 border border-white/5 font-mono text-[10px] text-slate-300 transition-all duration-300 group-hover:bg-brand-cyan/10 group-hover:border-brand-cyan/30 group-hover:text-brand-cyan">Docker</span>
           <span class="px-2 py-0.5 rounded bg-white/5 border border-white/5 font-mono text-[10px] text-slate-300 transition-all duration-300 group-hover:bg-brand-cyan/10 group-hover:border-brand-cyan/30 group-hover:text-brand-cyan">Git/GitHub</span>
         </div>
-        <a href="./pillars/index.html#tech" class="inline-flex items-center font-mono text-xs text-brand-cyan hover:underline mt-1">
+        <a href="./pillars/index.html?pillar=tech" class="inline-flex items-center font-mono text-xs text-brand-cyan hover:underline mt-1">
           Explore Tech Domain →
         </a>
       </div>
@@ -333,7 +334,7 @@
           <strong class="text-slate-300 font-semibold">Focus Areas:</strong> Business Intelligence, FinTech, Enterprise Tech
         </p>
       </div>
-      <a href="./pillars/index.html#business" class="relative z-10 inline-flex items-center font-mono text-xs text-brand-amber hover:underline mt-auto">
+      <a href="./pillars/index.html?pillar=business" class="relative z-10 inline-flex items-center font-mono text-xs text-brand-amber hover:underline mt-auto">
         Explore Business Domain →
       </a>
     </div>
@@ -359,7 +360,7 @@
           <strong class="text-slate-300 font-semibold">Focus Areas:</strong> Health Tech, Medical Devices, Bioinformatics
         </p>
       </div>
-      <a href="./pillars/index.html#health" class="relative z-10 inline-flex items-center font-mono text-xs text-brand-emerald hover:underline mt-auto">
+      <a href="./pillars/index.html?pillar=health" class="relative z-10 inline-flex items-center font-mono text-xs text-brand-emerald hover:underline mt-auto">
         Explore Health Domain →
       </a>
     </div>
@@ -385,7 +386,7 @@
           <strong class="text-slate-300 font-semibold">Focus Areas:</strong> UI/UX, Immersive Art, CGI, Game Design
         </p>
       </div>
-      <a href="./pillars/index.html#art" class="relative z-10 inline-flex items-center font-mono text-xs text-brand-magenta hover:underline mt-auto">
+      <a href="./pillars/index.html?pillar=art" class="relative z-10 inline-flex items-center font-mono text-xs text-brand-magenta hover:underline mt-auto">
         Explore Art Domain →
       </a>
     </div>
@@ -411,7 +412,7 @@
           <strong class="text-slate-300 font-semibold">Focus Areas:</strong> AI Policy, Data Privacy, Algorithmic Bias, Explainable AI
         </p>
       </div>
-      <a href="./pillars/index.html#ethics" class="relative z-10 inline-flex items-center font-mono text-xs text-brand-purple hover:underline mt-auto">
+      <a href="./pillars/index.html?pillar=ethics" class="relative z-10 inline-flex items-center font-mono text-xs text-brand-purple hover:underline mt-auto">
         Explore Ethics Domain →
       </a>
     </div>
@@ -475,8 +476,8 @@
   <!-- Intersection matrix scripts -->
   <script>
     const domains = ['TECH', 'BUSINESS', 'HEALTH', 'ART', 'ETHICS'];
-    const giantMsg = 'swap to see a tech giant in this space';
-    const frontierMsg = 'swap to see a startup or cutting-edge company in this space';
+    const giantMsg = 'See another example';
+    const frontierMsg = 'See another example';
     // Color configurations for each domain
     const domainColors = {
       'TECH': {
@@ -511,59 +512,59 @@
     const matrixData = {
       'HEALTH-TECH': {
         p1: 'Health + Medicine', p2: 'Tech + Engineering', link: '/pillars#health',
-        giant: { badge: 'THE TECH GIANT', badgeColor: 'text-brand-amber bg-brand-amber/10 border-brand-amber/30', name: 'Apple', product: ' [ The Apple Watch ]', desc: 'The Apple Watch is used for consumer biosignal tracking, detecting conditions like atrial fibrillation, and building software infrastructure for decentralized clinical research.', toggleMsg: frontierMsg, url: 'https://www.apple.com/healthcare/' },
-        frontier: { badge: 'THE CUTTING-EDGE', badgeColor: 'text-brand-magenta bg-brand-magenta/10 border-brand-magenta/30', name: 'Neuralink', product: ' [ Brain-Computer Interface ]', desc: 'Elon Musk\'s neurotechnology firm building implantable brain-computer interfaces (BCIs). Their surgical robot embeds flexible electrode threads directly into the motor cortex, allowing paralyzed patients to control digital devices entirely with their thoughts. Elon Musk\'s neurotechnology firm building implantable brain-computer interfaces (BCIs). Their surgical robot embeds flexible electrode threads directly into the motor cortex, allowing paralyzed patients to control digital devices entirely with their thoughts', toggleMsg: giantMsg, url: 'https://neuralink.com/' }
+        giant: { badge: 'EXAMPLE A', badgeColor: 'text-brand-amber bg-brand-amber/10 border-brand-amber/30', name: 'Apple', product: ' [ The Apple Watch ]', desc: 'Apple Watch brings computing directly into everyday health monitoring by using sensors, signal processing, and algorithms to turn physiological measurements into useful health information. Features such as ECG and irregular-rhythm detection show how software and hardware can extend what a consumer device can observe about the body. It\'s an example of computing becoming part of the interface between people and their health.', toggleMsg: frontierMsg, url: 'https://www.apple.com/healthcare/' },
+        frontier: { badge: 'EXAMPLE B', badgeColor: 'text-brand-magenta bg-brand-magenta/10 border-brand-magenta/30', name: 'Neuralink', product: ' [ Brain-Computer Interface ]', desc: 'Neuralink uses computing to translate neural activity into digital commands, creating a direct interface between the brain and external devices. Its current clinical work includes enabling people with paralysis to control computers and robotic arms through neural signals. The result is a particularly direct intersection of computing and medicine: software and hardware are being used to interpret the activity of the human nervous system.', toggleMsg: giantMsg, url: 'https://neuralink.com/' }
       },
       'HEALTH-BUSINESS': {
         p1: 'Health + Medicine', p2: 'Business + Strategy', link: '/pillars#health',
-        giant: { badge: 'THE TECH GIANT', badgeColor: 'text-brand-amber bg-brand-amber/10 border-brand-amber/30', name: 'Epic Systems', product: ' [ EHR Infrastructure ]', desc: 'The healthcare database monolith powering over 250 million patient records. They combine massive relational SQL databases with machine learning to streamline clinical logistics, manage enterprise billing, and optimize hospital capacity.', toggleMsg: frontierMsg, url: 'https://www.epic.com/' },
-        frontier: { badge: 'THE CUTTING-EDGE', badgeColor: 'text-brand-magenta bg-brand-magenta/10 border-brand-magenta/30', name: 'Insilico Medicine', product: ' [ Generative AI Pharma ]', desc: 'A company using generative AI pipelines to compress the business of drug discovery. They can design, synthesize, and visually analyze a brand-new molecule to target specific diseases, shrinking a multi-billion-dollar, decade-long clinical strategy into a matter of months.', toggleMsg: giantMsg, url: 'https://www.insilicomedicine.com/' }
+        giant: { badge: 'THE TECH GIANT', badgeColor: 'text-brand-amber bg-brand-amber/10 border-brand-amber/30', name: 'Epic Systems', product: ' [ Electronic Health Records ]', desc: 'Epic builds the software infrastructure that allows healthcare organizations to store, exchange, and work with patient information at enormous scale. Its systems connect clinical records with workflows, scheduling, analytics, patient-facing applications, and increasingly AI-powered tools. Computing therefore becomes part of how healthcare organizations coordinate people, information, and resources—not just how individual patients are treated.', toggleMsg: frontierMsg, url: 'https://www.epic.com/' },
+        frontier: { badge: 'THE CUTTING-EDGE', badgeColor: 'text-brand-magenta bg-brand-magenta/10 border-brand-magenta/30', name: 'Insilico Medicine', product: ' [ AI Drug Discovery ]', desc: 'Insilico Medicine applies machine learning and generative AI to parts of the drug-discovery process, including identifying targets and designing potential molecules. That changes not only the science of developing medicines but also the economics and timelines of pharmaceutical research. It illustrates how computing can become a strategic tool for deciding what biological problems to pursue and how efficiently to pursue them.', toggleMsg: giantMsg, url: 'https://www.insilicomedicine.com/' }
       },
       'HEALTH-ART': {
         p1: 'Health + Medicine', p2: 'Art + Design', link: '/pillars#health',
-        giant: { badge: 'THE TECH GIANT', badgeColor: 'text-brand-amber bg-brand-amber/10 border-brand-amber/30', name: 'Philips Healthcare', product: ' [ Ambient Experience UI ]', desc: 'Redesigning the visual and sensory patient experience. They craft complex interactive medical user interfaces and use generative 3D lighting/graphics (Ambient Experience) to make high-stress clinical environments (like MRI suites) deeply calming.', toggleMsg: frontierMsg, url: 'https://www.philips.com/healthcare' },
-        frontier: { badge: 'THE CUTTING-EDGE', badgeColor: 'text-brand-magenta bg-brand-magenta/10 border-brand-magenta/30', name: 'BrainGate', product: ' [ Generative Art BCI ]', desc: 'Mapping neural biosignals directly to digital art software and visual interfaces. Paralyzed individuals utilize these BCI setups to render high-resolution generative digital artwork using strictly their focused cognitive intent.', toggleMsg: giantMsg, url: 'https://www.braingate.org/' }
+        giant: { badge: 'THE TECH GIANT', badgeColor: 'text-brand-amber bg-brand-amber/10 border-brand-amber/30', name: 'Philips Healthcare', product: ' [ Ambient Clinical Experience ]', desc: 'Philips uses interactive lighting, visual design, and digital interfaces to reshape how patients experience medical environments. Its Ambient Experience approach incorporates technology into spaces such as imaging suites, where the goal is not simply to make a machine function but to change how a patient feels while using it. Computing here becomes part of the design of the healthcare experience itself.', toggleMsg: frontierMsg, url: 'https://www.philips.com/healthcare' },
+        frontier: { badge: 'THE CUTTING-EDGE', badgeColor: 'text-brand-magenta bg-brand-magenta/10 border-brand-magenta/30', name: 'Hatsumi', product: ' [ Emotion-Driven VR ]', desc: 'Hatsumi combines immersive technology, art, and healthcare to create new ways of exploring the human body and mind. Its work includes Soul Paint, an immersive experience that uses VR, movement, and 3D painting to help people visualize and express emotions. It shows how computing can become a creative medium for exploring health, rather than simply a tool for analyzing it.', toggleMsg: giantMsg, url: 'https://hatsumi.co.uk/' }
       },
       'HEALTH-ETHICS': {
         p1: 'Health + Medicine', p2: 'Ethics + Impact', link: '/pillars#health',
-        giant: { badge: 'THE TECH GIANT', badgeColor: 'text-brand-amber bg-brand-amber/10 border-brand-amber/30', name: 'Microsoft Azure', product: ' [ Healthcare AI Auditing ]', desc: 'Auditing massive cloud diagnostics tools to guarantee data compliance (HIPAA/HITRUST), secure handling of private genomic data, and eliminate racial or socio-economic bias embedded within historical hospital datasets.', toggleMsg: frontierMsg, url: 'https://azure.microsoft.com/en-us/services/healthcare/' },
-        frontier: { badge: 'THE CUTTING-EDGE', badgeColor: 'text-brand-magenta bg-brand-magenta/10 border-brand-magenta/30', name: 'Cradle', product: ' [ Protein Design Guardrails ]', desc: 'A biology platform utilizing generative AI to design synthetic proteins. Because modifying life forms sits at a massive ethical crossroads, they build rigorous programmatic guardrails directly into their software to ensure safety, biological transparency, and biosecurity.', toggleMsg: giantMsg, url: 'https://www.cradlebio.com/' }
+        giant: { badge: 'THE TECH GIANT', badgeColor: 'text-brand-amber bg-brand-amber/10 border-brand-amber/30', name: 'Aidoc', product: ' [ Clinical AI Governance ]', desc: 'Aidoc\'s aiOS brings multiple AI systems into the clinical workflow, helping hospitals analyze medical imaging and prioritize findings for clinicians. Its platform also includes tools for validating models, monitoring performance and drift, and tracking how AI is used in practice. It shows how computing can become part of not just medical diagnosis, but the systems responsible for making sure clinical AI is deployed responsibly and safely.', toggleMsg: frontierMsg, url: 'https://www.aidoc.com/platform/aios/' },
+        frontier: { badge: 'THE CUTTING-EDGE', badgeColor: 'text-brand-magenta bg-brand-magenta/10 border-brand-magenta/30', name: 'Cradle', product: ' [ GenAI Protein Engineering ]', desc: 'Cradle uses generative AI to design and optimize proteins, allowing researchers to explore biological designs far beyond what traditional trial-and-error methods can practically test. As computation becomes capable of proposing novel biological molecules, it also raises questions about how these designs should be evaluated, what safeguards are needed, and who is responsible when AI-generated biology moves from a computer into the real world.', toggleMsg: giantMsg, url: 'https://www.cradlebio.com/' }
       },
       'TECH-BUSINESS': {
         p1: 'Tech + Engineering', p2: 'Business + Strategy', link: '/pillars#tech',
-        giant: { badge: 'THE TECH GIANT', badgeColor: 'text-brand-amber bg-brand-amber/10 border-brand-amber/30', name: 'Amazon Web Services', product: ' [ Cloud Infrastructure ]', desc: 'The global backbone of industrial cloud infrastructure. AWS combines advanced backend engineering with enterprise analytics tools to manage the global supply chains, databases, and financial systems of millions of businesses.', toggleMsg: frontierMsg, url: 'https://aws.amazon.com/' },
-        frontier: { badge: 'THE CUTTING-EDGE', badgeColor: 'text-brand-magenta bg-brand-magenta/10 border-brand-magenta/30', name: 'Boston Dynamics', product: ' [ Warehouse Robotics ]', desc: 'Melding intricate robotics engineering with modern warehouse business strategy. Their autonomous humanoid and quadruped robots are leaving laboratories and entering real enterprise environments to execute complex logistics, heavy lifting, and facility surveillance.', toggleMsg: giantMsg, url: 'https://www.bostondynamics.com/' }
+        giant: { badge: 'THE TECH GIANT', badgeColor: 'text-brand-amber bg-brand-amber/10 border-brand-amber/30', name: 'Amazon Web Services', product: ' [ Cloud Infrastructure ]', desc: 'AWS turns computing infrastructure into an on-demand business service, giving organizations access to servers, databases, storage, analytics, and AI without having to operate all of that infrastructure themselves. This changes how companies build and scale products because computing capacity can be provisioned as a variable business resource rather than purchased entirely up front. It is a clear example of computing infrastructure directly shaping how modern businesses operate.', toggleMsg: frontierMsg, url: 'https://aws.amazon.com/' },
+        frontier: { badge: 'THE CUTTING-EDGE', badgeColor: 'text-brand-magenta bg-brand-magenta/10 border-brand-magenta/30', name: 'Boston Dynamics', product: ' [ Warehouse Robotics ]', desc: 'Boston Dynamics combines robotics hardware, perception, control, and autonomous decision-making to move computing out of the data center and into physical business operations. Its Stretch robot, for example, is designed to automate tasks such as trailer unloading and case handling in warehouses. The intersection here is between computational systems and the practical economics of moving goods, organizing labor, and operating facilities.', toggleMsg: giantMsg, url: 'https://www.bostondynamics.com/' }
       },
       'TECH-ART': {
         p1: 'Tech + Engineering', p2: 'Art + Design', link: '/pillars#tech',
-        giant: { badge: 'THE TECH GIANT', badgeColor: 'text-brand-amber bg-brand-amber/10 border-brand-amber/30', name: 'NVIDIA', product: ' [ Omniverse Simulation ]', desc: 'The undisputed king of blending hardware with visual design. They build the GPU architecture and Omniverse simulation engines that allow engineers to construct hyper-realistic 3D graphics, generative virtual worlds, and digital twins.', toggleMsg: frontierMsg, url: 'https://www.nvidia.com/' },
-        frontier: { badge: 'THE CUTTING-EDGE', badgeColor: 'text-brand-magenta bg-brand-magenta/10 border-brand-magenta/30', name: 'Looking Glass Factory', product: ' [ Holographic Displays ]', desc: 'Shifting interactive digital interfaces away from flat screens. They build advanced holographic light-field displays that allow users to view and interact with 3D generative art and architectural assets in real, physical space without wearing a headset.', toggleMsg: giantMsg, url: 'https://lookingglassfactory.com/' }
+        giant: { badge: 'THE TECH GIANT', badgeColor: 'text-brand-amber bg-brand-amber/10 border-brand-amber/30', name: 'NVIDIA', product: ' [ Digital Worlds ]', desc: 'NVIDIA\'s Omniverse uses GPUs, real-time rendering, OpenUSD, and other computing technologies to let designers and engineers build and work with complex 3D environments. The same computational infrastructure that powers graphics can also support simulation, digital twins, and collaborative design workflows. Computing therefore becomes both the technical foundation and the creative medium through which digital worlds are constructed.', toggleMsg: frontierMsg, url: 'https://www.nvidia.com/en-us/omniverse/' },
+        frontier: { badge: 'THE CUTTING-EDGE', badgeColor: 'text-brand-magenta bg-brand-magenta/10 border-brand-magenta/30', name: 'Looking Glass Factory', product: ' [ Holographic Displays ]', desc: 'Looking Glass Factory develops displays that allow people to view and interact with 3D content without conventional VR headsets. The technology combines specialized display hardware with computationally generated 3D imagery to change how digital information is presented in physical space. It demonstrates how advances in computing can change not only what digital content contains, but how humans experience it.', toggleMsg: giantMsg, url: 'https://lookingglassfactory.com/' }
       },
       'TECH-ETHICS': {
         p1: 'Tech + Engineering', p2: 'Ethics + Impact', link: '/pillars#tech',
-        giant: { badge: 'THE TECH GIANT', badgeColor: 'text-brand-amber bg-brand-amber/10 border-brand-amber/30', name: 'IBM', product: ' [ Enterprise AI Governance ]', desc: 'A pioneer in enterprise data auditing. Their software suites actively scan enterprise cloud setups and algorithmic codebases to ensure technical systems conform to global privacy frameworks and do not drift into discriminatory biases.', toggleMsg: frontierMsg, url: 'https://www.ibm.com/' },
-        frontier: { badge: 'THE CUTTING-EDGE', badgeColor: 'text-brand-magenta bg-brand-magenta/10 border-brand-magenta/30', name: 'World', product: ' [ Proof of Personhood ]', desc: 'Co-founded by Sam Altman, this project addresses the threat of AI bots overtaking digital networks. They manufacture a hardware biometric orb that scans human irises to create an anonymized, un-hackable "Proof of Personhood" digital identity framework.', toggleMsg: giantMsg, url: 'https://www.worldcoin.org/' }
+        giant: { badge: 'THE TECH GIANT', badgeColor: 'text-brand-amber bg-brand-amber/10 border-brand-amber/30', name: 'IBM', product: ' [ AI Governance ]', desc: 'IBM develops software and organizational tools for managing AI systems across their lifecycle, including model documentation, monitoring, risk management, and compliance. These computational tools help organizations keep track of how AI systems are developed and how their behavior changes after deployment. The intersection is therefore about using computing to make other computing systems more accountable, explainable, and governable.', toggleMsg: frontierMsg, url: 'https://www.ibm.com/' },
+        frontier: { badge: 'THE CUTTING-EDGE', badgeColor: 'text-brand-magenta bg-brand-magenta/10 border-brand-magenta/30', name: 'World', product: ' [ Proof of Personhood ]', desc: 'World combines biometric hardware, cryptography, and digital identity systems to distinguish humans from automated accounts online. Its approach raises questions about privacy, consent, identity, and who should control the systems that verify whether someone is a real person. It is an example of computing becoming part of the infrastructure through which society decides how identity and participation work online.', toggleMsg: giantMsg, url: 'https://www.world.org/' }
       },
       'BUSINESS-ART': {
         p1: 'Business + Strategy', p2: 'Art + Design', link: '/pillars#business',
-        giant: { badge: 'THE TECH GIANT', badgeColor: 'text-brand-amber bg-brand-amber/10 border-brand-amber/30', name: 'Adobe', product: ' [ Firefly Generative Engine ]', desc: 'Merging creative UI/UX with corporate strategy. Their Firefly generative models provide enterprises with commercially safe creative assets, allowing global brands to dynamically spin up targeted marketing materials at scale.', toggleMsg: frontierMsg, url: 'https://www.adobe.com/' },
-        frontier: { badge: 'THE CUTTING-EDGE', badgeColor: 'text-brand-magenta bg-brand-magenta/10 border-brand-magenta/30', name: 'Raspberry AI', product: ' [ 3D Apparel Design ]', desc: 'Generative AI engines disrupting the physical apparel business. Instead of spending months cutting physical fabric and running expensive photoshoots, apparel brands use these tools to turn 2D sketches into photorealistic 3D virtual drapes and pattern tech packs.', toggleMsg: giantMsg, url: 'https://www.raspberryai.com/' }
+        giant: { badge: 'THE TECH GIANT', badgeColor: 'text-brand-amber bg-brand-amber/10 border-brand-amber/30', name: 'Adobe', product: ' [ Generative Creative Tools ]', desc: 'Adobe uses machine learning and generative AI to put computational image generation directly into professional creative workflows. Tools such as Firefly allow designers and businesses to generate and modify visual content while remaining inside the software environments they already use. Computing is therefore changing both how creative work is produced and how organizations can produce it at scale.', toggleMsg: frontierMsg, url: 'https://www.adobe.com/' },
+        frontier: { badge: 'THE CUTTING-EDGE', badgeColor: 'text-brand-magenta bg-brand-magenta/10 border-brand-magenta/30', name: 'Raspberry AI', product: ' [ 3D Fashion Design ]', desc: 'Raspberry AI applies generative AI to fashion design, allowing designers and brands to explore visual concepts and product ideas computationally. Instead of every concept requiring a physical prototype or traditional production process, software can generate and iterate on designs earlier in the workflow. This shows how computing can become part of the creative and commercial process of developing products.', toggleMsg: giantMsg, url: 'https://www.raspberryai.com/' }
       },
       'BUSINESS-ETHICS': {
         p1: 'Business + Strategy', p2: 'Ethics + Impact', link: '/pillars#business',
-        giant: { badge: 'THE TECH GIANT', badgeColor: 'text-brand-amber bg-brand-amber/10 border-brand-amber/30', name: 'Palantir Technologies', product: ' [ Auditable Analytics ]', desc: 'Deployed by financial giants and governments to query complex databases. They provide strict internal software frameworks ensuring that multi-layered data analysis remains auditable, secure, and compliant with national security laws.', toggleMsg: frontierMsg, url: 'https://www.palantir.com/' },
-        frontier: { badge: 'THE CUTTING-EDGE', badgeColor: 'text-brand-magenta bg-brand-magenta/10 border-brand-magenta/30', name: 'Hugging Face', product: ' [ Open Source AI Evaluation ]', desc: 'The central hub for open-source AI models. They provide the enterprise community with the testing databases and evaluation infrastructure needed to audit new machine learning models for bias, corporate compliance, and data fairness before deployment.', toggleMsg: giantMsg, url: 'https://huggingface.co/' }
+        giant: { badge: 'THE TECH GIANT', badgeColor: 'text-brand-amber bg-brand-amber/10 border-brand-amber/30', name: 'Palantir Technologies', product: ' [ Data-Driven Decision Systems ]', desc: 'Palantir develops software for integrating and analyzing large datasets so organizations can make decisions across complex operations. When these systems are used in sensitive environments, computing becomes intertwined with questions about who has access to information, how decisions are made, and how those decisions can be reviewed. The intersection highlights that building powerful data systems also means deciding how that power should be used.', toggleMsg: frontierMsg, url: 'https://www.palantir.com/' },
+        frontier: { badge: 'THE CUTTING-EDGE', badgeColor: 'text-brand-magenta bg-brand-magenta/10 border-brand-magenta/30', name: 'Hugging Face', product: ' [ Open Source AI Evaluation ]', desc: 'Hugging Face provides infrastructure for sharing, developing, and evaluating machine-learning models, making advanced AI systems accessible to a broad community of researchers and developers. That openness creates technical opportunities while also making questions about model evaluation, bias, safety, and responsible use part of the platform itself. It demonstrates how the design of computing infrastructure can influence who gets to build AI and how those systems are evaluated.', toggleMsg: giantMsg, url: 'https://huggingface.co/' }
       },
       'ART-ETHICS': {
         p1: 'Art + Design', p2: 'Ethics + Impact', link: '/pillars#art',
-        giant: { badge: 'THE TECH GIANT', badgeColor: 'text-brand-amber bg-brand-amber/10 border-brand-amber/30', name: 'Getty Images', product: ' [ Commercially Safe AI ]', desc: 'Re-imagining creative interfaces by launching strictly ethical generative art tools. Their commercial AI generation models are trained entirely on licensed content, ensuring human creators are fairly compensated and protected from intellectual property theft.', toggleMsg: frontierMsg, url: 'https://www.gettyimages.com/' },
-        frontier: { badge: 'THE CUTTING-EDGE', badgeColor: 'text-brand-magenta bg-brand-magenta/10 border-brand-magenta/30', name: 'Holly Herndon', product: ' [ Holly+ Voice DAO ]', desc: 'An avant-garde artist creating deep tech digital art. She built an AI clone of her own voice ("Holly+"), allowing anyone to upload audio files and have her voice interpret it, exploring how artists retain ownership and license their digital likeness.', toggleMsg: giantMsg, url: 'https://www.hollyherndon.com/' }
+        giant: { badge: 'THE TECH GIANT', badgeColor: 'text-brand-amber bg-brand-amber/10 border-brand-amber/30', name: 'Getty Images', product: ' [ Generative AI Copyright ]', desc: 'Getty Images has developed generative AI tools around licensed creative content, bringing questions about copyright and creator compensation directly into the design of AI systems. Its approach illustrates how choices about training data and intellectual property can become technical constraints rather than purely legal questions. Computing is therefore participating in the negotiation between new creative tools and the rights of the people whose work makes those tools possible.', toggleMsg: frontierMsg, url: 'https://www.gettyimages.com/' },
+        frontier: { badge: 'THE CUTTING-EDGE', badgeColor: 'text-brand-magenta bg-brand-magenta/10 border-brand-magenta/30', name: 'Ai-Da', product: ' [ Robot Artist ]', desc: 'Ai-Da combines cameras, AI algorithms, and a robotic arm to create drawings, paintings, and other artworks. The project uses computing not just as a tool for making art, but as a way to question who—or what—can be considered an artist. It raises questions about creativity, authorship, agency, and how our definition of art changes as humans and machines increasingly create together.', toggleMsg: giantMsg, url: 'https://www.ai-darobot.com/' }
       },
-      'TECH-TECH': { isEgg: true, p1: 'Tech + Engineering', p2: 'Tech + Engineering', name: 'Tech', product: '...and tech', desc: 'Hmm... that\'s just pure CS! We love compilers and operating systems, but this platform is built for the magic that happens when you take code out of its silo.' },
-      'HEALTH-HEALTH': { isEgg: true, p1: 'Health + Medicine', p2: 'Health + Medicine', name: 'Health', product: '...and health', desc: 'Standard clinical rounds! Pair medicine with data pipelines or bio-sensors, and now you’re building future-ready computational medicine.' },
-      'ART-ART': { isEgg: true, p1: 'Art + Design', p2: 'Art + Design', name: 'Art', product: '...and art', desc: 'A pure gallery space! Beautiful, but add creative coding or UI systems and suddenly you’re crafting interactive generative digital worlds.' },
-      'BUSINESS-BUSINESS': { isEgg: true, p1: 'Business + Strategy', p2: 'Business + Strategy', name: 'Business', product: '...and business', desc: 'Sounds like a 50-page pitch deck meeting! Pair strategy with deeptech or digital health to launch an actual disruptive product.' },
-      'ETHICS-ETHICS': { isEgg: true, p1: 'Ethics + Impact', p2: 'Ethics + Impact', name: 'Ethics', product: '...and ethics', desc: 'Deep theoretical debate! Combine ethics with AI systems or tech strategy to actively build privacy-preserving software.' }
+      'TECH-TECH': { isEgg: true, p1: 'Tech + Engineering', p2: 'Tech + Engineering', name: 'Tech', product: '...and tech 🤔', desc: 'Just go to the EECS building and open 6 windows of VSCode. Godspeed' },
+      'HEALTH-HEALTH': { isEgg: true, p1: 'Health + Medicine', p2: 'Health + Medicine', name: 'Health', product: '...and health 🤔', desc: 'Yeah just go to the hospital OR you could stay here and learn about tiny robot hands doing surgery' },
+      'ART-ART': { isEgg: true, p1: 'Art + Design', p2: 'Art + Design', name: 'Art', product: '...and art 🤔', desc: 'Go make art. We support you' },
+      'BUSINESS-BUSINESS': { isEgg: true, p1: 'Business + Strategy', p2: 'Business + Strategy', name: 'Business', product: '...and business 🤔', desc: 'Straight to Ross. Go make slides (or come to our workshops and learn to make interactive dashboards with Tableau)' },
+      'ETHICS-ETHICS': { isEgg: true, p1: 'Ethics + Impact', p2: 'Ethics + Impact', name: 'Ethics', product: '...and ethics 🤔', desc: 'Okay calm down Plato' }
     };
 
     let activeY = 'HEALTH';
@@ -646,11 +647,17 @@
       if (dieBtn) dieBtn.classList.add('rotate-[360deg]', 'scale-90');
       const prevY = activeY;
       const prevX = activeX;
+      const wasEgg = (prevX == prevY);
 
       const validY = domains.filter(d => d !== prevY);
       const nextY = validY[Math.floor(Math.random() * validY.length)];
-      const validX = domains.filter(d => d !== prevX && d !== nextY);
-      const nextX = validX[Math.floor(Math.random() * validX.length)];
+      const validX = domains.filter(d => d !== prevX);
+      tempX = validX[Math.floor(Math.random() * validX.length)];
+      if (wasEgg && (tempX == nextY)) {
+        validX = domains.filter(d => d !== prevX && d !== prevY);
+        tempX = validX[Math.floor(Math.random() * validX.length)];
+      }
+      const nextX = tempX;
       let rolls = 0;
       const shuffleInterval = setInterval(() => {
         activeY = domains[Math.floor(Math.random() * domains.length)];
@@ -725,17 +732,14 @@
 
         <button 
           onclick="handleMatrixToggle()" 
-          class="w-full py-2.5 px-4 rounded-xl bg-white/5 border border-white/10 text-slate-300 text-xs font-mono flex items-center justify-between group hover:border-grey/50 hover:bg-white/10 hover:text-white transition-all"
+          class="py-2.5 px-4 rounded-xl bg-white/5 border border-white/10 text-slate-300 text-xs font-mono flex items-center justify-between group hover:border-grey/50 hover:bg-white/10 hover:text-white transition-all"
         >
           <span class="flex items-center gap-2">
-            <span class="px-2 py-0.5 rounded border text-[10px] font-semibold tracking-wider ${viewData.badgeColor} transition-all">
-              ${viewData.badge}
-            </span>
             <span class="text-brand-white group-hover:rotate-180 transition-transform duration-300">⇄</span>
             <span>${viewData.toggleMsg}</span>
           </span>
-          <span class="text-[10px] text-slate-950 font-bold bg-slate-200/80 backdrop-blur-md px-2 py-0.5 rounded border border-white/30 uppercase tracking-widest shadow-sm group-hover:bg-slate-100 group-hover:text-black transition-all">SWAP</span>
-       </button>
+        </button>
+        
       `;
     }
 
