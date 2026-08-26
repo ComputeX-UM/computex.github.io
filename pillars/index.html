@@ -1022,39 +1022,59 @@
         focusAreas: [
           {
             title: "Computer Science",
-            description:
-              "The algorithms, abstractions, and systems that turn computation into usable software.",
-            encounter:
-              "Data structures · Algorithms · Systems · Networking · Software architecture",
-            practice:
-              "Used to build the computational foundations behind applications, infrastructure, simulations, and intelligent systems."
+            traditional: [
+              "Manually written logic tested in isolated local environments",
+              "Static codebases with no live feedback loop"
+            ],
+            powered: [
+              "Algorithms visualized in real time as they run (sorting, pathfinding, recursion trees)",
+              "Version-controlled, collaborative codebases with instant deployment",
+              "Automated testing that catches bugs before a human ever sees them",
+              "Cloud infrastructure that scales a side project into something millions can use"
+            ],
+            toolStack: ["Python", "Git/GitHub", "VS Code", "Data Structures & Algorithms"]
           },
           {
             title: "AI / ML",
-            description:
-              "Methods that allow systems to learn patterns, make predictions, and adapt from data.",
-            encounter:
-              "Neural networks · Representation learning · Model evaluation · Inference",
-            practice:
-              "Used for perception, prediction, language, recommendation, robotics, and decision support."
+            traditional: [
+              "Rule-based systems hand-coded for every scenario",
+              "Static datasets analyzed after the fact"
+            ],
+            powered: [
+              "Models that learn patterns from data and improve with feedback",
+              "Live inference like chatbots, image recognition, prediction tools running in-browser",
+              "Systems that personalize themselves to a single user's behavior over time",
+              "Generative tools that draft, edit, and iterate on text, code, and images in seconds"
+            ],
+            toolStack: ["PyTorch", "Hugging Face", "Jupyter Notebooks", "LLM APIs"]
           },
           {
             title: "Embedded Systems",
-            description:
-              "Computing constrained by the physical world—where software meets sensors, electronics, timing, and hardware.",
-            encounter:
-              "Microcontrollers · Firmware · Real-time systems · Sensor interfaces",
-            practice:
-              "Used in vehicles, wearables, medical devices, industrial systems, and connected products."
+            traditional: [
+              "Fixed-function hardware with no adaptability",
+              "Manual wiring/testing with no real-time diagnostics"
+            ],
+            powered: [
+              "Microcontrollers running responsive firmware, reacting to sensors instantly",
+              "Wireless telemetry streaming live data from the device to a dashboard",
+              "Over-the-air updates that patch a product's behavior after it's already shipped",
+              "Energy efficient code that lets a battery-run device operate for months, not hours"
+            ],
+            toolStack: ["Arduino / ESP32", "C++", "MQTT", "Circuit Simulation"]
           },
           {
             title: "Robotics",
-            description:
-              "Computational systems that sense, reason about, and act on the physical world.",
-            encounter:
-              "Computer vision · Motion planning · Control · Robot learning",
-            practice:
-              "Used in manufacturing, transportation, healthcare, exploration, logistics, and human-robot interaction."
+            traditional: [
+              "Pre-programmed motion sequences with no environmental awareness",
+              "Isolated mechanical builds tested by trial and error"
+            ],
+            powered: [
+              "Sensor fusion enabling robots to perceive and adapt to their surroundings",
+              "Simulated environments (physics engines) for testing before real-world deployment",
+              "Learned control policies that let a robot handle situations it was never explicitly programmed for",
+              "Swarms of low-cost units coordinating through shared computation instead of one expensive machine"
+            ],
+            toolStack: ["ROS2", "Python/C++", "Gazebo/Webots", "Computer Vision"]
           }
         ],
 
@@ -1218,30 +1238,45 @@ print(path)`,
         focusAreas: [
           {
             title: "Business Intelligence",
-            description:
-              "Using data systems to turn operational information into insights people can act on.",
-            encounter:
-              "Dashboards · Forecasting · Experimentation · Visualization",
-            practice:
-              "Used to understand customers, measure outcomes, identify trends, and support organizational decisions."
+            traditional: [
+              "Gut-feel decisions based on last quarter's spreadsheet and a manager's intuition",
+              "Reports compiled by hand, days after the numbers actually mattered"
+            ],
+            powered: [
+              "Dashboards that update the moment new data lands, not once a quarter",
+              "A/B tests that isolate what actually caused a change in behavior",
+              "Forecasting models that flag a demand shift before it shows up in sales",
+              "Anomaly detection that catches a broken funnel before it costs a week of revenue"
+            ],
+            toolStack: ["SQL", "Python (pandas)", "Tableau", "Jupyter"]
           },
           {
             title: "FinTech",
-            description:
-              "Computing applied to financial products, infrastructure, markets, and risk.",
-            encounter:
-              "Risk modeling · Fraud detection · Algorithmic systems · Digital payments",
-            practice:
-              "Used to automate financial workflows, detect anomalies, model uncertainty, and build new financial products."
+            traditional: [
+              "Fraud caught manually, often after the transaction has already cleared",
+              "Loan and risk decisions made on a handful of fixed, static rules"
+            ],
+            powered: [
+              "Real-time fraud detection scoring every transaction as it happens",
+              "Risk models that adapt to new patterns instead of a fixed rulebook",
+              "Algorithmic trading systems executing decisions in microseconds",
+              "Mobile-first payment infrastructure replacing paper checks and bank visits"
+            ],
+            toolStack: ["Python", "SQL", "Machine Learning", "APIs"]
           },
           {
             title: "Enterprise Tech",
-            description:
-              "Software and computational infrastructure designed around large-scale organizational workflows.",
-            encounter:
-              "Cloud systems · APIs · Automation · Data platforms",
-            practice:
-              "Used to coordinate information, automate repetitive work, and connect people, products, and processes."
+            traditional: [
+              "Departments running on disconnected spreadsheets and email chains",
+              "Manual, repetitive workflows that don't scale past a handful of people"
+            ],
+            powered: [
+              "Cloud platforms that let a team scale from 10 to 10,000 users overnight",
+              "APIs that connect tools so data moves without anyone re-typing it",
+              "Automation that eliminates repetitive manual work across departments",
+              "Internal AI systems that summarize, route, and act on information for employees"
+            ],
+            toolStack: ["Cloud Platforms (AWS/GCP)", "APIs", "SQL", "Automation Tools"]
           }
         ],
 
@@ -1407,30 +1442,45 @@ print(regional)`,
         focusAreas: [
           {
             title: "Health Tech",
-            description:
-              "Digital systems designed around prevention, monitoring, diagnosis, treatment, and patient experience.",
-            encounter:
-              "Remote monitoring · Digital health · Clinical decision support",
-            practice:
-              "Used to collect patient signals, support clinical workflows, and create new ways for people to interact with healthcare."
+            traditional: [
+              "Patient data locked in paper charts, visible only during a scheduled visit",
+              "Symptoms tracked from memory, weeks after they actually occurred"
+            ],
+            powered: [
+              "Wearables streaming heart rate, sleep, and activity data continuously",
+              "Telehealth putting a clinician a video call away instead of a drive",
+              "Clinical decision support flagging risks a doctor might otherwise miss",
+              "Apps that turn years of patient history into a single readable timeline"
+            ],
+            toolStack: ["Python", "HL7/FHIR", "Cloud Platforms", "Mobile Health APIs"]
           },
           {
             title: "Medical Devices",
-            description:
-              "Physical healthcare technologies where computation becomes part of the device itself.",
-            encounter:
-              "Sensors · Embedded systems · Signal processing · Control",
-            practice:
-              "Used in monitoring systems, prosthetics, imaging equipment, surgical technologies, and other medical hardware."
+            traditional: [
+              "Standalone hardware with no way to record or share what it measures",
+              "Manual calibration and readings taken by hand, one patient at a time"
+            ],
+            powered: [
+              "Sensors that continuously monitor vitals and alert staff to changes",
+              "Embedded software steering insulin pumps, pacemakers, and prosthetics",
+              "Imaging equipment reconstructing 3D scans from raw sensor data in seconds",
+              "Devices that log and transmit data automatically for remote review"
+            ],
+            toolStack: ["C / C++", "Embedded Systems", "Signal Processing", "PyTorch"]
           },
           {
             title: "Bioinformatics",
-            description:
-              "Computational methods for working with biological data at scales that require software and statistics.",
-            encounter:
-              "Genomics · Statistical modeling · Data pipelines · Machine learning",
-            practice:
-              "Used to study biological systems, identify patterns, compare sequences, and support research."
+            traditional: [
+              "Genetic sequences compared by hand, one small stretch at a time",
+              "Research findings siloed in a single lab's notebooks and files"
+            ],
+            powered: [
+              "Algorithms aligning entire genomes in minutes instead of months",
+              "Machine learning models predicting protein structure from sequence alone",
+              "Shared databases letting researchers worldwide build on the same data",
+              "Statistical pipelines turning raw lab data into publishable results"
+            ],
+            toolStack: ["Python", "R", "Statistical Modeling", "Data Pipelines"]
           }
         ],
 
@@ -1588,39 +1638,59 @@ plot(smoothed)`,
         focusAreas: [
           {
             title: "UI / UX",
-            description:
-              "Designing the interfaces through which people understand and interact with computational systems.",
-            encounter:
-              "Interaction design · Prototyping · Information architecture · Accessibility",
-            practice:
-              "Used to turn complex systems into experiences that people can understand and use."
+            traditional: [
+              "Static mockups handed off to developers with no way to test how they feel",
+              "One fixed layout shown to every user, regardless of how they behave"
+            ],
+            powered: [
+              "Interactive prototypes that respond to clicks and gestures before a line of code is written",
+              "Interfaces that adapt in real time based on how a person actually uses them",
+              "Usability testing at scale, with heatmaps and analytics instead of guesswork",
+              "Design systems that keep thousands of screens visually consistent automatically"
+            ],
+            toolStack: ["Figma", "JavaScript", "HTML/CSS", "Prototyping Tools"]
           },
           {
             title: "Immersive Art",
-            description:
-              "Creative experiences that use computation to create responsive or spatial environments.",
-            encounter:
-              "Projection · Sensors · Spatial interaction · Real-time graphics",
-            practice:
-              "Used in installations, exhibitions, performances, interactive environments, and experimental media."
+            traditional: [
+              "A fixed installation that looks the same no matter who walks in",
+              "Physical materials that can't respond to sound, light, or movement"
+            ],
+            powered: [
+              "Sensors that let an installation react to a visitor's motion or presence",
+              "Projection mapping that turns any surface into a dynamic canvas",
+              "Sound-reactive visuals generated live from a room's own noise",
+              "Networked pieces where many people's input shapes one shared experience"
+            ],
+            toolStack: ["p5.js", "JavaScript", "Sensors", "Real-Time Graphics"]
           },
           {
             title: "CGI",
-            description:
-              "Computer-generated imagery built through mathematical models of geometry, light, materials, and motion.",
-            encounter:
-              "3D graphics · Rendering · Animation · Simulation",
-            practice:
-              "Used in film, visualization, games, product design, advertising, and virtual environments."
+            traditional: [
+              "Every frame of motion hand-drawn or physically filmed, one at a time",
+              "Lighting and shadows approximated by eye rather than calculated"
+            ],
+            powered: [
+              "Physically accurate lighting and materials rendered from mathematical models",
+              "Motion and physics simulated automatically instead of animated by hand",
+              "Entire virtual sets built and lit without a physical camera ever rolling",
+              "Real-time rendering letting a director see the final shot instantly, not weeks later"
+            ],
+            toolStack: ["Three.js", "3D Graphics", "Rendering Engines", "Animation Tools"]
           },
           {
             title: "Game Design",
-            description:
-              "Designing systems of interaction, rules, feedback, narrative, and challenge that unfold through computation.",
-            encounter:
-              "Game mechanics · Simulation · AI · Interactive storytelling",
-            practice:
-              "Used to build experiences where software rules become part of the creative medium."
+            traditional: [
+              "Every possible outcome scripted and placed by hand in advance",
+              "Worlds that stay exactly the same no matter how a player behaves"
+            ],
+            powered: [
+              "Physics engines that let objects collide and move believably on their own",
+              "Procedural generation building entire levels or worlds algorithmically",
+              "AI-driven characters that adapt their behavior to how a player plays",
+              "Live multiplayer systems keeping thousands of players in sync in real time"
+            ],
+            toolStack: ["Game Engines", "JavaScript / C#", "Physics Simulation", "AI Behavior Trees"]
           }
         ],
 
@@ -1778,39 +1848,59 @@ draw(points)`,
         focusAreas: [
           {
             title: "AI Policy",
-            description:
-              "The rules, institutions, and governance systems that shape how computational technologies are developed and deployed.",
-            encounter:
-              "Regulation · Governance · Standards · Risk assessment",
-            practice:
-              "Used to establish responsibilities, limits, evaluation requirements, and accountability around technology."
+            traditional: [
+              "Regulation written years after a technology is already widespread",
+              "Oversight limited to whatever a company chooses to disclose"
+            ],
+            powered: [
+              "Auditing tools that can inspect a model's behavior before it's deployed",
+              "Standardized documentation making it possible to compare systems fairly",
+              "Risk assessments run continuously instead of once before launch",
+              "Governance frameworks built to keep pace with how fast models actually change"
+            ],
+            toolStack: ["Model Evaluation", "Documentation Standards", "Risk Assessment", "Python"]
           },
           {
             title: "Data Privacy",
-            description:
-              "Technical and social approaches to controlling how information about people is collected and used.",
-            encounter:
-              "Encryption · Access control · Data minimization · Privacy-preserving methods",
-            practice:
-              "Used to reduce unnecessary exposure of personal information while preserving useful computation."
+            traditional: [
+              "Personal data stored in plain text, readable by anyone with access",
+              "One-size-fits-all consent forms nobody actually reads"
+            ],
+            powered: [
+              "Encryption that keeps data unreadable even if a system is breached",
+              "Differential privacy that lets researchers study patterns without exposing individuals",
+              "Access controls that limit exactly who can see what, and when",
+              "On-device processing that never sends raw personal data to a server at all"
+            ],
+            toolStack: ["Encryption", "Access Control", "Privacy-Preserving Computation", "SQL"]
           },
           {
             title: "Algorithmic Bias",
-            description:
-              "Understanding how data, models, objectives, and deployment contexts can produce unequal outcomes.",
-            encounter:
-              "Fairness metrics · Dataset analysis · Model evaluation",
-            practice:
-              "Used to identify disparities, investigate their causes, and evaluate possible mitigation strategies."
+            traditional: [
+              "Unequal outcomes discovered only after people have already been harmed",
+              "A single accuracy number treated as the whole story"
+            ],
+            powered: [
+              "Fairness metrics that measure outcomes separately across different groups",
+              "Toolkits like AIF360 that surface bias before a model ever ships",
+              "Dataset audits that catch skewed or unrepresentative training data early",
+              "Ongoing monitoring that flags drift in a model's behavior over time"
+            ],
+            toolStack: ["Fairlearn", "AIF360", "Python", "Statistical Analysis"]
           },
           {
             title: "Explainable AI",
-            description:
-              "Methods for making model behavior more understandable to people who need to evaluate or use it.",
-            encounter:
-              "Feature importance · Local explanations · Model interpretation",
-            practice:
-              "Used when people need to understand why a model produced a particular output or how its behavior changes."
+            traditional: [
+              "Decisions delivered with no explanation of how they were reached",
+              "'Black box' models trusted purely because their outputs look right"
+            ],
+            powered: [
+              "Feature attribution methods showing exactly what drove a prediction",
+              "Tools like SHAP translating model math into human-readable reasoning",
+              "Local explanations that clarify a single decision, not just the whole model",
+              "Interfaces that let a non-technical person question and understand an AI's output"
+            ],
+            toolStack: ["SHAP", "Model Interpretation", "Python", "Feature Attribution"]
           }
         ],
 
@@ -1873,6 +1963,9 @@ draw(points)`,
           code:
 `group_a = [1, 1, 0, 1, 0, 1]
 group_b = [1, 0, 0, 0, 1, 0]
+
+mean = arr =>
+  arr.reduce((sum, value) => sum + value, 0) / arr.length
 
 rate_a = mean(group_a)
 rate_b = mean(group_b)
@@ -2416,6 +2509,88 @@ function renderTopicDetail() {
 
     topicLabel = "FOCUS AREA";
 
+    topicDetailLabel.textContent = "COMPUTEX FOCUS";
+
+    const usesNewFormat = Array.isArray(topic.traditional);
+    topicDetailContent.innerHTML = `
+
+    const bodyHtml = usesNewFormat
+      ? `
+        <div class="mt-8">
+
+          <div
+            class="font-mono text-[9px] tracking-[0.15em]"
+            style="color:${pillar.accent}"
+          >
+            COMPUTING ENABLES
+          </div>
+
+          <ul class="mt-4 space-y-3.5">
+            ${topic.powered.map(item => `
+              <li class="flex gap-3 text-sm md:text-base leading-7 text-slate-300">
+                <span
+                  class="mt-2.5 w-1.5 h-1.5 rounded-full shrink-0"
+                  style="background:${pillar.accent}"
+                ></span>
+                <span>${item}</span>
+              </li>
+            `).join("")}
+          </ul>
+
+        </div>
+
+
+        <div class="mt-auto pt-8 border-t border-white/5">
+
+          <div class="font-mono text-[9px] tracking-[0.15em] text-slate-700 mb-3">
+            TOOL STACK
+          </div>
+
+          <div class="flex flex-wrap gap-2">
+            ${topic.toolStack.map(tool => `
+              <span
+                class="font-mono text-[11px] px-2.5 py-1 rounded-md border"
+                style="
+                  color:${pillar.accent};
+                  border-color:${accentAlpha(pillar.accent, .25)};
+                  background:${accentAlpha(pillar.accent, .05)};
+                "
+              >
+                ${tool}
+              </span>
+            `).join("")}
+          </div>
+
+        </div>
+      `
+      : `
+        <p class="mt-4 text-sm md:text-base leading-7 text-slate-400 max-w-2xl">
+          ${topic.description}
+        </p>
+
+        <div class="mt-auto pt-10 grid sm:grid-cols-2 gap-6">
+
+          <div>
+            <div class="font-mono text-[9px] tracking-[0.15em] text-slate-700">
+              YOU'LL ENCOUNTER
+            </div>
+            <div class="mt-2 text-xs leading-6 text-slate-500">
+              ${topic.encounter}
+            </div>
+          </div>
+
+          <div>
+            <div class="font-mono text-[9px] tracking-[0.15em] text-slate-700">
+              IN PRACTICE
+            </div>
+            <div class="mt-2 text-xs leading-6 text-slate-500">
+              ${topic.practice}
+            </div>
+          </div>
+
+        </div>
+      `;
+
     topicDetailContent.innerHTML = `
 
       <div class="flex flex-col min-h-[420px]">
@@ -2440,40 +2615,7 @@ function renderTopicDetail() {
           ${topic.title}
         </h3>
 
-
-        <p class="mt-4 text-sm md:text-base leading-7 text-slate-400 max-w-2xl">
-          ${topic.description}
-        </p>
-
-
-        <div class="mt-auto pt-10 grid sm:grid-cols-2 gap-6">
-
-          <div>
-
-            <div class="font-mono text-[9px] tracking-[0.15em] text-slate-700">
-              YOU'LL ENCOUNTER
-            </div>
-
-            <div class="mt-2 text-xs leading-6 text-slate-500">
-              ${topic.encounter}
-            </div>
-
-          </div>
-
-
-          <div>
-
-            <div class="font-mono text-[9px] tracking-[0.15em] text-slate-700">
-              IN PRACTICE
-            </div>
-
-            <div class="mt-2 text-xs leading-6 text-slate-500">
-              ${topic.practice}
-            </div>
-
-          </div>
-
-        </div>
+        ${bodyHtml}
 
       </div>
 
