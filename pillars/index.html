@@ -562,12 +562,6 @@
 
           </div>
 
-          <span
-            id="topicDetailLabel"
-            class="font-mono text-[10px] text-slate-600"
-          >
-            PLACEHOLDER
-          </span>
 
           <span class="w-12"></span>
 
@@ -586,12 +580,6 @@
 
     </div>
 
-
-    <!-- Placeholder note -->
-    <div class="mt-5 font-mono text-[10px] text-slate-700">
-      PLACEHOLDER — Replace or expand these topics with ComputeX-approved
-      organizations, projects, links, examples, and statistics before publishing.
-    </div>
 
   </div>
 
@@ -964,11 +952,6 @@
      * ==========================================================
      * COMPUTEX PILLAR DATA
      * ==========================================================
-     *
-     * Most page content lives here.
-     *
-     * Replace PLACEHOLDER content with the exact examples,
-     * organizations, resources, etc. you want to publish.
      */
 
     const pillars = {
@@ -2433,8 +2416,6 @@ function renderTopicDetail() {
 
     topicLabel = "FOCUS AREA";
 
-    topicDetailLabel.textContent = "COMPUTEX FOCUS";
-
     topicDetailContent.innerHTML = `
 
       <div class="flex flex-col min-h-[420px]">
@@ -2517,8 +2498,6 @@ function renderTopicDetail() {
       `${pillar.number}.${String(activeTopicIndex + 1).padStart(2, "0")}`;
 
     topicLabel = "REAL-WORLD APPLICATION";
-
-    topicDetailLabel.textContent = "REAL-WORLD APPLICATIONS";
 
     topicDetailContent.innerHTML = `
 
