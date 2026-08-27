@@ -718,7 +718,6 @@
                 alt="${data.name}"
                 class="h-[240px] sm:h-[280px] w-auto object-contain rounded-xl border border-white/10 flex-shrink-0"
               />
-
             </div>
 
           </div>
@@ -766,11 +765,13 @@
               </span>
             </button>
           </div>
-          <img
-            src="${viewData.image}"
-            alt="${viewData.name}"
-            class="h-[240px] sm:h-[280px] w-auto object-contain rounded-xl border border-white/10 flex-shrink-0"
-          />
+           <a href="${targetUrl}" target="_blank" rel="noopener noreferrer" class="flex items-center opacity-80 hover:opacity-100 transition-all">
+              <img
+                src="${viewData.image}"
+                alt="${viewData.name}"
+                class="h-[240px] sm:h-[280px] w-auto object-contain rounded-xl border border-white/10 flex-shrink-0"
+              />
+            </a>
         </div>
       </div>
     `;
