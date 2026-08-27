@@ -2984,21 +2984,6 @@ function renderWhereComputingGoes() {
 
           <div class="flex-1 h-full flex flex-col">
 
-            <div class="flex items-center justify-between">
-
-              <span
-                class="font-mono text-[10px] tracking-[0.16em]"
-                style="color:${pillar.accent}"
-              >
-                TOOL / METHOD
-              </span>
-
-              <span class="font-mono text-[10px] text-slate-700">
-                ACTIVE
-              </span>
-
-            </div>
-
             <h3 class="mt-6 text-2xl md:text-3xl font-medium text-white tracking-[-0.03em]">
               ${selectedTool.name}
             </h3>
@@ -3021,7 +3006,7 @@ function renderWhereComputingGoes() {
 
           </div>
 
-          <div class="relative w-28 h-28 sm:w-40 sm:h-40 rounded-xl overflow-hidden bg-brand-panel border border-white/10 shrink-0">
+          <div class="relative w-45 h-45 sm:w-60 sm:h-60 rounded-xl overflow-hidden bg-brand-panel border border-white/10 shrink-0">
             <img
               src="../assets/tool-${selectedTool.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}.jpg"
               alt="${selectedTool.name}"

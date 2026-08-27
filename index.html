@@ -512,7 +512,7 @@
     const matrixData = {
       'HEALTH-TECH': {
         p1: 'Health + Medicine', p2: 'Tech + Engineering', link: '/pillars#health',
-        giant: { badge: 'EXAMPLE A', badgeColor: 'text-brand-amber bg-brand-amber/10 border-brand-amber/30', name: 'Apple', product: ' [ The Apple Watch ]', desc: 'Apple Watch brings computing directly into everyday health monitoring by using sensors, signal processing, and algorithms to turn physiological measurements into useful health information. Features such as ECG and irregular-rhythm detection show how software and hardware can extend what a consumer device can observe about the body. It\'s an example of computing becoming part of the interface between people and their health.', toggleMsg: frontierMsg, url: 'https://www.apple.com/healthcare/' },
+        giant: { badge: 'EXAMPLE A', badgeColor: 'text-brand-amber bg-brand-amber/10 border-brand-amber/30', image: '.assets/tool-sql.jpg', name: 'Apple', product: ' [ The Apple Watch ]', desc: 'Apple Watch brings computing directly into everyday health monitoring by using sensors, signal processing, and algorithms to turn physiological measurements into useful health information. Features such as ECG and irregular-rhythm detection show how software and hardware can extend what a consumer device can observe about the body. It\'s an example of computing becoming part of the interface between people and their health.', toggleMsg: frontierMsg, url: 'https://www.apple.com/healthcare/' },
         frontier: { badge: 'EXAMPLE B', badgeColor: 'text-brand-magenta bg-brand-magenta/10 border-brand-magenta/30', name: 'Neuralink', product: ' [ Brain-Computer Interface ]', desc: 'Neuralink uses computing to translate neural activity into digital commands, creating a direct interface between the brain and external devices. Its current clinical work includes enabling people with paralysis to control computers and robotic arms through neural signals. The result is a particularly direct intersection of computing and medicine: software and hardware are being used to interpret the activity of the human nervous system.', toggleMsg: giantMsg, url: 'https://neuralink.com/' }
       },
       'HEALTH-BUSINESS': {
@@ -710,37 +710,58 @@
       const targetUrl = viewData.url || '#';
 
       card.innerHTML = `
-        <div class="transition-opacity duration-200">
-          <div class="flex items-center justify-between gap-2 mb-2 flex-wrap">
-            <h5 class="text-xl font-bold text-white tracking-wide font-sans flex items-center gap-2">
-              <span>${viewData.name}</span>
-              ${viewData.product ? `<span class="text-slate-400 font-normal text-sm sm:text-base"> ${viewData.product}</span>` : ''}
-            </h5>
-            <a 
-              href="${targetUrl}" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/0 border border-brand-white/30 text-brand-white text-[11px] font-mono hover:bg-white hover:text-black transition-all hover:scale-110"
-            >
-              <span>Find Out More</span>
-              <span class="text-[10px]">↗</span>
-            </a>
-          </div>
-          <hr class="border-t border-dashed border-white/10 my-3" />
-          <p class="text-sm text-slate-300 font-sans leading-relaxed min-h-[55px] mb-4">${viewData.desc}</p>
-        </div>
+  <div class="transition-opacity duration-200">
+    <div class="flex items-center justify-between gap-2 mb-2 flex-wrap">
+      <h5 class="text-xl font-bold text-white tracking-wide font-sans flex items-center gap-2">
+        <span>${viewData.name}</span>
+        ${viewData.product ? `<span class="text-slate-400 font-normal text-sm sm:text-base"> ${viewData.product}</span>` : ''}
+      </h5>
+
+      <a 
+        href="${targetUrl}" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/0 border border-brand-white/30 text-brand-white text-[11px] font-mono hover:bg-white hover:text-black transition-all hover:scale-110"
+      >
+        <span>Find Out More</span>
+        <span class="text-[10px]">↗</span>
+      </a>
+    </div>
+
+    <hr class="border-t border-dashed border-white/10 my-3" />
+
+    <!-- Left column + Right image -->
+    <div class="flex items-stretch gap-5">
+
+      <!-- LEFT COLUMN -->
+      <div class="flex-1 flex flex-col justify-between min-w-0">
+        
+        <p class="text-sm text-slate-300 font-sans leading-relaxed">
+          ${viewData.desc}
+        </p>
 
         <button 
           onclick="handleMatrixToggle()" 
-          class="py-2.5 px-4 rounded-xl bg-white/5 border border-white/10 text-slate-300 text-xs font-mono flex items-center justify-between group hover:border-grey/50 hover:bg-white/10 hover:text-white transition-all"
+          class="mt-5 py-2.5 px-4 rounded-xl bg-white/5 border border-white/10 max-w-[170px] text-slate-300 text-xs font-mono flex items-center justify-between group hover:border-grey/50 hover:bg-white/10 hover:text-white transition-all w-full"
         >
           <span class="flex items-center gap-2">
             <span class="text-brand-white group-hover:rotate-180 transition-transform duration-300">⇄</span>
             <span>${viewData.toggleMsg}</span>
           </span>
         </button>
-        
-      `;
+
+      </div>
+      <img
+        src="${viewData.image}"
+        alt="${viewData.name}"
+        class="w-48 sm:w-48 min-h-[200px] object-cover rounded-xl border border-white/10 flex-shrink-0"
+      />
+
+    </div>
+  </div>
+`;
+
+
     }
 
     document.addEventListener('DOMContentLoaded', renderAxisButtons);
