@@ -641,42 +641,86 @@
     let isRandomizing = false;
 
     function randomizeMatrix() {
-      if (isRandomizing) return;
-      isRandomizing = true;
-      const dieBtn = document.getElementById('random-die-btn');
-      if (dieBtn) dieBtn.classList.add('rotate-[360deg]', 'scale-90');
-      const prevY = activeY;
-      const prevX = activeX;
-      const wasEgg = (prevX == prevY);
+  if (isRandomizing) return;
 
-      const validY = domains.filter(d => d !== prevY);
-      const nextY = validY[Math.floor(Math.random() * validY.length)];
-      const validX = domains.filter(d => d !== prevX);
-      tempX = validX[Math.floor(Math.random() * validX.length)];
-      if (wasEgg && (tempX == nextY)) {
-        validX = domains.filter(d => d !== prevX && d !== prevY);
-        tempX = validX[Math.floor(Math.random() * validX.length)];
-      }
-      const nextX = tempX;
-      let rolls = 0;
-      const shuffleInterval = setInterval(() => {
-        activeY = domains[Math.floor(Math.random() * domains.length)];
-        activeX = domains[Math.floor(Math.random() * domains.length)];
-        renderAxisButtons();
-        rolls++;
-        if (rolls >= 4) {
-          clearInterval(shuffleInterval);
-          activeY = nextY;
-          activeX = nextX;
-          currentCardView = Math.random() < 0.5 ? "giant" : "frontier";
-          renderAxisButtons();
-          setTimeout(() => {
-            if (dieBtn) dieBtn.classList.remove('rotate-[360deg]', 'scale-90');
-            isRandomizing = false;
-          }, 150);
-        }
-      }, 60);
+  isRandomizing = true;
+
+  const dieBtn = document.getElementById('random-die-btn');
+  if (dieBtn) {
+    dieBtn.classList.add('rotate-[360deg]', 'scale-90');
+  }
+
+  try {
+    const prevY = activeY;
+    const prevX = activeX;
+    const wasEgg = (prevX == prevY);
+
+    const validY = domains.filter(d => d !== prevY);
+
+    if (!validY.length) {
+      throw new Error("No valid Y domains available");
     }
+
+    const nextY = validY[Math.floor(Math.random() * validY.length)];
+
+    let validX = domains.filter(d => d !== prevX);
+
+    if (wasEgg && tempX === nextY) {
+      validX = domains.filter(d => d !== prevX && d !== prevY);
+    }
+
+    if (!validX.length) {
+      throw new Error("No valid X domains available");
+    }
+
+    tempX = validX[Math.floor(Math.random() * validX.length)];
+
+    const nextX = tempX;
+
+    let rolls = 0;
+
+    const shuffleInterval = setInterval(() => {
+      activeY = domains[Math.floor(Math.random() * domains.length)];
+      activeX = domains[Math.floor(Math.random() * domains.length)];
+
+      renderAxisButtons();
+
+      rolls++;
+
+      if (rolls >= 4) {
+        clearInterval(shuffleInterval);
+
+        activeY = nextY;
+        activeX = nextX;
+
+        currentCardView = Math.random() < 0.5
+          ? "giant"
+          : "frontier";
+
+        renderAxisButtons();
+
+        setTimeout(() => {
+          if (dieBtn) {
+            dieBtn.classList.remove('rotate-[360deg]', 'scale-90');
+          }
+
+          isRandomizing = false;
+        }, 150);
+      }
+    }, 60);
+
+  } catch (error) {
+    console.error("randomizeMatrix failed:", error);
+
+    // IMPORTANT: don't leave the button permanently locked
+    isRandomizing = false;
+
+    if (dieBtn) {
+      dieBtn.classList.remove('rotate-[360deg]', 'scale-90');
+    }
+  }
+}
+
 
     function renderDisplayCard() {
       const card = document.getElementById('matrix-display-card');

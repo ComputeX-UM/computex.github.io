@@ -7,63 +7,28 @@
   <title>ComputeX | Tech + Engineering</title>
 
   <!-- =========================================================
-       COMPUTEX OUTREACH FLYER
-       Canonical size: 1920 × 1080 / 16:9
-       Pillar: Tech + Engineering
-       
-       Designed for:
-       - Professor lecture slides
-       - Classroom projection
-       - Student-first readability
+       COMPUTEX OUTREACH SLIDE — V2
+       Canonical: 1920 × 1080 / 16:9
+
+       Design goal:
+       - Readable from the back of a lecture hall
+       - Understandable in ~5 seconds
+       - Workshop/event is the hero
+       - Pillar provides context, not hierarchy
+       - QR has a clear behavioral CTA
        ========================================================= -->
 
-  <!-- ComputeX fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link
-    href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap"
     rel="stylesheet"
   >
 
-  <!-- Tailwind -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Inter', 'sans-serif'],
-            mono: ['"Geist Mono"', 'monospace'],
-          },
-
-          colors: {
-            brand: {
-              bg: '#08080a',
-              panel: '#101116',
-              card: '#161820',
-              cyan: '#00F0FF',
-              amber: '#FFB800',
-              emerald: '#00E599',
-              magenta: '#FF2E93',
-              purple: '#9D4EDD',
-              grey: '#acacbf',
-              maize: '#FFCB05',
-              blue: '#00274C',
-            }
-          }
-        }
-      }
-    }
-  </script>
-
-
   <style>
-
     /* =========================================================
-       BASE
+       RESET
        ========================================================= */
 
     * {
@@ -75,151 +40,141 @@
       margin: 0;
       width: 100%;
       min-height: 100%;
-      background: #08080a;
+      background: #07080a;
     }
 
     body {
-      font-family: 'Inter', sans-serif;
-      color: #e2e8f0;
-      overflow-x: hidden;
+      font-family: "Inter", sans-serif;
+      color: #f8fafc;
+      overflow: hidden;
     }
 
-
     /* =========================================================
-       16:9 CANVAS
+       CANVAS
        ========================================================= */
 
-    .flyer {
+    html,
+    body {
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      background: #07080a;
+      overflow: hidden;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+/* =========================================================
+   RESPONSIVE 16:9 CANVAS
+   - Always preserves 1920:1080 proportions
+   - Fits entirely inside the browser window
+   - Scales down automatically on smaller screens
+   ========================================================= */
+
+    .slide {
       position: relative;
 
-      width: min(100vw, 1920px);
+      width: min(100vw, calc(100vh * 16 / 9));
+      height: min(100vh, calc(100vw * 9 / 16));
+
       aspect-ratio: 16 / 9;
 
-      margin: 0 auto;
       overflow: hidden;
 
-      background: #08080a;
+      background:
+        radial-gradient(
+          circle at 82% 22%,
+          rgba(0, 240, 255, 0.075),
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at 10% 95%,
+          rgba(157, 78, 221, 0.045),
+          transparent 28%
+        ),
+        #07080a;
     }
 
-
     /* =========================================================
-       GRID
+       BACKGROUND GRID
        ========================================================= */
 
-    .bg-grid {
+    .grid {
       position: absolute;
       inset: 0;
 
-      background-size: 60px 60px;
+      opacity: 0.45;
 
       background-image:
         linear-gradient(
           to right,
-          rgba(255, 255, 255, 0.018) 1px,
+          rgba(255,255,255,0.018) 1px,
           transparent 1px
         ),
         linear-gradient(
           to bottom,
-          rgba(255, 255, 255, 0.018) 1px,
+          rgba(255,255,255,0.018) 1px,
           transparent 1px
         );
 
+      background-size: 72px 72px;
+
+      mask-image: linear-gradient(
+        to bottom,
+        black 0%,
+        black 65%,
+        transparent 100%
+      );
+
       pointer-events: none;
     }
 
-
     /* =========================================================
-       AMBIENT GLOWS
+       AMBIENT LIGHT
        ========================================================= */
 
-    .glow-cyan {
+    .glow {
       position: absolute;
 
-      width: 720px;
-      height: 720px;
+      width: 760px;
+      height: 760px;
 
-      right: -250px;
-      top: -330px;
+      right: -320px;
+      top: -300px;
 
       border-radius: 50%;
 
       background:
         radial-gradient(
           circle,
-          rgba(0, 240, 255, 0.17) 0%,
-          rgba(0, 240, 255, 0.07) 35%,
-          rgba(157, 78, 221, 0.04) 55%,
-          transparent 72%
+          rgba(0,240,255,0.13) 0%,
+          rgba(0,240,255,0.045) 36%,
+          transparent 70%
         );
 
-      filter: blur(65px);
+      filter: blur(35px);
 
       pointer-events: none;
     }
-
-
-    .glow-purple {
-      position: absolute;
-
-      width: 500px;
-      height: 500px;
-
-      left: -260px;
-      bottom: -290px;
-
-      border-radius: 50%;
-
-      background:
-        radial-gradient(
-          circle,
-          rgba(157, 78, 221, 0.09) 0%,
-          rgba(0, 240, 255, 0.05) 48%,
-          transparent 72%
-        );
-
-      filter: blur(75px);
-
-      pointer-events: none;
-    }
-
 
     /* =========================================================
-       DECORATIVE RINGS
-       ========================================================= */
-
-    .ring {
-      position: absolute;
-
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      border-radius: 50%;
-
-      pointer-events: none;
-    }
-
-    .ring-cyan {
-      position: absolute;
-
-      border: 1px solid rgba(0, 240, 255, 0.10);
-      border-radius: 50%;
-
-      pointer-events: none;
-    }
-
-
-    /* =========================================================
-       TYPOGRAPHY
+       TYPE
        ========================================================= */
 
     .mono {
-      font-family: 'Geist Mono', monospace;
+      font-family: "Geist Mono", monospace;
     }
 
-    .gradient-text {
+    .gradient {
       background:
         linear-gradient(
           90deg,
-          #00F0FF 0%,
-          #00E599 100%
+          #00f0ff 0%,
+          #00e599 100%
         );
 
       -webkit-background-clip: text;
@@ -227,170 +182,649 @@
       -webkit-text-fill-color: transparent;
     }
 
-
     /* =========================================================
-       WORKSHOP CARD
+       HEADER
        ========================================================= */
 
-    .workshop-card {
+    .header {
+      position: absolute;
+
+      top: 54px;
+      left: 100px;
+      right: 100px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .brand img {
+      height: 52px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .brand-name {
+      font-size: 26px;
+      font-weight: 700;
+
+      letter-spacing: 0.12em;
+    }
+
+    .brand-divider {
+      width: 1px;
+      height: 24px;
+
+      background: rgba(255,255,255,0.15);
+    }
+
+    .brand-tagline {
+      font-size: 18px;
+      color: #7d8494;
+
+      letter-spacing: 0.04em;
+    }
+
+    /* =========================================================
+       PILLAR LABEL
+       ========================================================= */
+
+    .pillar {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+
+      padding: 11px 17px;
+
+      border: 1px solid rgba(0,240,255,0.18);
+      border-radius: 999px;
+
+      background: rgba(0,240,255,0.035);
+
+      color: #74f7ff;
+
+      font-family: "Geist Mono", monospace;
+      font-size: 14px;
+      font-weight: 600;
+
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .pillar-dot {
+      width: 7px;
+      height: 7px;
+
+      border-radius: 50%;
+
+      background: #00f0ff;
+
+      box-shadow:
+        0 0 12px rgba(0,240,255,0.85);
+    }
+
+    /* =========================================================
+       MAIN CONTENT
+       ========================================================= */
+
+    .content {
+      position: absolute;
+
+      left: 100px;
+      right: 100px;
+
+      top: 140px;
+      bottom: 210px;
+
+      display: grid;
+
+      grid-template-columns: 54% 46%;
+
+      align-items: center;
+    }
+
+    /* =========================================================
+       LEFT / HERO
+       ========================================================= */
+
+    .hero {
       position: relative;
+
+      padding-right: 70px;
+    }
+
+    .hero-description {
+      margin-top: 28px;
+      max-width: 700px;
+      color: #dde3ee;
+      font-size: 20px;
+      line-height: 1.45;
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+
+      margin-bottom: 28px;
+
+      color: #8a91a1;
+
+      font-family: "Geist Mono", monospace;
+      font-size: 17px;
+      font-weight: 600;
+
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow-line {
+      width: 42px;
+      height: 1px;
+
+      background: #00f0ff;
+
+      box-shadow:
+        0 0 10px rgba(0,240,255,0.45);
+    }
+
+    .hero h1 {
+      margin: 0;
+
+      max-width: 930px;
+
+      font-size: 112px;
+      line-height: 0.92;
+
+      font-weight: 900;
+
+      letter-spacing: -0.065em;
+    }
+
+    .question {
+      margin-top: 34px;
+
+      max-width: 760px;
+
+      font-size: 37px;
+      line-height: 1.2;
+
+      font-weight: 400;
+
+      letter-spacing: -0.025em;
+
+      color: #d9dee8;
+    }
+
+    .question span {
+      color: #5ff4ff;
+    }
+
+    .support {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+
+      margin-top: 40px;
+
+      font-weight: 500;
+      color: #a6adbb;
+
+      font-size: 21px;
+      line-height: 1.4;
+    }
+
+    .support-dot {
+      width: 9px;
+      height: 9px;
+
+      flex-shrink: 0;
+
+      border-radius: 50%;
+
+      background: #00e599;
+
+      box-shadow:
+        0 0 14px rgba(0,229,153,0.65);
+    }
+
+    /* =========================================================
+       RIGHT / VISUAL
+       ========================================================= */
+
+    .visual-area {
+      position: relative;
+
+      height: 100%;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* =========================================================
+       COMPUTER VISION VISUAL
+       ========================================================= */
+
+    .vision-frame {
+      position: relative;
+
+      width: 580px;
+      height: 440px;
+
+      border-radius: 26px;
+
       overflow: hidden;
+
+      border: 1px solid rgba(0,240,255,0.20);
 
       background:
         linear-gradient(
-          120deg,
-          rgba(0, 240, 255, 0.055),
-          rgba(16, 17, 22, 0.90) 48%,
-          rgba(16, 17, 22, 0.95)
+          135deg,
+          rgba(0,240,255,0.055),
+          rgba(16,18,24,0.94) 45%
         );
 
-      border: 1px solid rgba(0, 240, 255, 0.16);
-
       box-shadow:
-        0 25px 70px rgba(0, 0, 0, 0.25);
+        0 35px 100px rgba(0,0,0,0.42),
+        inset 0 0 80px rgba(0,240,255,0.025);
     }
 
-    .workshop-card::before {
-      content: '';
+    .vision-grid {
+      position: absolute;
+      inset: 0;
 
+      background-image:
+        linear-gradient(
+          to right,
+          rgba(255,255,255,0.035) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          to bottom,
+          rgba(255,255,255,0.035) 1px,
+          transparent 1px
+        );
+
+      background-size: 48px 48px;
+    }
+
+    /* Simulated image/object */
+
+    .object {
+      position: absolute;
+
+      left: 145px;
+      top: 78px;
+
+      width: 290px;
+      height: 290px;
+
+      border: 2px solid rgba(0,240,255,0.8);
+
+      background:
+        radial-gradient(
+          circle at 50% 45%,
+          rgba(0,240,255,0.12),
+          transparent 60%
+        );
+
+      box-shadow:
+        0 0 35px rgba(0,240,255,0.07);
+    }
+
+    .object::before {
+      content: "";
+
+      position: absolute;
+
+      left: 72px;
+      top: 50px;
+
+      width: 145px;
+      height: 190px;
+
+      border-radius: 42% 42% 35% 35%;
+
+      border: 2px solid rgba(255,255,255,0.35);
+
+      background:
+        radial-gradient(
+          circle at 35% 35%,
+          rgba(255,255,255,0.10),
+          transparent 32%
+        );
+    }
+
+    .object::after {
+      content: "PERSON";
+
+      position: absolute;
+
+      left: -2px;
+      top: -35px;
+
+      padding: 5px 9px;
+
+      background: #00f0ff;
+
+      color: #061013;
+
+      font-family: "Geist Mono", monospace;
+      font-size: 12px;
+      font-weight: 700;
+
+      letter-spacing: 0.08em;
+    }
+
+    /* Detection corner markers */
+
+    .corner {
+      position: absolute;
+
+      width: 22px;
+      height: 22px;
+
+      border-color: #00f0ff;
+      border-style: solid;
+    }
+
+    .corner.tl {
+      left: -2px;
+      top: -2px;
+
+      border-width: 3px 0 0 3px;
+    }
+
+    .corner.tr {
+      right: -2px;
+      top: -2px;
+
+      border-width: 3px 3px 0 0;
+    }
+
+    .corner.bl {
+      left: -2px;
+      bottom: -2px;
+
+      border-width: 0 0 3px 3px;
+    }
+
+    .corner.br {
+      right: -2px;
+      bottom: -2px;
+
+      border-width: 0 3px 3px 0;
+    }
+
+    /* Detection labels */
+
+    .label {
+      position: absolute;
+
+      padding: 7px 10px;
+
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 6px;
+
+      background: rgba(7,8,10,0.82);
+
+      backdrop-filter: blur(10px);
+
+      font-family: "Geist Mono", monospace;
+      font-size: 12px;
+
+      color: #aeb6c5;
+
+      letter-spacing: 0.04em;
+    }
+
+    .label.confidence {
+      right: 30px;
+      top: 32px;
+
+      color: #00e599;
+    }
+
+    .label.object-type {
+      left: 30px;
+      bottom: 30px;
+
+      color: #74f7ff;
+    }
+
+    .scan-line {
+      position: absolute;
+
+      left: 0;
+      right: 0;
+      top: 205px;
+
+      height: 1px;
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          rgba(0,240,255,0.8),
+          transparent
+        );
+
+      box-shadow:
+        0 0 15px rgba(0,240,255,0.7);
+    }
+
+    /* =========================================================
+       VISUAL CAPTION
+       ========================================================= */
+
+    .visual-caption {
+      position: absolute;
+
+      left: 50%;
+      bottom: 34px;
+
+      transform: translateX(-50%);
+
+      white-space: nowrap;
+
+      font-family: "Geist Mono", monospace;
+
+      font-size: 13px;
+      font-weight: 500;
+
+      color: #707887;
+
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+    }
+
+    /* =========================================================
+       BOTTOM CTA
+       ========================================================= */
+
+    .bottom {
+      position: absolute;
+
+      left: 100px;
+      right: 100px;
+      bottom: 45px;
+
+      min-height: 170px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding-top: 18px;
+
+      border-top: 1px solid rgba(255,255,255,0.09);
+    }
+
+
+    .bottom-left {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .bottom-title {
+      font-size: 22px;
+      font-weight: 700;
+
+      letter-spacing: -0.02em;
+    }
+
+    .bottom-subtitle {
+      margin-top: 5px;
+
+      color: #737b8b;
+
+      font-size: 16px;
+    }
+
+    .bottom-meta {
+      padding-left: 22px;
+
+      border-left: 1px solid rgba(0,240,255,0.25);
+
+      color: #00e599;
+
+      font-family: "Geist Mono", monospace;
+      font-size: 13px;
+      font-weight: 600;
+
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* =========================================================
+       QR CTA
+       ========================================================= */
+
+    .cta {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .qr {
+      width: 160px;
+      height: 160px;
+      padding: 10px;
+      border-radius: 10px;
+      background: #fff;
+      flex-shrink: 0;
+    }
+
+    .qr img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .cta-copy {
+      min-width: 225px;
+    }
+
+    .cta-label {
+      color: #00f0ff;
+
+      font-family: "Geist Mono", monospace;
+
+      font-size: 16px;
+      font-weight: 700;
+
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .cta-title {
+      margin-top: 7px;
+
+      color: white;
+
+      font-size: 27px;
+      font-weight: 700;
+
+      letter-spacing: -0.015em;
+    }
+
+    .cta-subtitle {
+      margin-top: 6px;
+
+      color: #737b8b;
+
+      font-size: 17px;
+      line-height: 1.35;
+    }
+
+    /* =========================================================
+       SMALL ACCENT
+       ========================================================= */
+
+    .accent {
       position: absolute;
 
       left: 0;
       top: 0;
-      bottom: 0;
 
-      width: 3px;
-
-      background: #00F0FF;
-
-      box-shadow:
-        0 0 22px rgba(0, 240, 255, 0.55);
-    }
-
-
-    /* =========================================================
-       QR PLACEHOLDER
-       ========================================================= */
-
-    .qr-placeholder {
-      width: 154px;
-      height: 154px;
-
-      padding: 9px;
-
-      flex-shrink: 0;
-
-      background: #ffffff;
-
-      border-radius: 10px;
-    }
-
-    .qr-placeholder-inner {
-      width: 100%;
+      width: 4px;
       height: 100%;
 
-      display: flex;
+      background: #00f0ff;
 
-      align-items: center;
-      justify-content: center;
-
-      text-align: center;
-
-      border: 2px dashed #111318;
-
-      color: #111318;
-
-      font-family: 'Geist Mono', monospace;
-
-      font-size: 10px;
-      line-height: 1.25;
-      font-weight: 600;
-    }
-
-
-    /* =========================================================
-       PRINT
-       ========================================================= */
-    .flyer {
-    position: relative;
-    width: 1920px;
-    height: 1080px;
-    margin: 0 auto;
-    overflow: hidden;
-    background: #08080a;
+      box-shadow:
+        0 0 22px rgba(0,240,255,0.55);
     }
   </style>
-
 </head>
-
 
 <body>
 
-  <!-- =========================================================
-       1920 × 1080 FLYER
-       ========================================================= -->
-
-  <main class="flyer">
+  <main class="slide">
 
     <!-- Background -->
-    <div class="bg-grid"></div>
-
-    <!-- Ambient light -->
-    <div class="glow-cyan"></div>
-    <div class="glow-purple"></div>
-
-    <!-- Decorative geometry -->
-    <div
-      class="ring w-[650px] h-[650px]"
-      style="right:-290px; top:-300px;"
-    ></div>
-
-    <div
-      class="ring-cyan w-[470px] h-[470px]"
-      style="right:-195px; top:-205px;"
-    ></div>
+    <div class="grid"></div>
+    <div class="glow"></div>
+    <div class="accent"></div>
 
 
     <!-- =======================================================
          HEADER
          ======================================================= -->
 
-    <header
-      class="absolute left-[5.2%] right-[5.2%] top-[5%] flex items-center justify-between"
-    >
+    <header class="header">
 
-      <div class="flex items-center gap-4">
+      <div class="brand">
 
         <img
           src="../assets/computex-logo.png"
           alt="ComputeX logo"
-          class="h-[60px] w-auto object-contain"
         />
 
-        <div
-          class="mono text-[30px] font-semibold tracking-[0.16em] text-white-900"
-        >
+        <div class="brand-name mono">
           ComputeX
         </div>
 
-        <div
-          class="mono text-[20px] tracking-[0.08em] text-slate-400"
-        >
-        | Exploring Computing Across All Fields
+        <div class="brand-divider"></div>
+
+        <div class="brand-tagline">
+          Explore how computing and technology apply to your field
         </div>
 
       </div>
 
+      <div class="pillar">
 
-      <!-- Pillar indicator -->
-      <div
-        class="mono flex items-center gap-3 rounded-full border border-cyan-400/20 bg-cyan-400/[0.04] px-4 py-2.5 text-[11px] font-medium tracking-[0.14em] text-cyan-300 uppercase"
-      >
-
-        <span
-          class="h-2 w-2 rounded-full bg-cyan-400"
-          style="box-shadow: 0 0 12px rgba(0,240,255,.8);"
-        ></span>
+        <span class="pillar-dot"></span>
 
         Tech + Engineering
 
@@ -403,243 +837,155 @@
          MAIN
          ======================================================= -->
 
-    <section
-      class="absolute left-[5.2%] right-[5.2%] top-[18%] bottom-[9%]"
-    >
+    <section class="content">
 
 
       <!-- =====================================================
-           LEFT SIDE
+           HERO
            ===================================================== -->
 
-      <div class="absolute left-0 top-0 w-[47%]">
+      <div class="hero">
 
-        <!-- General ComputeX Description -->
-        <div
-          class="flex items-center gap-3 text-[20px] font-semibold tracking-[0.18em] text-white"
-        >
-          A U-M student organization exploring how computing
-          intersects with every field — open to all majors and
-          experience levels!
-          <br><br>
-        </div>
+        <div class="eyebrow">
 
+          <span class="eyebrow-line"></span>
 
-        <!-- Pillar number -->
-        <div
-          class="mono flex items-center gap-3 text-[12px] font-semibold tracking-[0.18em] text-cyan-400 uppercase"
-        >
-
-          <span class="h-px w-9 bg-cyan-400"></span>
-
-          01 / Foundational pillar
+          Hands-on workshop
 
         </div>
 
 
-        <!-- Main heading -->
-        <h1
-          class="mt-4 mb-0 text-[clamp(58px,5vw,96px)] font-extrabold leading-[0.94] tracking-[-0.05em] text-white"
-        >
+        <h1>
 
-          Tech
-          <span class="font-light text-slate-500">+</span>
-
+          Computer
           <br />
 
-          <span class="gradient-text">
-            Engineering
+          <span class="gradient">
+            Vision
           </span>
 
         </h1>
 
-    
-        <!-- Short why -->
-        <div class="mt-9 max-w-[670px]">
 
-          <span class="h-px w-30 bg-white-600"></span>
+        <div class="question">
 
+          How do machines
+          <span>"see"</span>
+          the world?
 
-          <p
-            class="m-0 text-[20px] leading-[1.65] text-slate-400"
-          >
-            Computing is more than building software. From AI and machine
-            learning to robotics, embedded systems, and the foundations of
-            computer science, computation can be a practical toolkit for
-            understanding and building the world around us.
-          </p>
+        </div><br>
 
+        <div class="hero-description">
+          Learn how computers turn images into information, and how this technology is being used across industries.
+        </div>
+
+        <div class="support">
+          <span class="support-dot"></span>
+          No experience required.
         </div>
 
       </div>
 
 
       <!-- =====================================================
-     RIGHT SIDE
-     ===================================================== -->
+           VISUAL
+           ===================================================== -->
 
-<div
-  class="absolute right-0 top-0 w-[52%] h-full flex flex-col"
->
+      <div class="visual-area">
 
-  <!-- ===================================================
-       WORKSHOP
-       =================================================== -->
+        <div class="vision-frame">
 
-  <div
-    class="workshop-card rounded-2xl p-8 flex-1 flex flex-col"
-  >
-
-    <!-- Workshop label -->
-    <div class="flex items-center justify-between">
-
-      <div
-        class="mono text-[17px] font-semibold tracking-[0.15em] text-slate-500 uppercase"
-      >
-        Hands-on Workshop
-      </div>
-
-      <div
-        class="rounded-full border border-cyan-400/15 bg-cyan-400/[0.05] px-3 py-1.5 text-[12px] font-semibold tracking-[0.12em] text-cyan-300 uppercase"
-      >
-        COMING SOON!
-      </div>
-
-    </div>
+          <div class="vision-grid"></div>
 
 
-    <!-- Workshop title -->
-    <div class="mt-6">
+          <!-- Simulated computer vision detection -->
 
-      <h2
-        class="mt-3 mb-0 text-[clamp(42px,3.5vw,64px)] font-bold tracking-[-0.04em] leading-[1] text-white"
-      >
-        Computer Vision
-      </h2>
+          <div class="object">
 
-      <p
-        class="mt-5 mb-0 text-[24px] font-light leading-[1.35] text-slate-300"
-      >
-        How do machines
-        <span class="text-cyan-300">
-          "see"
-        </span>
-        the world?
-      </p>
+            <span class="corner tl"></span>
+            <span class="corner tr"></span>
+            <span class="corner bl"></span>
+            <span class="corner br"></span>
 
-    </div>
+          </div>
 
 
-    <!-- Workshop description -->
-    <p
-      class="mt-8 max-w-[650px] text-[16px] leading-[1.7] text-slate-400"
-    >
-      Explore how computers interpret images and visual information
-      through a practical, hands-on introduction to computer vision.
-    </p>
+          <div class="scan-line"></div>
 
 
-    <!-- Flexible space -->
-    <div class="flex-1"></div>
+          <div class="label confidence">
+            CONFIDENCE 97.4%
+          </div>
 
 
-    <!-- Workshop connection -->
-    <div
-      class="border-t border-white/[0.07] pt-6"
-    >
-
-      <div class="flex items-start gap-4">
-
-        <div
-          class="mt-1.5 h-2.5 w-2.5 flex-shrink-0 rounded-full bg-cyan-400"
-          style="box-shadow: 0 0 12px rgba(0,240,255,.65);"
-        ></div>
-
-        <p
-          class="m-0 max-w-[650px] text-[14px] leading-[1.6] text-slate-400"
-        >
-          One workshop, many ways to think about computing —
-          from technology and engineering to its applications
-          across other fields.
-        </p>
-
-      </div>
-
-    </div>
-
-  </div>
-
-
-  <!-- ===================================================
-       CTA
-       =================================================== -->
-
-  <div
-    class="mt-5 min-h-[350px] rounded-2xl border border-white/10 bg-[#101116]/95 p-9"
-  >
-
-
-    <div class="flex h-full items-center gap-7">
-
-  <!-- QR -->
-  <div
-    class="qr-placeholder"
-    title="TODO: Replace with actual ComputeX outreach hub QR code"
-    style="width: 250px; height: 250px;"
-  >
-    <div class="qr-placeholder-inner">
-      QR CODE<br>
-      PLACEHOLDER<br><br>
-      COMPUTEX<br>
-      OUTREACH HUB
-    </div>
-  </div>
-
-
-  <!-- CTA -->
-  <div class="flex-1">
-
-    <div
-      class="mono text-[18px] font-semibold tracking-[0.16em] text-cyan-400 uppercase"
-    >
-      Explore with ComputeX
-    </div>
-
-    <h3
-      class="mt-2 mb-0 text-[30px] font-semibold tracking-[-0.025em] leading-[1.15] text-white"
-    >
-      Curious where computing can take you?
-    </h3>
-
-    <p
-      class="mt-3 mb-0 text-[14px] leading-[1.5] text-slate-500"
-    >
-      Workshops · Conversations · Resources · Community
-    </p>
-
-    <div
-      class="mono mt-5 text-[15px] font-medium tracking-[0.12em] text-slate-400 uppercase"
-    >
-      Scan to get involved →
-    </div>
-
-  </div>
-
-</div>
-
-
-
-
-  </div>
-
-</div>
-
+          <div class="label object-type">
+            DETECT → CLASSIFY → UNDERSTAND
+          </div>
 
         </div>
 
       </div>
 
     </section>
+
+
+    <!-- =======================================================
+         BOTTOM CTA
+         ======================================================= -->
+
+    <footer class="bottom">
+
+      <div class="bottom-left">
+
+        <div>
+
+          <div class="bottom-title">
+            One technology, many fields.
+          </div>
+
+ <div class="bottom-subtitle">
+            Workshops · Conversations · Community · Open to all majors
+          </div><br>
+            <div class="bottom-meta">
+  SEPTEMBER 2026 · DETAILS SOON
+</div>
+        </div>
+
+        
+
+      </div>
+
+
+
+      <div class="cta">
+
+        <div class="qr">
+          <img
+            src="../assets/tool-signal-processing.jpg"
+            alt="Scan to explore ComputeX"
+          />
+        </div>
+
+        <div class="cta-copy">
+
+          <div class="cta-label">
+            Scan to Explore →
+          </div>
+
+          <div class="cta-title">
+            ComputeX
+          </div>
+
+          <div class="cta-subtitle">
+            Learn more & get involved
+          </div>
+
+        </div>
+
+      </div>
+
+
+    </footer>
 
   </main>
 
