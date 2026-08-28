@@ -4,18 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>ComputeX | Tech + Engineering</title>
+  <title>ComputeX | Art + Design</title>
 
   <!-- =========================================================
-       COMPUTEX OUTREACH SLIDE — V2
+       COMPUTEX OUTREACH SLIDE — ART + DESIGN
        Canonical: 1920 × 1080 / 16:9
-
-       Design goal:
-       - Readable from the back of a lecture hall
-       - Understandable in ~5 seconds
-       - Workshop/event is the hero
-       - Pillar provides context, not hierarchy
-       - QR has a clear behavioral CTA
        ========================================================= -->
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,6 +20,7 @@
   >
 
   <style>
+
     /* =========================================================
        RESET
        ========================================================= */
@@ -39,41 +33,23 @@
     body {
       margin: 0;
       width: 100%;
-      min-height: 100%;
-      background: #07080a;
-    }
-
-    body {
-      font-family: "Inter", sans-serif;
-      color: #f8fafc;
-      overflow: hidden;
-    }
-
-    /* =========================================================
-       CANVAS
-       ========================================================= */
-
-    html,
-    body {
-      margin: 0;
-      width: 100%;
       height: 100%;
       background: #07080a;
       overflow: hidden;
     }
 
     body {
+      font-family: "Inter", sans-serif;
+      color: #f8fafc;
+
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
-/* =========================================================
-   RESPONSIVE 16:9 CANVAS
-   - Always preserves 1920:1080 proportions
-   - Fits entirely inside the browser window
-   - Scales down automatically on smaller screens
-   ========================================================= */
+    /* =========================================================
+       CANVAS
+       ========================================================= */
 
     .slide {
       position: relative;
@@ -88,7 +64,7 @@
       background:
         radial-gradient(
           circle at 82% 22%,
-          rgba(0, 240, 255, 0.075),
+          rgba(255, 46, 147, 0.085),
           transparent 30%
         ),
         radial-gradient(
@@ -151,8 +127,8 @@
       background:
         radial-gradient(
           circle,
-          rgba(0,240,255,0.13) 0%,
-          rgba(0,240,255,0.045) 36%,
+          rgba(255,46,147,0.14) 0%,
+          rgba(255,46,147,0.045) 36%,
           transparent 70%
         );
 
@@ -173,8 +149,8 @@
       background:
         linear-gradient(
           90deg,
-          #00f0ff 0%,
-          #00e599 100%
+          #FF2E93 0%,
+          #9D4EDD 100%
         );
 
       -webkit-background-clip: text;
@@ -242,12 +218,12 @@
 
       padding: 11px 17px;
 
-      border: 1px solid rgba(0,240,255,0.18);
+      border: 1px solid rgba(255,46,147,0.22);
       border-radius: 999px;
 
-      background: rgba(0,240,255,0.035);
+      background: rgba(255,46,147,0.035);
 
-      color: #74f7ff;
+      color: #ff6fb6;
 
       font-family: "Geist Mono", monospace;
       font-size: 14px;
@@ -263,10 +239,10 @@
 
       border-radius: 50%;
 
-      background: #00f0ff;
+      background: #FF2E93;
 
       box-shadow:
-        0 0 12px rgba(0,240,255,0.85);
+        0 0 12px rgba(255,46,147,0.85);
     }
 
     /* =========================================================
@@ -301,8 +277,11 @@
 
     .hero-description {
       margin-top: 28px;
+
       max-width: 700px;
+
       color: #dde3ee;
+
       font-size: 20px;
       line-height: 1.45;
     }
@@ -328,10 +307,10 @@
       width: 42px;
       height: 1px;
 
-      background: #00f0ff;
+      background: #FF2E93;
 
       box-shadow:
-        0 0 10px rgba(0,240,255,0.45);
+        0 0 10px rgba(255,46,147,0.45);
     }
 
     .hero h1 {
@@ -363,7 +342,7 @@
     }
 
     .question span {
-      color: #5ff4ff;
+      color: #ff6fb6;
     }
 
     .support {
@@ -374,6 +353,7 @@
       margin-top: 40px;
 
       font-weight: 500;
+
       color: #a6adbb;
 
       font-size: 21px;
@@ -388,10 +368,10 @@
 
       border-radius: 50%;
 
-      background: #00e599;
+      background: #00E599;
 
       box-shadow:
-        0 0 14px rgba(0,229,153,0.65);
+        0 0 14px rgba(46, 255, 95, 0.65);
     }
 
     /* =========================================================
@@ -409,7 +389,7 @@
     }
 
     /* =========================================================
-       COMPUTER VISION VISUAL
+       AR / SPATIAL MAPPING VISUAL
        ========================================================= */
 
     .vision-frame {
@@ -422,18 +402,18 @@
 
       overflow: hidden;
 
-      border: 1px solid rgba(0,240,255,0.20);
+      border: 1px solid rgba(255,46,147,0.22);
 
       background:
         linear-gradient(
           135deg,
-          rgba(0,240,255,0.055),
+          rgba(255,46,147,0.055),
           rgba(16,18,24,0.94) 45%
         );
 
       box-shadow:
         0 35px 100px rgba(0,0,0,0.42),
-        inset 0 0 80px rgba(0,240,255,0.025);
+        inset 0 0 80px rgba(255,46,147,0.025);
     }
 
     .vision-grid {
@@ -455,115 +435,162 @@
       background-size: 48px 48px;
     }
 
-    /* Simulated image/object */
+    /* =========================================================
+       SPATIAL ROOM / AR PLANE
+       ========================================================= */
 
-    .object {
+    .space {
       position: absolute;
 
-      left: 145px;
-      top: 78px;
+      left: 85px;
+      top: 75px;
 
-      width: 290px;
-      height: 290px;
+      width: 410px;
+      height: 285px;
 
-      border: 2px solid rgba(0,240,255,0.8);
+      border: 1px solid rgba(255,46,147,0.45);
 
       background:
-        radial-gradient(
-          circle at 50% 45%,
-          rgba(0,240,255,0.12),
-          transparent 60%
+        linear-gradient(
+          135deg,
+          rgba(255,46,147,0.035),
+          rgba(157,78,221,0.025)
         );
 
+      transform: perspective(700px) rotateX(8deg);
+
       box-shadow:
-        0 0 35px rgba(0,240,255,0.07);
+        0 0 40px rgba(255,46,147,0.05);
     }
 
-    .object::before {
+    /* Floor plane */
+
+    .space::before {
       content: "";
 
       position: absolute;
 
-      left: 72px;
-      top: 50px;
+      left: 55px;
+      right: 55px;
+      bottom: 45px;
 
-      width: 145px;
-      height: 190px;
-
-      border-radius: 42% 42% 35% 35%;
-
-      border: 2px solid rgba(255,255,255,0.35);
+      height: 1px;
 
       background:
-        radial-gradient(
-          circle at 35% 35%,
-          rgba(255,255,255,0.10),
-          transparent 32%
+        linear-gradient(
+          90deg,
+          transparent,
+          rgba(255,46,147,0.8),
+          transparent
         );
+
+      box-shadow:
+        0 0 14px rgba(255,46,147,0.45);
     }
 
-    .object::after {
-      content: "PERSON";
+    /* AR object */
+
+    .ar-object {
+      position: absolute;
+
+      left: 145px;
+      top: 55px;
+
+      width: 120px;
+      height: 150px;
+
+      border: 2px solid rgba(255,255,255,0.40);
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255,46,147,0.16),
+          rgba(157,78,221,0.08)
+        );
+
+      box-shadow:
+        0 0 30px rgba(255,46,147,0.08);
+
+      transform: perspective(500px) rotateY(-12deg);
+    }
+
+    .ar-object::before {
+      content: "";
+
+      position: absolute;
+
+      left: 15px;
+      top: 15px;
+
+      width: 86px;
+      height: 115px;
+
+      border: 1px dashed rgba(255,46,147,0.75);
+    }
+
+    .ar-object::after {
+      content: "AR OBJECT";
 
       position: absolute;
 
       left: -2px;
-      top: -35px;
+      top: -34px;
 
       padding: 5px 9px;
 
-      background: #00f0ff;
+      background: #FF2E93;
 
-      color: #061013;
+      color: #160711;
 
       font-family: "Geist Mono", monospace;
+
       font-size: 12px;
       font-weight: 700;
 
       letter-spacing: 0.08em;
     }
 
-    /* Detection corner markers */
+    /* =========================================================
+       TRACKING POINTS
+       ========================================================= */
 
-    .corner {
+    .point {
       position: absolute;
 
-      width: 22px;
-      height: 22px;
+      width: 8px;
+      height: 8px;
 
-      border-color: #00f0ff;
-      border-style: solid;
+      border-radius: 50%;
+
+      background: #FF2E93;
+
+      box-shadow:
+        0 0 12px rgba(255,46,147,0.8);
     }
 
-    .corner.tl {
-      left: -2px;
-      top: -2px;
-
-      border-width: 3px 0 0 3px;
+    .point.p1 {
+      left: 112px;
+      top: 125px;
     }
 
-    .corner.tr {
-      right: -2px;
-      top: -2px;
-
-      border-width: 3px 3px 0 0;
+    .point.p2 {
+      left: 355px;
+      top: 118px;
     }
 
-    .corner.bl {
-      left: -2px;
-      bottom: -2px;
-
-      border-width: 0 0 3px 3px;
+    .point.p3 {
+      left: 390px;
+      top: 280px;
     }
 
-    .corner.br {
-      right: -2px;
-      bottom: -2px;
-
-      border-width: 0 3px 3px 0;
+    .point.p4 {
+      left: 95px;
+      top: 270px;
     }
 
-    /* Detection labels */
+    /* =========================================================
+       VISUAL LABELS
+       ========================================================= */
 
     .label {
       position: absolute;
@@ -571,6 +598,7 @@
       padding: 7px 10px;
 
       border: 1px solid rgba(255,255,255,0.12);
+
       border-radius: 6px;
 
       background: rgba(7,8,10,0.82);
@@ -578,6 +606,7 @@
       backdrop-filter: blur(10px);
 
       font-family: "Geist Mono", monospace;
+
       font-size: 12px;
 
       color: #aeb6c5;
@@ -585,25 +614,30 @@
       letter-spacing: 0.04em;
     }
 
-    .label.confidence {
+    .label.tracking {
       right: 30px;
       top: 32px;
 
-      color: #00e599;
+      color: #FF2E93;
     }
 
-    .label.object-type {
+    .label.mapping {
       left: 30px;
       bottom: 30px;
 
-      color: #74f7ff;
+      color: #ff6fb6;
     }
+
+    /* =========================================================
+       SCAN / AR LINE
+       ========================================================= */
 
     .scan-line {
       position: absolute;
 
       left: 0;
       right: 0;
+
       top: 205px;
 
       height: 1px;
@@ -612,37 +646,12 @@
         linear-gradient(
           90deg,
           transparent,
-          rgba(0,240,255,0.8),
+          rgba(255,46,147,0.75),
           transparent
         );
 
       box-shadow:
-        0 0 15px rgba(0,240,255,0.7);
-    }
-
-    /* =========================================================
-       VISUAL CAPTION
-       ========================================================= */
-
-    .visual-caption {
-      position: absolute;
-
-      left: 50%;
-      bottom: 34px;
-
-      transform: translateX(-50%);
-
-      white-space: nowrap;
-
-      font-family: "Geist Mono", monospace;
-
-      font-size: 13px;
-      font-weight: 500;
-
-      color: #707887;
-
-      letter-spacing: 0.10em;
-      text-transform: uppercase;
+        0 0 15px rgba(255,46,147,0.65);
     }
 
     /* =========================================================
@@ -666,7 +675,6 @@
 
       border-top: 1px solid rgba(255,255,255,0.09);
     }
-
 
     .bottom-left {
       display: flex;
@@ -692,15 +700,17 @@
     .bottom-meta {
       padding-left: 22px;
 
-      border-left: 1px solid rgba(0,240,255,0.25);
+      border-left: 1px solid rgba(78, 221, 80, 0.25);
 
-      color: #00e599;
+      color: #00E599;
 
       font-family: "Geist Mono", monospace;
+
       font-size: 13px;
       font-weight: 600;
 
       letter-spacing: 0.08em;
+
       text-transform: uppercase;
     }
 
@@ -717,16 +727,22 @@
     .qr {
       width: 180px;
       height: 180px;
+
       padding: 10px;
+
       border-radius: 10px;
+
       background: #fff;
+
       flex-shrink: 0;
     }
 
     .qr img {
       display: block;
+
       width: 100%;
       height: 100%;
+
       object-fit: contain;
     }
 
@@ -735,7 +751,7 @@
     }
 
     .cta-label {
-      color: #00f0ff;
+      color: #FF2E93;
 
       font-family: "Geist Mono", monospace;
 
@@ -743,6 +759,7 @@
       font-weight: 700;
 
       letter-spacing: 0.13em;
+
       text-transform: uppercase;
     }
 
@@ -779,11 +796,12 @@
       width: 4px;
       height: 100%;
 
-      background: #00f0ff;
+      background: #FF2E93;
 
       box-shadow:
-        0 0 22px rgba(0,240,255,0.55);
+        0 0 22px rgba(255,46,147,0.55);
     }
+
   </style>
 </head>
 
@@ -826,7 +844,7 @@
 
         <span class="pillar-dot"></span>
 
-        Tech + Engineering
+        Art + Design
 
       </div>
 
@@ -869,19 +887,24 @@
 
         <div class="question">
 
-          How do machines
-          <span>"see"</span>
-          the world?
+          How does vision become
+          <span>creation?</span>
+          
 
-        </div><br>
+        </div>
+
+        <br>
 
         <div class="hero-description">
-          Learn how computers turn images into information, and how this technology is being used across industries.
+          Explore how computer vision is reshaping creative work—from virtual try-on and AR sketching to mapping spaces before they're built.
         </div>
 
         <div class="support">
+
           <span class="support-dot"></span>
+
           No experience required.
+
         </div>
 
       </div>
@@ -898,28 +921,33 @@
           <div class="vision-grid"></div>
 
 
-          <!-- Simulated computer vision detection -->
+          <!-- Spatial mapping plane -->
 
-          <div class="object">
+          <div class="space">
 
-            <span class="corner tl"></span>
-            <span class="corner tr"></span>
-            <span class="corner bl"></span>
-            <span class="corner br"></span>
+            <div class="ar-object"></div>
 
           </div>
+
+
+          <!-- Tracking points -->
+
+          <div class="point p1"></div>
+          <div class="point p2"></div>
+          <div class="point p3"></div>
+          <div class="point p4"></div>
 
 
           <div class="scan-line"></div>
 
 
-          <div class="label confidence">
-            CONFIDENCE 97.4%
+          <div class="label tracking">
+            TRACKING ACTIVE
           </div>
 
 
-          <div class="label object-type">
-            DETECT → CLASSIFY → UNDERSTAND
+          <div class="label mapping">
+            MAP → OVERLAY → CREATE
           </div>
 
         </div>
@@ -943,27 +971,30 @@
             One technology, many fields.
           </div>
 
- <div class="bottom-subtitle">
+          <div class="bottom-subtitle">
             Workshops · Conversations · Community · Open to all majors
-          </div><br>
-            <div class="bottom-meta">
-  SEPTEMBER 2026 · DETAILS SOON
-</div>
+          </div>
+
+          <br>
+
+          <div class="bottom-meta">
+            SEPTEMBER 2026 · DETAILS SOON
+          </div>
+
         </div>
 
-        
-
       </div>
-
 
 
       <div class="cta">
 
         <div class="qr">
+
           <img
             src="../assets/tool-signal-processing.jpg"
             alt="Scan to explore ComputeX"
           />
+
         </div>
 
         <div class="cta-copy">
@@ -983,7 +1014,6 @@
         </div>
 
       </div>
-
 
     </footer>
 

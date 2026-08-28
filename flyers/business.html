@@ -4,19 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>ComputeX | Tech + Engineering</title>
-
-  <!-- =========================================================
-       COMPUTEX OUTREACH SLIDE — V2
-       Canonical: 1920 × 1080 / 16:9
-
-       Design goal:
-       - Readable from the back of a lecture hall
-       - Understandable in ~5 seconds
-       - Workshop/event is the hero
-       - Pillar provides context, not hierarchy
-       - QR has a clear behavioral CTA
-       ========================================================= -->
+  <title>ComputeX | Business + Strategy</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,31 +15,10 @@
   >
 
   <style>
-    /* =========================================================
-       RESET
-       ========================================================= */
 
     * {
       box-sizing: border-box;
     }
-
-    html,
-    body {
-      margin: 0;
-      width: 100%;
-      min-height: 100%;
-      background: #07080a;
-    }
-
-    body {
-      font-family: "Inter", sans-serif;
-      color: #f8fafc;
-      overflow: hidden;
-    }
-
-    /* =========================================================
-       CANVAS
-       ========================================================= */
 
     html,
     body {
@@ -63,17 +30,17 @@
     }
 
     body {
+      font-family: "Inter", sans-serif;
+      color: #f8fafc;
+
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
-/* =========================================================
-   RESPONSIVE 16:9 CANVAS
-   - Always preserves 1920:1080 proportions
-   - Fits entirely inside the browser window
-   - Scales down automatically on smaller screens
-   ========================================================= */
+    /* =========================================================
+       CANVAS
+       ========================================================= */
 
     .slide {
       position: relative;
@@ -88,12 +55,12 @@
       background:
         radial-gradient(
           circle at 82% 22%,
-          rgba(0, 240, 255, 0.075),
+          rgba(255,184,0,0.075),
           transparent 30%
         ),
         radial-gradient(
           circle at 10% 95%,
-          rgba(157, 78, 221, 0.045),
+          rgba(255,184,0,0.035),
           transparent 28%
         ),
         #07080a;
@@ -151,8 +118,8 @@
       background:
         radial-gradient(
           circle,
-          rgba(0,240,255,0.13) 0%,
-          rgba(0,240,255,0.045) 36%,
+          rgba(255,184,0,0.13) 0%,
+          rgba(255,184,0,0.045) 36%,
           transparent 70%
         );
 
@@ -173,8 +140,8 @@
       background:
         linear-gradient(
           90deg,
-          #00f0ff 0%,
-          #00e599 100%
+          #FFB800 20%,
+          #FF2E93 100%
         );
 
       -webkit-background-clip: text;
@@ -242,12 +209,12 @@
 
       padding: 11px 17px;
 
-      border: 1px solid rgba(0,240,255,0.18);
+      border: 1px solid rgba(255,184,0,0.20);
       border-radius: 999px;
 
-      background: rgba(0,240,255,0.035);
+      background: rgba(255,184,0,0.035);
 
-      color: #74f7ff;
+      color: #FFD45C;
 
       font-family: "Geist Mono", monospace;
       font-size: 14px;
@@ -263,10 +230,10 @@
 
       border-radius: 50%;
 
-      background: #00f0ff;
+      background: #FFB800;
 
       box-shadow:
-        0 0 12px rgba(0,240,255,0.85);
+        0 0 12px rgba(255,184,0,0.85);
     }
 
     /* =========================================================
@@ -301,8 +268,11 @@
 
     .hero-description {
       margin-top: 28px;
+
       max-width: 700px;
+
       color: #dde3ee;
+
       font-size: 20px;
       line-height: 1.45;
     }
@@ -328,10 +298,10 @@
       width: 42px;
       height: 1px;
 
-      background: #00f0ff;
+      background: #FFB800;
 
       box-shadow:
-        0 0 10px rgba(0,240,255,0.45);
+        0 0 10px rgba(255,184,0,0.45);
     }
 
     .hero h1 {
@@ -363,7 +333,7 @@
     }
 
     .question span {
-      color: #5ff4ff;
+      color: #FFB800;
     }
 
     .support {
@@ -374,6 +344,7 @@
       margin-top: 40px;
 
       font-weight: 500;
+
       color: #a6adbb;
 
       font-size: 21px;
@@ -388,10 +359,10 @@
 
       border-radius: 50%;
 
-      background: #00e599;
+      background: #00E599;
 
       box-shadow:
-        0 0 14px rgba(0,229,153,0.65);
+        0 0 14px rgba(0, 255, 13, 0.65);
     }
 
     /* =========================================================
@@ -408,10 +379,6 @@
       justify-content: center;
     }
 
-    /* =========================================================
-       COMPUTER VISION VISUAL
-       ========================================================= */
-
     .vision-frame {
       position: relative;
 
@@ -422,18 +389,18 @@
 
       overflow: hidden;
 
-      border: 1px solid rgba(0,240,255,0.20);
+      border: 1px solid rgba(255,184,0,0.20);
 
       background:
         linear-gradient(
           135deg,
-          rgba(0,240,255,0.055),
+          rgba(255,184,0,0.055),
           rgba(16,18,24,0.94) 45%
         );
 
       box-shadow:
         0 35px 100px rgba(0,0,0,0.42),
-        inset 0 0 80px rgba(0,240,255,0.025);
+        inset 0 0 80px rgba(255,184,0,0.025);
     }
 
     .vision-grid {
@@ -455,115 +422,190 @@
       background-size: 48px 48px;
     }
 
-    /* Simulated image/object */
+    /* =========================================================
+       BUSINESS DASHBOARD VISUAL
+       ========================================================= */
 
-    .object {
+    .dashboard {
       position: absolute;
 
-      left: 145px;
-      top: 78px;
+      left: 75px;
+      top: 75px;
 
-      width: 290px;
+      width: 430px;
       height: 290px;
 
-      border: 2px solid rgba(0,240,255,0.8);
+      border: 1px solid rgba(255,255,255,0.14);
 
-      background:
-        radial-gradient(
-          circle at 50% 45%,
-          rgba(0,240,255,0.12),
-          transparent 60%
-        );
+      border-radius: 14px;
+
+      background: rgba(7,8,10,0.62);
 
       box-shadow:
-        0 0 35px rgba(0,240,255,0.07);
+        0 20px 50px rgba(0,0,0,0.30);
     }
 
-    .object::before {
-      content: "";
-
+    .dashboard-header {
       position: absolute;
 
-      left: 72px;
-      top: 50px;
+      left: 22px;
+      right: 22px;
+      top: 18px;
 
-      width: 145px;
-      height: 190px;
-
-      border-radius: 42% 42% 35% 35%;
-
-      border: 2px solid rgba(255,255,255,0.35);
-
-      background:
-        radial-gradient(
-          circle at 35% 35%,
-          rgba(255,255,255,0.10),
-          transparent 32%
-        );
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
-    .object::after {
-      content: "PERSON";
-
-      position: absolute;
-
-      left: -2px;
-      top: -35px;
-
-      padding: 5px 9px;
-
-      background: #00f0ff;
-
-      color: #061013;
+    .dashboard-title {
+      color: #dfe4ec;
 
       font-family: "Geist Mono", monospace;
-      font-size: 12px;
-      font-weight: 700;
+      font-size: 13px;
+      font-weight: 600;
+
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .dashboard-status {
+      color: #FFB800;
+
+      font-family: "Geist Mono", monospace;
+
+      font-size: 11px;
+      font-weight: 600;
 
       letter-spacing: 0.08em;
     }
 
-    /* Detection corner markers */
+    /* Graph */
 
-    .corner {
+    .graph {
       position: absolute;
 
-      width: 22px;
-      height: 22px;
+      left: 25px;
+      right: 25px;
+      bottom: 28px;
 
-      border-color: #00f0ff;
-      border-style: solid;
+      height: 175px;
+
+      border-left: 1px solid rgba(255,255,255,0.12);
+      border-bottom: 1px solid rgba(255,255,255,0.12);
     }
 
-    .corner.tl {
-      left: -2px;
-      top: -2px;
+    .graph::before {
+      content: "";
 
-      border-width: 3px 0 0 3px;
+      position: absolute;
+
+      left: 0;
+      right: 0;
+      top: 42px;
+
+      height: 1px;
+
+      background: rgba(255,255,255,0.07);
+
+      box-shadow:
+        0 55px 0 rgba(255,255,255,0.07),
+        0 110px 0 rgba(255,255,255,0.07);
     }
 
-    .corner.tr {
-      right: -2px;
-      top: -2px;
+    /* Growth line */
 
-      border-width: 3px 3px 0 0;
+    .trend {
+      position: absolute;
+
+      left: 18px;
+      bottom: 25px;
+
+      width: 350px;
+      height: 115px;
     }
 
-    .corner.bl {
-      left: -2px;
-      bottom: -2px;
+    .trend svg {
+      width: 100%;
+      height: 100%;
 
-      border-width: 0 0 3px 3px;
+      overflow: visible;
     }
 
-    .corner.br {
-      right: -2px;
-      bottom: -2px;
+    .trend path {
+      fill: none;
 
-      border-width: 0 3px 3px 0;
+      stroke: #FFB800;
+
+      stroke-width: 3;
+
+      filter:
+        drop-shadow(
+          0 0 7px rgba(255,184,0,0.35)
+        );
     }
 
-    /* Detection labels */
+    .trend-area {
+      fill: rgba(255,184,0,0.055);
+
+      stroke: none;
+    }
+
+    /* Metric cards */
+
+    .metric {
+      position: absolute;
+
+      top: 62px;
+
+      padding: 8px 11px;
+
+      border: 1px solid rgba(255,255,255,0.10);
+
+      border-radius: 7px;
+
+      background: rgba(16,18,24,0.88);
+    }
+
+    .metric.one {
+      left: 24px;
+    }
+
+    .metric.two {
+      left: 155px;
+    }
+
+    .metric.three {
+      left: 286px;
+    }
+
+    .metric-label {
+      color: #747c8b;
+
+      font-family: "Geist Mono", monospace;
+
+      font-size: 9px;
+
+      letter-spacing: 0.06em;
+    }
+
+    .metric-value {
+      margin-top: 3px;
+
+      color: #f5f7fa;
+
+      font-size: 17px;
+      font-weight: 700;
+    }
+
+    .metric-value span {
+      color: #FFB800;
+
+      font-size: 11px;
+    }
+
+    /* =========================================================
+       VISUAL LABELS
+       ========================================================= */
 
     .label {
       position: absolute;
@@ -571,6 +613,7 @@
       padding: 7px 10px;
 
       border: 1px solid rgba(255,255,255,0.12);
+
       border-radius: 6px;
 
       background: rgba(7,8,10,0.82);
@@ -578,6 +621,7 @@
       backdrop-filter: blur(10px);
 
       font-family: "Geist Mono", monospace;
+
       font-size: 12px;
 
       color: #aeb6c5;
@@ -585,18 +629,18 @@
       letter-spacing: 0.04em;
     }
 
-    .label.confidence {
-      right: 30px;
-      top: 32px;
-
-      color: #00e599;
-    }
-
-    .label.object-type {
+    .label.roi {
       left: 30px;
       bottom: 30px;
 
-      color: #74f7ff;
+      color: #FFB800;
+    }
+
+    .label.decision {
+      right: 30px;
+      top: 32px;
+
+      color: #FFD45C;
     }
 
     .scan-line {
@@ -604,6 +648,7 @@
 
       left: 0;
       right: 0;
+
       top: 205px;
 
       height: 1px;
@@ -612,37 +657,12 @@
         linear-gradient(
           90deg,
           transparent,
-          rgba(0,240,255,0.8),
+          rgba(255,184,0,0.75),
           transparent
         );
 
       box-shadow:
-        0 0 15px rgba(0,240,255,0.7);
-    }
-
-    /* =========================================================
-       VISUAL CAPTION
-       ========================================================= */
-
-    .visual-caption {
-      position: absolute;
-
-      left: 50%;
-      bottom: 34px;
-
-      transform: translateX(-50%);
-
-      white-space: nowrap;
-
-      font-family: "Geist Mono", monospace;
-
-      font-size: 13px;
-      font-weight: 500;
-
-      color: #707887;
-
-      letter-spacing: 0.10em;
-      text-transform: uppercase;
+        0 0 15px rgba(255,184,0,0.55);
     }
 
     /* =========================================================
@@ -667,10 +687,10 @@
       border-top: 1px solid rgba(255,255,255,0.09);
     }
 
-
     .bottom-left {
       display: flex;
       align-items: center;
+
       gap: 30px;
     }
 
@@ -692,15 +712,17 @@
     .bottom-meta {
       padding-left: 22px;
 
-      border-left: 1px solid rgba(0,240,255,0.25);
+      border-left: 1px solid rgba(78, 221, 80, 0.25);
 
-      color: #00e599;
+      color: #00E599;
 
       font-family: "Geist Mono", monospace;
+
       font-size: 13px;
       font-weight: 600;
 
       letter-spacing: 0.08em;
+
       text-transform: uppercase;
     }
 
@@ -711,22 +733,29 @@
     .cta {
       display: flex;
       align-items: center;
+
       gap: 18px;
     }
 
     .qr {
       width: 180px;
       height: 180px;
+
       padding: 10px;
+
       border-radius: 10px;
+
       background: #fff;
+
       flex-shrink: 0;
     }
 
     .qr img {
       display: block;
+
       width: 100%;
       height: 100%;
+
       object-fit: contain;
     }
 
@@ -735,7 +764,7 @@
     }
 
     .cta-label {
-      color: #00f0ff;
+      color: #FFB800;
 
       font-family: "Geist Mono", monospace;
 
@@ -743,6 +772,7 @@
       font-weight: 700;
 
       letter-spacing: 0.13em;
+
       text-transform: uppercase;
     }
 
@@ -779,11 +809,12 @@
       width: 4px;
       height: 100%;
 
-      background: #00f0ff;
+      background: #FFB800;
 
       box-shadow:
-        0 0 22px rgba(0,240,255,0.55);
+        0 0 22px rgba(255,184,0,0.55);
     }
+
   </style>
 </head>
 
@@ -791,7 +822,6 @@
 
   <main class="slide">
 
-    <!-- Background -->
     <div class="grid"></div>
     <div class="glow"></div>
     <div class="accent"></div>
@@ -826,7 +856,7 @@
 
         <span class="pillar-dot"></span>
 
-        Tech + Engineering
+        Business + Strategy
 
       </div>
 
@@ -869,19 +899,25 @@
 
         <div class="question">
 
-          How do machines
-          <span>"see"</span>
-          the world?
+          Is computer vision
+          <span>worth the investment?</span>
 
-        </div><br>
-
-        <div class="hero-description">
-          Learn how computers turn images into information, and how this technology is being used across industries.
         </div>
 
+
+        <div class="hero-description">
+
+          Explore where computer vision creates real business value — and how organizations weigh opportunity, cost, risk, and return before adopting it.
+
+        </div>
+
+
         <div class="support">
+
           <span class="support-dot"></span>
+
           No experience required.
+
         </div>
 
       </div>
@@ -898,14 +934,103 @@
           <div class="vision-grid"></div>
 
 
-          <!-- Simulated computer vision detection -->
+          <!-- Simulated business dashboard -->
 
-          <div class="object">
+          <div class="dashboard">
 
-            <span class="corner tl"></span>
-            <span class="corner tr"></span>
-            <span class="corner bl"></span>
-            <span class="corner br"></span>
+            <div class="dashboard-header">
+
+              <div class="dashboard-title">
+                CV INVESTMENT ANALYSIS
+              </div>
+
+            </div>
+
+
+            <div class="metric one">
+
+              <div class="metric-label">
+                COST
+              </div>
+
+              <div class="metric-value">
+                $42K
+              </div>
+
+            </div>
+
+
+            <div class="metric two">
+
+              <div class="metric-label">
+                ROI
+              </div>
+
+              <div class="metric-value">
+                2.8<span>×</span>
+              </div>
+
+            </div>
+
+
+            <div class="metric three">
+
+              <div class="metric-label">
+                RISK
+              </div>
+
+              <div class="metric-value">
+                14<span>%</span>
+              </div>
+
+            </div>
+
+
+            <div class="graph">
+
+              <div class="trend">
+
+                <svg
+                  viewBox="0 0 350 115"
+                  preserveAspectRatio="none"
+                  aria-hidden="true"
+                >
+
+                  <path
+                    class="trend-area"
+                    d="
+                      M 0 100
+                      L 0 88
+                      L 55 82
+                      L 105 76
+                      L 155 64
+                      L 205 68
+                      L 255 42
+                      L 305 32
+                      L 350 12
+                      L 350 100
+                      Z
+                    "
+                  />
+
+                  <path
+                    d="
+                      M 0 88
+                      L 55 82
+                      L 105 76
+                      L 155 64
+                      L 205 68
+                      L 255 42
+                      L 305 32
+                      L 350 12
+                    "
+                  />
+
+                </svg>
+
+              </div>
+
+            </div>
 
           </div>
 
@@ -913,13 +1038,13 @@
           <div class="scan-line"></div>
 
 
-          <div class="label confidence">
-            CONFIDENCE 97.4%
+          <div class="label decision">
+            OPPORTUNITY → EVALUATE → DECIDE
           </div>
 
 
-          <div class="label object-type">
-            DETECT → CLASSIFY → UNDERSTAND
+          <div class="label roi">
+            VALUE · COST · RISK · RETURN
           </div>
 
         </div>
@@ -943,27 +1068,30 @@
             One technology, many fields.
           </div>
 
- <div class="bottom-subtitle">
+          <div class="bottom-subtitle">
             Workshops · Conversations · Community · Open to all majors
-          </div><br>
-            <div class="bottom-meta">
-  SEPTEMBER 2026 · DETAILS SOON
-</div>
+          </div>
+
+          <br>
+
+          <div class="bottom-meta">
+            SEPTEMBER 2026 · DETAILS SOON
+          </div>
+
         </div>
 
-        
-
       </div>
-
 
 
       <div class="cta">
 
         <div class="qr">
+
           <img
             src="../assets/tool-signal-processing.jpg"
             alt="Scan to explore ComputeX"
           />
+
         </div>
 
         <div class="cta-copy">
@@ -983,7 +1111,6 @@
         </div>
 
       </div>
-
 
     </footer>
 
