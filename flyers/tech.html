@@ -47,22 +47,6 @@
       font-family: "Inter", sans-serif;
       color: #f8fafc;
       overflow: hidden;
-    }
-
-    /* =========================================================
-       CANVAS
-       ========================================================= */
-
-    html,
-    body {
-      margin: 0;
-      width: 100%;
-      height: 100%;
-      background: #07080a;
-      overflow: hidden;
-    }
-
-    body {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -205,13 +189,13 @@
     }
 
     .brand img {
-      height: 52px;
+      height: 60px;
       width: auto;
       object-fit: contain;
     }
 
     .brand-name {
-      font-size: 26px;
+      font-size: 42px;
       font-weight: 700;
 
       letter-spacing: 0.12em;
@@ -225,7 +209,7 @@
     }
 
     .brand-tagline {
-      font-size: 18px;
+      font-size: 22px;
       color: #7d8494;
 
       letter-spacing: 0.04em;
@@ -317,7 +301,7 @@
       color: #8a91a1;
 
       font-family: "Geist Mono", monospace;
-      font-size: 17px;
+      font-size: 22px;
       font-weight: 600;
 
       letter-spacing: 0.14em;
@@ -325,7 +309,7 @@
     }
 
     .eyebrow-line {
-      width: 42px;
+      width: 50px;
       height: 1px;
 
       background: #00f0ff;
@@ -339,7 +323,7 @@
 
       max-width: 930px;
 
-      font-size: 112px;
+      font-size: 96px;
       line-height: 0.92;
 
       font-weight: 900;
@@ -455,16 +439,39 @@
       background-size: 48px 48px;
     }
 
+    .vis {
+      position: absolute;
+
+      left: 70px;
+      top: 65px;
+
+      width: 440px;
+      height: 310px;
+
+      z-index: 2;
+    }
+
+    .vis img {
+      display: block;
+
+      width: 100%;
+      height: 100%;
+
+      object-fit: contain;
+
+      border-radius: 12px;
+    }
+
     /* Simulated image/object */
 
     .object {
       position: absolute;
 
-      left: 145px;
-      top: 78px;
+      left: 60px;
+      top: 73px;
 
-      width: 290px;
-      height: 290px;
+      width: 450px;
+      height: 280px;
 
       border: 2px solid rgba(0,240,255,0.8);
 
@@ -477,50 +484,6 @@
 
       box-shadow:
         0 0 35px rgba(0,240,255,0.07);
-    }
-
-    .object::before {
-      content: "";
-
-      position: absolute;
-
-      left: 72px;
-      top: 50px;
-
-      width: 145px;
-      height: 190px;
-
-      border-radius: 42% 42% 35% 35%;
-
-      border: 2px solid rgba(255,255,255,0.35);
-
-      background:
-        radial-gradient(
-          circle at 35% 35%,
-          rgba(255,255,255,0.10),
-          transparent 32%
-        );
-    }
-
-    .object::after {
-      content: "PERSON";
-
-      position: absolute;
-
-      left: -2px;
-      top: -35px;
-
-      padding: 5px 9px;
-
-      background: #00f0ff;
-
-      color: #061013;
-
-      font-family: "Geist Mono", monospace;
-      font-size: 12px;
-      font-weight: 700;
-
-      letter-spacing: 0.08em;
     }
 
     /* Detection corner markers */
@@ -664,7 +627,6 @@
 
       padding-top: 18px;
 
-      border-top: 1px solid rgba(255,255,255,0.09);
     }
 
 
@@ -672,6 +634,7 @@
       display: flex;
       align-items: center;
       gap: 30px;
+      transform: translateY(-18px);
     }
 
     .bottom-title {
@@ -684,20 +647,20 @@
     .bottom-subtitle {
       margin-top: 5px;
 
-      color: #737b8b;
+      color: #949eb2;
 
-      font-size: 16px;
+      font-size: 18px;
     }
 
     .bottom-meta {
-      padding-left: 22px;
+      padding-left: 20px;
 
       border-left: 1px solid rgba(0,240,255,0.25);
 
       color: #00e599;
 
       font-family: "Geist Mono", monospace;
-      font-size: 13px;
+      font-size: 17px;
       font-weight: 600;
 
       letter-spacing: 0.08em;
@@ -717,9 +680,6 @@
     .qr {
       width: 180px;
       height: 180px;
-      padding: 10px;
-      border-radius: 10px;
-      background: #fff;
       flex-shrink: 0;
     }
 
@@ -727,7 +687,8 @@
       display: block;
       width: 100%;
       height: 100%;
-      object-fit: contain;
+      object-fit: cover;
+      border-radius: 15px;
     }
 
     .cta-copy {
@@ -873,7 +834,7 @@
           <span>"see"</span>
           the world?
 
-        </div><br>
+        </div>
 
         <div class="hero-description">
           Learn how computers turn images into information, and how this technology is being used across industries.
@@ -897,21 +858,11 @@
 
           <div class="vision-grid"></div>
 
-
-          <!-- Simulated computer vision detection -->
-
-          <div class="object">
-
-            <span class="corner tl"></span>
-            <span class="corner tr"></span>
-            <span class="corner bl"></span>
-            <span class="corner br"></span>
-
+          <div class="vis">
+            <img
+              src="../assets/flyer-tech.jpg"
+            />
           </div>
-
-
-          <div class="scan-line"></div>
-
 
           <div class="label confidence">
             CONFIDENCE 97.4%
@@ -919,7 +870,7 @@
 
 
           <div class="label object-type">
-            DETECT → CLASSIFY → UNDERSTAND
+            OBJECT: VEHICLE
           </div>
 
         </div>
@@ -934,25 +885,18 @@
          ======================================================= -->
 
     <footer class="bottom">
-
       <div class="bottom-left">
-
         <div>
-
+          <div class="bottom-meta">
+            SEPTEMBER 2026 · DETAILS SOON!
+          </div><br><br>
           <div class="bottom-title">
             One technology, many fields.
-          </div>
-
- <div class="bottom-subtitle">
-            Workshops · Conversations · Community · Open to all majors
           </div><br>
-            <div class="bottom-meta">
-  SEPTEMBER 2026 · DETAILS SOON
-</div>
+          <div class="bottom-subtitle">
+            Workshops · Guest Speakers · Leadership Opportunities · Resume Building
+          </div>
         </div>
-
-        
-
       </div>
 
 
@@ -961,7 +905,7 @@
 
         <div class="qr">
           <img
-            src="../assets/tool-signal-processing.jpg"
+            src="../assets/qr-code.png"
             alt="Scan to explore ComputeX"
           />
         </div>

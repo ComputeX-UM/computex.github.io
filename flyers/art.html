@@ -181,13 +181,13 @@
     }
 
     .brand img {
-      height: 52px;
+      height: 60px;
       width: auto;
       object-fit: contain;
     }
 
     .brand-name {
-      font-size: 26px;
+      font-size: 42px;
       font-weight: 700;
 
       letter-spacing: 0.12em;
@@ -201,7 +201,7 @@
     }
 
     .brand-tagline {
-      font-size: 18px;
+      font-size: 22px;
       color: #7d8494;
 
       letter-spacing: 0.04em;
@@ -296,7 +296,7 @@
       color: #8a91a1;
 
       font-family: "Geist Mono", monospace;
-      font-size: 17px;
+      font-size: 22px;
       font-weight: 600;
 
       letter-spacing: 0.14em;
@@ -304,7 +304,7 @@
     }
 
     .eyebrow-line {
-      width: 42px;
+      width: 50px;
       height: 1px;
 
       background: #FF2E93;
@@ -318,7 +318,7 @@
 
       max-width: 930px;
 
-      font-size: 112px;
+      font-size: 96px;
       line-height: 0.92;
 
       font-weight: 900;
@@ -435,158 +435,516 @@
       background-size: 48px 48px;
     }
 
-    /* =========================================================
-       SPATIAL ROOM / AR PLANE
-       ========================================================= */
+/* =========================================================
+   FLAT AR BACKGROUND GRID
+   ========================================================= */
 
-    .space {
-      position: absolute;
+.ar-back-grid {
+  position: absolute;
+  inset: 0;
 
-      left: 85px;
-      top: 75px;
+  z-index: 1;
 
-      width: 410px;
-      height: 285px;
+  opacity: 0.55;
 
-      border: 1px solid rgba(255,46,147,0.45);
+  background-image:
+    linear-gradient(
+      to right,
+      rgba(255,46,147,0.10) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(255,46,147,0.10) 1px,
+      transparent 1px
+    );
 
-      background:
-        linear-gradient(
-          135deg,
-          rgba(255,46,147,0.035),
-          rgba(157,78,221,0.025)
-        );
+  background-size: 42px 42px;
 
-      transform: perspective(700px) rotateX(8deg);
+  mask-image:
+    linear-gradient(
+      to bottom,
+      black 0%,
+      black 70%,
+      transparent 100%
+    );
+}
 
-      box-shadow:
-        0 0 40px rgba(255,46,147,0.05);
-    }
 
-    /* Floor plane */
+/* =========================================================
+   AR ROOM
+   ========================================================= */
 
-    .space::before {
-      content: "";
+.ar-room {
+  position: absolute;
+  inset: 0;
 
-      position: absolute;
+  z-index: 2;
 
-      left: 55px;
-      right: 55px;
-      bottom: 45px;
+  overflow: hidden;
+}
 
-      height: 1px;
 
-      background:
-        linear-gradient(
-          90deg,
-          transparent,
-          rgba(255,46,147,0.8),
-          transparent
-        );
+/* =========================================================
+   BACK WALL
+   ========================================================= */
 
-      box-shadow:
-        0 0 14px rgba(255,46,147,0.45);
-    }
+.room-wall {
+  position: absolute;
 
-    /* AR object */
+  left: 95px;
+  top: 48px;
 
-    .ar-object {
-      position: absolute;
+  width: 390px;
+  height: 225px;
 
-      left: 145px;
-      top: 55px;
+  border: 1px solid rgba(255,46,147,0.30);
 
-      width: 120px;
-      height: 150px;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,46,147,0.025),
+      rgba(157,78,221,0.02)
+    );
+}
 
-      border: 2px solid rgba(255,255,255,0.40);
 
-      background:
-        linear-gradient(
-          135deg,
-          rgba(255,46,147,0.16),
-          rgba(157,78,221,0.08)
-        );
+/* =========================================================
+   PERSPECTIVE FLOOR
+   ========================================================= */
 
-      box-shadow:
-        0 0 30px rgba(255,46,147,0.08);
+.room-floor {
+  position: absolute;
 
-      transform: perspective(500px) rotateY(-12deg);
-    }
+  left: 40px;
+  right: 40px;
 
-    .ar-object::before {
-      content: "";
+  bottom: -25px;
 
-      position: absolute;
+  height: 205px;
 
-      left: 15px;
-      top: 15px;
+  /*
+    This is what makes it feel like
+    the floor is extending toward you.
+  */
+  transform:
+    perspective(420px)
+    rotateX(62deg);
 
-      width: 86px;
-      height: 115px;
+  transform-origin: center bottom;
 
-      border: 1px dashed rgba(255,46,147,0.75);
-    }
+  opacity: 0.9;
+}
 
-    .ar-object::after {
-      content: "AR OBJECT";
 
-      position: absolute;
+/* =========================================================
+   FLOOR HORIZONTAL LINES
+   ========================================================= */
 
-      left: -2px;
-      top: -34px;
+.floor-h {
+  position: absolute;
 
-      padding: 5px 9px;
+  left: 0;
+  right: 0;
 
-      background: #FF2E93;
+  height: 1px;
 
-      color: #160711;
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,46,147,0.55),
+      transparent
+    );
 
-      font-family: "Geist Mono", monospace;
+  box-shadow:
+    0 0 8px rgba(255,46,147,0.18);
+}
 
-      font-size: 12px;
-      font-weight: 700;
 
-      letter-spacing: 0.08em;
-    }
+/*
+   Notice how these are increasingly
+   spaced apart toward the viewer.
+*/
 
-    /* =========================================================
-       TRACKING POINTS
-       ========================================================= */
+.h1 {
+  top: 12%;
+}
 
-    .point {
-      position: absolute;
+.h2 {
+  top: 23%;
+}
 
-      width: 8px;
-      height: 8px;
+.h3 {
+  top: 37%;
+}
 
-      border-radius: 50%;
+.h4 {
+  top: 53%;
+}
 
-      background: #FF2E93;
+.h5 {
+  top: 71%;
+}
 
-      box-shadow:
-        0 0 12px rgba(255,46,147,0.8);
-    }
+.h6 {
+  top: 91%;
+}
 
-    .point.p1 {
-      left: 112px;
-      top: 125px;
-    }
 
-    .point.p2 {
-      left: 355px;
-      top: 118px;
-    }
+/* =========================================================
+   FLOOR DEPTH LINES
+   ========================================================= */
 
-    .point.p3 {
-      left: 390px;
-      top: 280px;
-    }
+.floor-v {
+  position: absolute;
 
-    .point.p4 {
-      left: 95px;
-      top: 270px;
-    }
+  top: 0;
+  bottom: 0;
+
+  width: 1px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(157,78,221,0.05),
+      rgba(255,46,147,0.65)
+    );
+
+  box-shadow:
+    0 0 6px rgba(255,46,147,0.15);
+}
+
+
+/*
+   These converge toward a vanishing point.
+*/
+
+.v1 {
+  left: 5%;
+  transform-origin: top center;
+  transform: rotate(-19deg);
+}
+
+.v2 {
+  left: 22%;
+  transform-origin: top center;
+  transform: rotate(-10deg);
+}
+
+.v3 {
+  left: 38%;
+  transform-origin: top center;
+  transform: rotate(-4deg);
+}
+
+.v4 {
+  left: 62%;
+  transform-origin: top center;
+  transform: rotate(4deg);
+}
+
+.v5 {
+  left: 78%;
+  transform-origin: top center;
+  transform: rotate(10deg);
+}
+
+.v6 {
+  left: 95%;
+  transform-origin: top center;
+  transform: rotate(19deg);
+}
+
+.chair {
+  position: absolute;
+
+  left: 190px;
+  top: 105px;
+
+  width: 190px;
+  height: 220px;
+
+  transform:
+    perspective(700px)
+    rotateY(-10deg);
+}
+
+
+/* Chair back */
+
+.chair-back {
+  position: absolute;
+
+  left: 30px;
+  top: 0;
+
+  width: 125px;
+  height: 125px;
+
+  border: 2px solid rgba(255,255,255,0.55);
+
+  border-radius: 18px 18px 7px 7px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,46,147,0.12),
+      rgba(157,78,221,0.08)
+    );
+
+  box-shadow:
+    0 0 35px rgba(255,46,147,0.08);
+}
+
+
+/* Wireframe on chair */
+
+.chair-wire {
+  position: absolute;
+
+  inset: 12px;
+
+  border: 1px dashed rgba(255,46,147,0.7);
+
+  border-radius: 11px;
+}
+
+.chair-wire::before,
+.chair-wire::after {
+  content: "";
+
+  position: absolute;
+
+  background: rgba(255,46,147,0.5);
+}
+
+.chair-wire::before {
+  width: 100%;
+  height: 1px;
+
+  top: 50%;
+  left: 0;
+}
+
+.chair-wire::after {
+  width: 1px;
+  height: 100%;
+
+  left: 50%;
+  top: 0;
+}
+
+
+/* Chair seat */
+
+.chair-seat {
+  position: absolute;
+
+  left: 17px;
+  top: 125px;
+
+  width: 150px;
+  height: 58px;
+
+  border: 2px solid rgba(255,255,255,0.48);
+
+  border-radius: 10px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,46,147,0.18),
+      rgba(157,78,221,0.12)
+    );
+
+  transform:
+    perspective(300px)
+    rotateX(12deg);
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.35);
+}
+
+
+/* Chair legs */
+
+.chair-leg {
+  position: absolute;
+
+  top: 158px;
+
+  width: 3px;
+  height: 62px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(255,255,255,0.45),
+      rgba(255,46,147,0.65)
+    );
+
+  box-shadow:
+    0 0 8px rgba(255,46,147,0.25);
+}
+
+.leg-left {
+  left: 40px;
+
+  transform: rotate(7deg);
+}
+
+.leg-right {
+  right: 25px;
+
+  transform: rotate(-7deg);
+}
+
+
+/* =========================================================
+   AR BOUNDING BOX
+   ========================================================= */
+
+.object-box {
+  position: absolute;
+
+  left: 175px;
+  top: 88px;
+
+  width: 225px;
+  height: 245px;
+
+  border: 1px solid rgba(255,46,147,0.18);
+}
+
+
+/* Corner brackets */
+
+.corner {
+  position: absolute;
+
+  width: 18px;
+  height: 18px;
+
+  border-color: #FF2E93;
+  border-style: solid;
+
+  filter:
+    drop-shadow(0 0 5px rgba(255,46,147,0.5));
+}
+
+.corner.tl {
+  left: -1px;
+  top: -1px;
+
+  border-width: 2px 0 0 2px;
+}
+
+.corner.tr {
+  right: -1px;
+  top: -1px;
+
+  border-width: 2px 2px 0 0;
+}
+
+.corner.bl {
+  left: -1px;
+  bottom: -1px;
+
+  border-width: 0 0 2px 2px;
+}
+
+.corner.br {
+  right: -1px;
+  bottom: -1px;
+
+  border-width: 0 2px 2px 0;
+}
+
+
+/* =========================================================
+   TRACKING POINTS
+   ========================================================= */
+
+
+
+/* =========================================================
+   AR LABELS
+   ========================================================= */
+
+.ar-tag {
+  position: absolute;
+
+  left: 170px;
+  top: 62px;
+
+  padding: 6px 9px;
+
+  background: #FF2E93;
+
+  color: #160711;
+
+  font-family: "Geist Mono", monospace;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 0.08em;
+}
+
+
+.dimension {
+  position: absolute;
+
+  right: 52px;
+  top: 150px;
+
+  padding: 6px 9px;
+
+  border: 1px solid rgba(255,46,147,0.35);
+
+  background: rgba(7,8,10,0.78);
+
+  color: #ff6fb6;
+
+  font-family: "Geist Mono", monospace;
+
+  font-size: 11px;
+
+  transform: rotate(-90deg);
+}
+
+
+.ar-status {
+  position: absolute;
+
+  right: 25px;
+  bottom: 28px;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  color: #aeb6c5;
+
+  font-family: "Geist Mono", monospace;
+
+  font-size: 11px;
+
+  letter-spacing: 0.08em;
+}
+
+.ar-status span {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: #00E599;
+
+  box-shadow:
+    0 0 9px rgba(0,229,153,0.8);
+}
 
     /* =========================================================
        VISUAL LABELS
@@ -672,14 +1030,13 @@
       justify-content: space-between;
 
       padding-top: 18px;
-
-      border-top: 1px solid rgba(255,255,255,0.09);
     }
 
     .bottom-left {
       display: flex;
       align-items: center;
       gap: 30px;
+      transform: translateY(-18px);
     }
 
     .bottom-title {
@@ -692,25 +1049,23 @@
     .bottom-subtitle {
       margin-top: 5px;
 
-      color: #737b8b;
+      color: #949eb2;
 
-      font-size: 16px;
+      font-size: 18px;
     }
 
     .bottom-meta {
-      padding-left: 22px;
+      padding-left: 20px;
 
-      border-left: 1px solid rgba(78, 221, 80, 0.25);
+      border-left: 1px solid rgba(0,240,255,0.25);
 
-      color: #00E599;
+      color: #00e599;
 
       font-family: "Geist Mono", monospace;
-
-      font-size: 13px;
+      font-size: 17px;
       font-weight: 600;
 
       letter-spacing: 0.08em;
-
       text-transform: uppercase;
     }
 
@@ -727,23 +1082,15 @@
     .qr {
       width: 180px;
       height: 180px;
-
-      padding: 10px;
-
-      border-radius: 10px;
-
-      background: #fff;
-
       flex-shrink: 0;
     }
 
     .qr img {
       display: block;
-
       width: 100%;
       height: 100%;
-
-      object-fit: contain;
+      object-fit: cover;
+      border-radius: 15px;
     }
 
     .cta-copy {
@@ -865,35 +1212,24 @@
       <div class="hero">
 
         <div class="eyebrow">
-
           <span class="eyebrow-line"></span>
-
           Hands-on workshop
-
         </div>
 
 
         <h1>
-
           Computer
           <br />
-
           <span class="gradient">
             Vision
           </span>
-
         </h1>
 
 
         <div class="question">
-
           How does vision become
           <span>creation?</span>
-          
-
         </div>
-
-        <br>
 
         <div class="hero-description">
           Explore how computer vision is reshaping creative work—from virtual try-on and AR sketching to mapping spaces before they're built.
@@ -921,34 +1257,69 @@
           <div class="vision-grid"></div>
 
 
-          <!-- Spatial mapping plane -->
+ <div class="ar-back-grid"></div>
 
-          <div class="space">
+<div class="ar-room">
 
-            <div class="ar-object"></div>
+  <div class="room-wall"></div>
 
-          </div>
+  <div class="room-floor">
+    <span class="floor-h h1"></span>
+    <span class="floor-h h2"></span>
+    <span class="floor-h h3"></span>
+    <span class="floor-h h4"></span>
+    <span class="floor-h h5"></span>
+    <span class="floor-h h6"></span>
 
+    <span class="floor-v v1"></span>
+    <span class="floor-v v2"></span>
+    <span class="floor-v v3"></span>
+    <span class="floor-v v4"></span>
+    <span class="floor-v v5"></span>
+    <span class="floor-v v6"></span>
+  </div>
 
-          <!-- Tracking points -->
+  <!-- Your chair -->
+  <div class="chair">
+    <div class="chair-back">
+      <div class="chair-wire"></div>
+    </div>
 
-          <div class="point p1"></div>
-          <div class="point p2"></div>
-          <div class="point p3"></div>
-          <div class="point p4"></div>
+    <div class="chair-seat"></div>
 
+    <div class="chair-leg leg-left"></div>
+    <div class="chair-leg leg-right"></div>
+  </div>
 
-          <div class="scan-line"></div>
+  <!-- AR bounding box -->
+  <div class="object-box">
+    <span class="corner tl"></span>
+    <span class="corner tr"></span>
+    <span class="corner bl"></span>
+    <span class="corner br"></span>
+  </div>
 
+  <span class="track t1"></span>
+  <span class="track t2"></span>
+  <span class="track t3"></span>
+  <span class="track t4"></span>
+  <span class="track t5"></span>
 
-          <div class="label tracking">
-            TRACKING ACTIVE
-          </div>
+  <div class="ar-tag">
+    OBJECT DETECTED
+  </div>
 
+  <div class="dimension">
+    82.4 cm
+  </div>
 
-          <div class="label mapping">
-            MAP → OVERLAY → CREATE
-          </div>
+  <div class="ar-status">
+    <span></span>
+    SPATIAL MAPPING
+  </div>
+
+</div>
+
 
         </div>
 
@@ -964,25 +1335,17 @@
     <footer class="bottom">
 
       <div class="bottom-left">
-
         <div>
-
+          <div class="bottom-meta">
+            SEPTEMBER 2026 · DETAILS SOON!
+          </div><br><br>
           <div class="bottom-title">
             One technology, many fields.
-          </div>
-
+          </div><br>
           <div class="bottom-subtitle">
-            Workshops · Conversations · Community · Open to all majors
+            Workshops · Guest Speakers · Leadership Opportunities · Resume Building
           </div>
-
-          <br>
-
-          <div class="bottom-meta">
-            SEPTEMBER 2026 · DETAILS SOON
-          </div>
-
         </div>
-
       </div>
 
 
@@ -991,7 +1354,7 @@
         <div class="qr">
 
           <img
-            src="../assets/tool-signal-processing.jpg"
+            src="../assets/qr-code.png"
             alt="Scan to explore ComputeX"
           />
 
