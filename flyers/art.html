@@ -374,621 +374,105 @@
         0 0 14px rgba(46, 255, 95, 0.65);
     }
 
-    /* =========================================================
-       RIGHT / VISUAL
-       ========================================================= */
-
-    .visual-area {
-      position: relative;
-
-      height: 100%;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    /* =========================================================
-       AR / SPATIAL MAPPING VISUAL
-       ========================================================= */
-
-    .vision-frame {
-      position: relative;
-
-      width: 580px;
-      height: 440px;
-
-      border-radius: 26px;
-
-      overflow: hidden;
-
-      border: 1px solid rgba(255,46,147,0.22);
-
-      background:
-        linear-gradient(
-          135deg,
-          rgba(255,46,147,0.055),
-          rgba(16,18,24,0.94) 45%
-        );
-
-      box-shadow:
-        0 35px 100px rgba(0,0,0,0.42),
-        inset 0 0 80px rgba(255,46,147,0.025);
-    }
-
-    .vision-grid {
-      position: absolute;
-      inset: 0;
-
-      background-image:
-        linear-gradient(
-          to right,
-          rgba(255,255,255,0.035) 1px,
-          transparent 1px
-        ),
-        linear-gradient(
-          to bottom,
-          rgba(255,255,255,0.035) 1px,
-          transparent 1px
-        );
-
-      background-size: 48px 48px;
-    }
-
-/* =========================================================
-   FLAT AR BACKGROUND GRID
+ /* =========================================================
+   RIGHT / VISUAL AREA
    ========================================================= */
 
-.ar-back-grid {
-  position: absolute;
-  inset: 0;
-
-  z-index: 1;
-
-  opacity: 0.55;
-
-  background-image:
-    linear-gradient(
-      to right,
-      rgba(255,46,147,0.10) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      to bottom,
-      rgba(255,46,147,0.10) 1px,
-      transparent 1px
-    );
-
-  background-size: 42px 42px;
-
-  mask-image:
-    linear-gradient(
-      to bottom,
-      black 0%,
-      black 70%,
-      transparent 100%
-    );
+.visual-area {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+.vision-frame {
+  position: relative;
+  width: 580px;
+  height: 440px;
+  border-radius: 26px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 46, 147, 0.35);
+  background: #07080a;
+  box-shadow:
+    0 35px 100px rgba(0, 0, 0, 0.6),
+    inset 0 0 80px rgba(255, 46, 147, 0.08);
+}
 
 /* =========================================================
-   AR ROOM
+   3D LIDAR ROOM & PERSPECTIVE GRID
    ========================================================= */
 
-.ar-room {
+.lidar-room {
   position: absolute;
   inset: 0;
-
-  z-index: 2;
-
   overflow: hidden;
 }
 
-
-/* =========================================================
-   BACK WALL
-   ========================================================= */
-
-.room-wall {
+/* Back Wall Mesh */
+.wall-grid {
   position: absolute;
-
-  left: 95px;
-  top: 48px;
-
-  width: 390px;
-  height: 225px;
-
-  border: 1px solid rgba(255,46,147,0.30);
-
-  background:
-    linear-gradient(
-      135deg,
-      rgba(255,46,147,0.025),
-      rgba(157,78,221,0.02)
-    );
+  left: 10%;
+  right: 10%;
+  top: 8%;
+  height: 52%;
+  border: 1px solid rgba(255, 46, 147, 0.25);
+  background-image:
+    linear-gradient(to right, rgba(255, 46, 147, 0.12) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 46, 147, 0.12) 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: radial-gradient(circle at 50% 50%, black 40%, transparent 100%);
 }
 
-
-/* =========================================================
-   PERSPECTIVE FLOOR
-   ========================================================= */
-
-.room-floor {
+/* Perspective Floor Mesh */
+.floor-grid {
   position: absolute;
-
-  left: 40px;
-  right: 40px;
-
-  bottom: -25px;
-
-  height: 205px;
-
-  /*
-    This is what makes it feel like
-    the floor is extending toward you.
-  */
-  transform:
-    perspective(420px)
-    rotateX(62deg);
-
+  left: -20%;
+  right: -20%;
+  bottom: 60px;
+  height: 500px;
+  transform: perspective(320px) rotateX(65deg);
   transform-origin: center bottom;
-
-  opacity: 0.9;
+  background-image:
+    linear-gradient(to right, rgba(255, 46, 147, 0.35) 2px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 46, 147, 0.35) 3px, transparent 1px);
+  background-size: 36px 36px;
+  mask-image: linear-gradient(to bottom, transparent 0%, black 30%, black 80%, transparent 100%);
 }
-
 
 /* =========================================================
-   FLOOR HORIZONTAL LINES
+   POINT-CLOUD NODES & MATRIX DOTS
    ========================================================= */
 
-.floor-h {
+.point-cloud {
   position: absolute;
-
-  left: 0;
-  right: 0;
-
-  height: 1px;
-
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      rgba(255,46,147,0.55),
-      transparent
-    );
-
-  box-shadow:
-    0 0 8px rgba(255,46,147,0.18);
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
 }
 
-
-/*
-   Notice how these are increasingly
-   spaced apart toward the viewer.
-*/
-
-.h1 {
-  top: 12%;
-}
-
-.h2 {
-  top: 23%;
-}
-
-.h3 {
-  top: 37%;
-}
-
-.h4 {
-  top: 53%;
-}
-
-.h5 {
-  top: 71%;
-}
-
-.h6 {
-  top: 91%;
-}
-
-
-/* =========================================================
-   FLOOR DEPTH LINES
-   ========================================================= */
-
-.floor-v {
+.cloud-node {
   position: absolute;
-
-  top: 0;
-  bottom: 0;
-
-  width: 1px;
-
-  background:
-    linear-gradient(
-      to bottom,
-      rgba(157,78,221,0.05),
-      rgba(255,46,147,0.65)
-    );
-
-  box-shadow:
-    0 0 6px rgba(255,46,147,0.15);
-}
-
-
-/*
-   These converge toward a vanishing point.
-*/
-
-.v1 {
-  left: 5%;
-  transform-origin: top center;
-  transform: rotate(-19deg);
-}
-
-.v2 {
-  left: 22%;
-  transform-origin: top center;
-  transform: rotate(-10deg);
-}
-
-.v3 {
-  left: 38%;
-  transform-origin: top center;
-  transform: rotate(-4deg);
-}
-
-.v4 {
-  left: 62%;
-  transform-origin: top center;
-  transform: rotate(4deg);
-}
-
-.v5 {
-  left: 78%;
-  transform-origin: top center;
-  transform: rotate(10deg);
-}
-
-.v6 {
-  left: 95%;
-  transform-origin: top center;
-  transform: rotate(19deg);
-}
-
-.chair {
-  position: absolute;
-
-  left: 190px;
-  top: 105px;
-
-  width: 190px;
-  height: 220px;
-
-  transform:
-    perspective(700px)
-    rotateY(-10deg);
-}
-
-
-/* Chair back */
-
-.chair-back {
-  position: absolute;
-
-  left: 30px;
-  top: 0;
-
-  width: 125px;
-  height: 125px;
-
-  border: 2px solid rgba(255,255,255,0.55);
-
-  border-radius: 18px 18px 7px 7px;
-
-  background:
-    linear-gradient(
-      135deg,
-      rgba(255,46,147,0.12),
-      rgba(157,78,221,0.08)
-    );
-
-  box-shadow:
-    0 0 35px rgba(255,46,147,0.08);
-}
-
-
-/* Wireframe on chair */
-
-.chair-wire {
-  position: absolute;
-
-  inset: 12px;
-
-  border: 1px dashed rgba(255,46,147,0.7);
-
-  border-radius: 11px;
-}
-
-.chair-wire::before,
-.chair-wire::after {
-  content: "";
-
-  position: absolute;
-
-  background: rgba(255,46,147,0.5);
-}
-
-.chair-wire::before {
-  width: 100%;
-  height: 1px;
-
-  top: 50%;
-  left: 0;
-}
-
-.chair-wire::after {
-  width: 1px;
-  height: 100%;
-
-  left: 50%;
-  top: 0;
-}
-
-
-/* Chair seat */
-
-.chair-seat {
-  position: absolute;
-
-  left: 17px;
-  top: 125px;
-
-  width: 150px;
-  height: 58px;
-
-  border: 2px solid rgba(255,255,255,0.48);
-
-  border-radius: 10px;
-
-  background:
-    linear-gradient(
-      135deg,
-      rgba(255,46,147,0.18),
-      rgba(157,78,221,0.12)
-    );
-
-  transform:
-    perspective(300px)
-    rotateX(12deg);
-
-  box-shadow:
-    0 10px 30px rgba(0,0,0,0.35);
-}
-
-
-/* Chair legs */
-
-.chair-leg {
-  position: absolute;
-
-  top: 158px;
-
-  width: 3px;
-  height: 62px;
-
-  background:
-    linear-gradient(
-      to bottom,
-      rgba(255,255,255,0.45),
-      rgba(255,46,147,0.65)
-    );
-
-  box-shadow:
-    0 0 8px rgba(255,46,147,0.25);
-}
-
-.leg-left {
-  left: 40px;
-
-  transform: rotate(7deg);
-}
-
-.leg-right {
-  right: 25px;
-
-  transform: rotate(-7deg);
-}
-
-
-/* =========================================================
-   AR BOUNDING BOX
-   ========================================================= */
-
-.object-box {
-  position: absolute;
-
-  left: 175px;
-  top: 88px;
-
-  width: 225px;
-  height: 245px;
-
-  border: 1px solid rgba(255,46,147,0.18);
-}
-
-
-/* Corner brackets */
-
-.corner {
-  position: absolute;
-
-  width: 18px;
-  height: 18px;
-
-  border-color: #FF2E93;
-  border-style: solid;
-
-  filter:
-    drop-shadow(0 0 5px rgba(255,46,147,0.5));
-}
-
-.corner.tl {
-  left: -1px;
-  top: -1px;
-
-  border-width: 2px 0 0 2px;
-}
-
-.corner.tr {
-  right: -1px;
-  top: -1px;
-
-  border-width: 2px 2px 0 0;
-}
-
-.corner.bl {
-  left: -1px;
-  bottom: -1px;
-
-  border-width: 0 0 2px 2px;
-}
-
-.corner.br {
-  right: -1px;
-  bottom: -1px;
-
-  border-width: 0 2px 2px 0;
-}
-
-
-/* =========================================================
-   TRACKING POINTS
-   ========================================================= */
-
-
-
-/* =========================================================
-   AR LABELS
-   ========================================================= */
-
-.ar-tag {
-  position: absolute;
-
-  left: 170px;
-  top: 62px;
-
-  padding: 6px 9px;
-
-  background: #FF2E93;
-
-  color: #160711;
-
-  font-family: "Geist Mono", monospace;
-
-  font-size: 11px;
-  font-weight: 700;
-
-  letter-spacing: 0.08em;
-}
-
-
-.dimension {
-  position: absolute;
-
-  right: 52px;
-  top: 150px;
-
-  padding: 6px 9px;
-
-  border: 1px solid rgba(255,46,147,0.35);
-
-  background: rgba(7,8,10,0.78);
-
-  color: #ff6fb6;
-
-  font-family: "Geist Mono", monospace;
-
-  font-size: 11px;
-
-  transform: rotate(-90deg);
-}
-
-
-.ar-status {
-  position: absolute;
-
-  right: 25px;
-  bottom: 28px;
-
-  display: flex;
-  align-items: center;
-  gap: 8px;
-
-  color: #aeb6c5;
-
-  font-family: "Geist Mono", monospace;
-
-  font-size: 11px;
-
-  letter-spacing: 0.08em;
-}
-
-.ar-status span {
-  width: 6px;
-  height: 6px;
-
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
-
   background: #00E599;
-
-  box-shadow:
-    0 0 9px rgba(0,229,153,0.8);
+  box-shadow: 0 0 10px #00E599, 0 0 20px rgba(0, 229, 153, 0.6);
+  animation: pulse-node 3s infinite ease-in-out alternate;
 }
 
-    /* =========================================================
-       VISUAL LABELS
-       ========================================================= */
+.cn-1 { left: 24%; top: 32%; animation-delay: 0s; }
+.cn-2 { left: 45%; top: 22%; animation-delay: 0.4s; }
+.cn-3 { left: 72%; top: 28%; animation-delay: 0.8s; }
+.cn-4 { left: 35%; top: 62%; animation-delay: 1.9s; }
+.cn-5 { left: 62%; top: 58%; animation-delay: 0.3s; }
+.cn-6 { left: 80%; top: 70%; animation-delay: 0.9s; }
+.cn-7 { left: 20%; top: 75%; animation-delay: 0.6s; }
 
-    .label {
-      position: absolute;
-
-      padding: 7px 10px;
-
-      border: 1px solid rgba(255,255,255,0.12);
-
-      border-radius: 6px;
-
-      background: rgba(7,8,10,0.82);
-
-      backdrop-filter: blur(10px);
-
-      font-family: "Geist Mono", monospace;
-
-      font-size: 12px;
-
-      color: #aeb6c5;
-
-      letter-spacing: 0.04em;
-    }
-
-    .label.tracking {
-      right: 30px;
-      top: 32px;
-
-      color: #FF2E93;
-    }
-
-    .label.mapping {
-      left: 30px;
-      bottom: 30px;
-
-      color: #ff6fb6;
-    }
-
-    /* =========================================================
-       SCAN / AR LINE
-       ========================================================= */
+@keyframes pulse-node {
+  0% { transform: scale(0.8); opacity: 0.5; }
+  100% { transform: scale(1.4); opacity: 1; }
+}
 
     .scan-line {
       position: absolute;
@@ -996,21 +480,227 @@
       left: 0;
       right: 0;
 
-      top: 205px;
+      top: 215px;
 
       height: 1px;
+
+      z-index: 3;
 
       background:
         linear-gradient(
           90deg,
           transparent,
-          rgba(255,46,147,0.75),
+          rgba(255,46,147,0.8),
           transparent
         );
 
       box-shadow:
-        0 0 15px rgba(255,46,147,0.65);
+        0 0 15px rgba(255,46,147,0.7);
     }
+
+
+/* =========================================================
+   OPTION 1: GEOMETRIC SCULPTURAL LOUNGE (STATIC)
+   ========================================================= */
+
+.object-zone {
+  position: absolute;
+  left: 50%;
+  top: 48%;
+  width: 220px;
+  height: 240px;
+  transform: translate(-50%, -46%);
+  z-index: 2;
+}
+
+.sculptural-lounge {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform: perspective(600px) rotateY(-14deg) rotateX(4deg);
+}
+
+/* Curved Shell Backrest */
+.lounge-shell {
+  position: absolute;
+  left: 15px;
+  top: 10px;
+  width: 190px;
+  height: 130px;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  border-radius: 50px 50px 18px 18px;
+  background:
+    radial-gradient(
+      circle at 50% 30%,
+      rgba(255, 46, 147, 0.22),
+      rgba(157, 78, 221, 0.06) 70%
+    );
+  box-shadow: 0 0 25px rgba(255, 46, 147, 0.15);
+}
+
+/* Concentric Wireframe Ribs inside Shell */
+.shell-rib {
+  position: absolute;
+  inset: 12px;
+  border: 1px dashed rgba(255, 46, 147, 0.65);
+  border-radius: 40px 40px 12px 12px;
+}
+
+.shell-rib-inner {
+  position: absolute;
+  inset: 26px;
+  border: 1px dotted rgba(238, 200, 222, 0.5);
+  border-radius: 30px 30px 8px 8px;
+}
+
+.shell-studs {
+  position: absolute;
+  inset: 38px 36px 28px 36px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  align-items: center;
+  justify-items: center;
+  pointer-events: none;
+}
+
+.stud {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #FF2E93;
+  box-shadow: 
+    0 0 6px #FF2E93,
+    0 0 2px #ffffff;
+}
+
+/* Thick Floating Cushion */
+.lounge-cushion {
+  position: absolute;
+  left: 10px;
+  top: 126px;
+  width: 200px;
+  height: 36px;
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  border-radius: 20px;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 46, 147, 0.35),
+      rgba(157, 78, 221, 0.18)
+    );
+  transform: perspective(300px) rotateX(16deg);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Angular Tripod Base */
+.tripod-stem {
+  position: absolute;
+  left: 108px;
+  top: 160px;
+  width: 4px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.tripod-leg {
+  position: absolute;
+  top: 178px;
+  width: 3px;
+  height: 52px;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.85),
+    rgba(255, 46, 147, 0.5)
+  );
+}
+
+.leg-center {
+  left: 108.5px;
+  height: 54px;
+}
+
+.leg-left {
+  left: 108.5px;
+  transform-origin: top center;
+  transform: rotate(50deg);
+}
+
+.leg-right {
+  left: 108.5px;
+  transform-origin: top center;
+  transform: rotate(-50deg);
+}
+
+/* Static Bounding Box */
+.bbox {
+  position: absolute;
+  inset: -6px;
+  border: 1px dashed rgba(255, 46, 147, 0.35);
+  pointer-events: none;
+}
+
+.corner {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-color: #FF2E93;
+  border-style: solid;
+}
+
+.tl { left: -2px; top: -2px; border-width: 2px 0 0 2px; }
+.tr { right: -2px; top: -2px; border-width: 2px 2px 0 0; }
+.bl { left: -2px; bottom: -2px; border-width: 0 0 2px 2px; }
+.br { right: -2px; bottom: -2px; border-width: 0 2px 2px 0; }
+/* =========================================================
+   HUD LABELS & METRICS
+   ========================================================= */
+
+.hud-tag {
+  position: absolute;
+  left: 22px;
+  top: 22px;
+  padding: 5px 10px;
+  background: rgba(255, 46, 147, 0.15);
+  border: 1px solid #FF2E93;
+  border-radius: 6px;
+  color: #ff6fb6;
+  font-family: "Geist Mono", monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  z-index: 4;
+}
+
+.hud-metrics {
+  position: absolute;
+  right: 22px;
+  bottom: 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  color: #aeb6c5;
+  font-family: "Geist Mono", monospace;
+  font-size: 11px;
+  z-index: 4;
+}
+
+.status-active {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #00E599;
+  font-weight: 600;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #00E599;
+  box-shadow: 0 0 10px #00E599;
+}
 
     /* =========================================================
        BOTTOM CTA
@@ -1251,78 +941,83 @@
            ===================================================== -->
 
       <div class="visual-area">
-
         <div class="vision-frame">
 
-          <div class="vision-grid"></div>
+          <!-- 1. 3D LIDAR & PERSPECTIVE GRID -->
+          <div class="lidar-room">
+            <div class="wall-grid"></div>
+            <div class="floor-grid"></div>
+          </div>
 
+          <!-- 2. SCANNING BEAM -->
+          <div class="scan-line"></div>
 
- <div class="ar-back-grid"></div>
+          <!-- 3. POINT-CLOUD NODES -->
+          <div class="point-cloud">
+            <div class="cloud-node cn-1"></div>
+            <div class="cloud-node cn-2"></div>
+            <div class="cloud-node cn-3"></div>
+            <div class="cloud-node cn-4"></div>
+            <div class="cloud-node cn-5"></div>
+            <div class="cloud-node cn-6"></div>
+            <div class="cloud-node cn-7"></div>
+          </div>
 
-<div class="ar-room">
-
-  <div class="room-wall"></div>
-
-  <div class="room-floor">
-    <span class="floor-h h1"></span>
-    <span class="floor-h h2"></span>
-    <span class="floor-h h3"></span>
-    <span class="floor-h h4"></span>
-    <span class="floor-h h5"></span>
-    <span class="floor-h h6"></span>
-
-    <span class="floor-v v1"></span>
-    <span class="floor-v v2"></span>
-    <span class="floor-v v3"></span>
-    <span class="floor-v v4"></span>
-    <span class="floor-v v5"></span>
-    <span class="floor-v v6"></span>
-  </div>
-
-  <!-- Your chair -->
-  <div class="chair">
-    <div class="chair-back">
-      <div class="chair-wire"></div>
+          <!-- 4. OBJECT MESH & BOUNDING BOX -->
+          <div class="object-zone">
+  <div class="sculptural-lounge">
+    <!-- Shell Backrest -->
+    <div class="lounge-shell">
+      <!-- Shell Backrest -->
+  <div class="shell-rib"></div>
+    <div class="shell-rib-inner"></div>
+    
+    <!-- 6 Tufting Studs -->
+    <div class="shell-studs">
+      <span class="stud"></span>
+      <span class="stud"></span>
+      <span class="stud"></span>
+      <span class="stud"></span>
+      <span class="stud"></span>
+      <span class="stud"></span>
     </div>
-
-    <div class="chair-seat"></div>
-
-    <div class="chair-leg leg-left"></div>
-    <div class="chair-leg leg-right"></div>
   </div>
 
-  <!-- AR bounding box -->
-  <div class="object-box">
+    <!-- Cushion -->
+    <div class="lounge-cushion"></div>
+
+    <!-- Tripod Base Structure -->
+    <div class="tripod-stem"></div>
+    <div class="tripod-leg leg-center"></div>
+    <div class="tripod-leg leg-left"></div>
+    <div class="tripod-leg leg-right"></div>
+  </div>
+
+  <!-- Spatial Bounding Brackets -->
+  <div class="bbox">
     <span class="corner tl"></span>
     <span class="corner tr"></span>
     <span class="corner bl"></span>
     <span class="corner br"></span>
   </div>
-
-  <span class="track t1"></span>
-  <span class="track t2"></span>
-  <span class="track t3"></span>
-  <span class="track t4"></span>
-  <span class="track t5"></span>
-
-  <div class="ar-tag">
-    OBJECT DETECTED
-  </div>
-
-  <div class="dimension">
-    82.4 cm
-  </div>
-
-  <div class="ar-status">
-    <span></span>
-    SPATIAL MAPPING
-  </div>
-
 </div>
 
+          <!-- 5. HUD METRICS & BADGES -->
+          <div class="hud-tag">
+            LIDAR: MAPPING
+          </div>
+
+          <div class="hud-metrics">
+            <div class="status-active">
+              <span class="status-dot"></span>
+              DEPTH_MESH: 2,400 PTS
+            </div>
+            <div style="opacity: 0.65; font-size: 10px;">
+              FPS: 60 · XYZ: [82, 65, 91]
+            </div>
+          </div>
 
         </div>
-
       </div>
 
     </section>
