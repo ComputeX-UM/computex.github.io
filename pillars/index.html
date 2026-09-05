@@ -725,7 +725,7 @@
         <!-- Tool detail -->
         <div
           id="toolDetail"
-          class="relative border border-brand-cyan/20 bg-gradient-to-br from-brand-cyan/5 via-brand-panel to-slate-950 rounded-2xl p-7 md:p-9 min-h-[300px] shadow-xl shadow-black/20 overflow-hidden"
+          class="relative border border-brand-cyan/20 bg-gradient-to-br from-brand-cyan/5 via-brand-panel to-slate-950 rounded-2xl p-7 md:p-9 min-w-[860px] min-h-[360px] shadow-xl shadow-black/20 overflow-hidden"
         >
 
           <!-- Terminal header -->
@@ -2988,13 +2988,16 @@ function renderWhereComputingGoes() {
 
           </div>
 
-          <div class="relative w-45 h-45 sm:w-60 sm:h-60 rounded-xl overflow-hidden bg-brand-panel border border-white/10 shrink-0">
-            <img
-              src="../assets/tool-${selectedTool.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}.jpg"
-              alt="${selectedTool.name}"
-              class="w-full h-full object-cover"
-              onerror="this.style.display='none'"
-            />
+          <div class="flex self-center">
+            <div class="w-[380px] rounded-xl overflow-hidden bg-brand-panel border border-white/10 shrink-0">
+              <img
+                src="../assets/tool-${selectedTool.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}.jpg"
+                alt="${selectedTool.name}"
+                class="block w-full h-auto cursor-pointer"
+                onclick="openImagePopup(this.src, this.alt)"
+                onerror="this.style.display='none'"
+              />
+            </div>
           </div>
 
         </div>
@@ -3847,7 +3850,59 @@ function renderWhereComputingGoes() {
 
     renderAll();
 
+
+    function openImagePopup(src, alt) {
+      const popup = document.getElementById('imagePopup');
+      const image = document.getElementById('popupImage');
+
+      image.src = src;
+      image.alt = alt;
+
+      popup.classList.remove('hidden');
+      popup.classList.add('flex');
+    }
+
+    function closeImagePopup() {
+      const popup = document.getElementById('imagePopup');
+
+      popup.classList.add('hidden');
+      popup.classList.remove('flex');
+    }
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        closeImagePopup();
+      }
+    });
+
+
   </script>
+
+  <div
+    id="imagePopup"
+    class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 p-4"
+    onclick="closeImagePopup()"
+  >
+    <div
+      class="relative w-[600px] max-w-[90vw]"
+      onclick="event.stopPropagation()"
+    >
+      <img
+        id="popupImage"
+        src=""
+        alt=""
+        class="block w-full h-auto object-contain rounded-xl"
+      />
+
+      <button
+        onclick="closeImagePopup()"
+        class="absolute top-2 right-2 w-9 h-9 flex items-center justify-center rounded-full bg-black/60 text-white text-2xl hover:bg-black/80 cursor-pointer"
+        aria-label="Close"
+      >
+        &times;
+      </button>
+    </div>
+  </div>
 
 </body>
 </html>
