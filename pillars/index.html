@@ -1986,7 +1986,8 @@ print(difference)`,
      * ==========================================================
      */
 
-    let activePillar = "tech";
+    const params = new URLSearchParams(window.location.search);
+    let activePillar = params.get("pillar") || "tech";
     let activeExample = 0;
     let activeFocus = 0;
     let activeTool = null;
