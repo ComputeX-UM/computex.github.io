@@ -44,6 +44,10 @@
   </script>
 
   <style>
+    html {
+      overflow-x: hidden;
+    }
+
     .bg-grid {
       background-size: 60px 60px;
       background-image:
@@ -147,6 +151,82 @@
 
     .event-card:hover::before {
       opacity: 1;
+    }
+
+    @media screen and (orientation: portrait) and (max-width: 1024px) {
+      nav .max-w-7xl {
+        min-height: 4.5rem;
+        height: auto;
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+        padding-top: .75rem;
+        padding-bottom: .75rem;
+        flex-wrap: wrap;
+        gap: .5rem 1rem;
+      }
+
+      nav .max-w-7xl > div {
+        gap: .75rem;
+        font-size: .7rem;
+      }
+
+      nav .max-w-7xl > div:last-child {
+        width: 100%;
+        justify-content: space-between;
+        display: none !important;
+      }
+
+      nav .max-w-7xl > .mobile-menu-toggle {
+        display: flex !important;
+      }
+
+      nav .max-w-7xl > .mobile-menu-toggle[aria-expanded="true"] + div {
+        display: flex !important;
+      }
+
+      nav .max-w-7xl > div:last-child a {
+        padding-left: .25rem;
+        padding-right: .25rem;
+      }
+
+      nav .max-w-7xl > div:last-child a:last-child {
+        padding-left: .75rem;
+        padding-right: .75rem;
+      }
+
+      section.max-w-7xl,
+      section.max-w-5xl {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+      }
+
+      section.max-w-7xl > div,
+      section.max-w-5xl > div {
+        min-width: 0;
+      }
+
+      section.max-w-7xl h1 {
+        font-size: clamp(2.35rem, 11vw, 4rem);
+      }
+
+      section.max-w-7xl .grid,
+      section.max-w-5xl .grid {
+        min-width: 0;
+      }
+
+      details summary,
+      details p {
+        overflow-wrap: anywhere;
+      }
+
+      form#newsletter-form {
+        width: 100%;
+      }
+
+      footer .max-w-7xl > div:first-child > div:first-child {
+        flex-direction: column !important;
+        row-gap: 1.25rem;
+      }
     }
 
     .status-dot {
@@ -262,7 +342,15 @@
         />
       </a>
 
-      <div class="flex items-center gap-8 text-sm font-mono text-slate-400">
+      <button type="button" class="hidden mobile-menu-toggle items-center justify-center w-10 h-10 rounded-lg border border-white/10 bg-white/5 text-white" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open navigation menu">
+        <span class="sr-only">Open navigation menu</span>
+        <span class="flex flex-col gap-1.5" aria-hidden="true">
+          <span class="block w-5 h-0.5 bg-current"></span>
+          <span class="block w-5 h-0.5 bg-current"></span>
+          <span class="block w-5 h-0.5 bg-current"></span>
+        </span>
+      </button>
+      <div id="mobile-menu" class="flex items-center gap-8 text-sm font-mono text-slate-400">
 
         <a href="../pillars/index.html"
            class="hover:text-white transition-colors">
@@ -1787,5 +1875,14 @@
     });
   </script>
 
+  <script>
+    document.querySelectorAll('.mobile-menu-toggle').forEach((toggle) => {
+      toggle.addEventListener('click', () => {
+        const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', String(!isOpen));
+        toggle.setAttribute('aria-label', isOpen ? 'Open navigation menu' : 'Close navigation menu');
+      });
+    });
+  </script>
 </body>
 </html>

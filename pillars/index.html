@@ -43,6 +43,10 @@
   </script>
 
   <style>
+    html {
+      overflow-x: hidden;
+    }
+
     /* Subtle grid in bg */
     .bg-grid {
       background-size: 60px 60px;
@@ -214,6 +218,85 @@
       }
     }
 
+    @media screen and (orientation: portrait) and (max-width: 1024px) {
+      nav .max-w-7xl {
+        min-height: 4.5rem;
+        height: auto;
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+        padding-top: .75rem;
+        padding-bottom: .75rem;
+        flex-wrap: wrap;
+        gap: .5rem 1rem;
+      }
+
+      nav .max-w-7xl > div {
+        gap: .75rem;
+        font-size: .7rem;
+      }
+
+      nav .max-w-7xl > div:last-child {
+        width: 100%;
+        justify-content: space-between;
+        display: none !important;
+      }
+
+      nav .max-w-7xl > .mobile-menu-toggle {
+        display: flex !important;
+      }
+
+      nav .max-w-7xl > .mobile-menu-toggle[aria-expanded="true"] + div {
+        display: flex !important;
+      }
+
+      nav .max-w-7xl > div:last-child a {
+        padding-left: .25rem;
+        padding-right: .25rem;
+      }
+
+      nav .max-w-7xl > div:last-child a:last-child {
+        padding-left: .75rem;
+        padding-right: .75rem;
+      }
+
+      header,
+      section.max-w-7xl,
+      section.max-w-5xl {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+      }
+
+      header h1 {
+        font-size: clamp(2.25rem, 10vw, 3.75rem);
+      }
+
+      .min-w-\[860px\] {
+        min-width: 0 !important;
+      }
+
+      #pillarTabs {
+        max-width: 100%;
+      }
+
+      #pillarTabs button {
+        flex: 0 0 auto;
+      }
+
+      .grid[class*="lg:grid-cols-"] {
+        grid-template-columns: 1fr;
+      }
+
+      .demo-output,
+      .scanline {
+        min-height: 220px;
+      }
+
+      footer .max-w-7xl > div:first-child > div:first-child {
+        flex-direction: column !important;
+        row-gap: 1.25rem;
+      }
+    }
+
     /* Pillar selector ------------------------------------------------ */
 
     #pillarTabs {
@@ -300,7 +383,15 @@
       <a href="../index.html" class="font-mono text-xl font-bold tracking-tight text-white flex items-center gap-2">
         <img src="../assets/computex-logo.png" alt="ComputeX Logo" class="h-11 w-auto object-contain" />
       </a>
-      <div class="flex items-center gap-8 text-sm font-mono text-slate-400">
+      <button type="button" class="hidden mobile-menu-toggle items-center justify-center w-10 h-10 rounded-lg border border-white/10 bg-white/5 text-white" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open navigation menu">
+        <span class="sr-only">Open navigation menu</span>
+        <span class="flex flex-col gap-1.5" aria-hidden="true">
+          <span class="block w-5 h-0.5 bg-current"></span>
+          <span class="block w-5 h-0.5 bg-current"></span>
+          <span class="block w-5 h-0.5 bg-current"></span>
+        </span>
+      </button>
+      <div id="mobile-menu" class="flex items-center gap-8 text-sm font-mono text-slate-400">
         <a href="#" class="text-white font-semibold underline decoration-brand-cyan underline-offset-4">PILLARS</a>
         <a href="../team/index.html" class="hover:text-white transition-colors">TEAM</a>
         <a href="../roadmap/index.html" class="hover:text-white transition-colors">ROADMAP</a>
@@ -4062,5 +4153,14 @@ function renderWhereComputingGoes() {
     </div>
   </div>
 
+  <script>
+    document.querySelectorAll('.mobile-menu-toggle').forEach((toggle) => {
+      toggle.addEventListener('click', () => {
+        const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', String(!isOpen));
+        toggle.setAttribute('aria-label', isOpen ? 'Open navigation menu' : 'Close navigation menu');
+      });
+    });
+  </script>
 </body>
 </html>
