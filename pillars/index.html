@@ -291,6 +291,38 @@
         min-height: 220px;
       }
 
+      #toolDetail {
+        min-width: 0 !important;
+        padding: 1.25rem;
+      }
+
+      #toolDetail > div.h-full {
+        height: auto;
+        flex-direction: column;
+        gap: 1.25rem;
+      }
+
+      #toolDetail > div.h-full > div {
+        width: 100%;
+        min-width: 0;
+      }
+
+      #toolDetail > div.h-full > div:last-child {
+        justify-content: flex-start;
+      }
+
+      #toolDetail > div.h-full > div:last-child > div {
+        width: 100%;
+        max-width: 24rem;
+      }
+
+      #toolDetail img {
+        width: 100%;
+        height: auto;
+        max-height: 15rem;
+        object-fit: contain;
+      }
+
       footer .max-w-7xl > div:first-child > div:first-child {
         flex-direction: column !important;
         row-gap: 1.25rem;
