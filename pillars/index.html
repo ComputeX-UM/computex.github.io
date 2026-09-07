@@ -43,8 +43,12 @@
   </script>
 
   <style>
-    html {
-      overflow-x: hidden;
+    html,
+    body {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: clip;
+      overscroll-behavior-x: none;
     }
 
     /* Subtle grid in bg */
