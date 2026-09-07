@@ -116,7 +116,7 @@
     }
 
     .focus-card:hover {
-      transform: translateY(-2px);
+      transform: translateY(-1px);
     }
 
     .tool-item {
@@ -501,113 +501,106 @@
 
 
     <!-- =================================================
-         INTERACTIVE EXPLORER
-         ================================================= -->
-    <div class="grid lg:grid-cols-[280px_1fr] gap-5">
+     INTERACTIVE EXPLORER
+     ================================================= -->
+<div>
 
+  <!-- ===============================================
+       TOP — FOCUS AREA NAVIGATION
+       =============================================== -->
+  <div class="mb-5">
 
-      <!-- ===============================================
-           LEFT — TOPIC NAVIGATION
-           =============================================== -->
-      <div class="space-y-6">
+    <div class="flex items-center gap-3 mb-4 px-1">
 
-
-        <!-- ComputeX Focus -->
-        <div>
-
-          <div class="flex items-center gap-3 mb-3 px-1">
-
-            <div
-              class="h-px w-5"
-              style="background: var(--pillar-color);"
-            ></div>
-
-            <span
-              class="font-mono text-[12px] tracking-[0.18em] uppercase font-bold"
-              style="color: var(--pillar-color);"
-            >
-              COMPUTEX'S FOCUS AREAS
-            </span>
-
-          </div>
-
-          <div
-            id="focusCards"
-            class="grid lg:grid-cols-1 gap-4"
-          >
-            <!-- JS -->
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <!-- ===============================================
-           RIGHT — SHARED DETAIL PANEL
-           =============================================== -->
       <div
-        id="topicDetail"
-        class="relative rounded-2xl p-7 md:p-9 min-h-[500px] shadow-xl shadow-black/20 overflow-hidden"
-        style="
-          border: 1px solid color-mix(in srgb, var(--pillar-color) 20%, transparent);
-          background:
-            linear-gradient(
-              135deg,
-              color-mix(in srgb, var(--pillar-color) 5%, transparent),
-              rgba(15, 23, 42, 0.92),
-              rgba(2, 6, 23, 0.97)
-            );
-        "
+        class="h-px w-5"
+        style="background: var(--pillar-color);"
+      ></div>
+
+      <span
+        class="font-mono text-[12px] tracking-[0.18em] uppercase font-bold"
+        style="color: var(--pillar-color);"
       >
-
-        <!-- Ambient glow -->
-        <div
-          class="absolute -top-24 -right-24 w-72 h-72 blur-3xl rounded-full pointer-events-none"
-          style="
-            background: color-mix(in srgb, var(--pillar-color) 8%, transparent);
-          "
-        ></div>
-
-
-        <!-- Terminal-style header -->
-        <div
-          class="absolute top-0 left-0 right-0 h-10 border-b border-white/5 bg-white/[0.02] flex items-center justify-between px-4"
-        >
-
-          <div class="flex items-center gap-2">
-
-            <span class="w-2.5 h-2.5 rounded-full bg-red-500/60"></span>
-            <span class="w-2.5 h-2.5 rounded-full bg-yellow-500/60"></span>
-            <span class="w-2.5 h-2.5 rounded-full bg-green-500/60"></span>
-
-          </div>
-
-          <span
-            id="topicDetailLabel"
-            class="font-mono text-[10px] text-slate-600"
-          >
-            COMPUTEX'S FOCUS AREAS
-          </span>
-
-          <span class="w-12"></span>
-
-        </div>
-
-
-        <!-- Detail content -->
-        <div
-          id="topicDetailContent"
-          class="relative pt-10"
-        >
-          <!-- JS -->
-        </div>
-
-      </div>
+        COMPUTEX'S FOCUS AREAS
+      </span>
 
     </div>
 
+
+    <div
+      id="focusCards"
+      class="space-y-3"
+    >
+      <!-- JS -->
+    </div>
+
   </div>
+
+
+  <!-- ===============================================
+       EXPANDED DETAIL PANEL
+       =============================================== -->
+  <div
+    id="topicDetail"
+    class="relative mt-4 mb-6 rounded-2xl p-7 md:p-9 shadow-xl shadow-black/20 overflow-hidden"
+    style="
+      border: 1px solid color-mix(in srgb, var(--pillar-color) 20%, transparent);
+      background:
+        linear-gradient(
+          135deg,
+          color-mix(in srgb, var(--pillar-color) 5%, transparent),
+          rgba(15, 23, 42, 0.92),
+          rgba(2, 6, 23, 0.97)
+        );
+    "
+  >
+
+    <!-- Ambient glow -->
+    <div
+      class="absolute -top-24 -right-24 w-72 h-72 blur-3xl rounded-full pointer-events-none"
+      style="
+        background: color-mix(in srgb, var(--pillar-color) 8%, transparent);
+      "
+    ></div>
+
+
+    <!-- Terminal-style header -->
+    <div
+      class="absolute top-0 left-0 right-0 h-10 border-b border-white/5 bg-white/[0.02] flex items-center justify-between px-4"
+    >
+
+      <div class="flex items-center gap-2">
+
+        <span class="w-3.5 h-3.5 rounded-full bg-red-500/60"></span>
+        <span class="w-3.5 h-3.5 rounded-full bg-yellow-500/60"></span>
+        <span class="w-3.5 h-3.5 rounded-full bg-green-500/60"></span>
+
+      </div>
+
+      <span
+        id="topicDetailLabel"
+        class="font-mono text-[10px] text-slate-600"
+      >
+        COMPUTEX'S FOCUS AREAS
+      </span>
+
+      <span class="w-12"></span>
+
+    </div>
+
+
+    <!-- Detail content -->
+    <div
+      id="topicDetailContent"
+      class="relative pt-10"
+    >
+      <!-- JS -->
+    </div>
+
+  </div>
+
+</div>
+</div>
 
 </section>
 
@@ -1071,6 +1064,29 @@
               "Automated testing that catches bugs before a human ever sees them",
               "Cloud infrastructure that scales a side project into something millions can use"
             ],
+            careerDirections: [
+            {
+              title: "Software Engineer",
+              description:
+                "Design and build software systems, from applications and websites to large-scale platforms and infrastructure."
+            },
+            {
+              title: "Systems Engineer",
+              description:
+                "Design how software, hardware, networks, and other components work together as a larger system."
+            },
+            {
+              title: "Cybersecurity Engineer",
+              description:
+                "Build systems and tools that protect software, devices, networks, and data from security threats."
+            }
+          ],
+          buildWithIt: [
+            { title: "Problem-Solving App", description: "A web or mobile application that solves a real problem for users with clear functionality and impact." },
+            { title: "Collaborative Software Project", description: "A collaborative software project using version control and automation to work effectively with teammates." },
+            { title: "Algorithm Visualizer", description: "An interactive data structure or algorithm visualizer showing how computation changes over time." },
+            { title: "Task Automation Tool", description: "A tool that automates a repetitive task, saving time and reducing human error in workflows." }
+          ],
             toolStack: ["Python", "Git/GitHub", "VS Code", "Data Structures & Algorithms"]
           },
           {
@@ -1084,6 +1100,29 @@
               "Live inference — chatbots, image recognition, prediction tools running in-browser",
               "Systems that personalize themselves to a single user's behavior over time",
               "Generative tools that draft, edit, and iterate on text, code, and images in seconds"
+            ],
+            careerDirections: [
+              {
+                title: "Machine Learning Engineer",
+                description:
+                  "Build and deploy models that learn from data and become part of real-world software systems."
+              },
+              {
+                title: "AI Researcher",
+                description:
+                  "Develop and study new algorithms and approaches for making AI systems more capable, reliable, or efficient."
+              },
+              {
+                title: "Applied Scientist",
+                description:
+                  "Use research methods, data, and computational models to solve complex problems in a specific industry or application."
+              }
+            ],
+            buildWithIt: [
+              { title: "Classification Model", description: "An image or text classification model that learns patterns and predicts categories from real data." },
+              { title: "Personalized Recommender", description: "A recommendation system tailored to individual users, improving engagement through personalized suggestions." },
+              { title: "LLM AI Assistant", description: "An AI assistant powered by an LLM API that answers questions, drafts content, and helps users iterate." },
+              { title: "Pattern Prediction Model", description: "A model that predicts or detects patterns in real-world data to support decisions and forecasting." }
             ],
             toolStack: ["PyTorch", "Hugging Face", "Jupyter Notebooks", "LLM APIs"]
           },
@@ -1099,6 +1138,29 @@
               "Over-the-air updates that patch a product's behavior after it's already shipped",
               "Power-aware code that lets a battery-run device operate for months, not hours"
             ],
+            careerDirections: [
+              {
+                title: "Embedded Systems Engineer",
+                description:
+                  "Develop the software and hardware interfaces that allow computing systems to operate inside physical devices."
+              },
+              {
+                title: "Firmware Engineer",
+                description:
+                  "Write low-level software that controls how electronic devices, sensors, and microcontrollers operate."
+              },
+              {
+                title: "IoT Engineer",
+                description:
+                  "Build connected devices that collect, communicate, and respond to data across physical environments."
+              }
+            ],
+            buildWithIt: [
+              { title: "Live Sensor Dashboard", description: "A sensor system that streams live measurements to a dashboard for monitoring and analysis." },
+              { title: "Phone-Controlled Smart Device", description: "A smart device controlled from a phone, enabling remote interaction and convenient automation." },
+              { title: "Environmental Monitor", description: "A battery-powered environmental monitor that tracks conditions and reports changes over time." },
+              { title: "Responsive Physical System", description: "A physical system that reacts automatically to its surroundings using sensors and programmed logic." }
+            ],
             toolStack: ["Arduino / ESP32", "C++", "MQTT", "Circuit Simulation"]
           },
           {
@@ -1112,6 +1174,29 @@
               "Simulated environments (physics engines) for testing before real-world deployment",
               "Learned control policies that let a robot handle situations it was never explicitly programmed for",
               "Swarms of low-cost units coordinating through shared computation instead of one expensive machine"
+            ],
+            careerDirections: [
+              {
+                title: "Robotics Engineer",
+                description:
+                  "Design and build robots by combining software, hardware, sensing, and intelligent algorithms."
+              },
+              {
+                title: "Autonomous Systems Engineer",
+                description:
+                  "Develop systems that can perceive their environment, make decisions, and act with limited human input."
+              },
+              {
+                title: "Controls Engineer",
+                description:
+                  "Develop algorithms that make physical systems respond predictably to changing conditions."
+              }
+            ],
+            buildWithIt: [
+              { title: "Navigating Robot", description: "A robot that navigates a physical or simulated environment using perception, planning, and control." },
+              { title: "Object Recognition System", description: "A computer-vision system that recognizes objects, tracks movement, and interprets scenes in context." },
+              { title: "Sensor-Responsive Robotic Arm", description: "A robotic arm that responds to sensor input by adjusting motion, force, or position in real time." },
+              { title: "Autonomous Vehicle Simulation", description: "A simulated autonomous vehicle or robot that learns to make safe decisions under changing conditions." }
             ],
             toolStack: ["ROS2", "Python/C++", "Gazebo/Webots", "Computer Vision"]
           }
@@ -1205,7 +1290,7 @@ path = find_shortest_path(
 print(path)`,
 
           explanation:
-            "The demo searches a grid for a valid path from a starting position to a goal. The same basic idea scales into much more sophisticated planning systems used in robotics."
+            "The demo searches a grid for a valid route from a starting position to a goal while avoiding blocked cells. Turning the environment into a simple map makes it easier to test navigation logic, compare possible routes, and update a plan when conditions change. The same idea appears in warehouse robots, delivery systems, game characters, and autonomous vehicles, where computation helps decide what to do next without checking every option by hand."
         },
 
         questions: [
@@ -1268,6 +1353,29 @@ print(path)`,
               "Forecasting models that flag a demand shift before it shows up in sales",
               "Anomaly detection that catches a broken funnel before it costs a week of revenue"
             ],
+            careerDirections: [
+              {
+                title: "Business Intelligence Analyst",
+                description:
+                  "Use data, analytics, and visualization to help organizations understand performance, identify trends, and make better business decisions."
+              },
+              {
+                title: "Data Analyst",
+                description:
+                  "Turn business data into useful insights by cleaning datasets, analyzing patterns, and communicating findings that can guide decisions."
+              },
+              {
+                title: "Product Analyst",
+                description:
+                  "Analyze how people use digital products and services to identify opportunities for improvement and measure whether product decisions are working."
+              }
+            ],
+            buildWithIt: [
+              { title: "Business Metrics Dashboard", description: "A dashboard that tracks a company's key metrics over time, revealing trends and performance changes." },
+              { title: "Customer Behavior Analysis", description: "An analysis of customer behavior using a real dataset to reveal purchasing patterns and engagement trends." },
+              { title: "Sales Forecasting Model", description: "A model that forecasts future sales or demand using historical patterns and seasonal signals for planning." },
+              { title: "Product Experiment", description: "An A/B test that measures the impact of a product change and helps teams make evidence-based decisions." }
+            ],
             toolStack: ["SQL", "Python (pandas)", "Tableau", "Jupyter"]
           },
           {
@@ -1282,6 +1390,29 @@ print(path)`,
               "Algorithmic trading systems executing decisions in microseconds",
               "Mobile-first payment infrastructure replacing paper checks and bank visits"
             ],
+            careerDirections: [
+              {
+                title: "FinTech Analyst",
+                description:
+                  "Use technology, data, and financial knowledge to build or evaluate products and systems across payments, lending, investing, and financial services."
+              },
+              {
+                title: "Quantitative Analyst",
+                description:
+                  "Use mathematics, statistics, and programming to model financial markets, evaluate risk, and develop data-driven strategies."
+              },
+              {
+                title: "Risk Analyst",
+                description:
+                  "Use data and computational models to identify, measure, and manage financial risks such as fraud, credit risk, and market uncertainty."
+              }
+            ],
+            buildWithIt: [
+              { title: "Financial Risk Model", description: "A model that predicts or evaluates financial risk by analyzing patterns in transactions, markets, and customer behavior." },
+              { title: "Fraud Detection System", description: "A fraud-detection system for simulated transactions that flags suspicious activity based on unusual patterns." },
+              { title: "Personal Finance Dashboard", description: "A personal finance dashboard that analyzes spending habits, highlights trends, and helps users manage resources better." },
+              { title: "Market Data Visualizer", description: "A tool that visualizes market or investment data to help users spot trends, compare assets, and interpret signals." }
+            ],
             toolStack: ["Python", "SQL", "Machine Learning", "APIs"]
           },
           {
@@ -1295,6 +1426,29 @@ print(path)`,
               "APIs that connect tools so data moves without anyone re-typing it",
               "Automation that eliminates repetitive manual work across departments",
               "Internal AI systems that summarize, route, and act on information for employees"
+            ],
+            careerDirections: [
+              {
+                title: "Solutions Architect",
+                description:
+                  "Design how software, cloud services, databases, and other technologies fit together to solve an organization's technical needs."
+              },
+              {
+                title: "Technology Consultant",
+                description:
+                  "Help organizations choose, implement, and improve technology systems that support their operations, strategy, and long-term goals."
+              },
+              {
+                title: "Product Manager",
+                description:
+                  "Guide the development of technology products by connecting user needs, business goals, and technical possibilities."
+              }
+            ],
+            buildWithIt: [
+              { title: "Workflow Automation", description: "An automated workflow that eliminates repetitive manual work, reduces errors, and keeps teams focused on higher-value tasks." },
+              { title: "Scalable Cloud Application", description: "A cloud-based application that can scale with demand, support more users, and remain reliable during growth." },
+              { title: "System Integration API", description: "An API that connects two otherwise separate systems so data can move automatically without manual re-entry." },
+              { title: "Internal Operations Tool", description: "An internal tool that helps a team organize information, track decisions, and act quickly with less manual coordination." }
             ],
             toolStack: ["Cloud Platforms (AWS/GCP)", "APIs", "SQL", "Automation Tools"]
           }
@@ -1390,7 +1544,7 @@ print(monthly)
 print(regional)`,
 
           explanation:
-            "A few operations turn thousands of individual observations into aggregate patterns. The important part isn't the code itself—it's the transition from raw observations to information that can guide a decision."
+            "The code groups sales records by month and region, turning thousands of individual observations into patterns that are easier to compare. That makes it simpler to spot seasonal changes, differences between markets, and signals that deserve a closer look before a decision is made. The same workflow supports demand forecasting, inventory planning, marketing analysis, staffing decisions, and business dashboards: computation reduces repetitive sorting so people can spend more time interpreting what the numbers mean."
         },
 
         questions: [
@@ -1453,6 +1607,29 @@ print(regional)`,
               "Clinical decision support flagging risks a doctor might otherwise miss",
               "Apps that turn years of patient history into a single readable timeline"
             ],
+            careerDirections: [
+              {
+                title: "Health Informatics Specialist",
+                description:
+                  "Use data, software, and information systems to improve how healthcare organizations collect, manage, and use clinical information."
+              },
+              {
+                title: "Digital Health Product Manager",
+                description:
+                  "Lead the development of technology products that help patients, clinicians, and healthcare organizations solve real health-related problems."
+              },
+              {
+                title: "Clinical Data Analyst",
+                description:
+                  "Analyze healthcare data to identify patterns, evaluate outcomes, and support decisions in clinical care, research, and healthcare operations."
+              }
+            ],
+            buildWithIt: [
+              { title: "Personal Health Dashboard", description: "A personal health-data dashboard that brings together metrics, trends, and progress in one place for better insight." },
+              { title: "Wellness Tracker", description: "A symptom or wellness tracking application that helps people observe patterns over time and make informed decisions." },
+              { title: "Patient Data Timeline", description: "A system that visualizes patient data over time so clinicians can compare trends, monitor changes, and act faster." },
+              { title: "Remote Patient Monitor", description: "A prototype for remote patient monitoring that streams health signals and supports timely care decisions beyond the clinic." }
+            ],
             toolStack: ["Python", "HL7/FHIR", "Cloud Platforms", "Mobile Health APIs"]
           },
           {
@@ -1467,6 +1644,29 @@ print(regional)`,
               "Imaging equipment reconstructing 3D scans from raw sensor data in seconds",
               "Devices that log and transmit data automatically for remote review"
             ],
+            careerDirections: [
+              {
+                title: "Biomedical Engineer",
+                description:
+                  "Combine engineering, biology, and computing to design technologies such as medical devices, diagnostic systems, and assistive technologies."
+              },
+              {
+                title: "Medical Device Software Engineer",
+                description:
+                  "Develop and validate software that controls, monitors, or analyzes data from medical devices and healthcare technologies."
+              },
+              {
+                title: "Clinical Engineer",
+                description:
+                  "Work at the intersection of healthcare and technology by evaluating, managing, and improving medical equipment and clinical technology systems."
+              }
+            ],
+            buildWithIt: [
+              { title: "Physiological Signal Wearable", description: "A wearable device that monitors a physiological signal continuously, helping people and clinicians detect changes over time." },
+              { title: "Vitals Tracking Sensor", description: "A sensor system that tracks movement or vital signs, giving a device real-time feedback for monitoring and decision-making." },
+              { title: "Medical Device Interface", description: "A prototype interface for a medical device that presents measurements clearly and supports safer, faster clinical decisions." },
+              { title: "Device Data Dashboard", description: "A system that collects and visualizes device data so patterns and trends become interpretable and actionable." }
+            ],
             toolStack: ["C / C++", "Embedded Systems", "Signal Processing", "PyTorch"]
           },
           {
@@ -1480,6 +1680,29 @@ print(regional)`,
               "Machine learning models predicting protein structure from sequence alone",
               "Shared databases letting researchers worldwide build on the same data",
               "Statistical pipelines turning raw lab data into publishable results"
+            ],
+            careerDirections: [
+              {
+                title: "Bioinformatics Scientist",
+                description:
+                  "Use programming, statistics, and biological knowledge to analyze genomic and other biological datasets and answer research questions."
+              },
+              {
+                title: "Computational Biologist",
+                description:
+                  "Build computational models and analyze biological data to understand complex processes such as genetics, disease, and protein function."
+              },
+              {
+                title: "Genomics Data Scientist",
+                description:
+                  "Apply data science and machine learning to large-scale genomic datasets to identify patterns relevant to biology, medicine, and research."
+              }
+            ],
+            buildWithIt: [
+              { title: "DNA Sequence Explorer", description: "A tool that compares and visualizes DNA sequences to reveal similarities, differences, and biological meaning in context." },
+              { title: "Genomic Data Analysis", description: "An analysis of publicly available genomic data that identifies patterns, variation, and clues about biological function." },
+              { title: "Biological Trait Predictor", description: "A model that predicts biological characteristics from data by learning patterns that connect measurable traits to outcomes." },
+              { title: "Bioinformatics Pipeline", description: "A pipeline that turns raw biological data into interpretable results, helping researchers move from signal to insight." }
             ],
             toolStack: ["Python", "R", "Statistical Modeling", "Data Pipelines"]
           }
@@ -1567,7 +1790,7 @@ smoothed = moving_average(
 plot(smoothed)`,
 
           explanation:
-            "Smoothing doesn't magically create information—it changes how we represent noisy measurements so that larger patterns become easier to inspect."
+            "The moving average combines nearby measurements to reduce short-term noise and make the underlying trend easier to see. That helps researchers and clinicians inspect a signal, compare changes over time, and build a more stable input for later analysis without manually reviewing every fluctuation. Similar processing is used with wearable heart-rate data, EEG recordings, medical imaging signals, and remote patient monitoring, although real systems must balance a cleaner view against the risk of hiding an important rapid change."
         },
 
         questions: [
@@ -1630,6 +1853,29 @@ plot(smoothed)`,
               "Usability testing at scale, with heatmaps and analytics instead of guesswork",
               "Design systems that keep thousands of screens visually consistent automatically"
             ],
+            careerDirections: [
+              {
+                title: "UX Designer",
+                description:
+                  "Design how people interact with digital products by researching users, shaping interfaces, and creating experiences that are intuitive and useful."
+              },
+              {
+                title: "UX Engineer",
+                description:
+                  "Bridge design and software development by turning interactive designs and prototypes into polished, functional digital experiences."
+              },
+              {
+                title: "Product Designer",
+                description:
+                  "Shape the visual and interactive experience of a product while balancing user needs, technical constraints, and business goals."
+              }
+            ],
+            buildWithIt: [
+              { title: "Interactive Product Prototype", description: "An interactive prototype for a digital product that lets people test behaviors, flows, and usability before building." },
+              { title: "Application Design System", description: "A design system for a multi-screen application that keeps interfaces consistent, scalable, and easier to evolve." },
+              { title: "Adaptive Website", description: "A website that responds to different users or contexts, adjusting content, layouts, and interactions based on need." },
+              { title: "Interface Usability Experiment", description: "A usability experiment comparing different interface designs to reveal which interactions users understand and prefer." }
+            ],
             toolStack: ["Figma", "JavaScript", "HTML/CSS", "Prototyping Tools"]
           },
           {
@@ -1643,6 +1889,29 @@ plot(smoothed)`,
               "Projection mapping that turns any surface into a dynamic canvas",
               "Sound-reactive visuals generated live from a room's own noise",
               "Networked pieces where many people's input shapes one shared experience"
+            ],
+            careerDirections: [
+              {
+                title: "Creative Technologist",
+                description:
+                  "Combine code, design, and emerging technologies to create interactive installations, experiences, prototypes, and new forms of digital expression."
+              },
+              {
+                title: "Immersive Experience Designer",
+                description:
+                  "Design interactive environments that combine technology, space, sound, visuals, and user interaction to create engaging experiences."
+              },
+              {
+                title: "Interactive Media Artist",
+                description:
+                  "Use computation, sensors, graphics, and other technologies as creative materials for building responsive and participatory artworks."
+              }
+            ],
+            buildWithIt: [
+              { title: "Motion-Reactive Installation", description: "A motion-reactive digital installation that responds to movement, creating a collaborative and changing experience in real time." },
+              { title: "Sound-Reactive Visuals", description: "A sound-reactive visual experience that transforms audio into patterns, color, and movement for live exploration." },
+              { title: "Projection-Mapped Artwork", description: "A projection-mapped interactive artwork that turns physical surfaces into responsive, dynamic canvases for storytelling." },
+              { title: "Visitor-Responsive Installation", description: "A physical installation that responds to visitors, making each encounter unique through movement, presence, and interaction." }
             ],
             toolStack: ["p5.js", "JavaScript", "Sensors", "Real-Time Graphics"]
           },
@@ -1658,6 +1927,29 @@ plot(smoothed)`,
               "Entire virtual sets built and lit without a physical camera ever rolling",
               "Real-time rendering letting a director see the final shot instantly, not weeks later"
             ],
+            careerDirections: [
+              {
+                title: "Technical Artist",
+                description:
+                  "Bridge art and engineering by building the tools, pipelines, shaders, and systems that help artists create digital visuals and interactive experiences."
+              },
+              {
+                title: "Graphics Engineer",
+                description:
+                  "Develop the algorithms and software that generate, render, and manipulate 2D and 3D graphics in real time or offline."
+              },
+              {
+                title: "3D Artist",
+                description:
+                  "Create digital models, environments, materials, lighting, and animations for film, games, visualization, and other visual experiences."
+              }
+            ],
+            buildWithIt: [
+              { title: "Procedural 3D World", description: "A procedural 3D environment built from rules and parameters that generates varied spaces without designing every element manually." },
+              { title: "Interactive Web Scene", description: "A browser-based interactive 3D scene that lets viewers explore space, light, and motion directly in the web." },
+              { title: "Physics-Based Animation", description: "A physics-based animation that simulates motion, collisions, and forces to create more believable digital behavior." },
+              { title: "Custom Virtual Environment", description: "A virtual environment with custom lighting and materials that shapes mood, depth, and realism in a digital scene." }
+            ],
             toolStack: ["Three.js", "3D Graphics", "Rendering Engines", "Animation Tools"]
           },
           {
@@ -1671,6 +1963,29 @@ plot(smoothed)`,
               "Procedural generation building entire levels or worlds algorithmically",
               "AI-driven characters that adapt their behavior to how a player plays",
               "Live multiplayer systems keeping thousands of players in sync in real time"
+            ],
+            careerDirections: [
+              {
+                title: "Game Designer",
+                description:
+                  "Design the rules, mechanics, systems, and player experiences that determine how a game works and feels."
+              },
+              {
+                title: "Gameplay Programmer",
+                description:
+                  "Build the interactive systems that control how players, characters, environments, and game mechanics behave."
+              },
+              {
+                title: "Technical Game Designer",
+                description:
+                  "Combine game design and programming to prototype mechanics, build interactive systems, and translate creative ideas into playable experiences."
+              }
+            ],
+            buildWithIt: [
+              { title: "Original Mechanics Game", description: "A small game with original mechanics exploring novel play patterns, feedback, and player choices in a compact system." },
+              { title: "Adaptive Game Character", description: "An AI-driven character that adapts to players by learning patterns in behavior and changing responses over time." },
+              { title: "Procedural Game Level", description: "A procedurally generated game level that creates new spaces, challenges, and pathways without crafting each segment by hand." },
+              { title: "Physics-Based Game World", description: "A physics-based interactive environment where objects move, collide, and react in ways that feel believable to players." }
             ],
             toolStack: ["Game Engines", "JavaScript / C#", "Physics Simulation", "AI Behavior Trees"]
           }
@@ -1758,7 +2073,7 @@ for (let i = 0; i < 180; i++) {
 draw(points)`,
 
           explanation:
-            "The image isn't manually specified point by point. A compact set of rules creates a larger visual system. That's one of the central ideas behind generative art."
+            "The image is not manually specified point by point. A small set of mathematical rules controls the angle and distance of each point, producing a larger visual system that can be changed by adjusting only a few parameters. This makes it easier to generate many variations, build responsive visuals, and create work that would be tedious to place by hand. The same approach can support generative identities, data visualizations, interactive installations, motion graphics, and digital environments."
         },
 
         questions: [
@@ -1821,6 +2136,29 @@ draw(points)`,
               "Risk assessments run continuously instead of once before launch",
               "Governance frameworks built to keep pace with how fast models actually change"
             ],
+            careerDirections: [
+              {
+                title: "AI Policy Analyst",
+                description:
+                  "Research how artificial intelligence affects society and help develop policies, standards, and governance approaches for its responsible use."
+              },
+              {
+                title: "Responsible AI Specialist",
+                description:
+                  "Help organizations evaluate and manage the ethical, social, and technical risks associated with developing and deploying AI systems."
+              },
+              {
+                title: "Technology Policy Advisor",
+                description:
+                  "Analyze emerging technologies and advise governments, organizations, or institutions on regulation, governance, and societal impact."
+              }
+            ],
+            buildWithIt: [
+              { title: "AI Risk Evaluation Framework", description: "A framework for evaluating the risks of an AI system, including harm, accountability, and uncertainty before deployment." },
+              { title: "AI Model Documentation System", description: "A model card or documentation system for an AI model that records capabilities, limits, and intended uses clearly." },
+              { title: "Policy Tradeoff Explorer", description: "An interactive tool for exploring AI policy tradeoffs that helps compare risks, benefits, and societal consequences." },
+              { title: "Pre-Deployment AI Audit", description: "An audit checklist for evaluating an AI product before deployment, checking performance, safety, and governance concerns." }
+            ],
             toolStack: ["Model Evaluation", "Documentation Standards", "Risk Assessment", "Python"]
           },
           {
@@ -1834,6 +2172,29 @@ draw(points)`,
               "Differential privacy that lets researchers study patterns without exposing individuals",
               "Access controls that limit exactly who can see what, and when",
               "On-device processing that never sends raw personal data to a server at all"
+            ],
+            careerDirections: [
+              {
+                title: "Privacy Engineer",
+                description:
+                  "Design technical systems and safeguards that protect personal information while allowing organizations to use data responsibly."
+              },
+              {
+                title: "Data Privacy Analyst",
+                description:
+                  "Evaluate how organizations collect, store, share, and use data and help identify ways to reduce privacy risks."
+              },
+              {
+                title: "Information Security Analyst",
+                description:
+                  "Protect systems and data by identifying security risks, monitoring threats, and helping organizations strengthen their technical defenses."
+              }
+            ],
+            buildWithIt: [
+              { title: "Privacy-Preserving Collection", description: "A privacy-preserving data collection system that limits how much personal information is exposed while still enabling useful analysis." },
+              { title: "Role-Based Database", description: "A database with role-based access controls that restricts access to sensitive information based on responsibility and need." },
+              { title: "Encryption Demonstrator", description: "A tool that demonstrates how encryption protects information by making unreadable data visible only to authorized parties." },
+              { title: "Privacy Approach Comparison", description: "An analysis comparing different approaches to protecting personal data, weighing tradeoffs in privacy, usability, and security." }
             ],
             toolStack: ["Encryption", "Access Control", "Privacy-Preserving Computation", "SQL"]
           },
@@ -1849,6 +2210,29 @@ draw(points)`,
               "Dataset audits that catch skewed or unrepresentative training data early",
               "Ongoing monitoring that flags drift in a model's behavior over time"
             ],
+            careerDirections: [
+              {
+                title: "AI Fairness Specialist",
+                description:
+                  "Evaluate machine-learning systems for disparities across groups and help teams identify and mitigate potential sources of algorithmic bias."
+              },
+              {
+                title: "Responsible AI Researcher",
+                description:
+                  "Study how AI systems behave in real-world settings and develop methods for making their outcomes more reliable, equitable, and accountable."
+              },
+              {
+                title: "Data Scientist",
+                description:
+                  "Use statistical analysis and computational methods to investigate datasets, evaluate models, and uncover patterns that may affect real-world decisions."
+              }
+            ],
+            buildWithIt: [
+              { title: "Model Fairness Audit", description: "A fairness audit of a machine-learning model that checks whether outcomes, errors, or opportunities differ across groups." },
+              { title: "Group Outcome Visualizer", description: "A visualization comparing model outcomes across groups to reveal disparities, differences, and areas needing intervention." },
+              { title: "Dataset Bias Analysis", description: "An analysis of bias in a real-world dataset that identifies skew, underrepresentation, and patterns that shape decisions." },
+              { title: "Fairness Metrics Evaluator", description: "A model evaluation tool that reports multiple fairness metrics so teams can assess disparity, error, and performance together." }
+            ],
             toolStack: ["Fairlearn", "AIF360", "Python", "Statistical Analysis"]
           },
           {
@@ -1862,6 +2246,29 @@ draw(points)`,
               "Tools like SHAP translating model math into human-readable reasoning",
               "Local explanations that clarify a single decision, not just the whole model",
               "Interfaces that let a non-technical person question and understand an AI's output"
+            ],
+            careerDirections: [
+              {
+                title: "ML Interpretability Researcher",
+                description:
+                  "Develop methods for understanding how machine-learning models make predictions and identifying the factors that influence their behavior."
+              },
+              {
+                title: "AI Auditor",
+                description:
+                  "Evaluate AI systems for reliability, fairness, transparency, and other risks before and after they are deployed."
+              },
+              {
+                title: "Responsible AI Engineer",
+                description:
+                  "Build machine-learning systems with mechanisms for evaluation, monitoring, interpretability, and meaningful human oversight."
+              }
+            ],
+            buildWithIt: [
+              { title: "Prediction Explanation Visualizer", description: "An interactive visualization explaining a model's predictions that shows which inputs matter most and why." },
+              { title: "Model Explanation Comparator", description: "A tool that compares different model explanations, helping teams evaluate whether explanations are consistent, useful, and trustworthy." },
+              { title: "Feature Influence Analysis", description: "An analysis of which features drive a model's decisions, clarifying how predictions depend on specific inputs." },
+              { title: "AI Output Explorer", description: "An interface that lets users explore how changing inputs affects AI output, making behavior understandable and question-worthy." }
             ],
             toolStack: ["SHAP", "Model Interpretation", "Python", "Feature Attribution"]
           }
@@ -1958,7 +2365,7 @@ print(rate_b)
 print(difference)`,
 
           explanation:
-            "This isn't a complete fairness analysis. It demonstrates the first step: making a potentially important difference measurable. Real evaluation requires context, multiple metrics, causal reasoning, and careful attention to the application."
+            "This is not a complete fairness analysis. It demonstrates the first step: calculate the selection rate for each group and make a potentially important difference visible instead of relying on an overall accuracy score. That kind of measurement can help teams audit models used for hiring, lending, healthcare, education, or resource allocation and decide where deeper investigation is needed. Real evaluation still requires context, multiple metrics, causal reasoning, representative data, and attention to who is affected by the system."
         },
 
         questions: [
@@ -2014,6 +2421,9 @@ print(difference)`,
     const exampleDetail = document.getElementById("exampleDetail");
 
     const focusCards = document.getElementById("focusCards");
+    const topicDetail = document.getElementById("topicDetail");
+    const topicDetailLabel = document.getElementById("topicDetailLabel");
+    const topicDetailContent = document.getElementById("topicDetailContent");
     const focusDetail = document.getElementById("focusDetail");
 
     const languageTools = document.getElementById("languageTools");
@@ -2137,8 +2547,7 @@ print(difference)`,
       if (selected === activePillar) return;
 
       activePillar = selected;
-      activeExample = 0;
-      activeFocus = 0;
+      activeTopicIndex = 0;
       activeTool = null;
 
       pillarContent.classList.remove("section-reveal");
@@ -2220,60 +2629,6 @@ function updatePillarIndicator() {
     }
 
 
-    /*
-     * ==========================================================
-     * WHY IT MATTERS
-     * ==========================================================
-     
-
-    function renderWhy() {
-
-      const pillar = pillars[activePillar];
-
-      whyText.textContent = pillar.why;
-
-      whyConcepts.innerHTML = pillar.concepts
-        .map((concept, index) => `
-          <div class="bg-brand-panel p-6 md:p-7">
-
-            <div class="flex items-center justify-between">
-
-              <span
-                class="font-mono text-[10px] tracking-[0.16em]"
-                style="color:${pillar.accent}"
-              >
-                ${concept.label}
-              </span>
-
-              <span class="font-mono text-[10px] text-slate-700">
-                0${index + 1}
-              </span>
-
-            </div>
-
-            <p class="mt-5 text-sm leading-7 text-slate-400">
-              ${concept.text}
-            </p>
-
-          </div>
-        `)
-        .join("");
-    }
-    */     
-
-   /*
- * ==========================================================
- * WHERE COMPUTING GOES
- * ==========================================================
- *
- * Combines:
- *   1. ComputeX Focus Areas
- *   2. Other Real-World Applications
- *
- * Both groups share the same detail panel.
- * ==========================================================
- */
-
 let activeTopicType = "focus";
 let activeTopicIndex = 0;
 
@@ -2292,58 +2647,83 @@ function renderFocusAreas() {
   focusCards.innerHTML = focusAreas
     .map((focus, index) => {
 
-      const active =
-        activeTopicType === "focus" &&
-        index === activeTopicIndex;
+      const active = index === activeTopicIndex;
 
       return `
-        <button
-          type="button"
-          data-focus="${index}"
-          class="focus-card group text-left rounded-xl border px-4 py-4 transition-all duration-200"
-          style="
-            border-color:${active
-              ? accentAlpha(pillar.accent, .35)
-              : "rgba(255,255,255,.06)"};
+  <div
+    class="focus-row overflow-hidden rounded-xl border shadow-xl shadow-black/10"
+    style="
+      border-color:${active
+        ? accentAlpha(pillar.accent, .28)
+        : "rgba(255,255,255,.08)"};
+      background:${active
+        ? `linear-gradient(to bottom, ${accentAlpha(pillar.accent, .028)}, rgba(255,255,255,.01) 62%, ${accentAlpha(pillar.accent, .008)})`
+        : "rgba(255,255,255,.015)"};
+    "
+  >
+    <button
+      type="button"
+      data-focus="${index}"
+      aria-expanded="${active}"
+      class="focus-card group w-full text-left px-4 sm:px-5 py-5 transition-all duration-200"
+      style="
+        background:${active
+          ? `linear-gradient(to bottom, ${accentAlpha(pillar.accent, .04)}, rgba(255,255,255,.012) 62%, ${accentAlpha(pillar.accent, .01)})`
+          : "transparent"};
+      "
+    >
 
-            background:${active
-              ? accentAlpha(pillar.accent, .055)
-              : "rgba(255,255,255,.015)"};
-          "
+      <div class="flex items-center gap-4 sm:gap-6">
+
+        <span
+          class="font-mono text-[11px] shrink-0"
+          style="color:${active ? pillar.accent : "#4b5563"};"
         >
+          ${pillar.number}.${String(index + 1).padStart(2, "0")}
+        </span>
 
-          <div class="flex items-center gap-3">
+        <span
+          class="text-base sm:text-lg transition-colors"
+          style="color:${active ? "#ffffff" : "#94a3b8"};"
+        >
+          ${focus.title}
+        </span>
 
-            <span
-              class="font-mono text-[10px]"
-              style="
-                color:${active
-                  ? pillar.accent
-                  : "#4b5563"};
-              "
-            >
-              ${String(index + 1).padStart(2, "0")}
-            </span>
+        <span class="ml-auto flex items-center gap-3 shrink-0">
+          <span
+            class="hidden sm:block font-mono text-[9px] tracking-[0.16em] transition-colors"
+            style="color:${active ? pillar.accent : "#475569"};"
+          >
+            ${active ? "SELECTED" : "VIEW AREA"}
+          </span>
+          <span
+            class="text-lg transition-transform duration-200 group-hover:translate-x-1"
+            style="color:${active ? pillar.accent : "#475569"};"
+            aria-hidden="true"
+          >
+            ${active ? "↓" : "→"}
+          </span>
+        </span>
 
-            <span
-              class="text-sm transition-colors"
-              style="
-                color:${active
-                  ? "#ffffff"
-                  : "#64748b"};
-              "
-            >
-              ${focus.title}
-            </span>
+      </div>
 
-          </div>
+    </button>
+    <div data-detail-slot="${index}" class="px-3 sm:px-5"></div>
+  </div>
+`;
 
-        </button>
-      `;
 
     })
     .join("");
 
+
+  const activeSlot = focusCards.querySelector(
+    `[data-detail-slot="${activeTopicIndex}"]`
+  );
+
+  if (activeSlot) {
+    activeSlot.appendChild(topicDetail);
+  }
 
   focusCards
     .querySelectorAll("[data-focus]")
@@ -2351,8 +2731,10 @@ function renderFocusAreas() {
 
       button.addEventListener("click", () => {
 
-        activeTopicType = "focus";
-        activeTopicIndex = Number(button.dataset.focus);
+        const selectedIndex = Number(button.dataset.focus);
+        activeTopicIndex = activeTopicIndex === selectedIndex
+          ? -1
+          : selectedIndex;
 
         renderWhereComputingGoes();
 
@@ -2371,141 +2753,208 @@ function renderFocusAreas() {
 function renderTopicDetail() {
 
   const pillar = pillars[activePillar];
+  const topic = pillar.focusAreas[activeTopicIndex];
 
-  let topic;
-  let topicNumber;
-  let topicLabel;
+  if (!topic) return;
 
-  /*
-   * --------------------------------------------
-   * ComputeX Focus Area
-   * --------------------------------------------
-   */
+  const topicNumber =
+    `${pillar.number}.${String(activeTopicIndex + 1).padStart(2, "0")}`;
 
-  if (activeTopicType === "focus") {
+  topicDetailLabel.textContent = " ";
 
-    const focusAreas = pillar.focusAreas;
+  topicDetailContent.innerHTML = `
 
-    topic = focusAreas[activeTopicIndex];
+    <div>
 
-    topicNumber =
-      `${pillar.number}.${String(activeTopicIndex + 1).padStart(2, "0")}`;
+      <!-- TITLE -->
+      <h3 class="mt-4 text-2xl md:text-4xl font-semibold tracking-[-0.03em] text-white">
+        ${topic.title}
+      </h3>
 
-    topicLabel = "FOCUS AREA";
 
-    topicDetailLabel.textContent = "COMPUTEX FOCUS";
+      <!-- WHAT CHANGES -->
+      <div class="mt-8">
 
-    const usesNewFormat = Array.isArray(topic.traditional);
-
-    const bodyHtml = usesNewFormat
-      ? `
-        <div class="mt-8">
-
-          <div
-            class="font-mono text-[9px] tracking-[0.15em]"
-            style="color:${pillar.accent}"
-          >
-            WHAT CHANGES
-          </div>
-
-          <ul class="mt-4 space-y-3.5">
-            ${topic.powered.map(item => `
-              <li class="flex gap-3 text-sm md:text-base leading-7 text-slate-300">
-                <span
-                  class="mt-2.5 w-1.5 h-1.5 rounded-full shrink-0"
-                  style="background:${pillar.accent}"
-                ></span>
-                <span>${item}</span>
-              </li>
-            `).join("")}
-          </ul>
-
+        <div
+          class="font-mono text-[9px] tracking-[0.15em]"
+          style="color:${pillar.accent}"
+        >
         </div>
 
+        <ul class="mt-4 space-y-3.5">
 
-        <div class="mt-auto pt-8 border-t border-white/5">
+          ${topic.powered.map(item => `
+            <li class="flex gap-3 text-sm md:text-base leading-7 text-slate-300">
 
-          <div class="font-mono text-[9px] tracking-[0.15em] text-slate-700 mb-3">
-            TOOL STACK
-          </div>
-
-          <div class="flex flex-wrap gap-2">
-            ${topic.toolStack.map(tool => `
               <span
-                class="font-mono text-[11px] px-2.5 py-1 rounded-md border"
-                style="
-                  color:${pillar.accent};
-                  border-color:${accentAlpha(pillar.accent, .25)};
-                  background:${accentAlpha(pillar.accent, .05)};
-                "
-              >
-                ${tool}
-              </span>
-            `).join("")}
-          </div>
+                class="mt-2.5 w-1.5 h-1.5 rounded-full shrink-0"
+                style="background:${pillar.accent}"
+              ></span>
 
-        </div>
-      `
-      : `
-        <p class="mt-4 text-sm md:text-base leading-7 text-slate-400 max-w-2xl">
-          ${topic.description}
-        </p>
+              <span>${item}</span>
 
-        <div class="mt-auto pt-10 grid sm:grid-cols-2 gap-6">
+            </li>
+          `).join("")}
 
-          <div>
-            <div class="font-mono text-[9px] tracking-[0.15em] text-slate-700">
-              YOU'LL ENCOUNTER
-            </div>
-            <div class="mt-2 text-xs leading-6 text-slate-500">
-              ${topic.encounter}
-            </div>
-          </div>
-
-          <div>
-            <div class="font-mono text-[9px] tracking-[0.15em] text-slate-700">
-              IN PRACTICE
-            </div>
-            <div class="mt-2 text-xs leading-6 text-slate-500">
-              ${topic.practice}
-            </div>
-          </div>
-
-        </div>
-      `;
-
-    topicDetailContent.innerHTML = `
-
-      <div class="flex flex-col min-h-[420px]">
-
-        <div class="flex items-center justify-between">
-
-          <span
-            class="font-mono text-[10px] tracking-[0.16em] font-bold"
-            style="color:${pillar.accent}"
-          >
-            ${pillar.number} / FOCUS AREA
-          </span>
-
-          <span class="font-mono text-[10px] text-slate-700">
-            ${topicNumber}
-          </span>
-
-        </div>
-
-
-        <h3 class="mt-6 text-2xl md:text-3xl font-medium tracking-[-0.03em] text-white">
-          ${topic.title}
-        </h3>
-
-        ${bodyHtml}
+        </ul>
 
       </div>
 
-    `;
 
-  }
+      <!-- EXPLORE FURTHER -->
+      <div class="mt-10 pt-8 border-t border-white/5">
 
+        <div class="flex items-center gap-3 mb-6">
+
+          <div
+            class="h-px w-6"
+            style="background:${pillar.accent}"
+          ></div>
+
+          <div
+            class="font-mono text-[12px] tracking-[0.15em] font-bold"
+            style="color:${pillar.accent}"
+          >
+            EXPLORE FURTHER
+          </div>
+
+        </div>
+
+
+        <div class="grid lg:grid-cols-2 gap-6">
+
+
+          <!-- CAREER DIRECTIONS -->
+          <div>
+
+            <div class="font-mono text-[9px] tracking-[0.15em] text-slate-600 mb-4">
+              CAREER DIRECTIONS
+            </div>
+
+            <div class="space-y-3">
+
+              ${(topic.careerDirections || []).map((career, index) => `
+                <div
+                  class="rounded-xl border p-4"
+                  style="
+                    border-color:rgba(255,255,255,.06);
+                    background:rgba(255,255,255,.015);
+                  "
+                >
+
+                  <div class="flex gap-3">
+
+                    <span
+                      class="font-mono text-[9px] mt-1 shrink-0"
+                      style="color:${pillar.accent}"
+                    >
+                      ${String(index + 1).padStart(2, "0")}
+                    </span>
+
+                    <div>
+
+                      <div class="text-sm font-medium text-white">
+                        ${career.title}
+                      </div>
+
+                      <p class="mt-1.5 text-xs leading-5 text-slate-500">
+                        ${career.description}
+                      </p>
+
+                    </div>
+
+                  </div>
+
+                </div>
+              `).join("")}
+
+            </div>
+
+          </div>
+
+
+          <!-- BUILD WITH IT -->
+          <div>
+
+            <div class="font-mono text-[9px] tracking-[0.15em] text-slate-600 mb-4">
+              BUILD WITH IT
+            </div>
+
+            <div class="space-y-3">
+
+              ${(topic.buildWithIt || []).map((project, index) => `
+                <div
+                  class="rounded-xl border p-4"
+                  style="
+                    border-color:${accentAlpha(pillar.accent, .12)};
+                    background:${accentAlpha(pillar.accent, .025)};
+                  "
+                >
+
+                  <div class="flex gap-3">
+
+                    <span
+                      class="font-mono text-[9px] mt-1 shrink-0"
+                      style="color:${pillar.accent}"
+                    >
+                      ${String(index + 1).padStart(2, "0")}
+                    </span>
+
+                    <div>
+
+                      <div class="text-sm font-medium text-white">
+                        ${project.title}
+                      </div>
+
+                      <p class="mt-1.5 text-xs leading-5 text-slate-500">
+                        ${project.description}
+                      </p>
+
+                    </div>
+
+                  </div>
+
+                </div>
+              `).join("")}
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- TOOL STACK -->
+      <div class="mt-10 pt-8 border-t border-white/5">
+
+        <div class="font-mono text-[9px] tracking-[0.15em] text-slate-700 mb-3">
+          TOOL STACK
+        </div>
+
+        <div class="flex flex-wrap gap-2">
+
+          ${topic.toolStack.map(tool => `
+            <span
+              class="font-mono text-[11px] px-2.5 py-1 rounded-md border"
+              style="
+                color:${pillar.accent};
+                border-color:${accentAlpha(pillar.accent, .25)};
+                background:${accentAlpha(pillar.accent, .05)};
+              "
+            >
+              ${tool}
+            </span>
+          `).join("")}
+
+        </div>
+
+      </div>
+
+    </div>
+
+  `;
 }
 
 
@@ -2518,20 +2967,15 @@ function renderTopicDetail() {
 function renderWhereComputingGoes() {
 
   const pillar = pillars[activePillar];
+  const focusAreas = pillar.focusAreas;
 
-  const topics =
-    activeTopicType === "focus"
-      ? pillar.focusAreas
-      : pillar.focusAreas;
-
-  if (!topics || !topics.length) {
+  if (!focusAreas || !focusAreas.length) {
     return;
   }
 
-  if (activeTopicIndex >= topics.length) {
+  if (activeTopicIndex >= focusAreas.length) {
     activeTopicIndex = 0;
   }
-
 
   renderFocusAreas();
   renderTopicDetail();
@@ -2764,7 +3208,7 @@ function renderWhereComputingGoes() {
             "
           ></div>
 
-          <p class="text-sm md:text-base leading-7 text-slate-300 max-w-4xl">
+          <p class="text-sm md:text-base leading-7 text-slate-300">
             ${demo.explanation}
           </p>
 
