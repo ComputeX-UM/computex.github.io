@@ -488,7 +488,7 @@
     </section>
 
 
-    <!-- ========================================================= -->
+   <!-- ========================================================= -->
     <!-- NEXT UP -->
     <!-- ========================================================= -->
 
@@ -498,13 +498,17 @@
 
         <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
 
-          <h2 class="text-3xl sm:text-4xl font-black text-white">
-            Mass Meetings!
-          </h2>
+          <div>
+            <span class="font-mono text-xs font-semibold tracking-widest text-brand-cyan uppercase mb-1 block">
+              // UPCOMING EVENT
+            </span>
+            <h2 class="text-3xl sm:text-4xl font-black text-white">
+              First Workshop!
+            </h2>
+          </div>
 
           <p class="max-w-md text-sm leading-relaxed text-slate-400">
-            Both meetings will cover the same material, so pick whichever
-            time works better for you.
+            Join us for our first hands-on workshop of the semester. Open to all experience levels!
           </p>
 
         </div>
@@ -512,197 +516,138 @@
       </div>
 
 
-      <!-- Mass meeting cards -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+      <!-- Single Workshop Card -->
+      <div class="grid grid-cols-1 gap-5">
 
-        <!-- Event 01 -->
-        <article class="event-card glow-card bg-brand-panel/70 backdrop-blur-xl rounded-2xl border border-white/10 p-7">
+        <!-- Workshop 01 Card -->
+        <article class="event-card glow-card relative bg-brand-panel/80 backdrop-blur-xl rounded-2xl border border-white/10 p-7 sm:p-9 overflow-hidden group">
+
+          <!-- Top Gradient Accent Bar -->
+          <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-brand-cyan via-brand-magenta to-brand-purple opacity-80 group-hover:opacity-100 transition-opacity"></div>
 
           <div class="relative z-10">
 
-            <div class="flex items-center justify-between mb-7">
+            <!-- Card Header Meta -->
+            <div class="flex flex-wrap items-center justify-between gap-3 mb-8">
 
-              <span class="font-mono text-xs text-brand-cyan">
-                MASS MEETING 01
-              </span>
-
-              <span class="font-mono text-[10px] text-slate-500">
-                FALL 2026
-              </span>
-
-            </div>
-
-            <div class="flex items-end gap-4 mb-5">
-
-              <div>
-                <div class="font-mono text-sm text-slate-400">
-                  SEP
-                </div>
-
-                <div class="text-5xl font-black text-white leading-none">
-                  10
-                </div>
+              <div class="flex items-center gap-2.5">
+                <span class="status-dot text-brand-magenta"></span>
+                <span class="font-mono text-xs font-bold text-brand-magenta tracking-wider">
+                  WORKSHOP 01
+                </span>
               </div>
 
-              <div class="pb-1">
-
-                <div class="text-lg font-semibold text-white">
-                  8:30 — 9:30 PM
-                </div>
-
-                <div class="font-mono text-xs text-slate-500 mt-1">
-                  THURSDAY
-                </div>
-
+              <div class="flex items-center gap-2">
+                <span class="px-2.5 py-1 rounded-full bg-brand-emerald/10 border border-brand-emerald/20 font-mono text-[10px] text-brand-emerald font-semibold">
+                  FALL 2026
+                </span>
+                <span class="px-2.5 py-1 rounded-full bg-brand-emerald/10 border border-brand-emerald/20 font-mono text-[10px] text-brand-emerald font-semibold">
+                  NO EXPERIENCE NEEDED
+                </span>
               </div>
 
             </div>
 
-            <div class="border-t border-white/10 pt-5">
+            <!-- Date & Title Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-8">
 
-              <div class="font-mono text-xs text-brand-amber mb-2">
-                LOCATION
+              <!-- Date Block -->
+              <div class="lg:col-span-4 flex items-center gap-5 bg-black/40 border border-white/5 rounded-xl p-4 sm:p-5">
+
+                <div class="text-center min-w-[60px]">
+                  <div class="font-mono text-xs font-bold text-brand-cyan tracking-widest">
+                    SEP
+                  </div>
+                  <div class="text-5xl font-black text-white leading-none mt-1">
+                    21
+                  </div>
+                </div>
+
+                <div class="h-10 w-[1px] bg-white/10"></div>
+
+                <div>
+                  <div class="text-lg font-bold text-white">
+                    6:30 — 7:30 PM
+                  </div>
+                  <div class="font-mono text-xs text-slate-400 mt-0.5">
+                    MONDAY
+                  </div>
+                </div>
+
               </div>
 
-              <div class="text-white font-medium">
-                Mason Hall · Room 3411
+              <!-- Workshop Info & Badges -->
+              <div class="lg:col-span-8">
+
+                <h3 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+                   Computer Vision
+                </h3>
+
+                <p class="mt-3 text-sm sm:text-base leading-relaxed text-slate-300">
+                  Learn how a computer sees the world, with a real demo model you can run on your own laptop. We'll cover the basics of computer vision, how it's being used across medicine, robotics, and more, and the ethics of its applications. No prior experience is required, just bring your laptop and curiosity!
+                </p>
+
+                <!-- Topic Tags -->
+                <div class="mt-4 flex flex-wrap gap-2">
+                  <span class="px-2.5 py-1 rounded-md bg-white/5 border border-white/10 font-mono text-[11px] text-slate-300">
+                    AI APPLICATIONS
+                  </span>
+                  <span class="px-2.5 py-1 rounded-md bg-white/5 border border-white/10 font-mono text-[11px] text-slate-300">
+                    HANDS-ON
+                  </span>
+                  <span class="px-2.5 py-1 rounded-md bg-white/5 border border-white/10 font-mono text-[11px] text-slate-300">
+                    LIVE DEMO
+                  </span>
+                </div>
+
               </div>
 
             </div>
 
-            <p class="mt-6 text-sm leading-relaxed text-slate-400">
-              Meet us (the board members!), learn what ComputeX is about, and see
-              what we're planning for this semester!
-            </p>
+            <!-- Location & Action Footer -->
+            <div class="pt-6 border-t border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
 
-            <div class="mt-7 flex flex-wrap gap-3">
+              <!-- Location Details -->
+              <div class="flex items-center gap-3">
+                <div class="w-auto h-9 px-4 rounded-lg bg-brand-amber/10 border border-brand-amber/20 flex items-center justify-center font-mono text-brand-amber font-bold text-xs">
+                  LOCATION
+                </div>
+                <div>
+                  <div class="font-mono text-[10px] text-brand-amber font-semibold uppercase tracking-wider">
+                    TBD
+                  </div>
+                  <div class="text-white font-medium text-sm">
+                    TBD
+                  </div>
+                </div>
+              </div>
 
-              <a href="https://forms.gle/1eP18mgso2PqeEAF9"
-                 class="px-4 py-2.5 rounded-lg bg-white text-black font-semibold text-sm hover:bg-white/80">
-                RSVP
-              </a>
+              <!-- Buttons -->
+              <div class="flex flex-wrap items-center gap-3">
 
-              <button
-                onclick="addCalendarEvent('Mass Meeting — ComputeX', '2026-09-10T20:30:00', '2026-09-10T21:30:00', 'Mason Hall, Room 3314')"
-                class="px-4 py-2.5 rounded-lg bg-white/5 border border-white/10 text-slate-300 font-medium text-sm hover:bg-white/10 hover:text-white transition-all">
-                Add to Calendar
-              </button>
+                <!-- Gradient Glow RSVP Button -->
+                <a href="https://forms.gle/DqsZGZ1YW3A45HZM8"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="group relative inline-flex items-center justify-center px-6 py-2.5 rounded-xl bg-white text-black font-bold text-sm transition-all hover:shadow-[0_0_20px_rgba(255,46,147,0.4)]">
+                  <span class="relative z-10 flex items-center gap-2">
+                    RSVP Now →
+                  </span>
+                </a>
+
+                <!-- Add to Calendar Button -->
+                <button
+                  onclick="addCalendarEvent('ComputeX Workshop 01', '2026-09-21T18:30:00', '2026-09-21T19:30:00', 'Location Released Day-of')"
+                  class="px-5 py-2.5 rounded-xl bg-white/5 border border-white/10 text-slate-300 font-medium text-sm hover:bg-white/10 hover:text-white transition-all">
+                  + Calendar
+                </button>
+
+              </div>
 
             </div>
 
           </div>
         </article>
-
-
-        <!-- Event 02 -->
-        <article class="event-card glow-card bg-brand-panel/70 backdrop-blur-xl rounded-2xl border border-white/10 p-7">
-
-          <div class="relative z-10">
-
-            <div class="flex items-center justify-between mb-7">
-
-              <span class="font-mono text-xs text-brand-purple">
-                MASS MEETING 02
-              </span>
-
-              <span class="font-mono text-[10px] text-slate-500">
-                FALL 2026
-              </span>
-
-            </div>
-
-            <div class="flex items-end gap-4 mb-5">
-
-              <div>
-                <div class="font-mono text-sm text-slate-400">
-                  SEP
-                </div>
-
-                <div class="text-5xl font-black text-white leading-none">
-                  14
-                </div>
-              </div>
-
-              <div class="pb-1">
-
-                <div class="text-lg font-semibold text-white">
-                  8:00 — 9:00 PM
-                </div>
-
-                <div class="font-mono text-xs text-slate-500 mt-1">
-                  MONDAY
-                </div>
-
-              </div>
-
-            </div>
-
-            <div class="border-t border-white/10 pt-5">
-
-              <div class="font-mono text-xs text-brand-amber mb-2">
-                LOCATION
-              </div>
-
-              <a href="https://umich.zoom.us/j/92118505694" class="px-3 rounded-xl bg-slate-500 text-white font-medium hover:bg-slate-700 transition-all shadow-xl shadow-brand-cyan/5">
-                Zoom
-              </a>
-
-            </div>
-
-            <p class="mt-6 text-sm leading-relaxed text-slate-400">
-              Same slides, same plan. Just a second meeting in case you can't make the first one — we know the first few weeks are busy!
-            </p>
-
-            <div class="mt-7 flex flex-wrap gap-3">
-
-              <a href="https://forms.gle/a2hwAyQ8m9SGPHGk7"
-                class="px-4 py-2.5 rounded-lg bg-white text-black font-semibold text-sm hover:bg-white/80">
-                RSVP
-              </a>
-
-              <button
-                onclick="addCalendarEvent('Mass Meeting — ComputeX', '2026-09-14T20:00:00', '2026-09-14T21:00:00', 'Zoom')"
-                class="px-4 py-2.5 rounded-lg bg-white/5 border border-white/10 text-slate-300 font-medium text-sm hover:bg-white/10 hover:text-white transition-all">
-                Add to Calendar
-              </button>
-
-            </div>
-
-          </div>
-        </article>
-
-      </div>
-
-
-      <!-- Upcoming timeline -->
-      <div class="mt-8 bg-black/30 border border-white/5 rounded-xl px-5 py-4">
-
-        <div class="flex flex-wrap items-center gap-x-6 gap-y-3 font-mono text-sm">
-
-          <span class="text-slate-500">
-            THIS MONTH
-          </span>
-
-          <span class="text-white">
-            <span class="text-brand-cyan">SEP 10</span>
-            MASS MEETING
-          </span>
-
-          <span class="text-slate-700">→</span>
-
-          <span class="text-white">
-            <span class="text-brand-purple">SEP 14</span>
-            MASS MEETING
-          </span>
-
-          <span class="text-slate-700">→</span>
-
-          <span class="text-white">
-            <span class="text-brand-magenta">SEP 21</span>
-            FIRST WORKSHOP
-          </span>
-
-        </div>
 
       </div>
 
